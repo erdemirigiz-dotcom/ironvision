@@ -43,7 +43,7 @@
     .brand-logo {
       font-size: 18px;
       font-weight: 800;
-      color: #00cbc6;
+      color: #00FF66;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       display: flex;
@@ -157,7 +157,7 @@
       border-radius: 50%;
     }
 
-    input:checked + .slider { background-color: #00cbc6; }
+    input:checked + .slider { background-color: #00FF66; }
     input:checked + .slider:before { transform: translateX(20px); }
 
     .leverage-details {
@@ -176,7 +176,7 @@
 
     .leverage-slider {
       width: 70%;
-      accent-color: #00cbc6;
+      accent-color: #00FF66;
     }
 
     .direction-selector {
@@ -214,7 +214,7 @@
     .percentage { display: inline-block; background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; padding: 4px 12px; border-radius: 20px; font-size: 13px; margin-top: 8px; font-weight: bold; }
 
     /* Aksiyon Butonları */
-    .btn-block { width: 100%; background-color: #00cbc6; color: #121620; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.2s; }
+    .btn-block { width: 100%; background-color: #00FF66; color: #121620; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.2s; }
     .btn-block:hover { background-color: #00f0ea; }
 
     /* Geçmiş Tablosu Stili */
@@ -237,7 +237,152 @@
     
     <div class="header-bar">
       <div class="brand-logo">
-        <i class="fas fa-eye"></i> Iron Vision
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <defs>
+    <!-- Neon green glow filter -->
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft inner glow for eye -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Pupil glow -->
+    <filter id="pupilGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Linear gradient for IVT icon background -->
+    <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d110d;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Neon green gradient for accents -->
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#39ff14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00e600;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Hex clip path -->
+    <clipPath id="hexClip">
+      <polygon points="30,4 52,17 52,43 30,56 8,43 8,17"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── ICON MARK ── -->
+  <!-- Hexagonal border (outer) -->
+  <polygon
+    points="30,2 54,16 54,44 30,58 6,44 6,16"
+    fill="none"
+    stroke="#39ff14"
+    stroke-width="1.2"
+    filter="url(#neonGlow)"
+    opacity="0.9"
+  />
+
+  <!-- Hexagonal background fill -->
+  <polygon
+    points="30,4 52,17 52,43 30,56 8,43 8,17"
+    fill="url(#iconBg)"
+  />
+
+  <!-- Inner hex ring (subtle) -->
+  <polygon
+    points="30,10 47,20 47,40 30,50 13,40 13,20"
+    fill="none"
+    stroke="#39ff14"
+    stroke-width="0.4"
+    opacity="0.3"
+  />
+
+  <!-- EYE ICON (stylised eye with IV geometry) -->
+  <!-- Eye outer shape - almond / lozenge -->
+  <path
+    d="M 12,30 Q 20,20 30,20 Q 40,20 48,30 Q 40,40 30,40 Q 20,40 12,30 Z"
+    fill="none"
+    stroke="#39ff14"
+    stroke-width="1.4"
+    filter="url(#softGlow)"
+  />
+
+  <!-- Iris circle -->
+  <circle cx="30" cy="30" r="6.5" fill="none" stroke="#39ff14" stroke-width="1.2" opacity="0.85"/>
+
+  <!-- Pupil dot -->
+  <circle cx="30" cy="30" r="2.8" fill="#39ff14" filter="url(#pupilGlow)"/>
+
+  <!-- "I" vertical bar (left of pupil, integrated into iris) -->
+  <line x1="26.5" y1="26" x2="26.5" y2="34" stroke="#39ff14" stroke-width="1.3" opacity="0.7"/>
+
+  <!-- "V" chevron (right of pupil, pointing down) -->
+  <polyline points="32,26 34.5,32 37,26" fill="none" stroke="#39ff14" stroke-width="1.3" stroke-linejoin="round" opacity="0.7"/>
+
+  <!-- Corner tick marks on eye tips -->
+  <line x1="12" y1="30" x2="15" y2="30" stroke="#39ff14" stroke-width="0.8" opacity="0.5"/>
+  <line x1="45" y1="30" x2="48" y2="30" stroke="#39ff14" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- ── WORDMARK ── -->
+  <!-- "IRON" -->
+  <text
+    x="64"
+    y="27"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="13"
+    font-weight="700"
+    letter-spacing="3"
+    fill="#39ff14"
+    filter="url(#neonGlow)"
+  >IRON</text>
+
+  <!-- "VISION" -->
+  <text
+    x="64"
+    y="42"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="13"
+    font-weight="700"
+    letter-spacing="3"
+    fill="#e8ffe8"
+    opacity="0.92"
+  >VISION</text>
+
+  <!-- Thin separator line between IRON and VISION -->
+  <line x1="64" y1="30.5" x2="212" y2="30.5" stroke="#39ff14" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- "TOOLS" — smaller tagline weight -->
+  <text
+    x="64"
+    y="54"
+    font-family="'Courier New', 'Lucida Console', monospace"
+    font-size="7"
+    font-weight="400"
+    letter-spacing="5"
+    fill="#39ff14"
+    opacity="0.55"
+  >TOOLS</text>
+
+  <!-- Right-side decorative bracket -->
+  <path d="M 208,22 L 213,22 L 213,38 L 208,38" fill="none" stroke="#39ff14" stroke-width="0.8" opacity="0.45"/>
+</svg>
+
+       
       </div>
 
       <div class="language-selector">
@@ -564,5 +709,10 @@
 
     window.addEventListener('DOMContentLoaded', autoDetectLanguage);
   </script>
+     <div style="text-align: center; margin-top: 20px; margin-bottom: 20px; font-size: 14px;">
+    <a href="#about" style="color: #00FF66; text-decoration: none; margin: 0 15px;">Hakkımızda</a>
+    <a href="#privacy" style="color: #00FF66; text-decoration: none; margin: 0 15px;">Gizlilik Politikası</a>
+</div>
+
 </body>
 </html>

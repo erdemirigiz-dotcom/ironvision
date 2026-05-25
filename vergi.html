@@ -7,6 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7389814421118155" crossorigin="anonymous"></script>
     <style>
+            /* Sabit Kurumsal Iron Vision Logosu (Soft Renk Düzeni) */
+    .brand-logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: #10B981; /* Sayfanın soft zümrüt yeşili tonu */
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+    }
         /* Form accessibility for older audience */
         input, select, button {
             min-height: 54px;
@@ -26,9 +38,24 @@
     <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-2">
-                <div class="bg-emerald-600 text-slate-950 font-bold p-2 rounded text-xl shadow-lg shadow-emerald-900/20">IV</div>
-                <span class="font-extrabold text-xl tracking-tight text-white">Iron Vision <span class="text-emerald-500 font-medium text-lg">Tools</span></span>
-            </div>
+                <a href="index.html" class="brand-logo" style="display: flex; align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="160" height="44">
+            <filter id="softGreenGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="2" result="blur"/>
+                <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+        <g stroke="#10B981" stroke-width="2" fill="none" filter="url(#softGreenGlow)">
+            <polygon points="30,12 45,20 45,37 30,45 15,37 15,20" />
+            <path d="M19,28 Q30,18 41,28 Q30,38 19,28 Z" />
+            <circle cx="30" cy="28" r="4" fill="#10B981" />
+        </g>
+        <text x="60" y="34" fill="#10B981" font-family="sans-serif" font-size="16" font-weight="800" letter-spacing="1.5" filter="url(#softGreenGlow)">IRON VISION</text>
+    </svg>
+</a>
             
             <div class="relative">
                 <a href="index.html" class="inline-flex items-center px-4 py-2 text-sm font-bold rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition-all duration-150">

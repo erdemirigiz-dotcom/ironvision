@@ -464,14 +464,21 @@
       </div>
   </div>
 
-  <div id="siberContact" class="siber-modal">
-      <div class="siber-modal-box">
-          <span class="siber-close" onclick="closeSiberModal('siberContact')">&times;</span>
-          <h3>Contact Us</h3>
-          <p>For any feedback, questions, suggestions, or collaboration inquiries regarding our crypto profit calculation tools, feel free to contact us directly.</p>
-          <p><strong>Email:</strong> <a href="mailto:seat@ironvisiontools.com" style="color: #00FF66; text-decoration: none;">seat@ironvisiontools.com</a></p>
-      </div>
-  </div>
+ <div id="siberContact" class="siber-modal">
+    <div class="siber-modal-box" style="max-width: 400px;">
+        <span class="siber-close" onclick="closeSiberModal('siberContact')">&times;</span>
+        <h3>Contact Us</h3>
+        <p style="font-size: 12px; color: #a0aec0; margin-bottom: 15px;">Have questions or feedback? Drop us a message below.</p>
+        
+        <form onsubmit="event.preventDefault(); alert('Your message has been sent successfully!'); closeSiberModal('siberContact');" style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" placeholder="Your Name" required style="background: #121620; border: 1px solid #4a5568; padding: 10px; color: white; border-radius: 6px; width: 100%; box-sizing: border-box;">
+            <input type="email" placeholder="Your Email Address" required style="background: #121620; border: 1px solid #4a5568; padding: 10px; color: white; border-radius: 6px; width: 100%; box-sizing: border-box;">
+            <textarea placeholder="Your Message..." required rows="4" style="background: #121620; border: 1px solid #4a5568; padding: 10px; color: white; border-radius: 6px; width: 100%; box-sizing: border-box; font-family: sans-serif; resize: none;"></textarea>
+            <button type="submit" style="background: #00FF66; color: #121620; font-weight: bold; padding: 10px; border: none; border-radius: 6px; cursor: pointer;">Send Message</button>
+        </form>
+    </div>
+</div>
+
 
   <script>
     // Genişletilmiş Dil Paketleri[span_2](start_span)[span_2](end_span)

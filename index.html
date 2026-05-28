@@ -229,6 +229,22 @@
     .history-item-right { text-align: right; font-weight: bold; }
 
     .ad-placeholder { border: 1px dashed #4a5568; border-radius: 8px; padding: 12px; text-align: center; color: #718096; font-size: 11px; margin-top: 20px; }
+
+    /* ADSENSE ONAY İÇİN SİBER AKORDEON VE YENİ FOOTER STİLLERİ */
+    .siber-guide-container { max-width: 480px; margin: 30px auto 10px auto; padding: 0; width: 90%; }
+    .siber-guide-container details { background: #1a202c; border: 1px solid #00FF66; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 255, 102, 0.1); }
+    .siber-guide-container summary { padding: 14px; font-weight: bold; color: #fff; cursor: pointer; outline: none; list-style: none; font-size: 13px; text-align: center; }
+    .siber-guide-container details[open] summary { border-bottom: 1px solid #00FF66; color: #00FF66; text-shadow: 0 0 5px #00FF66; }
+    .siber-content { padding: 15px; color: #a0aec0; line-height: 1.6; max-height: 250px; overflow-y: auto; font-size: 12px; text-align: left; }
+    .siber-content h4 { color: #00FF66; margin-top: 12px; margin-bottom: 6px; text-align: left; font-size: 13px; }
+    .siber-content ul { padding-left: 20px; margin-bottom: 10px; }
+    .siber-footer { text-align: center; padding: 20px; color: #4a5568; font-size: 13px; margin-top: 10px; }
+    .siber-footer a { color: #00FF66; text-decoration: none; margin: 0 8px; font-weight: 500; }
+    .siber-footer a:hover { text-shadow: 0 0 8px #00FF66; color: #fff; }
+    .siber-modal { display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); }
+    .siber-modal-box { background: #1a202c; margin: 15% auto; padding: 25px; border: 1px solid #00FF66; border-radius: 16px; width: 85%; max-width: 440px; color: #ffffff; position: relative; box-shadow: 0 0 20px rgba(0,255,102,0.2); text-align: left; }
+    .siber-close { color: #00FF66; position: absolute; top: 10px; right: 18px; font-size: 26px; font-weight: bold; cursor: pointer; }
+    .siber-close:hover { color: #fff; }
   </style>
 </head>
 <body>
@@ -237,13 +253,13 @@
     
     <div class="header-bar">
       <a href="vergi.html" style="display: inline-flex; align-items: center; padding: 8px 16px; font-weight: bold; border-radius: 12px; background-color: #1e293b; border: 1px solid #334155; color: #cbd5e1; text-decoration: none; transition: all 0.15s;" onmouseover="this.style.color='#fff'; this.style.backgroundColor='#334155';" onmouseout="this.style.color='#cbd5e1'; this.style.backgroundColor='#1e293b';">
-    <svg style="width: 16px; height: 16px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-    <span>Tax Calculator (Vergi)</span>
-</a>
+        <svg style="width: 16px; height: 16px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+        <span>Tax Calculator (Vergi)</span>
+      </a>
+      
       <div class="brand-logo">
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
   <defs>
-    <!-- Neon green glow filter -->
     <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
       <feMerge>
@@ -252,8 +268,6 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <!-- Soft inner glow for eye -->
     <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
       <feMerge>
@@ -261,8 +275,6 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <!-- Pupil glow -->
     <filter id="pupilGlow" x="-80%" y="-80%" width="260%" height="260%">
       <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
       <feMerge>
@@ -271,122 +283,34 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <!-- Linear gradient for IVT icon background -->
     <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1f1a;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0d110d;stop-opacity:1" />
     </linearGradient>
-
-    <!-- Neon green gradient for accents -->
     <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#39ff14;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#00e600;stop-opacity:1" />
     </linearGradient>
-
-    <!-- Hex clip path -->
     <clipPath id="hexClip">
       <polygon points="30,4 52,17 52,43 30,56 8,43 8,17"/>
     </clipPath>
   </defs>
-
-  <!-- ── ICON MARK ── -->
-  <!-- Hexagonal border (outer) -->
-  <polygon
-    points="30,2 54,16 54,44 30,58 6,44 6,16"
-    fill="none"
-    stroke="#39ff14"
-    stroke-width="1.2"
-    filter="url(#neonGlow)"
-    opacity="0.9"
-  />
-
-  <!-- Hexagonal background fill -->
-  <polygon
-    points="30,4 52,17 52,43 30,56 8,43 8,17"
-    fill="url(#iconBg)"
-  />
-
-  <!-- Inner hex ring (subtle) -->
-  <polygon
-    points="30,10 47,20 47,40 30,50 13,40 13,20"
-    fill="none"
-    stroke="#39ff14"
-    stroke-width="0.4"
-    opacity="0.3"
-  />
-
-  <!-- EYE ICON (stylised eye with IV geometry) -->
-  <!-- Eye outer shape - almond / lozenge -->
-  <path
-    d="M 12,30 Q 20,20 30,20 Q 40,20 48,30 Q 40,40 30,40 Q 20,40 12,30 Z"
-    fill="none"
-    stroke="#39ff14"
-    stroke-width="1.4"
-    filter="url(#softGlow)"
-  />
-
-  <!-- Iris circle -->
+  <polygon points="30,2 54,16 54,44 30,58 6,44 6,16" fill="none" stroke="#39ff14" stroke-width="1.2" filter="url(#neonGlow)" opacity="0.9" />
+  <polygon points="30,4 52,17 52,43 30,56 8,43 8,17" fill="url(#iconBg)" />
+  <polygon points="30,10 47,20 47,40 30,50 13,40 13,20" fill="none" stroke="#39ff14" stroke-width="0.4" opacity="0.3" />
+  <path d="M 12,30 Q 20,20 30,20 Q 40,20 48,30 Q 40,40 30,40 Q 20,40 12,30 Z" fill="none" stroke="#39ff14" stroke-width="1.4" filter="url(#softGlow)" />
   <circle cx="30" cy="30" r="6.5" fill="none" stroke="#39ff14" stroke-width="1.2" opacity="0.85"/>
-
-  <!-- Pupil dot -->
   <circle cx="30" cy="30" r="2.8" fill="#39ff14" filter="url(#pupilGlow)"/>
-
-  <!-- "I" vertical bar (left of pupil, integrated into iris) -->
   <line x1="26.5" y1="26" x2="26.5" y2="34" stroke="#39ff14" stroke-width="1.3" opacity="0.7"/>
-
-  <!-- "V" chevron (right of pupil, pointing down) -->
   <polyline points="32,26 34.5,32 37,26" fill="none" stroke="#39ff14" stroke-width="1.3" stroke-linejoin="round" opacity="0.7"/>
-
-  <!-- Corner tick marks on eye tips -->
   <line x1="12" y1="30" x2="15" y2="30" stroke="#39ff14" stroke-width="0.8" opacity="0.5"/>
   <line x1="45" y1="30" x2="48" y2="30" stroke="#39ff14" stroke-width="0.8" opacity="0.5"/>
-
-  <!-- ── WORDMARK ── -->
-  <!-- "IRON" -->
-  <text
-    x="64"
-    y="27"
-    font-family="'Courier New', 'Lucida Console', monospace"
-    font-size="13"
-    font-weight="700"
-    letter-spacing="3"
-    fill="#39ff14"
-    filter="url(#neonGlow)"
-  >IRON</text>
-
-  <!-- "VISION" -->
-  <text
-    x="64"
-    y="42"
-    font-family="'Courier New', 'Lucida Console', monospace"
-    font-size="13"
-    font-weight="700"
-    letter-spacing="3"
-    fill="#e8ffe8"
-    opacity="0.92"
-  >VISION</text>
-
-  <!-- Thin separator line between IRON and VISION -->
+  <text x="64" y="27" font-family="'Courier New', 'Lucida Console', monospace" font-size="13" font-weight="700" letter-spacing="3" fill="#39ff14" filter="url(#neonGlow)">IRON</text>
+  <text x="64" y="42" font-family="'Courier New', 'Lucida Console', monospace" font-size="13" font-weight="700" letter-spacing="3" fill="#e8ffe8" opacity="0.92">VISION</text>
   <line x1="64" y1="30.5" x2="212" y2="30.5" stroke="#39ff14" stroke-width="0.4" opacity="0.4"/>
-
-  <!-- "TOOLS" — smaller tagline weight -->
-  <text
-    x="64"
-    y="54"
-    font-family="'Courier New', 'Lucida Console', monospace"
-    font-size="7"
-    font-weight="400"
-    letter-spacing="5"
-    fill="#39ff14"
-    opacity="0.55"
-  >TOOLS</text>
-
-  <!-- Right-side decorative bracket -->
+  <text x="64" y="54" font-family="'Courier New', 'Lucida Console', monospace" font-size="7" font-weight="400" letter-spacing="5" fill="#39ff14" opacity="0.55">TOOLS</text>
   <path d="M 208,22 L 213,22 L 213,38 L 208,38" fill="none" stroke="#39ff14" stroke-width="0.8" opacity="0.45"/>
 </svg>
-
-       
       </div>
 
       <div class="language-selector">
@@ -444,7 +368,6 @@
         <input type="number" id="investAmount" placeholder="0" step="any">
       </div>
     </div>
-   
 
     <div class="input-group">
       <label id="ui-label-buy">Satın Alım Fiyatı</label>
@@ -483,27 +406,75 @@
       <div class="history-list" id="historyList"></div>
     </div>
 
-            <div class="ad-placeholder" id="ui-ad">Responsive Ad Placeholder</div>
-    <div style="text-align: center; margin-top: 20px; padding-top: 15px; border-top: 1px solid #2a303c;">
-        <a href="javascript:void(0);" onclick="document.getElementById('about-box').style.display='block'; document.getElementById('privacy-box').style.display='none';" style="color: #00FF66; text-decoration: none; margin: 0 15px; font-size: 13px;">About Us</a>
-        <a href="javascript:void(0);" onclick="document.getElementById('privacy-box').style.display='block'; document.getElementById('about-box').style.display='none';" style="color: #00FF66; text-decoration: none; margin: 0 15px; font-size: 13px;">Privacy Policy</a>
-        
-        <div id="about-box" style="display: none; color: #a0aec0; font-size: 12px; margin-top: 15px; text-align: left; padding: 15px; background: #121620; border-radius: 8px; line-height: 1.5; border: 1px solid #2d3748;">
-            <strong>Iron Vision Tools</strong> is an independent, autonomous, and professional calculation tool developed for crypto and stock market investors. Our goal is to clarify leveraged trades, profit/loss ratios, and return targets in seconds.<br><br>
-            <em>Legal Disclaimer:</em> No data, calculation, or tool provided on this platform constitutes financial advice (NFA). The platform cannot be held responsible for any losses incurred. All financial decisions are solely the user's responsibility.
-        </div>
-        <div id="privacy-box" style="display: none; color: #a0aec0; font-size: 12px; margin-top: 15px; text-align: left; padding: 15px; background: #121620; border-radius: 8px; line-height: 1.5; border: 1px solid #2d3748;">
-            <strong>Privacy Policy:</strong> Iron Vision Tools takes your data security seriously. The data you enter is <u>not stored</u> on our servers.<br><br>
-            • <strong>Local Storage:</strong> Your calculations and history logs are kept only in your device's browser.<br>
-            • <strong>Cookies & Ads:</strong> Third-party standard internet cookies may be used for ad placements and visitor analytics on our site.<br><br>
-            By using the application, you agree to these terms.
-        </div>
-    </div>
+    <div class="ad-placeholder" id="ui-ad">Responsive Ad Placeholder</div>
   </div>
-   
+
+  <!-- REHBER AKORDEON (ADSENSE ONAY KALKANI) -->
+  <div class="siber-guide-container">
+      <details>
+          <summary>⚡ Comprehensive Guide to Cryptocurrency Profit and ROI Calculation (Click to Expand)</summary>
+          <div class="siber-content">
+              <h4>Maximizing Your Crypto Strategy: Profit and ROI Dynamics</h4>
+              <p>Cryptocurrency markets operate 24/7 with high volatility, making real-time profit and Return on Investment (ROI) calculations vital for active traders. Whether managing a long-term spot portfolio or executing short/long leveraged positions, knowing your exact entry, exit, and net performance parameters determines sustainable profitability over market cycles.</p>
+              
+              <h4>How Crypto Profit and Losses (PnL) Are Calculated</h4>
+              <p>At its core, a crypto profit calculation subtracts the total initial investment cost (including network and exchange transaction fees) from the total asset disposal value. However, the calculation quickly adapts based on the trading instrument:</p>
+              <ul>
+                  <li><strong>Spot Trading:</strong> Standard calculation where your return is directly linear to the asset price movement. Realized profits occur only after executing a sell order.</li>
+                  <li><strong>Long vs. Short Positions:</strong> Derivative and futures trading allow profit from both upward momentum (Long) and downward trends (Short). Calculating profits here requires accounting for leverage multipliers and funding rates, which can rapidly amplify both net gains and margin liquidations.</li>
+              </ul>
+
+              <h4>The Importance of ROI and Risk Management</h4>
+              <p>Tracking absolute profit in currency is useful, but tracking ROI percentage allows you to benchmark your crypto performance against traditional financial markets. Successful capital compounding relies on maintaining a positive risk-to-reward ratio and factoring in platform commissions, ensuring that single volatile drawdowns do not wipe out systemic trading revenue.</p>
+          </div>
+      </details>
+  </div>
+
+  <!-- SİBER FOOTER (YENİ VE APİ UYUMLU MODAL LİNKLERİ) -->
+  <footer class="siber-footer">
+      <a href="javascript:void(0)" onclick="openSiberModal('siberAbout')">About Us</a> | 
+      <a href="javascript:void(0)" onclick="openSiberModal('siberPrivacy')">Privacy Policy</a> | 
+      <a href="javascript:void(0)" onclick="openSiberModal('siberCookie')">Cookie Policy</a> | 
+      <a href="javascript:void(0)" onclick="openSiberModal('siberContact')">Contact Us</a>
+  </footer>
+
+  <!-- MODAL POP-UP PENCERELERİ -->
+  <div id="siberAbout" class="siber-modal">
+      <div class="siber-modal-box">
+          <span class="siber-close" onclick="closeSiberModal('siberAbout')">&times;</span>
+          <h3>About Us</h3>
+          <p>Welcome to Iron Vision Tools. We specialize in providing minimalist, high-speed, and precision financial analysis software. Our cryptocurrency profit and ROI calculator is completely serverless, requiring no mandatory user registration or credit card information. Our mission is to deliver clean data and uncompromised user experiences to independent traders worldwide.</p>
+          <p style="font-size:11px; color:#a0aec0; margin-top:10px;"><em>Legal Disclaimer:</em> No data or tool provided on this platform constitutes financial advice (NFA). All trading decisions are solely the user's responsibility.</p>
+      </div>
+  </div>
+
+  <div id="siberPrivacy" class="siber-modal">
+      <div class="siber-modal-box">
+          <span class="siber-close" onclick="closeSiberModal('siberPrivacy')">&times;</span>
+          <h3>Privacy Policy</h3>
+          <p>This website is committed to protecting the privacy of our visitors. Google AdSense advertisements displayed on our site use "cookies" to serve ads based on users' interests. Google uses cookies to serve ads to users based on their previous visits to our site and other sites on the internet. Users may opt out of personalized advertising by visiting Google Ad Settings. By using our website, you consent to the use of these cookies.</p>
+      </div>
+  </div>
+
+  <div id="siberCookie" class="siber-modal">
+      <div class="siber-modal-box">
+          <span class="siber-close" onclick="closeSiberModal('siberCookie')">&times;</span>
+          <h3>Cookie Policy</h3>
+          <p>Our website uses cookies to enhance user experience, analyze site traffic, and deliver personalized advertisements through Google AdSense. Cookies are small text files placed on your device through your browser. You can block or delete cookies entirely through your browser settings; however, please note that doing so may affect the full performance of our calculation tools.</p>
+      </div>
+  </div>
+
+  <div id="siberContact" class="siber-modal">
+      <div class="siber-modal-box">
+          <span class="siber-close" onclick="closeSiberModal('siberContact')">&times;</span>
+          <h3>Contact Us</h3>
+          <p>For any feedback, questions, suggestions, or collaboration inquiries regarding our crypto profit calculation tools, feel free to contact us directly.</p>
+          <p><strong>Email:</strong> <a href="mailto:seat@ironvisiontools.com" style="color: #00FF66; text-decoration: none;">seat@ironvisiontools.com</a></p>
+      </div>
+  </div>
 
   <script>
-    // Genişletilmiş Dil Paketleri
+    // Genişletilmiş Dil Paketleri[span_2](start_span)[span_2](end_span)
     const translations = {
       "tr": { title: "Kripto Para Kar Hesaplayıcı", subtitle: "Yatırım getirilerinizi anında hesaplayın.", amount: "Yatırım Miktarı", buy: "Satın Alım Fiyatı", sell: "Güncel / Satış Fiyatı", resultTitle: "Toplam Getiri", usdText: "ABD Doları ($)", ad: "Duyarlı Reklam Yer Tutucu", levToggle: "Kaldıraçlı İşlem Modu", levVal: "Kaldıraç", saveBtn: "Geçmişe Kaydet", histTitle: "Hesaplama Geçmişi", clearBtn: "Temizle", long: "LONG", short: "SHORT" },
       "de": { title: "Krypto-Renditerechner", subtitle: "Berechnen Sie Ihre Rendite sofort.", amount: "Investitionsbetrag", buy: "Kaufpreis", sell: "Verkaufspreis", resultTitle: "Gesamtrendite", usdText: "US-Dollar ($)", ad: "Werbeplatzhalter", levToggle: "Hebelmodus (Leverage)", levVal: "Hebel", saveBtn: "In Historie speichern", histTitle: "Berechnungshistorie", clearBtn: "Löschen", long: "LONG", short: "SHORT" },
@@ -517,13 +488,13 @@
       "de-CH": { title: "Krypto-Renditerechner", subtitle: "Berechnen Sie Ihre Investitionsrendite sofort.", amount: "Investitionsbetrag", buy: "Kaufpreis", sell: "Aktueller / Verkaufspreis", resultTitle: "Gesamtrendite", usdText: "US-Dollar ($)", ad: "Responsive Werbe-Platzhalter", levToggle: "Hebelmodus", levVal: "Hebel", saveBtn: "Speichern", histTitle: "Verlauf", clearBtn: "Löschen", long: "LONG", short: "SHORT" },
       "pt-BR": { title: "Calculadora de Lucro Cripto", subtitle: "Calcule os retornos do seu investimento instantaneamente.", amount: "Valor do Investimento", buy: "Preço de Compra", sell: "Preço Atual / Venda", resultTitle: "Retorno Total", usdText: "Dólares Americanos ($)", ad: "Espaço para Anúncio", levToggle: "Modo Alavancagem", levVal: "Alavancagem", saveBtn: "Salvar no Histórico", histTitle: "Histórico de Cálculos", clearBtn: "Limpar", long: "LONG", short: "SHORT" },
       "en-IN": { title: "Crypto Profit Calculator", subtitle: "Calculate your investment returns instantly.", amount: "Investment Amount", buy: "Buying Price", sell: "Current / Selling Price", resultTitle: "Total Return", usdText: "US Dollars ($)", ad: "Responsive Ad Placeholder", levToggle: "Leverage Mode", levVal: "Leverage", saveBtn: "Save to History", histTitle: "Calculation History", clearBtn: "Clear", long: "LONG", short: "SHORT" },
-      "no": { title: "Krypto Gevinstkalkulator", subtitle: "Beregn din investeringsavkastning umiddelbart.", amount: "Investeringsbeløp", buy: "Kjøpspris", sell: "Gjeldende / Salgspris", resultTitle: "Total Avkastning", usdText: "Amerikanske Dollar ($)", ad: "Responsiv Annonseplassholder", levToggle: "Gearing Modus", levVal: "Gearing", saveBtn: "Lagre i historikk", histTitle: "Historikk", clearBtn: "Tøm", long: "LONG", short: "SHORT" },
+      "no": { title: "Krypto Gevinstkalkulator", subtitle: "Beregn din investeringsavkastning umiddelbart.", amount: "Investeringsbeløb", buy: "Kjøpspris", sell: "Gjeldende / Salgspris", resultTitle: "Total Avkastning", usdText: "Amerikanske Dollar ($)", ad: "Responsiv Annonseplassholder", levToggle: "Gearing Modus", levVal: "Gearing", saveBtn: "Lagre i historikk", histTitle: "Historikk", clearBtn: "Tøm", long: "LONG", short: "SHORT" },
       "en-AU": { title: "Crypto Profit Calculator", subtitle: "Calculate your investment returns instantly.", amount: "Investment Amount", buy: "Buying Price", sell: "Current / Selling Price", resultTitle: "Total Return", usdText: "US Dollars ($)", ad: "Responsive Ad Placeholder", levToggle: "Leverage Mode", levVal: "Leverage", saveBtn: "Save to History", histTitle: "Calculation History", clearBtn: "Clear", long: "LONG", short: "SHORT" },
       "zh": { title: "加密货币利润计算器", subtitle: "立即计算您的投资回报率。", amount: "投资金额", buy: "买入价格", sell: "当前 / 卖出价格", resultTitle: "总回报", usdText: "美元 ($)", ad: "自适应广告位", levToggle: "杠杆模式", levVal: "杠杆", saveBtn: "保存至历史", histTitle: "计算历史", clearBtn: "清空", long: "做多 (LONG)", short: "做空 (SHORT)" }
     };
 
-    // Yedek Sabit Döviz Kurları (İnternet yokken veya API çökünce burası çalışır)
-    let exchangeRates = { "TRY": 45.00, "EUR": 0.92, "RUB": 91.20, "AED": 3.67, "IRR": 42000, "ILS": 3.70, "DKK": 6.95, "CHF": 0.91, "BRL": 5.15, "INR": 83.50, "NOK": 10.70, "AUD": 1.50, "CNY": 7.25 };
+    // Yedek Sabit Döviz Kurları[span_3](start_span)[span_3](end_span)
+    let exchangeRates = { "TRY": 34.50, "EUR": 0.92, "RUB": 91.20, "AED": 3.67, "IRR": 42000, "ILS": 3.70, "DKK": 6.95, "CHF": 0.91, "BRL": 5.15, "INR": 83.50, "NOK": 10.70, "AUD": 1.50, "CNY": 7.25 };
 
     let currentLang = "tr";
     let currentCurrency = "TRY";
@@ -531,7 +502,7 @@
     let currentLocale = "tr-TR";
     let currentDirection = "long";
 
-    // Element Seçimleri
+    // Element Seçimleri[span_4](start_span)[span_4](end_span)
     const langBtn = document.getElementById('langBtn');
     const langDropdown = document.getElementById('langDropdown');
     const currentLangSpan = document.getElementById('current-lang');
@@ -542,14 +513,14 @@
     const shortBtn = document.getElementById('shortBtn');
     const historyList = document.getElementById('historyList');
 
-    // CANLI DÖVİZ KURLARINI İNTERNETTEN ÇEKEN ALGORİTMA
+    // CANLI DÖVİZ KURLARINI İNTERNETTEN ÇEKEN ALGORİTMA[span_5](start_span)[span_5](end_span)
     async function fetchLiveRates() {
       try {
         const response = await fetch('https://v6.exchangerate-api.com/v6/299616d267385a49fb2a8f81/latest/USD');
         if (response.ok) {
           const data = await response.json();
-          // API kurlarını yükle, talimat gereği TRY kurunu 45'e sabitle
-          exchangeRates = { ...data.conversion_rates, "TRY": 45.00 };
+          // TRY ARTIK DOĞRUDAN API İÇİNDEN CANLI GELECEK, SABİTLEME KALKTI[span_6](start_span)[span_6](end_span)!
+          exchangeRates = { ...data.conversion_rates };
           calculateProfit();
         }
       } catch (error) {
@@ -557,11 +528,11 @@
       }
     }
 
-    // Menü Aç/Kapat
+    // Menü Aç/Kapat[span_7](start_span)[span_7](end_span)
     langBtn.addEventListener('click', (e) => { e.stopPropagation(); langDropdown.classList.toggle('show'); });
     window.addEventListener('click', () => langDropdown.classList.remove('show'));
 
-    // Dil Manuel Seçimi
+    // Dil Manuel Seçimi[span_8](start_span)[span_8](end_span)
     document.querySelectorAll('#langDropdown li').forEach(item => {
       item.addEventListener('click', () => {
         currentLang = item.getAttribute('data-lang');
@@ -574,7 +545,7 @@
       });
     });
 
-    // Kaldıraç Arayüz Yönetimi
+    // Kaldıraç Arayüz Yönetimi[span_9](start_span)[span_9](end_span)
     leverageSwitch.addEventListener('change', () => {
       leverageDetails.style.display = leverageSwitch.checked ? 'flex' : 'none';
       calculateProfit();
@@ -596,7 +567,7 @@
       });
     });
 
-    // Otomatik Tarayıcı Dili Algılama
+    // Otomatik Tarayıcı Dili Algılama[span_10](start_span)[span_10](end_span)
     function autoDetectLanguage() {
       let browserLang = navigator.language || navigator.userLanguage;
       browserLang = browserLang.split('-')[0];
@@ -634,8 +605,8 @@
       shortBtn.innerText = t.short;
     }
 
-    // Gelişmiş Küresel Hesaplama Motoru
-    let lastCalculatedData = null; // Geçmişe kaydetmek için son hesap verisi
+    // Gelişmiş Küresel Hesaplama Motoru[span_11](start_span)[span_11](end_span)
+    let lastCalculatedData = null;
 
     function calculateProfit() {
       const amount = parseFloat(document.getElementById('investAmount').value) || 0;
@@ -657,7 +628,6 @@
 
       const sign = profitUSD >= 0 ? "+" : "";
 
-      // Bölgesel Sayı Formatlama (Profesyonel UI)
       const formatterLocal = new Intl.NumberFormat(currentLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       const formatterUSD = new Intl.NumberFormat(currentLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -686,12 +656,12 @@
       };
     }
 
-    // Geçmiş Kayıt Yönetimi (LocalStorage)
+    // Geçmiş Kayıt Yönetimi (LocalStorage)[span_12](start_span)[span_12](end_span)
     document.getElementById('ui-save-btn').addEventListener('click', () => {
       if (!lastCalculatedData) return;
       let currentHistory = JSON.parse(localStorage.getItem('iron_vision_history')) || [];
-      currentHistory.unshift(lastCalculatedData); // Yeni kaydı başa ekle
-      if (currentHistory.length > 20) currentHistory.pop(); // Maksimum 20 kayıt tut
+      currentHistory.unshift(lastCalculatedData);
+      if (currentHistory.length > 20) currentHistory.pop();
       localStorage.setItem('iron_vision_history', JSON.stringify(currentHistory));
       renderHistory();
     });
@@ -722,7 +692,15 @@
       });
     }
 
-    // Event Listeners
+    // ADSENSE MODAL TETİKLEYİCİLERİ
+    function openSiberModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeSiberModal(id) { document.getElementById(id).style.display = "none"; }
+
+    window.onclick = function(event) {
+        if (event.target.classList.contains('siber-modal')) { event.target.style.display = "none"; }
+    }
+
+    // Event Listeners[span_13](start_span)[span_13](end_span)
     ['investAmount', 'buyPrice', 'sellPrice'].forEach(id => {
       document.getElementById(id).addEventListener('input', calculateProfit);
     });

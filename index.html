@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2750325310478431" crossorigin="anonymous"></script>
   <meta name="google-site-verification" content="K08N0Ae7-M7OlcZm8k_lppsFq5s-Y4zGjyzZ0iFE7fU" /> 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iron Vision - Kripto Kar ve Vergi HesaplayÄ±cÄ±</title>
+  <title>Iron Vision - Kripto Kar ve Vergi Hesaplayıcı</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* Siber YeÅŸil & Mat Siyah Tema Ana AyarlarÄ± (Mevcut tasarÄ±mÄ±n) */
+    /* Siber Yeşil & Mat Siyah Tema Ana Ayarları */
     body { background-color: #121620; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; min-height: 100vh; margin: 0; padding: 20px 0; }
     .container { margin: 50px auto; background-color: #1a202c; border-radius: 16px; padding: 25px; width: 90%; max-width: 480px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); position: relative; }
     
-    /* Ãœst Bar: Marka Logosu ve Dil SeÃ§ici */
+    /* Üst Bar: Marka Logosu ve Dil Seçici */
     .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-    .brand-logo { font-size: 18px; font-weight: 800; color: #00FF66; letter-spacing: 1.5px; text-transform: uppercase; display: flex; align-items: center; gap: 8px; text-shadow: 0 0 10px rgba(0, 203, 198, 0.3); }
-    .language-selector { position: relative; }
+    .language-selector { position: relative; z-index: 50; }
     .lang-btn { background-color: #2d3748; color: white; border: 1px solid #4a5568; padding: 6px 12px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 13px; }
-    .lang-dropdown { display: none; position: absolute; right: 0; top: 35px; background-color: #2d3748; border: 1px solid #4a5568; border-radius: 8px; list-style: none; padding: 0; margin: 0; width: 170px; z-index: 10; box-shadow: 0 5px 15px rgba(0,0,0,0.5); max-height: 280px; overflow-y: auto; }
+    .lang-dropdown { display: none; position: absolute; right: 0; top: 35px; background-color: #2d3748; border: 1px solid #4a5568; border-radius: 8px; list-style: none; padding: 0; margin: 0; width: 170px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); max-height: 280px; overflow-y: auto; }
     .lang-dropdown li { padding: 10px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 13px; }
     .lang-dropdown li:hover { background-color: #4a5568; }
     .show { display: block; }
@@ -26,7 +26,7 @@
     h2 { text-align: center; margin-top: 10px; margin-bottom: 5px; font-size: 22px; color:#00FF66;}
     .subtitle { text-align: center; color: #a0aec0; font-size: 13px; margin-bottom: 25px; }
 
-    /* Form ElemanlarÄ± (Senin tasarÄ±mÄ±n) */
+    /* Form Elemanları */
     .input-group { margin-bottom: 15px; }
     .input-group label { display: block; margin-bottom: 6px; color: #a0aec0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
     .input-wrapper { position: relative; display: flex; align-items: center; }
@@ -34,18 +34,18 @@
     .input-wrapper input { width: 100%; background-color: #121620; border: 1px solid #2d3748; color: white; padding: 12px 12px 12px 30px; border-radius: 8px; font-size: 16px; outline: none; box-sizing: border-box;}
     .input-wrapper input:focus { border-color: #00FF66; box-shadow: 0 0 5px rgba(0, 255, 102, 0.3); }
 
-    /* YENÄ° EKLENEN: Kripto Vergi KutucuÄŸu (AdSense Ä°Ã§erik DesteÄŸi) */
+    /* Vergi Kutusu */
     .tax-box { background-color: #121620; border-left: 3px solid #e74c3c; padding: 15px; border-radius: 8px; margin-top: 15px; display: none; }
-    .tax-box select { width: 100%; background-color: #2d3748; color: white; border: 1px solid #4a5568; padding: 10px; border-radius: 6px; margin-top: 10px; font-size:13px; }
+    .tax-box select { width: 100%; background-color: #2d3748; color: white; border: 1px solid #4a5568; padding: 10px; border-radius: 6px; margin-top: 10px; font-size:13px; outline: none;}
 
-    /* YENÄ° EKLENEN: Aksiyon ButonlarÄ± (Kaydet ve Temizle yan yana) */
+    /* Butonlar */
     .btn-group { display: flex; gap: 10px; margin-top: 20px; }
     .btn-block { flex: 3; background-color: #00FF66; color: #121620; border: none; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; transition: 0.2s; }
     .btn-block:hover { background-color: #00f0ea; }
     .btn-clear-main { flex: 1; background-color: #e74c3c; color: white; border: none; padding: 12px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: 0.2s; display:flex; justify-content:center; align-items:center; }
     .btn-clear-main:hover { background-color: #c0392b; }
 
-    /* SonuÃ§ AlanÄ± */
+    /* Sonuç Alanı */
     .result-box { background-color: #121620; border-radius: 12px; padding: 20px; text-align: center; margin-top: 20px; border: 1px solid #2d3748; }
     .result-title { color: #a0aec0; font-size: 12px; text-transform: uppercase; margin-bottom: 8px; }
     .local-return { color: #2ecc71; font-size: 26px; font-weight: bold; }
@@ -53,18 +53,16 @@
     .percentage { display: inline-block; background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; padding: 4px 12px; border-radius: 20px; font-size: 13px; margin-top: 8px; font-weight: bold; }
     .tax-return { color: #e74c3c; font-size: 13px; margin-top: 10px; display: none; }
 
-    /* ADSENSE ONAY Ä°Ã‡Ä°N SÄ°BER AKORDEON (Ã‡ok Dilli) */
+    /* Akordeon */
     .siber-guide-container { margin-top: 30px; }
     .siber-guide-container details { background: #1a202c; border: 1px solid #00FF66; border-radius: 12px; overflow: hidden; margin-bottom:10px; }
     .siber-guide-container summary { padding: 14px; font-weight: bold; color: #fff; cursor: pointer; outline: none; list-style: none; font-size: 13px; text-align: left; }
     .siber-content { padding: 15px; color: #a0aec0; line-height: 1.6; font-size: 12px; text-align: left; border-top:1px solid #2d3748; }
     
-    /* SÄ°BER FOOTER VE GÃœVENLÄ°K */
+    /* Footer & Cookie */
     .siber-footer { text-align: center; padding: 20px; color: #4a5568; font-size: 12px; margin-top: 20px; border-top: 1px dashed #2d3748;}
     .siber-footer a { color: #00FF66; text-decoration: none; margin: 0 5px; }
     .contact-mail { color: #a0aec0; display: block; margin-top: 10px; }
-
-    /* Ã‡erez (Cookie) Pop-up */
     .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #1a202c; border-top: 1px solid #00FF66; padding: 15px; text-align: center; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; }
     .cookie-btn { background-color: #00FF66; color: #121620; border: none; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
   </style>
@@ -74,34 +72,79 @@
 <div class="container">
     
     <div class="header-bar">
+      <!-- Vergi Sayfası Geçiş Butonu -->
       <a href="vergi.html" style="display: inline-flex; align-items: center; padding: 8px 16px; font-weight: bold; border-radius: 12px; background-color: #1e293b; border: 1px solid #334155; color: #cbd5e1; text-decoration: none;" id="ui-tax-link">
         <svg style="width: 16px; height: 16px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
         <span>Tax Calculator</span>
       </a>
 
-      <div class="brand-logo">
-        <i class="fa-solid fa-bolt"></i> IRON VISION
+      <!-- ORİJİNAL SİBER GÖZ LOGOSU GERİ GELDİ -->
+      <div class="brand-logo" style="width: 130px; margin-left: 10px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="100%" height="auto">
+          <defs>
+            <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <filter id="pupilGlow" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1a1f1a;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0d110d;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <polygon points="30,2 54,16 54,44 30,58 6,44 6,16" fill="none" stroke="#39ff14" stroke-width="1.2" filter="url(#neonGlow)" opacity="0.9" />
+          <polygon points="30,4 52,17 52,43 30,56 8,43 8,17" fill="url(#iconBg)" />
+          <polygon points="30,10 47,20 47,40 30,50 13,40 13,20" fill="none" stroke="#39ff14" stroke-width="0.4" opacity="0.3" />
+          <path d="M 12,30 Q 20,20 30,20 Q 40,20 48,30 Q 40,40 30,40 Q 20,40 12,30 Z" fill="none" stroke="#39ff14" stroke-width="1.4" filter="url(#softGlow)" />
+          <circle cx="30" cy="30" r="6.5" fill="none" stroke="#39ff14" stroke-width="1.2" opacity="0.85"/>
+          <circle cx="30" cy="30" r="2.8" fill="#39ff14" filter="url(#pupilGlow)"/>
+          <line x1="26.5" y1="26" x2="26.5" y2="34" stroke="#39ff14" stroke-width="1.3" opacity="0.7"/>
+          <polyline points="32,26 34.5,32 37,26" fill="none" stroke="#39ff14" stroke-width="1.3" stroke-linejoin="round" opacity="0.7"/>
+          <line x1="12" y1="30" x2="15" y2="30" stroke="#39ff14" stroke-width="0.8" opacity="0.5"/>
+          <line x1="45" y1="30" x2="48" y2="30" stroke="#39ff14" stroke-width="0.8" opacity="0.5"/>
+          <text x="64" y="27" font-family="'Courier New', 'Lucida Console', monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#39ff14" filter="url(#neonGlow)">IRON</text>
+          <text x="64" y="45" font-family="'Courier New', 'Lucida Console', monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#e8ffe8" opacity="0.92">VISION</text>
+        </svg>
       </div>
 
+      <!-- Dil Seçici -->
       <div class="language-selector">
         <button class="lang-btn" id="langBtn">
           <i class="fas fa-globe"></i>
-          <span id="current-lang">ðŸ‡¹ðŸ‡· TÃ¼rkÃ§e</span>
+          <span id="current-lang">🇹🇷 Türkçe</span>
         </button>
         <ul class="lang-dropdown" id="langDropdown">
-          <li data-lang="tr" data-currency="TRY" data-symbol="â‚º" data-locale="tr-TR">ðŸ‡¹ðŸ‡· TÃ¼rkÃ§e</li>
-          <li data-lang="en" data-currency="USD" data-symbol="$" data-locale="en-US">ðŸ‡¬ðŸ‡§ English</li>
-          <li data-lang="de" data-currency="EUR" data-symbol="â‚¬" data-locale="de-DE">ðŸ‡©ðŸ‡ª Deutsch</li>
+          <li data-lang="tr" data-currency="TRY" data-symbol="₺" data-locale="tr-TR">🇹🇷 Türkçe</li>
+          <li data-lang="en" data-currency="USD" data-symbol="$" data-locale="en-US">🇬🇧 English</li>
+          <li data-lang="de" data-currency="EUR" data-symbol="€" data-locale="de-DE">🇩🇪 Deutsch</li>
         </ul>
       </div>
     </div>
 
-    <h2 id="ui-title">Kripto Para Kar HesaplayÄ±cÄ±</h2>
-    <div class="subtitle" id="ui-subtitle">YatÄ±rÄ±m getirilerinizi anÄ±nda hesaplayÄ±n.</div>
+    <h2 id="ui-title">Kripto Para Kar Hesaplayıcı</h2>
+    <div class="subtitle" id="ui-subtitle">Yatırım getirilerinizi anında hesaplayın.</div>
 
     <form id="calcForm">
       <div class="input-group">
-        <label id="ui-label-amount">YatÄ±rÄ±m MiktarÄ±</label>
+        <label id="ui-label-amount">Yatırım Miktarı</label>
         <div class="input-wrapper">
           <span>$</span>
           <input type="number" id="investAmount" placeholder="0" step="any">
@@ -109,7 +152,7 @@
       </div>
 
       <div class="input-group">
-        <label id="ui-label-buy">SatÄ±n AlÄ±m FiyatÄ±</label>
+        <label id="ui-label-buy">Satın Alım Fiyatı</label>
         <div class="input-wrapper">
           <span>$</span>
           <input type="number" id="buyPrice" placeholder="0" step="any">
@@ -117,7 +160,7 @@
       </div>
 
       <div class="input-group">
-        <label id="ui-label-sell">GÃ¼ncel / SatÄ±ÅŸ FiyatÄ±</label>
+        <label id="ui-label-sell">Güncel / Satış Fiyatı</label>
         <div class="input-wrapper">
           <span>$</span>
           <input type="number" id="sellPrice" placeholder="0" step="any">
@@ -125,11 +168,11 @@
       </div>
 
       <div class="tax-box" id="taxBox">
-        <label id="ui-tax-label" style="color:#e74c3c; font-size:12px;">Sermaye KazancÄ± Vergisi (Tahmini)</label>
+        <label id="ui-tax-label" style="color:#e74c3c; font-size:12px; margin-bottom:5px; display:block;">Sermaye Kazancı Vergisi (Tahmini)</label>
         <select id="holdingPeriod">
-          <option value="none" id="ui-tax-opt1">Vergi Hesaplama (Sadece BrÃ¼t)</option>
-          <option value="short" id="ui-tax-opt2">KÄ±sa Vadeli (< 1 YÄ±l / YÃ¼ksek Kesinti)</option>
-          <option value="long" id="ui-tax-opt3">Uzun Vadeli (> 1 YÄ±l / DÃ¼ÅŸÃ¼k Kesinti)</option>
+          <option value="none" id="ui-tax-opt1">Vergi Hesaplama (Sadece Brüt)</option>
+          <option value="short" id="ui-tax-opt2">Kısa Vadeli (< 1 Yıl / Yüksek Kesinti)</option>
+          <option value="long" id="ui-tax-opt3">Uzun Vadeli (> 1 Yıl / Düşük Kesinti)</option>
         </select>
       </div>
 
@@ -141,70 +184,70 @@
 
     <div class="result-box" id="resultContainer">
       <div class="result-title" id="ui-result-title">Toplam Getiri</div>
-      <div class="local-return" id="localReturnResult">+0.00 â‚º</div>
+      <div class="local-return" id="localReturnResult">+0.00 ₺</div>
       <div class="usd-return" id="usdReturnResult">+0.00 $</div>
       <div class="percentage" id="percentResult">+0.00%</div>
       <div class="tax-return" id="taxReturnResult">-0.00 $ Vergi Kesintisi</div>
     </div>
 
+    <!-- REHBER VE SSS -->
     <div class="siber-guide-container">
         <details>
-            <summary id="ui-faq-title"><i class="fa-solid fa-circle-question"></i> SÄ±kÃ§a Sorulan Sorular (SSS)</summary>
+            <summary id="ui-faq-title"><i class="fa-solid fa-circle-question"></i> Sıkça Sorulan Sorular (SSS)</summary>
             <div class="siber-content">
-                <h4 style="color:#00FF66;" id="ui-faq-q1">Kripto karÄ± nasÄ±l hesaplanÄ±r?</h4>
-                <p id="ui-faq-a1">Sistem, girdiÄŸiniz yatÄ±rÄ±m miktarÄ±nÄ± alÄ±ÅŸ fiyatÄ±na bÃ¶lerek token adedini bulur. ArdÄ±ndan bu adedi gÃ¼ncel satÄ±ÅŸ fiyatÄ±yla Ã§arparak brÃ¼t karÄ±nÄ±zÄ± ortaya Ã§Ä±karÄ±r. API Ã¼zerinden canlÄ± kur Ã§ekilir.</p>
+                <h4 style="color:#00FF66;" id="ui-faq-q1">Kripto karı nasıl hesaplanır?</h4>
+                <p id="ui-faq-a1">Sistem, girdiğiniz yatırım miktarını alış fiyatına bölerek token adedini bulur. Ardından bu adedi güncel satış fiyatıyla çarparak brüt karınızı ortaya çıkarır. API üzerinden canlı kur çekilir.</p>
                 
-                <h4 style="color:#00FF66;" id="ui-faq-q2">Kripto varlÄ±klarda vergi kesintisi nedir?</h4>
-                <p id="ui-faq-a2">Ã–zellikle ABD ve Avrupa'da (ve gelecekte TÃ¼rkiye'de), kriptoyu cÃ¼zdanÄ±nÄ±zda tutma sÃ¼renize (1 yÄ±ldan az veya Ã§ok) gÃ¶re farklÄ± vergi dilimleri (KÄ±sa Vadeli / Uzun Vadeli Sermaye KazancÄ±) uygulanÄ±r. AracÄ±mÄ±z bu senaryolarÄ± simÃ¼le eder.</p>
+                <h4 style="color:#00FF66;" id="ui-faq-q2">Kripto varlıklarda vergi kesintisi nedir?</h4>
+                <p id="ui-faq-a2">Özellikle ABD ve Avrupa'da (ve gelecekte Türkiye'de), kriptoyu cüzdanınızda tutma sürenize (1 yıldan az veya çok) göre farklı vergi dilimleri (Kısa Vadeli / Uzun Vadeli Sermaye Kazancı) uygulanır. Aracımız bu senaryoları simüle eder.</p>
             </div>
         </details>
     </div>
 
 </div>
 
+<!-- FOOTER -->
 <footer class="siber-footer">
-    <a href="#" id="ui-foot-privacy">Gizlilik PolitikasÄ±</a> | 
-    <a href="#" id="ui-foot-terms">KullanÄ±m KoÅŸullarÄ±</a> | 
-    <a href="#" id="ui-foot-about">HakkÄ±mÄ±zda</a>
-    <span class="contact-mail">Destek & Ä°letiÅŸim: <strong>ironvisiontools@gmail.com</strong></span>
-    <div style="margin-top:10px; color:#718096;">Â© 2026 Iron Vision Tools. NFA.</div>
+    <a href="#" id="ui-foot-privacy">Gizlilik Politikası</a> | 
+    <a href="#" id="ui-foot-terms">Kullanım Koşulları</a> | 
+    <a href="#" id="ui-foot-about">Hakkımızda</a>
+    <span class="contact-mail">Destek & İletişim: <strong>ironvisiontools@gmail.com</strong></span>
+    <div style="margin-top:10px; color:#718096;">© 2026 Iron Vision Tools. NFA.</div>
 </footer>
 
+<!-- ÇEREZ -->
 <div class="cookie-banner" id="cookieBanner">
-  <span style="font-size: 13px; color: #cbd5e0;" id="ui-cookie-text">Sitemiz, AdSense reklamlarÄ±nÄ± kiÅŸiselleÅŸtirmek ve deneyimi iyileÅŸtirmek iÃ§in Ã§erezleri (cookies) kullanÄ±r.</span>
-  <button class="cookie-btn" id="ui-cookie-btn" onclick="acceptCookies()">Kabul Et</button>
+  <span style="font-size: 13px; color: #cbd5e0;" id="ui-cookie-text">Sitemiz, AdSense reklamlarını kişiselleştirmek ve deneyimi iyileştirmek için çerezleri (cookies) kullanır.</span>
+  <button class="cookie-btn" id="ui-cookie-btn" onclick="document.getElementById('cookieBanner').style.display='none'">Kabul Et</button>
 </div>
 
-
 <script>
-    // DÄ°L PAKETLERÄ° (ArayÃ¼z, SSS, Hukuki Metinler)
     const translations = {
       "tr": { 
-        title: "Kripto Para Kar HesaplayÄ±cÄ±", subtitle: "YatÄ±rÄ±m getirilerinizi anÄ±nda hesaplayÄ±n.", amount: "YatÄ±rÄ±m MiktarÄ±", buy: "SatÄ±n AlÄ±m FiyatÄ±", sell: "GÃ¼ncel / SatÄ±ÅŸ FiyatÄ±", calcBtn: "Hesapla", resultTitle: "Toplam Getiri (Net)", 
-        taxLabel: "Sermaye KazancÄ± Vergisi (Tahmini)", taxOpt1: "Vergi Hesaplama (Sadece BrÃ¼t)", taxOpt2: "KÄ±sa Vadeli (< 1 YÄ±l / YÃ¼ksek Kesinti)", taxOpt3: "Uzun Vadeli (> 1 YÄ±l / DÃ¼ÅŸÃ¼k Kesinti)",
-        faqTitle: "SÄ±kÃ§a Sorulan Sorular (SSS)", faqQ1: "Kripto karÄ± nasÄ±l hesaplanÄ±r?", faqA1: "Sistem, yatÄ±rÄ±m miktarÄ±nÄ±zÄ± alÄ±ÅŸ fiyatÄ±na bÃ¶ler ve token adedini bulur. GÃ¼ncel kurlarla anlÄ±k Ã§eviri yapar.", faqQ2: "Kripto varlÄ±klarda vergi kesintisi nedir?", faqA2: "Elde tutma sÃ¼renize (1 yÄ±ldan az veya Ã§ok) gÃ¶re KÄ±sa veya Uzun Vadeli sermaye kazancÄ± vergisi uygulanÄ±r.",
-        footPrivacy: "Gizlilik PolitikasÄ±", footTerms: "KullanÄ±m KoÅŸullarÄ±", footAbout: "HakkÄ±mÄ±zda", cookieText: "Sitemiz, AdSense reklamlarÄ±nÄ± kiÅŸiselleÅŸtirmek ve deneyimi iyileÅŸtirmek iÃ§in Ã§erezleri kullanÄ±r.", cookieBtn: "Kabul Et", taxLink: "Vergi HesaplayÄ±cÄ±"
+        title: "Kripto Para Kar Hesaplayıcı", subtitle: "Yatırım getirilerinizi anında hesaplayın.", amount: "Yatırım Miktarı", buy: "Satın Alım Fiyatı", sell: "Güncel / Satış Fiyatı", calcBtn: "Hesapla", resultTitle: "Toplam Getiri (Net)", 
+        taxLabel: "Sermaye Kazancı Vergisi (Tahmini)", taxOpt1: "Vergi Hesaplama (Sadece Brüt)", taxOpt2: "Kısa Vadeli (< 1 Yıl / Yüksek Kesinti)", taxOpt3: "Uzun Vadeli (> 1 Yıl / Düşük Kesinti)",
+        faqTitle: "Sıkça Sorulan Sorular (SSS)", faqQ1: "Kripto karı nasıl hesaplanır?", faqA1: "Sistem, yatırım miktarınızı alış fiyatına böler ve token adedini bulur. Güncel kurlarla anlık çeviri yapar.", faqQ2: "Kripto varlıklarda vergi kesintisi nedir?", faqA2: "Elde tutma sürenize (1 yıldan az veya çok) göre Kısa veya Uzun Vadeli sermaye kazancı vergisi uygulanır.",
+        footPrivacy: "Gizlilik Politikası", footTerms: "Kullanım Koşulları", footAbout: "Hakkımızda", cookieText: "Sitemiz, AdSense reklamlarını kişiselleştirmek ve deneyimi iyileştirmek için çerezleri kullanır.", cookieBtn: "Kabul Et", taxLink: "Vergi Hesaplayıcı"
       },
       "en": { 
         title: "Crypto Profit Calculator", subtitle: "Calculate your investment returns instantly.", amount: "Investment Amount", buy: "Buying Price", sell: "Current / Selling Price", calcBtn: "Calculate", resultTitle: "Total Return (Net)", 
-        taxLabel: "Capital Gains Tax (Estimated)", taxOpt1: "Do Not Calculate Tax (Gross Only)", taxOpt2: "Short-Term (< 1 Year / Higher Tax)", taxOpt3: "Long-Term (> 1 Year / Lower Tax)",
-        faqTitle: "Frequently Asked Questions (FAQ)", faqQ1: "How is crypto profit calculated?", faqA1: "The system divides your investment by the buy price to find the token amount, then multiplies it by the current sell price.", faqQ2: "What is the crypto tax deduction?", faqA2: "Depending on holding period (under/over 1 year), short or long-term capital gains tax brackets are applied.",
+        taxLabel: "Capital Gains Tax (Estimated)", taxOpt1: "Do Not Calculate Tax (Gross)", taxOpt2: "Short-Term (< 1 Year / Higher Tax)", taxOpt3: "Long-Term (> 1 Year / Lower Tax)",
+        faqTitle: "Frequently Asked Questions (FAQ)", faqQ1: "How is crypto profit calculated?", faqA1: "The system divides your investment by the buy price to find the token amount, then multiplies it by the current sell price.", faqQ2: "What is the crypto tax deduction?", faqA2: "Depending on holding period, short or long-term capital gains tax brackets are applied.",
         footPrivacy: "Privacy Policy", footTerms: "Terms of Service", footAbout: "About Us", cookieText: "We use cookies to personalize AdSense ads and improve your experience.", cookieBtn: "Accept", taxLink: "Tax Calculator"
       },
       "de": { 
         title: "Krypto-Renditerechner", subtitle: "Berechnen Sie Ihre Rendite sofort.", amount: "Investitionsbetrag", buy: "Kaufpreis", sell: "Verkaufspreis", calcBtn: "Berechnen", resultTitle: "Gesamtrendite (Netto)", 
-        taxLabel: "Kapitalertragssteuer (GeschÃ¤tzt)", taxOpt1: "Keine Steuer berechnen (Brutto)", taxOpt2: "Kurzfristig (< 1 Jahr / HÃ¶here Steuer)", taxOpt3: "Langfristig (> 1 Jahr / Niedrigere Steuer)",
-        faqTitle: "HÃ¤ufig gestellte Fragen (FAQ)", faqQ1: "Wie wird der Krypto-Gewinn berechnet?", faqA1: "Das System teilt Ihre Investition durch den Kaufpreis, um die Token-Menge zu ermitteln, und multipliziert diese mit dem aktuellen Verkaufspreis.", faqQ2: "Was ist der Krypto-Steuerabzug?", faqA2: "AbhÃ¤ngig von der Haltedauer (unter/Ã¼ber 1 Jahr) werden kurz- oder langfristige KapitalertragssteuersÃ¤tze angewendet.",
-        footPrivacy: "Datenschutzrichtlinie", footTerms: "Nutzungsbedingungen", footAbout: "Ãœber uns", cookieText: "Wir verwenden Cookies, um AdSense-Anzeigen zu personalisieren und Ihre Erfahrung zu verbessern.", cookieBtn: "Akzeptieren", taxLink: "Steuerrechner"
+        taxLabel: "Kapitalertragssteuer (Geschätzt)", taxOpt1: "Keine Steuer berechnen (Brutto)", taxOpt2: "Kurzfristig (< 1 Jahr / Höhere Steuer)", taxOpt3: "Langfristig (> 1 Jahr / Niedrigere Steuer)",
+        faqTitle: "Häufig gestellte Fragen (FAQ)", faqQ1: "Wie wird der Krypto-Gewinn berechnet?", faqA1: "Das System teilt Ihre Investition durch den Kaufpreis, um die Token-Menge zu ermitteln, und multipliziert diese mit dem aktuellen Verkaufspreis.", faqQ2: "Was ist der Krypto-Steuerabzug?", faqA2: "Abhängig von der Haltedauer werden kurz- oder langfristige Kapitalertragssteuersätze angewendet.",
+        footPrivacy: "Datenschutzrichtlinie", footTerms: "Nutzungsbedingungen", footAbout: "Über uns", cookieText: "Wir verwenden Cookies, um AdSense-Anzeigen zu personalisieren und Ihre Erfahrung zu verbessern.", cookieBtn: "Akzeptieren", taxLink: "Steuerrechner"
       }
     };
 
     let currentLang = "tr";
     let currentCurrency = "TRY";
-    let currentSymbol = "â‚º";
+    let currentSymbol = "₺";
     let currentLocale = "tr-TR";
 
-    // Dil DeÄŸiÅŸtirme Fonksiyonu
     document.querySelectorAll('#langDropdown li').forEach(item => {
       item.addEventListener('click', () => {
         currentLang = item.getAttribute('data-lang');
@@ -248,7 +291,6 @@
       document.querySelector('#ui-tax-link span').innerText = t.taxLink;
     }
 
-    // TEK TIKLA TEMÄ°ZLE (Ã‡Ã–P KUTUSU) FONKSÄ°YONU
     function clearForm() {
       document.getElementById('calcForm').reset();
       document.getElementById('localReturnResult').innerText = "+0.00 " + currentSymbol;
@@ -260,7 +302,6 @@
       document.getElementById('taxBox').style.display = 'none';
     }
 
-    // API Ä°LE CANLI HESAPLAMA (Vergi Kesintisi Dahil)
     function calculateProfit() {
       const amount = parseFloat(document.getElementById('investAmount').value) || 0;
       const buy = parseFloat(document.getElementById('buyPrice').value) || 0;
@@ -272,7 +313,6 @@
         return; 
       }
 
-      // DeÄŸerler girildiÄŸinde Vergi Kutusunu GÃ¶rÃ¼nÃ¼r Yap
       document.getElementById('taxBox').style.display = 'block';
 
       let tokenAmount = amount / buy;
@@ -280,20 +320,17 @@
       let grossProfitUSD = totalValue - amount;
       let percent = (grossProfitUSD / amount) * 100;
 
-      // Vergi Kesintisi MantÄ±ÄŸÄ± (Sadece KÃ¢r Varsa)
       let taxDeductionUSD = 0;
       if (grossProfitUSD > 0 && taxPeriod !== 'none') {
         taxDeductionUSD = taxPeriod === 'short' ? grossProfitUSD * 0.20 : grossProfitUSD * 0.10;
       }
       
       let netProfitUSD = grossProfitUSD - taxDeductionUSD;
-
       const sign = netProfitUSD >= 0 ? "+" : "";
       
       document.getElementById('usdReturnResult').innerText = `${sign}${netProfitUSD.toFixed(2)} $`;
       document.getElementById('percentResult').innerText = `${sign}${percent.toFixed(2)}%`;
       
-      // Vergi gÃ¶sterimi
       if(taxDeductionUSD > 0) {
         document.getElementById('taxReturnResult').innerText = `- ${taxDeductionUSD.toFixed(2)} $ Vergi Kesintisi`;
         document.getElementById('taxReturnResult').style.display = 'block';
@@ -311,11 +348,10 @@
         document.getElementById('percentResult').style.color = "#e74c3c";
       }
 
-      // CanlÄ± Kur API'si (EÄŸer USD seÃ§iliyse direkt kendi deÄŸerini basar)
       if(currentCurrency === "USD") {
         document.getElementById('localReturnResult').innerText = `${sign}${netProfitUSD.toFixed(2)} $`;
       } else {
-        document.getElementById('localReturnResult').innerText = "HesaplanÄ±yor...";
+        document.getElementById('localReturnResult').innerText = "Hesaplanıyor...";
         fetch('https://open.er-api.com/v6/latest/USD')
         .then(response => response.json())
         .then(data => {
@@ -323,19 +359,14 @@
             let profitLocal = netProfitUSD * guncelKur;
             document.getElementById('localReturnResult').innerText = `${sign}${profitLocal.toFixed(2)} ${currentSymbol}`;
         }).catch(err => {
-            document.getElementById('localReturnResult').innerText = "Kur BaÄŸlantÄ± HatasÄ±";
+            document.getElementById('localReturnResult').innerText = "Kur Bağlantı Hatası";
         });
       }
     }
 
-    // Ã‡erez Kapatma
-    function acceptCookies() { document.getElementById('cookieBanner').style.display = 'none'; }
-    
-    // DeÄŸer deÄŸiÅŸtikÃ§e otomatik hesapla
     ['investAmount', 'buyPrice', 'sellPrice', 'holdingPeriod'].forEach(id => {
       document.getElementById(id).addEventListener('input', calculateProfit);
     });
-
 </script>
 </body>
 </html>

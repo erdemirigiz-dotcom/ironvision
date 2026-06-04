@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iron Vision Tools - Free Tax & Income Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7389814421118155" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2750325310478431" crossorigin="anonymous"></script>
     <style>
-            /* Sabit Kurumsal Iron Vision Logosu (Soft Renk Düzeni) */
-    .brand-logo {
-      font-size: 18px;
-      font-weight: 800;
-      color: #10B981; /* Sayfanın soft zümrüt yeşili tonu */
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
-    }
+        /* Sabit Kurumsal Iron Vision Logosu (Soft Renk Düzeni) */
+        .brand-logo {
+          font-size: 18px;
+          font-weight: 800;
+          color: #10B981; 
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          text-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+        }
         /* Form accessibility for older audience */
         input, select, button {
             min-height: 54px;
@@ -31,6 +31,9 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* SSS Akordeon Animasyonu */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-900">
@@ -39,58 +42,34 @@
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
-        <defs>
-            <filter id="softGreenGlowVergi" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-            </filter>
-        </defs>
-        <g stroke="#10B981" stroke-width="2" fill="none" filter="url(#softGreenGlowVergi)">
-            <polygon points="30,12 45,20 45,37 30,45 15,37 15,20" />
-            <path d="M19,28 Q30,18 41,28 Q30,38 19,28 Z" />
-            <circle cx="30" cy="28" r="4" fill="#10B981" />
-        </g>
-        <text x="60" y="30" fill="#10B981" font-family="sans-serif" font-size="15" font-weight="800" letter-spacing="1.5" filter="url(#softGreenGlowVergi)">IRON VISION</text>
-        <text x="60" y="44" fill="#10B981" font-family="sans-serif" font-size="9" font-weight="300" letter-spacing="3" opacity="0.4" filter="url(#softGreenGlowVergi)">TOOLS</text>
-    </svg>
-</a>
-
-  <!-- ═══ GÖZ — dış badem formu ═══ -->
-  <path
-    d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z"
-    fill="none"
-    stroke="#10B981"
-    stroke-width="1.5"
-  />
-
-  <!-- İris çemberi -->
-  <circle cx="34" cy="34" r="6.8"
-    fill="none"
-    stroke="#10B981"
-    stroke-width="1.5"
-  />
-
-  <!-- Göz bebeği (dolu) -->
-  <circle cx="34" cy="34" r="2.9"
-    fill="#10B981"
-  />
-
-  <!-- Göz köşesi tick'leri (geometrik detay) -->
-  <line x1="17.5" y1="34" x2="13" y2="34" stroke="#10B981" stroke-width="1.2" opacity="0.55"/>
-  <line x1="50.5" y1="34" x2="55" y2="34" stroke="#10B981" stroke-width="1.2" opacity="0.55"/>
-
-  <!-- Üst/alt kısa yatay çizgiler (iris hizası) -->
-  <line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#10B981" stroke-width="0.5" opacity="0.28"/>
-  <line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#10B981" stroke-width="0.5" opacity="0.28"/>
-
-  <!-- ═══ IRON — kalın, ana başlık ═══ -->
-  </svg></a>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+                        <defs>
+                            <filter id="softGreenGlowVergi" x="-30%" y="-30%" width="160%" height="160%">
+                                <feGaussianBlur stdDeviation="3" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <g stroke="#10B981" stroke-width="2" fill="none" filter="url(#softGreenGlowVergi)">
+                            <polygon points="30,12 45,20 45,37 30,45 15,37 15,20" />
+                            <path d="M19,28 Q30,18 41,28 Q30,38 19,28 Z" />
+                            <circle cx="30" cy="28" r="4" fill="#10B981" />
+                        </g>
+                        <text x="60" y="30" fill="#10B981" font-family="sans-serif" font-size="15" font-weight="800" letter-spacing="1.5" filter="url(#softGreenGlowVergi)">IRON VISION</text>
+                        <text x="60" y="44" fill="#10B981" font-family="sans-serif" font-size="9" font-weight="300" letter-spacing="3" opacity="0.4" filter="url(#softGreenGlowVergi)">TOOLS</text>
+                    </svg>
+                </a>
+            </div>
             
-            <div class="relative">
+            <div class="relative flex items-center gap-4">
+                <select id="langSelector" onchange="changeLanguage(this.value)" class="bg-slate-800 border border-slate-700 text-slate-300 text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-emerald-500 transition">
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="tr">🇹🇷 TR</option>
+                    <option value="de">🇩🇪 DE</option>
+                </select>
+
                 <a href="index.html" class="inline-flex items-center px-4 py-2 text-sm font-bold rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition-all duration-150">
                     <svg class="w-4 h-4 mr-2 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     <span data-i18n="menuOtherTools">Try Our Other Tools (Crypto)</span>
@@ -139,31 +118,11 @@
                                 <option value="US-NY">New York (NY)</option>
                                 <option value="US-CA">California (CA)</option>
                                 <option value="US-TX">Texas (TX - No Income Tax)</option>
-                                <option value="US-FL">Florida (FL)</option>
-                                <option value="US-WA">Washington (WA)</option>
-                                <option value="US-IL">Illinois (IL)</option>
-                                <option value="US-PA">Pennsylvania (PA)</option>
-                                <option value="US-GA">Georgia (GA)</option>
                             </optgroup>
                             <optgroup label="Europe (EU/UK)">
                                 <option value="EU-DE">Germany (Deutschland)</option>
                                 <option value="EU-UK">United Kingdom (UK)</option>
                                 <option value="EU-FR">France</option>
-                                <option value="EU-NL">Netherlands</option>
-                                <option value="EU-ES">Spain (España)</option>
-                            </optgroup>
-                            <optgroup label="High Tax Nordics">
-                                <option value="EU-SE">Sweden (Sverige)</option>
-                                <option value="EU-NO">Norway (Norge)</option>
-                            </optgroup>
-                            <optgroup label="Baltics & Central Europe">
-                                <option value="EU-EE">Estonia</option>
-                                <option value="EU-PL">Poland</option>
-                            </optgroup>
-                            <optgroup label="Balkans & Caucasus (Nomad Zones)">
-                                <option value="EU-RS">Serbia</option>
-                                <option value="EU-ME">Montenegro</option>
-                                <option value="GE">Georgia (%1 Option)</option>
                             </optgroup>
                             <optgroup label="Local Area">
                                 <option value="TR" selected>Turkey (Türkiye)</option>
@@ -189,15 +148,19 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-2xl py-4 rounded-2xl shadow-xl shadow-emerald-900/20 transition-all duration-150 transform active:scale-[0.98]">
-                        <span data-i18n="btnCalculateTax">Calculate Net Income</span>
-                    </button>
+                    <div class="flex gap-3">
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xl py-4 rounded-2xl shadow-xl shadow-emerald-900/20 transition-all duration-150">
+                            <span data-i18n="btnCalculateTax">Calculate Net Income</span>
+                        </button>
+                        <button type="button" onclick="clearTaxForm()" class="bg-red-500/20 hover:bg-red-500/40 text-red-400 border border-red-500/50 font-bold px-6 rounded-2xl transition-all duration-150 flex items-center justify-center" title="Clear">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                    </div>
                 </form>
             </div>
 
             <div class="lg:col-span-7 space-y-6">
                 <div id="taxResults" class="hidden bg-slate-800/90 border-2 border-slate-700 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6 animate-fade-in">
-                    
                     <div class="flex items-center justify-between border-b border-slate-700 pb-4">
                         <h3 class="text-2xl font-black text-white" data-i18n="resTitle">Your Net Income Matrix</h3>
                         <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-lg text-xs font-bold text-slate-400 shadow-inner" id="resultRegionBadge">TR</span>
@@ -226,18 +189,6 @@
                                     <td class="p-4 text-red-400" id="rowTaxMonth">0</td>
                                     <td class="p-4 text-lg font-black text-emerald-400 bg-emerald-950/10" id="rowNetMonth">0</td>
                                 </tr>
-                                <tr>
-                                    <td class="p-4 font-black text-white" data-i18n="tdWeekly">Weekly</td>
-                                    <td class="p-4" id="rowGrossWeek">0</td>
-                                    <td class="p-4 text-red-400" id="rowTaxWeek">0</td>
-                                    <td class="p-4 text-emerald-400" id="rowNetWeek">0</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-4 font-black text-white" data-i18n="tdDaily">Daily</td>
-                                    <td class="p-4" id="rowGrossDay">0</td>
-                                    <td class="p-4 text-red-400" id="rowTaxDay">0</td>
-                                    <td class="p-4 text-emerald-400" id="rowNetDay">0</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -246,16 +197,35 @@
                         <span data-i18n="dualCurrencyLabel">Equivalent Estimate in USD ($):</span>
                         <strong id="dualCurrencyVal" class="text-xl font-black text-white bg-slate-800 px-3 py-1 rounded-lg border border-slate-700"></strong>
                     </div>
-
-                    <div class="flex items-center justify-center space-x-2 text-xs md:text-sm text-slate-400 bg-slate-900/40 py-3 rounded-xl border border-slate-700/40 text-center px-4">
-                        <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11.57V10c0-1.478-1.218-2.678-2.727-2.678C4.773 7.322 3.55 8.522 3.55 10v1.57c0 1.996-.406 3.92-1.135 5.679a9.982 9.982 0 01-.444-2.75V10c0-4.103 3.037-7.502 7.022-8H12m0 0c4.103.498 7.022 3.897 7.022 8v1.57c0 1.996.406 3.92 1.135 5.679a9.982 9.982 0 01.444 2.75V10c0-4.103-3.037-7.502-7.022-8V1M12 11h.01"></path></svg>
-                        <span data-i18n="badgePrivacy">Your raw calculation figures are completely anonymous. No data is ever transmitted to servers.</span>
-                    </div>
                 </div>
 
-                <div class="p-4 bg-slate-800/40 border border-slate-700/60 rounded-2xl text-center text-xs tracking-wider text-slate-500 max-w-[728px] mx-auto min-h-[90px] flex items-center justify-center">
-                    ADVERTISEMENT PLACEHOLDER (Financial Advisor / CPA Target Match)
+                <div class="bg-slate-800/50 border border-slate-700/60 rounded-3xl p-6 md:p-8 shadow-xl mt-6">
+                    <h3 class="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span data-i18n="faqTitle">Frequently Asked Questions (FAQ)</span>
+                    </h3>
+                    
+                    <details class="group border-b border-slate-700 pb-4 mb-4">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-200 hover:text-emerald-300 transition-colors">
+                            <span data-i18n="faqQ1">How is net income calculated?</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-slate-400 mt-3 text-sm leading-relaxed" data-i18n="faqA1">We apply localized regional tax brackets, standard deductions, and marital status modifiers to estimate your take-home pay instantly. The engine uses progressive estimation algorithms.</p>
+                    </details>
+
+                    <details class="group">
+                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-200 hover:text-emerald-300 transition-colors">
+                            <span data-i18n="faqQ2">Do you save my financial data?</span>
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-slate-400 mt-3 text-sm leading-relaxed" data-i18n="faqA2">Never. All calculations run strictly client-side locally in your browser sandbox. No input data is ever sent, stored, or cataloged on our servers.</p>
+                    </details>
                 </div>
+
             </div>
         </div>
     </main>
@@ -264,25 +234,29 @@
         <div class="max-w-5xl mx-auto px-4 text-center space-y-4">
             <p id="disclaimer-text" class="leading-relaxed max-w-4xl mx-auto">Disclaimer: This web utility yields experimental automated estimates based on localized regional datasets. It doesn't substitute expert fiscal management reporting. For all official state submissions, always correspond with a registered CPA or legal financial advisor.</p>
             
-            <div class="flex justify-center space-x-6 text-sm font-bold text-slate-400">
-                <button onclick="toggleModal('aboutModal', true)" class="hover:text-emerald-400 transition">About Us</button>
-                <button onclick="toggleModal('privacyModal', true)" class="hover:text-emerald-400 transition">Privacy Policy</button>
+            <div class="flex justify-center space-x-6 text-sm font-bold text-slate-400 mb-2">
+                <button onclick="toggleModal('aboutModal', true)" class="hover:text-emerald-400 transition" data-i18n="footAbout">About Us</button>
+                <button onclick="toggleModal('privacyModal', true)" class="hover:text-emerald-400 transition" data-i18n="footPrivacy">Privacy Policy</button>
             </div>
+            
+            <p class="text-slate-400 text-sm">
+                <span data-i18n="contactUs">Contact & Support:</span> 
+                <strong class="text-emerald-400">ironvisiontools@gmail.com</strong>
+            </p>
 
-            <p class="font-bold text-slate-600">&copy; 2026 Iron Vision Tools (ironvisiontools.com). All global rights preserved.</p>
+            <p class="font-bold text-slate-600 mt-4">&copy; 2026 Iron Vision Tools (ironvisiontools.com). All global rights preserved.</p>
         </div>
     </footer>
 
     <div id="aboutModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
         <div class="bg-slate-800 border border-slate-700 w-full max-w-2xl rounded-2xl p-6 md:p-8 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-700 pb-3">
-                <h3 class="text-xl font-black text-white">About Iron Vision Tools</h3>
+                <h3 class="text-xl font-black text-white" data-i18n="footAbout">About Us</h3>
                 <button onclick="toggleModal('aboutModal', false)" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
             <div class="text-slate-300 space-y-3 text-sm leading-relaxed">
-                <p>Welcome to <strong>Iron Vision Tools</strong> (ironvisiontools.com). We are an independent software development laboratory committed to crafting robust, hyper-focused, single-purpose financial utility web tools.</p>
-                <p>Our mission is to bridge the gap between highly convoluted international financial frameworks and daily consumer calculation needs. Traditional state and corporate systems are often riddled with upsells, heavy account registration dependencies, and confusing multi-layered dashboards designed to capture private financial telemetry.</p>
-                <p>Iron Vision Tools eliminates all unnecessary layers. We construct clean, fast mathematical models allowing everyday households, expat communities, and digital nomads across the US and Europe to instantly project net take-home cash matrices on a completely ad-supported model. Absolute transparency, maximum performance, and accessible design serve as our baseline architecture.</p>
+                <p>Welcome to <strong>Iron Vision Tools</strong>. We are an independent software development laboratory committed to crafting robust, hyper-focused financial utility web tools.</p>
+                <p>Our mission is to bridge the gap between highly convoluted international financial frameworks and daily consumer calculation needs.</p>
             </div>
         </div>
     </div>
@@ -290,32 +264,32 @@
     <div id="privacyModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
         <div class="bg-slate-800 border border-slate-700 w-full max-w-2xl rounded-2xl p-6 md:p-8 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
             <div class="flex items-center justify-between border-b border-slate-700 pb-3">
-                <h3 class="text-xl font-black text-white">Privacy Policy</h3>
+                <h3 class="text-xl font-black text-white" data-i18n="footPrivacy">Privacy Policy</h3>
                 <button onclick="toggleModal('privacyModal', false)" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
             <div class="text-slate-300 space-y-4 text-sm leading-relaxed">
                 <div>
-                    <h4 class="font-bold text-white text-base mb-1">1. Absolute Client-Side Privacy Guarantee</h4>
-                    <p>At Iron Vision Tools, privacy is embedded directly into our system logic. All tax calculations, gross income tracking, Filing status mapping, and dependent queries are processed strictly client-side via your web browser's local sandbox memory. No financial numbers or parameter data vectors are transmitted, saved, or cataloged on any proprietary servers.</p>
+                    <h4 class="font-bold text-white text-base mb-1">1. Privacy Guarantee</h4>
+                    <p>All tax calculations are processed strictly client-side. No financial numbers are transmitted to our servers.</p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-white text-base mb-1">2. Third-Party Advertising Disclosures (Cookie Policy)</h4>
-                    <p>To keep our systems 100% free with no subscription traps, we rely on premium third-party programmatic networks like Google AdSense to publish targeted advertisements. These algorithmic network providers use programmatic cookies (such as the DART cookie matrix) to track localized anonymous web interaction metrics. No Personally Identifiable Information (PII) is gathered or shared through this mechanism.</p>
+                    <h4 class="font-bold text-white text-base mb-1">2. Cookie Policy (Google AdSense)</h4>
+                    <p>To keep our systems free, we use Google AdSense to publish ads. They use cookies to track localized anonymous web interaction metrics. No PII is shared.</p>
                 </div>
-                <div>
-                    <h4 class="font-bold text-white text-base mb-1">3. External Links & Log Files</h4>
-                    <p>Our utility tools may output hyperlinked targets directing traffic to sister portals (e.g., our crypto matrix tool index.html). We are not responsible for tracking logic running on separate root infrastructures. Standard anonymous infrastructure log files (IP ranges, device agent descriptors) are gathered solely for security mitigation purposes.</p>
-                </div>
-                <p class="text-xs text-slate-500 border-t border-slate-700 pt-3">Last Updated: May 2026 | Effective immediately for all incoming traffic to ironvisiontools.com.</p>
             </div>
         </div>
+    </div>
+
+    <div id="cookieBanner" class="fixed bottom-0 left-0 w-full bg-slate-900 border-t border-emerald-500/50 p-4 z-[200] flex flex-col sm:flex-row justify-center items-center gap-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+        <span class="text-sm text-slate-300 text-center sm:text-left" data-i18n="cookieText">We use cookies to personalize AdSense ads and improve your experience. By using the site, you consent to this.</span>
+        <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-2 px-6 rounded-lg transition-colors whitespace-nowrap" data-i18n="cookieBtn">Accept</button>
     </div>
 
     <script>
         let dependentCount = 0;
         let activeLang = 'en';
 
-        // Direct Hard-coded Dictionaries (TR, DE, EN)
+        // Gelişmiş Dil Motoru (SSS, Çerez, Butonlar Eklendi)
         const localizationEngine = {
             en: {
                 menuOtherTools: "Try Our Other Tools (Crypto)",
@@ -337,51 +311,67 @@
                 thNet: "Net Take-Home",
                 tdAnnual: "Yearly",
                 tdMonthly: "Monthly",
-                tdWeekly: "Weekly",
-                tdDaily: "Daily",
                 dualCurrencyLabel: "Equivalent Estimate in USD ($):",
-                badgePrivacy: "Your raw calculation figures are completely anonymous. No data is ever transmitted to servers.",
-                disclaimer: "Disclaimer: This web utility yields experimental automated estimates based on localized regional datasets. It doesn't substitute expert fiscal management reporting. For all official state submissions, always correspond with a registered CPA or legal financial advisor."
+                disclaimer: "Disclaimer: This web utility yields experimental automated estimates. For official submissions, consult a CPA.",
+                // Yeni Eklenenler
+                faqTitle: "Frequently Asked Questions (FAQ)",
+                faqQ1: "How is net income calculated?",
+                faqA1: "We apply localized regional tax brackets, standard deductions, and marital status modifiers to estimate your take-home pay instantly.",
+                faqQ2: "Do you save my financial data?",
+                faqA2: "Never. All calculations run strictly client-side locally in your browser. No input data is ever sent to our servers.",
+                footAbout: "About Us",
+                footPrivacy: "Privacy Policy",
+                contactUs: "Contact & Support:",
+                cookieText: "We use cookies to personalize AdSense ads and improve your experience. By using the site, you consent to this.",
+                cookieBtn: "Accept"
             },
             tr: {
-                menuOtherTools: "Diğer Araçlarımızı Deneyin (Kripto)",
-                heroTitle: "Sade Vergi ve Net Maaş Hesaplama Aracı",
-                heroDesc: "Anlık kademeli zaman kırılımları. Hesaplama tuzaklarına son.",
-                badgeBigFree: "SONSUZA KADAR %100 ÜCRETSİZ & KREDİ KARTI İSTEMEZ",
+                menuOtherTools: "Kripto Araçlarımızı Deneyin",
+                heroTitle: "Sade Vergi ve Net Maaş Hesaplama",
+                heroDesc: "Anlık zaman kırılımları. Hesaplama tuzaklarına son.",
+                badgeBigFree: "%100 ÜCRETSİZ & KREDİ KARTI İSTEMEZ",
                 badgeNoReg: "Kayıt Yok, Gizli Sözleşme Yok",
                 lblGross: "Brüt Gelir (Yıllık)",
                 lblLocation: "Ülke / Bölge / Eyalet",
                 lblStatus: "Medeni Durum",
                 optSingle: "Bekar / Yalnız Ebeveyn",
                 optMarried: "Evli (Ortak Beyanname)",
-                lblDependents: "Çocuk / Bakmakla Yükümlü Olunan (Tüm aileler)",
-                btnCalculateTax: "Net Maaşimi Hesapla",
+                lblDependents: "Çocuk Sayısı",
+                btnCalculateTax: "Net Maaşımı Hesapla",
                 resTitle: "Net Kazanç Matrisiniz",
                 thTimeframe: "Zaman Dilimi",
                 thGross: "Brüt Maaş",
                 thTax: "Tahmini Vergi",
                 thNet: "Elinize Kalan",
                 tdAnnual: "Yıllık",
-                tdMonthly: "Aylik",
-                tdWeekly: "Haftalık",
-                tdDaily: "Günlük",
+                tdMonthly: "Aylık",
                 dualCurrencyLabel: "Tahmini Dolar ($) Karşılığı:",
-                badgePrivacy: "Girdiğiniz finansal veriler tamamen anonimdir. Hiçbir sunucuya gönderilmez ve kaydedilmez.",
-                disclaimer: "Yasal Uyarı: Bu web sitesi yerel bölgesel veri kümelerine dayalı ön tahminler sunar. Resmi muhasebe veya mali müşavirlik raporu yerine geçmez. Resmi işlemleriniz için mutlaka tescilli bir mali müşavir (CPA) ile görüşün."
+                disclaimer: "Yasal Uyarı: Bu site bölgesel verilere dayalı tahminler sunar. Resmi işlemleriniz için bir mali müşavir (CPA) ile görüşün.",
+                // Yeni Eklenenler
+                faqTitle: "Sıkça Sorulan Sorular (SSS)",
+                faqQ1: "Net gelir nasıl hesaplanır?",
+                faqA1: "Maaşınızdan bölgesel vergi dilimleri, standart indirimler ve medeni durum çarpanları düşülerek net kazancınız anında tahmin edilir.",
+                faqQ2: "Finansal verilerim kaydediliyor mu?",
+                faqA2: "Asla. Tüm hesaplamalar yalnızca cihazınızdaki tarayıcıda çalışır. Verileriniz sunucularımıza gönderilmez veya saklanmaz.",
+                footAbout: "Hakkımızda",
+                footPrivacy: "Gizlilik Politikası",
+                contactUs: "İletişim ve Destek:",
+                cookieText: "AdSense reklamlarını kişiselleştirmek ve deneyimi iyileştirmek için çerezleri (cookies) kullanıyoruz. Siteyi kullanarak bunu kabul edersiniz.",
+                cookieBtn: "Kabul Et"
             },
             de: {
-                menuOtherTools: "Andere Tools testen (Krypto)",
+                menuOtherTools: "Krypto-Tools testen",
                 heroTitle: "Einfacher Steuer- und Nettogehaltsrechner",
-                heroDesc: "Sofortige zeitliche Aufschlüsselung. Keine Berechnungfallen.",
-                badgeBigFree: "100% FOREVER KOSTENLOS & KEINE KREDITKARTE ERFORDERLICH",
+                heroDesc: "Sofortige Aufschlüsselung. Keine Berechnungfallen.",
+                badgeBigFree: "100% KOSTENLOS & KEINE KREDITKARTE NÖTIG",
                 badgeNoReg: "Keine Registrierung, kein Haken",
                 lblGross: "Bruttoeinkommen (Jährlich)",
                 lblLocation: "Land / Region / Bundesland",
                 lblStatus: "Familienstand",
                 optSingle: "Ledig / Alleinerziehend",
                 optMarried: "Verheiratet (Zusammenveranlagung)",
-                lblDependents: "Kinder / Angehörige (Alle Familien)",
-                btnCalculateTax: "Nettoeinkommen berechnen",
+                lblDependents: "Kinder / Angehörige",
+                btnCalculateTax: "Netto Berechnen",
                 resTitle: "Ihre Nettoeinkommensmatrix",
                 thTimeframe: "Zeitraum",
                 thGross: "Bruttogehalt",
@@ -389,45 +379,52 @@
                 thNet: "Nettoauszahlung",
                 tdAnnual: "Jährlich",
                 tdMonthly: "Monatlich",
-                tdWeekly: "Wöchentlich",
-                tdDaily: "Täglich",
                 dualCurrencyLabel: "Geschätzter Wert in USD ($):",
-                badgePrivacy: "Ihre Berechnungsdaten sind völlig anonym. Es werden keine Daten an Server übertragen.",
-                disclaimer: "Haftungsausschluss: Dieses Web-Utility liefert experimentelle automatisierte Schätzungen basierend auf lokalen Datensätzen. Wenden Sie sich für offizielle Einreichungen immer an einen zertifizierten Steuerberater."
+                disclaimer: "Haftungsausschluss: Automatisierte Schätzungen. Wenden Sie sich für offizielle Einreichungen an einen Steuerberater.",
+                // Yeni Eklenenler
+                faqTitle: "Häufig gestellte Fragen (FAQ)",
+                faqQ1: "Wie wird das Nettoeinkommen berechnet?",
+                faqA1: "Wir wenden regionale Steuerklassen, Pauschalbeträge und Familienstandsmodifikatoren an, um Ihr Nettogehalt sofort zu schätzen.",
+                faqQ2: "Speichern Sie meine Finanzdaten?",
+                faqA2: "Niemals. Alle Berechnungen werden lokal in Ihrem Browser ausgeführt. Es werden keine Daten an unsere Server gesendet.",
+                footAbout: "Über uns",
+                footPrivacy: "Datenschutzrichtlinie",
+                contactUs: "Kontakt & Support:",
+                cookieText: "Wir verwenden Cookies zur Personalisierung von AdSense-Anzeigen. Durch die Nutzung der Website stimmen Sie dem zu.",
+                cookieBtn: "Akzeptieren"
             }
         };
 
-        // Initiation Hook
         window.addEventListener('DOMContentLoaded', () => {
             evaluateUserLocale();
         });
 
-        // Safe Modal View Controller
-        function toggleModal(modalId, isVisible) {
-            const modal = document.getElementById(modalId);
-            if (isVisible) {
-                modal.classList.remove('hidden');
-            } else {
-                modal.classList.add('hidden');
+        // Manuel Dil Değiştirici
+        function changeLanguage(langCode) {
+            activeLang = langCode;
+            document.getElementById('taxLocation').value = (langCode === 'tr') ? 'TR' : (langCode === 'de') ? 'EU-DE' : 'US-NY';
+            triggerDOMTranslation();
+            if(document.getElementById('grossIncome').value) {
+                document.getElementById('taxForm').dispatchEvent(new Event('submit'));
             }
         }
 
-        // Smart Geolocation/Browser Language Scanner
+        function toggleModal(modalId, isVisible) {
+            const modal = document.getElementById(modalId);
+            if (isVisible) modal.classList.remove('hidden');
+            else modal.classList.add('hidden');
+        }
+
         function evaluateUserLocale() {
             const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('tr')) {
-                activeLang = 'tr';
-                document.getElementById('taxLocation').value = 'TR';
-            } else if (browserLang.startsWith('de')) {
-                activeLang = 'de';
-                document.getElementById('taxLocation').value = 'EU-DE';
-            } else {
-                activeLang = 'en';
-            }
+            if (browserLang.startsWith('tr')) { activeLang = 'tr'; document.getElementById('taxLocation').value = 'TR'; } 
+            else if (browserLang.startsWith('de')) { activeLang = 'de'; document.getElementById('taxLocation').value = 'EU-DE'; } 
+            else { activeLang = 'en'; document.getElementById('taxLocation').value = 'US-NY'; }
+            
+            document.getElementById('langSelector').value = activeLang;
             triggerDOMTranslation();
         }
 
-        // Apply Language Pack
         function triggerDOMTranslation() {
             const pack = localizationEngine[activeLang] || localizationEngine['en'];
             
@@ -443,7 +440,6 @@
             adjustInputCurrencySign();
         }
 
-        // Dynamic Input Currency Indicator Sync
         document.getElementById('taxLocation').addEventListener('change', adjustInputCurrencySign);
 
         function adjustInputCurrencySign() {
@@ -456,7 +452,6 @@
             else marker.textContent = '€';
         }
 
-        // Handle Children Selector Button styling
         function setDependents(count) {
             dependentCount = count;
             document.querySelectorAll('.dep-btn').forEach(btn => {
@@ -465,43 +460,33 @@
             document.getElementById(`dep-${count}`).className = "dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-emerald-600 text-slate-950 border-emerald-400 shadow-md";
         }
 
-        // Central Tax Database Logic Matrix
+        // YENİ: Temizle Butonu Mantığı
+        function clearTaxForm() {
+            document.getElementById('taxForm').reset();
+            setDependents(0);
+            document.getElementById('taxResults').classList.add('hidden');
+        }
+
         function mockTaxDatabaseApi(gross, location, status, dependents) {
             let baselineBracket = 0.22;
-
             const bracketMatrix = {
-                'US-NY': 0.29, 'US-CA': 0.31, 'US-TX': 0.17, 'US-FL': 0.16,
-                'US-WA': 0.18, 'US-IL': 0.22, 'US-PA': 0.21, 'US-GA': 0.20,
-                'EU-DE': 0.38, 'EU-UK': 0.30, 'EU-FR': 0.36, 'EU-NL': 0.34, 'EU-ES': 0.28,
-                'EU-SE': 0.45, 'EU-NO': 0.42, 
-                'EU-EE': 0.20, 'EU-PL': 0.19, 
-                'EU-RS': 0.15, 'EU-ME': 0.12, 'GE': 0.05, 
-                'TR': 0.27
+                'US-NY': 0.29, 'US-CA': 0.31, 'US-TX': 0.17, 'TR': 0.27, 'EU-DE': 0.38, 'EU-UK': 0.30, 'EU-FR': 0.36
             };
 
-            if (bracketMatrix[location] !== undefined) {
-                baselineBracket = bracketMatrix[location];
-            }
-
+            if (bracketMatrix[location] !== undefined) baselineBracket = bracketMatrix[location];
             if (status === 'married') baselineBracket -= 0.05;
             baselineBracket -= (dependents * 0.02);
-
             if (baselineBracket < 0.01) baselineBracket = 0.01;
-
-            const finalTaxYearly = gross * baselineBracket;
-            const finalNetYearly = gross - finalTaxYearly;
 
             return {
                 annualGross: gross,
-                annualTax: finalTaxYearly,
-                annualNet: finalNetYearly
+                annualTax: gross * baselineBracket,
+                annualNet: gross - (gross * baselineBracket)
             };
         }
 
-        // Execute Front UI Tabular Calculations
         function executeTaxEngine(event) {
             event.preventDefault();
-            
             const gross = parseFloat(document.getElementById('grossIncome').value) || 0;
             const location = document.getElementById('taxLocation').value;
             const status = document.getElementById('filingStatus').value;
@@ -511,25 +496,18 @@
             const marker = document.getElementById('currency-symbol').textContent;
 
             const timelineMatrix = {
-                gross: { year: annualResults.annualGross, month: annualResults.annualGross / 12, week: annualResults.annualGross / 52, day: annualResults.annualGross / 365 },
-                tax: { year: annualResults.annualTax, month: annualResults.annualTax / 12, week: annualResults.annualTax / 52, day: annualResults.annualTax / 365 },
-                net: { year: annualResults.annualNet, month: annualResults.annualNet / 12, week: annualResults.annualNet / 52, day: annualResults.annualNet / 365 }
+                gross: { year: annualResults.annualGross, month: annualResults.annualGross / 12 },
+                tax: { year: annualResults.annualTax, month: annualResults.annualTax / 12 },
+                net: { year: annualResults.annualNet, month: annualResults.annualNet / 12 }
             };
 
             renderTableRow('Year', marker, timelineMatrix.gross.year, timelineMatrix.tax.year, timelineMatrix.net.year);
             renderTableRow('Month', marker, timelineMatrix.gross.month, timelineMatrix.tax.month, timelineMatrix.net.month);
-            renderTableRow('Week', marker, timelineMatrix.gross.week, timelineMatrix.tax.week, timelineMatrix.net.week);
-            renderTableRow('Day', marker, timelineMatrix.gross.day, timelineMatrix.tax.day, timelineMatrix.net.day);
 
             const dualRow = document.getElementById('dualCurrencyRow');
             if (marker !== '$') {
                 dualRow.classList.remove('hidden');
-                let exchangeMockRate = 1.0;
-                
-                if (marker === '₺') exchangeMockRate = 0.031;
-                if (marker === '€') exchangeMockRate = 1.08;
-                if (marker === '£') exchangeMockRate = 1.26;
-
+                let exchangeMockRate = (marker === '₺') ? 0.031 : (marker === '€') ? 1.08 : 1.26;
                 const convertedUsdNet = timelineMatrix.net.year * exchangeMockRate;
                 document.getElementById('dualCurrencyVal').textContent = "$" + convertedUsdNet.toLocaleString(undefined, {maximumFractionDigits: 0}) + " USD";
             } else {

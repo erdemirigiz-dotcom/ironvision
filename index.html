@@ -1,379 +1,76 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <!-- Google AdSense (policy‑compliant) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2750325310478431" crossorigin="anonymous"></script>
-  <meta name="google-site-verification" content="K08N0Ae7-M7OlcZm8k_lppsFq5s-Y4zGjyzZ0iFE7fU" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iron Vision – Kripto Kar ve Vergi Hesaplayıcı</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* ---------- ROOT VARIABLES ---------- */
     :root {
       --bg: #0a0e12;
       --card: #151a1f;
-      --accent: #00ff66;   /* siber yeşil */
+      --accent: #00ff66;
       --danger: #e74c3c;
       --text: #e0e6ed;
       --muted: #a0a8b0;
-      --sidebar-w: 260px;
     }
-
-    /* ---------- GLOBAL RESET ---------- */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* ---------- LAYOUT ---------- */
-    .wrapper { display: flex; height: 100vh; }
-    .sidebar { flex: 0 0 var(--sidebar-w); background: var(--card); border-right: 1px solid #2d3748; position: relative; overflow: hidden; }
-    .main { flex: 1; display: flex; flex-direction: column; padding: 2rem; overflow-y: auto; }
-
-    /* ---------- HERO (SPHERE) ---------- */
-    .sphere-container { position: absolute; inset: 0; pointer-events: none; }
-    canvas { width: 100%; height: 100%; display: block; }
-    .hero-title { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); font-size: 2.2rem; font-weight: 700; color: var(--accent); text-align: center; }
-
-    /* ---------- UI COMPONENTS ---------- */
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-    .logo svg { width: 140px; height: auto; }
-    .lang-btn { background:#2d3748; color: var(--accent); border:1px solid #4a5568; border-radius:8px; padding:8px 12px; cursor:pointer; display:flex; gap:6px; font-size:14px; }
-    .lang-menu { display:none; position:absolute; top:38px; right:0; background:#2d3748; border:1px solid #4a5568; border-radius:8px; list-style:none; width:190px; box-shadow:0 5px 12px rgba(0,0,0,.5); }
-    .lang-menu li { padding:10px 12px; cursor:pointer; display:flex; gap:8px; font-size:14px; }
-    .lang-menu li:hover { background:#4a5568; }
-    .lang-show { display:block; }
-
-    .input-group { margin-bottom: 1rem; }
-    .input-group label { display:block; margin-bottom:0.35rem; font-size:0.85rem; color: var(--muted); text-transform:uppercase; }
-    .input-wrapper { display:flex; background:#121620; border:1px solid #2d3748; border-radius:8px; overflow:hidden; }
-    .currency-select { background:#2d3748; color: var(--accent); border:none; padding:12px 10px; width:100%; font-weight:700; cursor:pointer; min-width:100px; }
-    .input-wrapper input { flex:1; background:transparent; border:none; color:var(--text); padding:12px 15px; font-size:1rem; }
-    .static { display:flex; align-items:center; position:relative; }
-    .static span { position:absolute; left:12px; color:#a0aec0; }
-    .static input { flex:1; background:#121620; border:1px solid #2d3748; border-radius:8px; padding:12px 12px 12px 32px; color:#fff; }
-
-    .btn-group { display:flex; gap:0.8rem; margin-top:1.5rem; }
-    .btn { flex:1; background:var(--accent); color:#121620; border:none; padding:14px; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer; transition:.2s; }
-    .btn:hover { opacity:.9; }
-    .btn-danger { background:var(--danger); color:#121620; }
-
-    .result { margin-top:2rem; background:#121620; border:1px solid #2d3748; border-radius:12px; padding:1.5rem; text-align:center; }
-    .result-title { color:var(--muted); font-size:0.9rem; text-transform:uppercase; margin-bottom:0.8rem; }
-    .value { font-size:2rem; font-weight:700; color:var(--accent); }
-    .policy { color:var(--muted); font-size:0.85rem; margin-top:0.5rem; }
-
-    .faq details { background:#1a202c; border:1px solid var(--accent); border-radius:12px; margin-bottom:0.8rem; overflow:hidden; }
-    .faq summary { font-weight:700; color:var(--accent); cursor:pointer; padding:12px; display:flex; align-items:center; gap:8px; }
-    .faq-content { padding:14px; color:var(--muted); line-height:1.6; font-size:0.9rem; }
-    .faq-content h4 { margin:0.8rem 0 0.4rem; color:var(--accent); }
-
-    .footer { border-top:1px solid #2d3748; margin-top:2.5rem; padding-top:1.2rem; font-size:0.85rem; color:var(--muted); text-align:center; }
-    .footer a { color:var(--accent); margin:0 4px; }
-
-    .cookie { position:fixed; bottom:0; width:100%; background:#1a202c; border-top:2px solid var(--accent); padding:15px 0; display:flex; flex-direction:column; align-items:center; z-index:9999; }
-    .cookie p { margin:5px 0; font-size:0.85rem; color:#cbd5e0; text-align:center; max-width:90%; }
-    .cookie-buttons { margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
-    .cookie button { background:var(--accent); color:#121620; padding:8px 12px; border:none; border-radius:5px; cursor:pointer; font-size:0.9rem; }
-    .cookie .essential { background:transparent; color:var(--accent); border:1px solid var(--accent); }
-
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); justify-content:center; align-items:center; z-index:2000; }
-    .modal-content { background:#1a202c; border:1px solid var(--accent); border-radius:16px; padding:25px; max-width:90%; max-height:85vh; overflow:auto; position:relative; }
-    .close { position:absolute; top:12px; right:16px; color:var(--accent); font-size:1.8rem; cursor:pointer; font-weight:bold; }
-    .modal-content h3 { margin-top:0; color:var(--accent); border-bottom:1px solid #2d3748; padding-bottom:10px; }
-
-    @media(max-width:768px){
-      .wrapper { flex-direction:column; }
-      .sidebar { flex:0 0 auto; border-right:none; border-bottom:1px solid #2d3748; }
-      .main { padding:1.5rem; }
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); margin: 0; min-height: 100vh; display: flex; }
+    .sidebar { flex: 0 0 260px; background: var(--card); border-right: 1px solid #2d3748; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .main { flex: 1; padding: 2rem; }
+    .btn { background: var(--accent); color: #000; padding: 14px; border: none; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; }
+    .lang-menu { display: none; position: absolute; background: #2d3748; list-style: none; padding: 10px; border-radius: 8px; }
+    .lang-menu.show { display: block; }
+    canvas { width: 200px; height: 200px; }
   </style>
 </head>
 <body>
-  <!-- ---------- SIDEBAR (Hero) ---------- -->
-  <div class="sidebar" id="sidebar">
-    <div class="hero-title">IRON VISION</div>
-    <div class="sphere-container" id="sphereContainer">
-      <canvas id="sphereCanvas"></canvas>
-    </div>
+  <div class="sidebar">
+    <h2 style="color:var(--accent);">IRON VISION</h2>
+    <canvas id="sphereCanvas"></canvas>
   </div>
-
-  <!-- ---------- MAIN CONTENT ---------- -->
-  <div class="main" id="mainContent">
-    <!-- Header -->
-    <div class="header">
-      <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="100%" height="auto">
-          <defs>
-            <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="2.5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#1a1f1a;stop-opacity:1"/>
-              <stop offset="100%" style="stop-color:#0d110d;stop-opacity:1"/>
-            </linearGradient>
-          </defs>
-          <polygon points="30,2 54,16 54,44 30,58 6,44 6,16" fill="none" stroke="#39ff14" stroke-width="1.2" filter="url(#neon)" opacity=".9"/>
-          <polygon points="30,4 52,17 52,43 30,56 8,43 8,17" fill="url(#iconBg)"/>
-          <circle cx="30" cy="30" r="6.5" fill="none" stroke="#39ff14" stroke-width="1.2" opacity=".85"/>
-          <circle cx="30" cy="30" r="2.8" fill="#39ff14"/>
-          <text x="64" y="27" font-family="'Courier New',monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#39ff14" filter="url(#neon)">IRON</text>
-          <text x="64" y="45" font-family="'Courier New',monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#e8ffe8" opacity=".92">VISION</text>
-        </svg>
-      </div>
-
-      <!-- Language selector -->
-      <div class="lang">
-        <button class="lang-btn" id="langBtn"><i class="fas fa-globe"></i><span id="curLang">🇺🇸 English (US)</span></button>
-        <ul class="lang-menu" id="langMenu">
-          <li data-lang="en" data-currency="USD" data-symbol="$" data-locale="en-US">🇺🇸 English (US)</li>
-          <li data-lang="tr" data-currency="TRY" data-symbol="₺" data-locale="tr-TR">🇹🇷 Türkçe</li>
-          <li data-lang="en-gb" data-currency="GBP" data-symbol="£" data-locale="en-GB">🇬🇧 English (UK)</li>
-          <li data-lang="de" data-currency="EUR" data-symbol="€" data-locale="de-DE">🇩🇪 Deutsch</li>
-          <li data-lang="es" data-currency="EUR" data-symbol="€" data-locale="es-ES">🇪🇸 Español</li>
-        </ul>
-      </div>
+  <div class="main">
+    <div class="lang">
+      <button id="langBtn" class="btn" style="width:auto; padding:5px 15px;">🌐 Dil / Language</button>
+      <ul class="lang-menu" id="langMenu">
+        <li data-lang="en" style="cursor:pointer; padding:5px;">🇺🇸 English</li>
+        <li data-lang="tr" style="cursor:pointer; padding:5px;">🇹🇷 Türkçe</li>
+      </ul>
     </div>
-
-    <!-- Calculator form -->
-    <form id="calcForm">
-      <div class="input-group">
-        <label for="investAmount">Investment Amount</label>
-        <div class="input-wrapper">
-          <select id="investCurrency" class="currency-select">
-            <option value="USD" data-symbol="$" data-locale="en-US">USD ($)</option>
-            <option value="TRY" data-symbol="₺" data-locale="tr-TR">TRY (₺)</option>
-            <option value="GBP" data-symbol="£" data-locale="en-GB">GBP (£)</option>
-            <option value="EUR" data-symbol="€" data-locale="de-DE">EUR (€)</option>
-          </select>
-          <input type="number" id="investAmount" placeholder="0" step="any" />
-        </div>
-        <div id="usdHint" style="color:var(--accent);font-size:0.85rem;margin-top:4px;display:none;"></div>
-      </div>
-
-      <div class="input-group">
-        <label for="buyPrice">Buying Price (USD)</label>
-        <div class="static"><span>$</span><input type="number" id="buyPrice" placeholder="0" step="any" /></div>
-      </div>
-
-      <div class="input-group">
-        <label for="sellPrice">Current / Selling Price (USD)</label>
-        <div class="static"><span>$</span><input type="number" id="sellPrice" placeholder="0" step="any" /></div>
-      </div>
-
-      <div class="input-group">
-        <label for="holdingPeriod">Capital Gains Tax (Estimated)</label>
-        <select id="holdingPeriod" class="currency-select">
-          <option value="none" id="optGross">Do Not Calculate Tax (Gross Only)</option>
-          <option value="short" id="optShort">Short‑Term (≤ 1 yr – Higher Tax)</option>
-          <option value="long" id="optLong">Long‑Term (> 1 yr – Lower Tax)</option>
-        </select>
-      </div>
-
-      <div class="btn-group">
-        <button type="button" class="btn" id="calcBtn" onclick="calculateProfit()">Calculate</button>
-        <button type="button" class="btn btn-danger" onclick="clearForm()">Clear</button>
-      </div>
+    <form id="calcForm" style="margin-top:20px;">
+      <input type="number" id="investAmount" placeholder="Yatırım Miktarı" style="padding:10px; width:100%;">
+      <input type="number" id="buyPrice" placeholder="Alış Fiyatı (USD)" style="padding:10px; width:100%; margin-top:10px;">
+      <input type="number" id="sellPrice" placeholder="Satış Fiyatı (USD)" style="padding:10px; width:100%; margin-top:10px;">
+      <button type="button" class="btn" onclick="calculateProfit()" style="margin-top:15px;">Hesapla</button>
     </form>
-
-    <!-- Result box -->
-    <div class="result" id="resultBox">
-      <div class="result-title">Total Return (Net)</div>
-      <div class="value" id="netReturn">+0.00 $</div>
-      <div class="policy" id="policyMsg"></div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="faq">
-      <details>
-        <summary><i class="fa-solid fa-circle-question"></i> <span id="ui-faq-title">Frequently Asked Questions (FAQ)</span></summary>
-        <div class="faq-content">
-          <h4 id="ui-faq-q1">1. How is the base crypto profit calculated?</h4>
-          <p id="ui-faq-a1">The system converts your investment to USD (live rates when a non‑USD currency is chosen), divides by the buying price to find token amount, then multiplies by the current selling price for gross profit.</p>
-          <h4 id="ui-faq-q2">2. What are crypto tax deductions?</h4>
-          <p id="ui-faq-a2">Short‑term (≤ 1 year) holdings are usually taxed at higher rates, while long‑term (> 1 year) holdings may qualify for reduced rates in many jurisdictions.</p>
-          <h4 id="ui-faq-q3">3. How does live currency conversion work?</h4>
-          <p id="ui-faq-a3">If you enter TRY/GBP/EUR, we fetch live fiat rates, run the crypto math in USD, then convert the final profit back to your selected local currency.</p>
-        </div>
-      </details>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-      © 2026 Iron Vision Tools. All rights reserved. <a href="#" onclick="openModal('privacyModal')">Privacy</a> | <a href="#" onclick="openModal('termsModal')">Terms</a>
-    </div>
+    <div id="netReturn" style="font-size:2rem; color:var(--accent); margin-top:20px;">+0.00 $</div>
   </div>
-
-  <!-- ---------- COOKIE BANNER ---------- -->
-  <div class="cookie" id="cookieBanner">
-    <p id="ui-cookie-text">We use cookies to personalize content, serve AdSense ads, and analyze traffic. Choose your preference.</p>
-    <div class="cookie-buttons">
-      <button onclick="closeAll()" id="ui-cookie-accept">Accept All</button>
-      <button class="essential" onclick="closeAll()" id="ui-cookie-essential">Essential Only</button>
-      <button class="btn-danger" onclick="closeAll()" id="ui-cookie-reject">Reject All</button>
-    </div>
-  </div>
-
-  <!-- ---------- MODALS ---------- -->
-  <div class="modal" id="privacyModal"><div class="modal-content"><span class="close" onclick="closeModal('privacyModal')">&times;</span><h3 id="m-priv-title">Privacy Policy</h3><p id="m-priv-text">All calculations run strictly client‑side. We use Google AdSense which places cookies for analytics.</p></div></div>
-  <div class="modal" id="termsModal"><div class="modal-content"><span class="close" onclick="closeModal('termsModal')">&times;</span><h3 id="m-term-title">Terms of Service</h3><p id="m-term-text">This tool provides experimental estimates—not official financial advice. Iron Vision Tools is not liable for any trading losses.</p></div></div>
 
   <script>
-    // ---------- UTILITIES ----------
     const $ = id => document.getElementById(id);
+    
+    // Dil Menüsü
+    $('langBtn').onclick = () => $('langMenu').classList.toggle('show');
 
-    // ---------- LANGUAGE SWITCH ----------
-    const translations = {
-      en: {
-        title: 'Crypto Profit Calculator',
-        amt: 'Investment Amount', buy: 'Buying Price (USD)', sell: 'Current / Selling Price (USD)',
-        tax: 'Capital Gains Tax (Estimated)', optGross: 'Do Not Calculate Tax (Gross Only)',
-        optShort: 'Short‑Term ( ≤ 1 yr – Higher Tax)', optLong: 'Long‑Term ( > 1 yr – Lower Tax)',
-        faq: 'Frequently Asked Questions (FAQ)',
-        faqQ1: '1. How is the base crypto profit calculated?',
-        faqA1: 'The system converts your investment to USD (live rates when a non‑USD currency is chosen), divides by the buying price to find token amount, then multiplies by the current selling price for gross profit.',
-        faqQ2: '2. What are crypto tax deductions?',
-        faqA2: 'Short‑term (≤ 1 year) holdings are usually taxed at higher rates, while long‑term (> 1 year) holdings may qualify for reduced rates in many jurisdictions.',
-        faqQ3: '3. How does live currency conversion work?',
-        faqA3: 'If you enter TRY/GBP/EUR, we fetch live fiat rates, run the crypto math in USD, then convert the final profit back to your selected local currency.',
-        cookie: 'We use cookies to personalize content, serve AdSense ads, and analyze traffic. Choose your preference.',
-        accept: 'Accept All', essential: 'Essential Only', reject: 'Reject All'
-      },
-      tr: {
-        title: 'Kripto Kar Hesaplayıcı',
-        amt: 'Yatırım Miktarı', buy: 'Satın Alım Fiyatı (USD)', sell: 'Güncel / Satış Fiyatı (USD)',
-        tax: 'Sermaye Kazancı Vergisi (Tahmini)', optGross: 'Vergi Hesaplama (Sadece Brüt)',
-        optShort: 'Kısa Vadeli ( ≤ 1 yıl – Yüksek Vergi)', optLong: 'Uzun Vadeli ( > 1 yıl – Düşük Vergi)',
-        faq: 'Sıkça Sorulan Sorular (SSS)',
-        faqQ1: '1. Kripto karı temelde nasıl hesaplanır?',
-        faqA1: 'Sistem yatırımı USD’ye çevirir (non‑USD dövizde canlı oran), alış fiyatına bölerek token miktarını bulur, ardından satış fiyatıyla çarpar.',
-        faqQ2: '2. Vergi kesintileri nedir?',
-        faqA2: 'Kısa vadeli (≤ 1 yıl) tutmalar genellikle yüksek vergi oranına sahiptir, uzun vadeli (> 1 yıl) tutmalar ise daha düşük oranlarla vergilendirilebilir.',
-        faqQ3: '3. Canlı kur çevirisi nasıl çalışır?',
-        faqA3: 'TRY/GBP/EUR girildiğinde canlı döviz oranları alınır, kripto hesabı USD üzerinden yapılır ve net kar yerel para birimine çevrilir.',
-        cookie: 'İçerik kişiselleştirmek, AdSense reklamları ve trafiği analiz etmek için çerezler kullanılır. Tercihinizi seçin.',
-        accept: 'Tümünü Kabul Et', essential: 'Sadece Gerekli', reject: 'Tümünü Reddet'
-      }
-    };
-    let curLang = 'en';
-    function setTexts(){
-      const t = translations[curLang];
-      document.title = t.title;
-      $('curLang').innerText = curLang === 'en' ? '🇺🇸 English (US)' : '🇹🇷 Türkçe';
-      // Labels
-      document.querySelector('label[for="investAmount"]').innerText = t.amt;
-      document.querySelector('label[for="buyPrice"]').innerText = t.buy;
-      document.querySelector('label[for="sellPrice"]').innerText = t.sell;
-      document.querySelector('label[for="holdingPeriod"]').innerText = t.tax;
-      document.getElementById('optGross').innerText = t.optGross;
-      document.getElementById('optShort').innerText = t.optShort;
-      document.getElementById('optLong').innerText = t.optLong;
-      document.getElementById('ui-faq-title').innerText = t.faq;
-      document.getElementById('ui-faq-q1').innerText = t.faqQ1;
-      document.getElementById('ui-faq-a1').innerText = t.faqA1;
-      document.getElementById('ui-faq-q2').innerText = t.faqQ2;
-      document.getElementById('ui-faq-a2').innerText = t.faqA2;
-      document.getElementById('ui-faq-q3').innerText = t.faqQ3;
-      document.getElementById('ui-faq-a3').innerText = t.faqA3;
-      document.getElementById('ui-cookie-text').innerText = t.cookie;
-      document.getElementById('ui-cookie-accept').innerText = t.accept;
-      document.getElementById('ui-cookie-essential').innerText = t.essential;
-      document.getElementById('ui-cookie-reject').innerText = t.reject;
-    }
-    // Language menu
-    $('langBtn').onclick = e => { e.stopPropagation(); $('langMenu').classList.toggle('show'); };
-    window.onclick = e => { if(!e.target.closest('.lang')) $('langMenu').classList.remove('show'); };
-    $('langMenu').onclick = e => { if(e.target.dataset.lang){ curLang = e.target.dataset.lang; setTexts(); } };
-    setTexts();
-
-    // ---------- LIVE RATES ----------
-    let liveRates = {};
-    fetch('https://open.er-api.com/v6/latest/USD')
-      .then(r=>r.json())
-      .then(d=>{ liveRates = d.rates; });
-    const fmtUsd = v => new Intl.NumberFormat('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}).format(v);
-
-    // ---------- CALCULATION ----------
-    function calculateProfit(){
+    // Hesaplama
+    function calculateProfit() {
       const amt = parseFloat($('investAmount').value) || 0;
       const buy = parseFloat($('buyPrice').value) || 0;
       const sell = parseFloat($('sellPrice').value) || 0;
-      const taxPeriod = $('holdingPeriod').value;
-      const curCurrency = $('investCurrency').value;
-
-      if(!amt || !buy || !sell){ $('policyMsg').innerText = 'Enter valid numbers.'; return; }
-
-      // Convert to USD
-      let usdAmt = curCurrency === 'USD' ? amt : (liveRates[curCurrency] ? amt / liveRates[curCurrency] : amt);
-      if(curCurrency !== 'USD' && liveRates[curCurrency]){ $('usdHint').style.display='block'; $('usdHint').innerText = `≈ ${fmtUsd(usdAmt)} USD`; }
-      else { $('usdHint').style.display='none'; }
-
-      const tokens = usdAmt / buy;
-      const totalUSD = tokens * sell;
-      const grossUSD = totalUSD - usdAmt;
-      const tax = grossUSD > 0 ? (taxPeriod === 'short' ? grossUSD*0.20 : taxPeriod === 'long' ? grossUSD*0.10 : 0) : 0;
-      const netUSD = grossUSD - tax;
-
-      const sign = netUSD >= 0 ? '+' : '';
-      $('netReturn').innerHTML = `${sign}${fmtUsd(netUSD)} $`;
-
-      if(tax > 0){
-        $('policyMsg').innerHTML = `<span style="color:var(--danger);">Tax: −${fmtUsd(tax)} USD</span><br><small style="color:var(--muted);">Estimates only – not tax advice.</small>`;
-      } else {
-        $('policyMsg').innerText = 'All calculations are estimates. Not financial advice.';
+      if(amt && buy && sell) {
+        const net = (amt / buy) * sell - amt;
+        $('netReturn').innerText = (net >= 0 ? '+' : '') + net.toFixed(2) + " $";
       }
     }
 
-    function clearForm(){
-      $('calcForm').reset();
-      $('netReturn').innerHTML = '+0.00 $';
-      $('policyMsg').innerText = 'All calculations are estimates. Not financial advice.';
-      $('usdHint').style.display='none';
-    }
-
-    // ---------- MODALS ----------
-    function openModal(id){$(id).style.display='flex';}
-    function closeModal(id){$(id).style.display='none';}
-    function closeAll(){ $('cookieBanner').style.display='none'; }
-    window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
-
-    // ---------- SPHERE ANIMATION ----------
+    // Küre Animasyonu (Düzeltildi)
     const canvas = $('sphereCanvas');
     const ctx = canvas.getContext('2d');
-    function resize(){ canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; }
-    window.addEventListener('resize', resize);
-    resize();
-    function drawSphere(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      const w = canvas.width, h = canvas.height;
-      const cx = w/2, cy = h/2;
-      const r = Math.min(w,h)/3;
-      const grad = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
-      grad.addColorStop(0,'#00ff66'); grad.addColorStop(1,'#005500');
-      ctx.fillStyle = grad;
-      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill();
-      ctx.strokeStyle = '#00ff66'; ctx.lineWidth = 1;
-      const offset = Date.now() / 800;
-      for(let i=0;i<36;i++){
-        const a = i * Math.PI/18 + offset;
-        ctx.beginPath(); ctx.moveTo(cx,cy);
-        ctx.lineTo(cx + Math.cos(a)*r*0.7, cy + Math.sin(a)*r*0.7);
-        ctx.stroke();
-      }
-      requestAnimationFrame(drawSphere);
+    function draw() {
+      ctx.clearRect(0,0,200,200);
+      ctx.beginPath(); ctx.arc(100,100,50,0,Math.PI*2);
+      ctx.fillStyle = '#00ff66'; ctx.fill();
+      requestAnimationFrame(draw);
     }
-    requestAnimationFrame(drawSphere);
-
-    // Initialize with a default calculation so UI shows formatted numbers
-    calculateProfit();
+    draw();
   </script>
 </body>
 </html>

@@ -1,506 +1,379 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <!-- Google AdSense -->
+  <!-- Google AdSense (policy‑compliant) -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2750325310478431" crossorigin="anonymous"></script>
-  <meta name="google-site-verification" content="K08N0Ae7-M7OlcZm8k_lppsFq5s-Y4zGjyzZ0iFE7fU" /> 
+  <meta name="google-site-verification" content="K08N0Ae7-M7OlcZm8k_lppsFq5s-Y4zGjyzZ0iFE7fU" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iron Vision - Kripto Kar ve Vergi Hesaplayıcı</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <title>Iron Vision – Kripto Kar ve Vergi Hesaplayıcı</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Siber Yeşil & Mat Siyah Tema */
-    body { background-color: #121620; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; min-height: 100vh; margin: 0; padding: 20px 0; }
-    .container { margin: 50px auto; background-color: #1a202c; border-radius: 16px; padding: 25px; width: 90%; max-width: 500px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); position: relative; }
-    
-    /* Üst Bar: Marka Logosu ve Dil Seçici */
-    .header-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
-    .language-selector { position: relative; z-index: 50; }
-    .lang-btn { background-color: #2d3748; color: white; border: 1px solid #4a5568; padding: 8px 15px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 14px; }
-    .lang-dropdown { display: none; position: absolute; right: 0; top: 40px; background-color: #2d3748; border: 1px solid #4a5568; border-radius: 8px; list-style: none; padding: 0; margin: 0; width: 200px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); max-height: 300px; overflow-y: auto; }
-    .lang-dropdown li { padding: 10px 15px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px; }
-    .lang-dropdown li:hover { background-color: #4a5568; }
-    .show { display: block; }
-    
-    h2 { text-align: center; margin-top: 10px; margin-bottom: 5px; font-size: 22px; color:#00FF66;}
-    .subtitle { text-align: center; color: #a0aec0; font-size: 13px; margin-bottom: 25px; }
+    /* ---------- ROOT VARIABLES ---------- */
+    :root {
+      --bg: #0a0e12;
+      --card: #151a1f;
+      --accent: #00ff66;   /* siber yeşil */
+      --danger: #e74c3c;
+      --text: #e0e6ed;
+      --muted: #a0a8b0;
+      --sidebar-w: 260px;
+    }
 
-    /* Form Elemanları (Yatırım Para Birimi Seçicili) */
-    .input-group { margin-bottom: 15px; }
-    .input-group label { display: block; margin-bottom: 6px; color: #a0aec0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .input-wrapper { position: relative; display: flex; align-items: center; background-color: #121620; border: 1px solid #2d3748; border-radius: 8px; overflow: hidden;}
-    .input-wrapper:focus-within { border-color: #00FF66; box-shadow: 0 0 5px rgba(0, 255, 102, 0.3); }
-    
-    .currency-select { background-color: #2d3748; color: #00FF66; border: none; padding: 12px 10px; font-weight: bold; outline: none; cursor: pointer; border-right: 1px solid #4a5568; }
-    .input-wrapper input { flex: 1; background-color: transparent; border: none; color: white; padding: 12px 15px; font-size: 16px; outline: none; box-sizing: border-box;}
-    
-    .input-wrapper-static { position: relative; display: flex; align-items: center; }
-    .input-wrapper-static span { position: absolute; left: 15px; color: #a0aec0; }
-    .input-wrapper-static input { width: 100%; background-color: #121620; border: 1px solid #2d3748; color: white; padding: 12px 12px 12px 30px; border-radius: 8px; font-size: 16px; outline: none; box-sizing: border-box;}
-    .input-wrapper-static input:focus { border-color: #00FF66; box-shadow: 0 0 5px rgba(0, 255, 102, 0.3); }
+    /* ---------- GLOBAL RESET ---------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    /* Vergi Kutusu */
-    .tax-box { background-color: #121620; border-left: 3px solid #e74c3c; padding: 15px; border-radius: 8px; margin-top: 15px; display: none; }
-    .tax-box select { width: 100%; background-color: #2d3748; color: white; border: 1px solid #4a5568; padding: 10px; border-radius: 6px; margin-top: 10px; font-size:13px; outline: none; cursor: pointer;}
+    /* ---------- LAYOUT ---------- */
+    .wrapper { display: flex; height: 100vh; }
+    .sidebar { flex: 0 0 var(--sidebar-w); background: var(--card); border-right: 1px solid #2d3748; position: relative; overflow: hidden; }
+    .main { flex: 1; display: flex; flex-direction: column; padding: 2rem; overflow-y: auto; }
 
-    /* Butonlar */
-    .btn-group { display: flex; gap: 10px; margin-top: 20px; }
-    .btn-block { flex: 4; background-color: #00FF66; color: #121620; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-    .btn-block:hover { background-color: #00f0ea; }
-    .btn-clear-main { flex: 1; background-color: #e74c3c; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; cursor: pointer; transition: 0.2s; display:flex; justify-content:center; align-items:center; }
-    .btn-clear-main:hover { background-color: #c0392b; }
+    /* ---------- HERO (SPHERE) ---------- */
+    .sphere-container { position: absolute; inset: 0; pointer-events: none; }
+    canvas { width: 100%; height: 100%; display: block; }
+    .hero-title { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); font-size: 2.2rem; font-weight: 700; color: var(--accent); text-align: center; }
 
-    /* Sonuç Alanı */
-    .result-box { background-color: #121620; border-radius: 12px; padding: 25px; text-align: center; margin-top: 25px; border: 1px solid #2d3748; }
-    .result-title { color: #a0aec0; font-size: 13px; text-transform: uppercase; margin-bottom: 10px; }
-    .local-return { color: #2ecc71; font-size: 28px; font-weight: bold; }
-    .usd-return { color: #a0aec0; font-size: 16px; margin-top: 8px; }
-    .percentage { display: inline-block; background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-top: 12px; font-weight: bold; }
-    .tax-return { color: #e74c3c; font-size: 14px; margin-top: 12px; display: none; }
+    /* ---------- UI COMPONENTS ---------- */
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .logo svg { width: 140px; height: auto; }
+    .lang-btn { background:#2d3748; color: var(--accent); border:1px solid #4a5568; border-radius:8px; padding:8px 12px; cursor:pointer; display:flex; gap:6px; font-size:14px; }
+    .lang-menu { display:none; position:absolute; top:38px; right:0; background:#2d3748; border:1px solid #4a5568; border-radius:8px; list-style:none; width:190px; box-shadow:0 5px 12px rgba(0,0,0,.5); }
+    .lang-menu li { padding:10px 12px; cursor:pointer; display:flex; gap:8px; font-size:14px; }
+    .lang-menu li:hover { background:#4a5568; }
+    .lang-show { display:block; }
 
-    /* Zenginleştirilmiş Akordeon SSS */
-    .siber-guide-container { margin-top: 30px; }
-    .siber-guide-container details { background: #1a202c; border: 1px solid #00FF66; border-radius: 12px; overflow: hidden; margin-bottom:10px; }
-    .siber-guide-container summary { padding: 14px; font-weight: bold; color: #fff; cursor: pointer; outline: none; list-style: none; font-size: 14px; text-align: left; }
-    .siber-content { padding: 15px; color: #a0aec0; line-height: 1.6; font-size: 13px; text-align: left; border-top:1px solid #2d3748; }
+    .input-group { margin-bottom: 1rem; }
+    .input-group label { display:block; margin-bottom:0.35rem; font-size:0.85rem; color: var(--muted); text-transform:uppercase; }
+    .input-wrapper { display:flex; background:#121620; border:1px solid #2d3748; border-radius:8px; overflow:hidden; }
+    .currency-select { background:#2d3748; color: var(--accent); border:none; padding:12px 10px; width:100%; font-weight:700; cursor:pointer; min-width:100px; }
+    .input-wrapper input { flex:1; background:transparent; border:none; color:var(--text); padding:12px 15px; font-size:1rem; }
+    .static { display:flex; align-items:center; position:relative; }
+    .static span { position:absolute; left:12px; color:#a0aec0; }
+    .static input { flex:1; background:#121620; border:1px solid #2d3748; border-radius:8px; padding:12px 12px 12px 32px; color:#fff; }
 
-    /* Footer & Güvenlik Linkleri */
-    .siber-footer { text-align: center; padding: 20px; color: #4a5568; font-size: 13px; margin-top: 20px; border-top: 1px dashed #2d3748;}
-    .siber-footer a { color: #00FF66; text-decoration: none; margin: 0 5px; cursor: pointer; }
-    .siber-footer a:hover { text-decoration: underline; }
+    .btn-group { display:flex; gap:0.8rem; margin-top:1.5rem; }
+    .btn { flex:1; background:var(--accent); color:#121620; border:none; padding:14px; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer; transition:.2s; }
+    .btn:hover { opacity:.9; }
+    .btn-danger { background:var(--danger); color:#121620; }
 
-    /* PROFESYONEL ÇEREZ (COOKIE) POP-UP (3 Butonlu) */
-    .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: #1a202c; border-top: 2px solid #00FF66; padding: 20px; z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 15px; box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
-    .cookie-text { font-size: 13px; color: #cbd5e0; text-align: center; max-width: 800px; }
-    .cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-    .btn-cookie { padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px; border: none; transition: 0.2s; }
-    .btn-cookie-accept { background-color: #00FF66; color: #121620; }
-    .btn-cookie-accept:hover { background-color: #00cc52; }
-    .btn-cookie-essential { background-color: transparent; color: #00FF66; border: 1px solid #00FF66; }
-    .btn-cookie-essential:hover { background-color: rgba(0, 255, 102, 0.1); }
-    .btn-cookie-reject { background-color: #e74c3c; color: white; }
-    .btn-cookie-reject:hover { background-color: #c0392b; }
+    .result { margin-top:2rem; background:#121620; border:1px solid #2d3748; border-radius:12px; padding:1.5rem; text-align:center; }
+    .result-title { color:var(--muted); font-size:0.9rem; text-transform:uppercase; margin-bottom:0.8rem; }
+    .value { font-size:2rem; font-weight:700; color:var(--accent); }
+    .policy { color:var(--muted); font-size:0.85rem; margin-top:0.5rem; }
 
-    /* MODAL (Açılır Pencere) STİLLERİ (Gizlilik, Şikayet vb.) */
-    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-    .modal-content { background-color: #1a202c; border: 1px solid #00FF66; border-radius: 16px; padding: 25px; width: 90%; max-width: 500px; color: white; position: relative; max-height: 80vh; overflow-y: auto; }
-    .modal-close { position: absolute; top: 15px; right: 20px; color: #00FF66; font-size: 24px; cursor: pointer; font-weight: bold; }
-    .modal-content h3 { color: #00FF66; margin-top: 0; border-bottom: 1px solid #2d3748; padding-bottom: 10px; }
-    
-    /* İletişim / Şikayet Formu */
-    .contact-form input, .contact-form textarea { width: 100%; background-color: #121620; border: 1px solid #4a5568; color: white; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-family: inherit; box-sizing: border-box; }
-    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #00FF66; }
-    .contact-form button { background-color: #00FF66; color: #121620; font-weight: bold; padding: 10px; width: 100%; border: none; border-radius: 8px; cursor: pointer; }
+    .faq details { background:#1a202c; border:1px solid var(--accent); border-radius:12px; margin-bottom:0.8rem; overflow:hidden; }
+    .faq summary { font-weight:700; color:var(--accent); cursor:pointer; padding:12px; display:flex; align-items:center; gap:8px; }
+    .faq-content { padding:14px; color:var(--muted); line-height:1.6; font-size:0.9rem; }
+    .faq-content h4 { margin:0.8rem 0 0.4rem; color:var(--accent); }
 
+    .footer { border-top:1px solid #2d3748; margin-top:2.5rem; padding-top:1.2rem; font-size:0.85rem; color:var(--muted); text-align:center; }
+    .footer a { color:var(--accent); margin:0 4px; }
+
+    .cookie { position:fixed; bottom:0; width:100%; background:#1a202c; border-top:2px solid var(--accent); padding:15px 0; display:flex; flex-direction:column; align-items:center; z-index:9999; }
+    .cookie p { margin:5px 0; font-size:0.85rem; color:#cbd5e0; text-align:center; max-width:90%; }
+    .cookie-buttons { margin-top:8px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+    .cookie button { background:var(--accent); color:#121620; padding:8px 12px; border:none; border-radius:5px; cursor:pointer; font-size:0.9rem; }
+    .cookie .essential { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); justify-content:center; align-items:center; z-index:2000; }
+    .modal-content { background:#1a202c; border:1px solid var(--accent); border-radius:16px; padding:25px; max-width:90%; max-height:85vh; overflow:auto; position:relative; }
+    .close { position:absolute; top:12px; right:16px; color:var(--accent); font-size:1.8rem; cursor:pointer; font-weight:bold; }
+    .modal-content h3 { margin-top:0; color:var(--accent); border-bottom:1px solid #2d3748; padding-bottom:10px; }
+
+    @media(max-width:768px){
+      .wrapper { flex-direction:column; }
+      .sidebar { flex:0 0 auto; border-right:none; border-bottom:1px solid #2d3748; }
+      .main { padding:1.5rem; }
+    }
   </style>
 </head>
 <body>
+  <!-- ---------- SIDEBAR (Hero) ---------- -->
+  <div class="sidebar" id="sidebar">
+    <div class="hero-title">IRON VISION</div>
+    <div class="sphere-container" id="sphereContainer">
+      <canvas id="sphereCanvas"></canvas>
+    </div>
+  </div>
 
-<div class="container">
-    
-    <div class="header-bar">
-      <!-- BÜYÜK LOGO -->
-      <div class="brand-logo" style="width: 250px;">
+  <!-- ---------- MAIN CONTENT ---------- -->
+  <div class="main" id="mainContent">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="100%" height="auto">
           <defs>
-            <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            <filter id="neon" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
             <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#1a1f1a;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#0d110d;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:#1a1f1a;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#0d110d;stop-opacity:1"/>
             </linearGradient>
           </defs>
-          <polygon points="30,2 54,16 54,44 30,58 6,44 6,16" fill="none" stroke="#39ff14" stroke-width="1.2" filter="url(#neonGlow)" opacity="0.9" />
-          <polygon points="30,4 52,17 52,43 30,56 8,43 8,17" fill="url(#iconBg)" />
-          <circle cx="30" cy="30" r="6.5" fill="none" stroke="#39ff14" stroke-width="1.2" opacity="0.85"/>
-          <circle cx="30" cy="30" r="2.8" fill="#39ff14" />
-          <text x="64" y="27" font-family="'Courier New', monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#39ff14" filter="url(#neonGlow)">IRON</text>
-          <text x="64" y="45" font-family="'Courier New', monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#e8ffe8" opacity="0.92">VISION</text>
+          <polygon points="30,2 54,16 54,44 30,58 6,44 6,16" fill="none" stroke="#39ff14" stroke-width="1.2" filter="url(#neon)" opacity=".9"/>
+          <polygon points="30,4 52,17 52,43 30,56 8,43 8,17" fill="url(#iconBg)"/>
+          <circle cx="30" cy="30" r="6.5" fill="none" stroke="#39ff14" stroke-width="1.2" opacity=".85"/>
+          <circle cx="30" cy="30" r="2.8" fill="#39ff14"/>
+          <text x="64" y="27" font-family="'Courier New',monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#39ff14" filter="url(#neon)">IRON</text>
+          <text x="64" y="45" font-family="'Courier New',monospace" font-size="16" font-weight="700" letter-spacing="3" fill="#e8ffe8" opacity=".92">VISION</text>
         </svg>
       </div>
 
-      <a href="vergi.html" style="display: inline-flex; align-items: center; padding: 8px 16px; font-weight: bold; border-radius: 12px; background-color: #1e293b; border: 1px solid #334155; color: #cbd5e1; text-decoration: none;" id="ui-tax-link">
-        <svg style="width: 16px; height: 16px; margin-right: 8px; color: #10b981;" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-        <span>Tax Calculator</span>
-      </a>
-
-      <!-- DİL SEÇİCİ -->
-      <div class="language-selector">
-        <button class="lang-btn" id="langBtn">
-          <i class="fas fa-globe"></i><span id="current-lang">🇺🇸 English (US)</span>
-        </button>
-        <ul class="lang-dropdown" id="langDropdown">
+      <!-- Language selector -->
+      <div class="lang">
+        <button class="lang-btn" id="langBtn"><i class="fas fa-globe"></i><span id="curLang">🇺🇸 English (US)</span></button>
+        <ul class="lang-menu" id="langMenu">
           <li data-lang="en" data-currency="USD" data-symbol="$" data-locale="en-US">🇺🇸 English (US)</li>
-          <li data-lang="en-gb" data-currency="GBP" data-symbol="£" data-locale="en-GB">🇬🇧 English (UK)</li>
           <li data-lang="tr" data-currency="TRY" data-symbol="₺" data-locale="tr-TR">🇹🇷 Türkçe</li>
+          <li data-lang="en-gb" data-currency="GBP" data-symbol="£" data-locale="en-GB">🇬🇧 English (UK)</li>
           <li data-lang="de" data-currency="EUR" data-symbol="€" data-locale="de-DE">🇩🇪 Deutsch</li>
           <li data-lang="es" data-currency="EUR" data-symbol="€" data-locale="es-ES">🇪🇸 Español</li>
         </ul>
       </div>
     </div>
 
-    <h2 id="ui-title">Crypto Profit Calculator</h2>
-    <div class="subtitle" id="ui-subtitle">Calculate your investment returns instantly.</div>
-
+    <!-- Calculator form -->
     <form id="calcForm">
-      <!-- TL / DOLAR / STERLİN ÇEVİRİCİLİ YATIRIM GİRDİSİ -->
       <div class="input-group">
-        <label id="ui-label-amount">Investment Amount</label>
+        <label for="investAmount">Investment Amount</label>
         <div class="input-wrapper">
           <select id="investCurrency" class="currency-select">
-            <option value="USD">USD ($)</option>
-            <option value="TRY">TRY (₺)</option>
-            <option value="GBP">GBP (£)</option>
-            <option value="EUR">EUR (€)</option>
+            <option value="USD" data-symbol="$" data-locale="en-US">USD ($)</option>
+            <option value="TRY" data-symbol="₺" data-locale="tr-TR">TRY (₺)</option>
+            <option value="GBP" data-symbol="£" data-locale="en-GB">GBP (£)</option>
+            <option value="EUR" data-symbol="€" data-locale="de-DE">EUR (€)</option>
           </select>
-          <input type="number" id="investAmount" placeholder="0" step="any">
+          <input type="number" id="investAmount" placeholder="0" step="any" />
         </div>
-        <div id="convertedUsdAmount" style="font-size: 11px; color: #00FF66; margin-top: 5px; display: none;">≈ 0.00 USD</div>
+        <div id="usdHint" style="color:var(--accent);font-size:0.85rem;margin-top:4px;display:none;"></div>
       </div>
 
       <div class="input-group">
-        <label id="ui-label-buy">Buying Price (USD)</label>
-        <div class="input-wrapper-static">
-          <span>$</span>
-          <input type="number" id="buyPrice" placeholder="0" step="any">
-        </div>
+        <label for="buyPrice">Buying Price (USD)</label>
+        <div class="static"><span>$</span><input type="number" id="buyPrice" placeholder="0" step="any" /></div>
       </div>
 
       <div class="input-group">
-        <label id="ui-label-sell">Current / Selling Price (USD)</label>
-        <div class="input-wrapper-static">
-          <span>$</span>
-          <input type="number" id="sellPrice" placeholder="0" step="any">
-        </div>
+        <label for="sellPrice">Current / Selling Price (USD)</label>
+        <div class="static"><span>$</span><input type="number" id="sellPrice" placeholder="0" step="any" /></div>
       </div>
 
-      <div class="tax-box" id="taxBox">
-        <label id="ui-tax-label" style="color:#e74c3c; font-size:12px; margin-bottom:5px; display:block;">Capital Gains Tax (Estimated)</label>
-        <select id="holdingPeriod">
-          <option value="none" id="ui-tax-opt1">Do Not Calculate Tax (Gross Only)</option>
-          <option value="short" id="ui-tax-opt2">Short-Term (Less Than 1 Year / Higher Tax)</option>
-          <option value="long" id="ui-tax-opt3">Long-Term (More Than 1 Year / Lower Tax)</option>
+      <div class="input-group">
+        <label for="holdingPeriod">Capital Gains Tax (Estimated)</label>
+        <select id="holdingPeriod" class="currency-select">
+          <option value="none" id="optGross">Do Not Calculate Tax (Gross Only)</option>
+          <option value="short" id="optShort">Short‑Term (≤ 1 yr – Higher Tax)</option>
+          <option value="long" id="optLong">Long‑Term (> 1 yr – Lower Tax)</option>
         </select>
       </div>
 
       <div class="btn-group">
-        <button type="button" class="btn-block" id="ui-calc-btn" onclick="calculateProfit()">Calculate</button>
-        <button type="button" class="btn-clear-main" onclick="clearForm()" title="Clear"><i class="fa-solid fa-trash"></i></button>
+        <button type="button" class="btn" id="calcBtn" onclick="calculateProfit()">Calculate</button>
+        <button type="button" class="btn btn-danger" onclick="clearForm()">Clear</button>
       </div>
     </form>
 
-    <div class="result-box" id="resultContainer">
-      <div class="result-title" id="ui-result-title">Total Return (Net)</div>
-      <div class="local-return" id="localReturnResult">+0.00 $</div>
-      <div class="usd-return" id="usdReturnResult">+0.00 $</div>
-      <div class="percentage" id="percentResult">+0.00%</div>
-      <div class="tax-return" id="taxReturnResult">-0.00 $ Tax Deduction</div>
+    <!-- Result box -->
+    <div class="result" id="resultBox">
+      <div class="result-title">Total Return (Net)</div>
+      <div class="value" id="netReturn">+0.00 $</div>
+      <div class="policy" id="policyMsg"></div>
     </div>
 
-    <!-- ZENGİNLEŞTİRİLMİŞ AKORDEON (İçi Dolu Dolu) -->
-    <div class="siber-guide-container">
-        <details>
-            <summary id="ui-faq-title"><i class="fa-solid fa-circle-question"></i> Frequently Asked Questions (FAQ)</summary>
-            <div class="siber-content">
-                <h4 style="color:#00FF66;" id="ui-faq-q1">1. How is the base crypto profit calculated?</h4>
-                <p id="ui-faq-a1" style="margin-bottom:15px;">The system first takes your initial investment and converts it to USD using live market APIs if necessary. It then divides this amount by your buying price to determine your exact token holdings. Finally, it multiplies your holdings by the current selling price to find your gross profit.</p>
-                
-                <h4 style="color:#00FF66;" id="ui-faq-q2">2. What are crypto tax deductions and holding periods?</h4>
-                <p id="ui-faq-a2" style="margin-bottom:15px;">In many jurisdictions (such as the US, UK, and parts of the EU), your tax liability depends heavily on how long you hold the asset. Assets held for less than 1 year are typically subject to higher Short-Term Capital Gains brackets, while holding for over 1 year qualifies for reduced Long-Term rates.</p>
-
-                <h4 style="color:#00FF66;" id="ui-faq-q3">3. How does the live currency conversion work?</h4>
-                <p id="ui-faq-a3" style="margin-bottom:15px;">If you input your investment in TRY, GBP, or EUR, our engine fetches the latest fiat exchange rates. It calculates the raw crypto mechanics in USD (as global crypto pairs operate primarily on USD/USDT), and translates the final net profit back to your local currency for real-world accuracy.</p>
-            </div>
-        </details>
+    <!-- FAQ -->
+    <div class="faq">
+      <details>
+        <summary><i class="fa-solid fa-circle-question"></i> <span id="ui-faq-title">Frequently Asked Questions (FAQ)</span></summary>
+        <div class="faq-content">
+          <h4 id="ui-faq-q1">1. How is the base crypto profit calculated?</h4>
+          <p id="ui-faq-a1">The system converts your investment to USD (live rates when a non‑USD currency is chosen), divides by the buying price to find token amount, then multiplies by the current selling price for gross profit.</p>
+          <h4 id="ui-faq-q2">2. What are crypto tax deductions?</h4>
+          <p id="ui-faq-a2">Short‑term (≤ 1 year) holdings are usually taxed at higher rates, while long‑term (> 1 year) holdings may qualify for reduced rates in many jurisdictions.</p>
+          <h4 id="ui-faq-q3">3. How does live currency conversion work?</h4>
+          <p id="ui-faq-a3">If you enter TRY/GBP/EUR, we fetch live fiat rates, run the crypto math in USD, then convert the final profit back to your selected local currency.</p>
+        </div>
+      </details>
     </div>
 
-</div>
-
-<!-- FOOTER & MODAL LİNKLERİ -->
-<footer class="siber-footer">
-    <a onclick="openModal('privacyModal')" id="ui-foot-privacy">Privacy Policy</a> | 
-    <a onclick="openModal('termsModal')" id="ui-foot-terms">Terms of Service</a> | 
-    <a onclick="openModal('aboutModal')" id="ui-foot-about">About Us</a> |
-    <a onclick="openModal('contactModal')" id="ui-foot-contact" style="color: #e74c3c;">Contact / Report</a>
-    <div style="margin-top:10px; color:#718096;">© 2026 Iron Vision Tools. All rights reserved.</div>
-</footer>
-
-<!-- 3 BUTONLU PROFESYONEL ÇEREZ (COOKIE) EKRANI -->
-<div class="cookie-banner" id="cookieBanner">
-  <div class="cookie-text" id="ui-cookie-text">We use cookies to personalize content, AdSense ads, and analyze our traffic. You can choose to accept all cookies, only essential operational cookies, or reject non-essential tracking.</div>
-  <div class="cookie-buttons">
-    <button class="btn-cookie btn-cookie-accept" onclick="closeCookie()" id="ui-cookie-accept">Accept All</button>
-    <button class="btn-cookie btn-cookie-essential" onclick="closeCookie()" id="ui-cookie-essential">Essential Only</button>
-    <button class="btn-cookie btn-cookie-reject" onclick="closeCookie()" id="ui-cookie-reject">Reject All</button>
+    <!-- Footer -->
+    <div class="footer">
+      © 2026 Iron Vision Tools. All rights reserved. <a href="#" onclick="openModal('privacyModal')">Privacy</a> | <a href="#" onclick="openModal('termsModal')">Terms</a>
+    </div>
   </div>
-</div>
 
-<!-- ================= MODALLAR (AÇILIR PENCERELER) ================= -->
-
-<!-- Gizlilik Modalı -->
-<div class="modal-overlay" id="privacyModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('privacyModal')">&times;</span>
-    <h3 id="m-priv-title">Privacy Policy</h3>
-    <p id="m-priv-text">All tax calculations are processed strictly client-side. No financial numbers are transmitted to our servers. To keep our systems free, we use Google AdSense to publish ads. They use cookies to track localized anonymous web interaction metrics.</p>
+  <!-- ---------- COOKIE BANNER ---------- -->
+  <div class="cookie" id="cookieBanner">
+    <p id="ui-cookie-text">We use cookies to personalize content, serve AdSense ads, and analyze traffic. Choose your preference.</p>
+    <div class="cookie-buttons">
+      <button onclick="closeAll()" id="ui-cookie-accept">Accept All</button>
+      <button class="essential" onclick="closeAll()" id="ui-cookie-essential">Essential Only</button>
+      <button class="btn-danger" onclick="closeAll()" id="ui-cookie-reject">Reject All</button>
+    </div>
   </div>
-</div>
 
-<!-- Kullanım Koşulları Modalı -->
-<div class="modal-overlay" id="termsModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('termsModal')">&times;</span>
-    <h3 id="m-term-title">Terms of Service</h3>
-    <p id="m-term-text">This web utility yields experimental automated estimates based on localized data. It does not substitute expert fiscal management reporting. By using this tool, you agree that Iron Vision Tools is not liable for any trading losses.</p>
-  </div>
-</div>
+  <!-- ---------- MODALS ---------- -->
+  <div class="modal" id="privacyModal"><div class="modal-content"><span class="close" onclick="closeModal('privacyModal')">&times;</span><h3 id="m-priv-title">Privacy Policy</h3><p id="m-priv-text">All calculations run strictly client‑side. We use Google AdSense which places cookies for analytics.</p></div></div>
+  <div class="modal" id="termsModal"><div class="modal-content"><span class="close" onclick="closeModal('termsModal')">&times;</span><h3 id="m-term-title">Terms of Service</h3><p id="m-term-text">This tool provides experimental estimates—not official financial advice. Iron Vision Tools is not liable for any trading losses.</p></div></div>
 
-<!-- Hakkımızda Modalı -->
-<div class="modal-overlay" id="aboutModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('aboutModal')">&times;</span>
-    <h3 id="m-abt-title">About Us</h3>
-    <p id="m-abt-text">Iron Vision Tools is an independent software development laboratory committed to crafting robust, hyper-focused financial utility web tools. We bridge the gap between complex international financial frameworks and daily consumer calculation needs.</p>
-  </div>
-</div>
+  <script>
+    // ---------- UTILITIES ----------
+    const $ = id => document.getElementById(id);
 
-<!-- İletişim / Şikayet Modalı (Doğrudan Mail Bağlantılı) -->
-<div class="modal-overlay" id="contactModal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('contactModal')">&times;</span>
-    <h3 id="m-cnt-title">Contact & Support</h3>
-    <p style="font-size: 13px; color: #a0aec0; margin-bottom: 15px;" id="m-cnt-desc">Found a bug or have a suggestion? Send a direct message to our support desk.</p>
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Message Sent!'); closeModal('contactModal');">
-      <input type="text" placeholder="Your Name" required id="m-cnt-name">
-      <input type="email" placeholder="Your Email Address" required id="m-cnt-mail">
-      <textarea rows="4" placeholder="Your Message / Report..." required id="m-cnt-msg"></textarea>
-      <button type="submit" id="m-cnt-btn">Send Message to ironvisiontools@gmail.com</button>
-    </form>
-  </div>
-</div>
-
-<script>
-    // ÇOKLU DİL PAKETİ (Modal, SSS ve Çerezler Dahil)
+    // ---------- LANGUAGE SWITCH ----------
     const translations = {
-      "en": { 
-        title: "Crypto Profit Calculator", subtitle: "Calculate your investment returns instantly.", amount: "Investment Amount", buy: "Buying Price (USD)", sell: "Current / Selling Price (USD)", calcBtn: "Calculate", resultTitle: "Total Return (Net)", 
-        taxLabel: "Capital Gains Tax (Estimated)", taxOpt1: "Do Not Calculate Tax (Gross Only)", taxOpt2: "Short-Term (Less Than 1 Year / Higher Tax)", taxOpt3: "Long-Term (More Than 1 Year / Lower Tax)",
-        faqTitle: "Frequently Asked Questions (FAQ)", 
-        faqQ1: "1. How is the base crypto profit calculated?", faqA1: "The system converts your investment to USD, divides it by the buy price to find token amount, and multiplies by the sell price.", 
-        faqQ2: "2. What are crypto tax deductions?", faqA2: "Holding assets for less than 1 year triggers Short-Term tax, while over 1 year qualifies for lower Long-Term rates.",
-        faqQ3: "3. How does live currency conversion work?", faqA3: "If you input TRY or GBP, we fetch live fiat rates, do the crypto math in USD, and translate the final net profit back to your local currency.",
-        footPrivacy: "Privacy Policy", footTerms: "Terms of Service", footAbout: "About Us", footContact: "Contact / Report", 
-        cookieText: "We use cookies to personalize content, AdSense ads, and analyze traffic. Choose your preference.", cookieAcc: "Accept All", cookieEss: "Essential Only", cookieRej: "Reject All",
-        mPrivTitle: "Privacy Policy", mPrivText: "All calculations are processed strictly client-side. We use Google AdSense which uses cookies for analytics.",
-        mTermTitle: "Terms of Service", mTermText: "This is an experimental estimation tool, not official financial advice.",
-        mAbtTitle: "About Us", mAbtText: "Iron Vision Tools crafts robust, hyper-focused financial utilities for daily calculation needs.",
-        mCntTitle: "Contact & Support", mCntDesc: "Found a bug or have a suggestion? Send a message to our support desk.", mCntName: "Your Name", mCntMail: "Your Email", mCntMsg: "Your Message...", mCntBtn: "Send Message to ironvisiontools@gmail.com"
+      en: {
+        title: 'Crypto Profit Calculator',
+        amt: 'Investment Amount', buy: 'Buying Price (USD)', sell: 'Current / Selling Price (USD)',
+        tax: 'Capital Gains Tax (Estimated)', optGross: 'Do Not Calculate Tax (Gross Only)',
+        optShort: 'Short‑Term ( ≤ 1 yr – Higher Tax)', optLong: 'Long‑Term ( > 1 yr – Lower Tax)',
+        faq: 'Frequently Asked Questions (FAQ)',
+        faqQ1: '1. How is the base crypto profit calculated?',
+        faqA1: 'The system converts your investment to USD (live rates when a non‑USD currency is chosen), divides by the buying price to find token amount, then multiplies by the current selling price for gross profit.',
+        faqQ2: '2. What are crypto tax deductions?',
+        faqA2: 'Short‑term (≤ 1 year) holdings are usually taxed at higher rates, while long‑term (> 1 year) holdings may qualify for reduced rates in many jurisdictions.',
+        faqQ3: '3. How does live currency conversion work?',
+        faqA3: 'If you enter TRY/GBP/EUR, we fetch live fiat rates, run the crypto math in USD, then convert the final profit back to your selected local currency.',
+        cookie: 'We use cookies to personalize content, serve AdSense ads, and analyze traffic. Choose your preference.',
+        accept: 'Accept All', essential: 'Essential Only', reject: 'Reject All'
       },
-      "tr": { 
-        title: "Kripto Para Kar Hesaplayıcı", subtitle: "Yatırım getirilerinizi anında hesaplayın.", amount: "Yatırım Miktarı", buy: "Satın Alım Fiyatı (USD)", sell: "Güncel / Satış Fiyatı (USD)", calcBtn: "Hesapla", resultTitle: "Toplam Getiri (Net)", 
-        taxLabel: "Sermaye Kazancı Vergisi (Tahmini)", taxOpt1: "Vergi Hesaplama (Sadece Brüt)", taxOpt2: "Kısa Vadeli (1 Yıldan Az / Yüksek Kesinti)", taxOpt3: "Uzun Vadeli (1 Yıldan Fazla / Düşük Kesinti)",
-        faqTitle: "Sıkça Sorulan Sorular (SSS)", 
-        faqQ1: "1. Kripto karı temelde nasıl hesaplanır?", faqA1: "Sistem yatırımınızı USD'ye çevirir, alış fiyatına bölüp token miktarını bulur ve bunu güncel satış fiyatıyla çarpar.", 
-        faqQ2: "2. Vergi kesintileri ve süreleri nelerdir?", faqA2: "1 yıldan kısa tutulan varlıklar yüksek kısa vadeli vergiye, 1 yıldan uzun tutulanlar ise düşük uzun vadeli vergiye tabidir.",
-        faqQ3: "3. Canlı kur çevirisi nasıl çalışır?", faqA3: "TL veya GBP girerseniz, sistem anlık kurları çeker, kripto matematiğini USD üzerinden yapar ve net karı tekrar yerel para biriminize çevirir.",
-        footPrivacy: "Gizlilik Politikası", footTerms: "Kullanım Koşulları", footAbout: "Hakkımızda", footContact: "İletişim / Şikayet", 
-        cookieText: "AdSense reklamlarını kişiselleştirmek ve trafiği analiz etmek için çerezleri (cookies) kullanıyoruz. Tercihinizi belirleyin.", cookieAcc: "Tümünü Kabul Et", cookieEss: "Sadece Gerekli", cookieRej: "Tümünü Reddet",
-        mPrivTitle: "Gizlilik Politikası", mPrivText: "Tüm hesaplamalar cihazınızda çalışır, verileriniz sunuculara gitmez. AdSense analitik çerezler kullanır.",
-        mTermTitle: "Kullanım Koşulları", mTermText: "Bu deneysel bir tahmin aracıdır, resmi finansal tavsiye niteliği taşımaz.",
-        mAbtTitle: "Hakkımızda", mAbtText: "Iron Vision Tools, günlük hesaplama ihtiyaçlarınız için minimalist ve odaklı finansal araçlar üretir.",
-        mCntTitle: "İletişim & Destek", mCntDesc: "Hata mı buldunuz veya öneriniz mi var? Destek masamıza mesaj gönderin.", mCntName: "Adınız", mCntMail: "E-posta Adresiniz", mCntMsg: "Mesajınız / Şikayetiniz...", mCntBtn: "ironvisiontools@gmail.com adresine Gönder"
+      tr: {
+        title: 'Kripto Kar Hesaplayıcı',
+        amt: 'Yatırım Miktarı', buy: 'Satın Alım Fiyatı (USD)', sell: 'Güncel / Satış Fiyatı (USD)',
+        tax: 'Sermaye Kazancı Vergisi (Tahmini)', optGross: 'Vergi Hesaplama (Sadece Brüt)',
+        optShort: 'Kısa Vadeli ( ≤ 1 yıl – Yüksek Vergi)', optLong: 'Uzun Vadeli ( > 1 yıl – Düşük Vergi)',
+        faq: 'Sıkça Sorulan Sorular (SSS)',
+        faqQ1: '1. Kripto karı temelde nasıl hesaplanır?',
+        faqA1: 'Sistem yatırımı USD’ye çevirir (non‑USD dövizde canlı oran), alış fiyatına bölerek token miktarını bulur, ardından satış fiyatıyla çarpar.',
+        faqQ2: '2. Vergi kesintileri nedir?',
+        faqA2: 'Kısa vadeli (≤ 1 yıl) tutmalar genellikle yüksek vergi oranına sahiptir, uzun vadeli (> 1 yıl) tutmalar ise daha düşük oranlarla vergilendirilebilir.',
+        faqQ3: '3. Canlı kur çevirisi nasıl çalışır?',
+        faqA3: 'TRY/GBP/EUR girildiğinde canlı döviz oranları alınır, kripto hesabı USD üzerinden yapılır ve net kar yerel para birimine çevrilir.',
+        cookie: 'İçerik kişiselleştirmek, AdSense reklamları ve trafiği analiz etmek için çerezler kullanılır. Tercihinizi seçin.',
+        accept: 'Tümünü Kabul Et', essential: 'Sadece Gerekli', reject: 'Tümünü Reddet'
       }
     };
-
-    let currentLang = "en";
-    let currentCurrency = "USD";
-    let currentSymbol = "$";
-    let currentLocale = "en-US";
-    let liveExchangeRates = {};
-
-    // Kurları Başlangıçta Çek
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch('https://open.er-api.com/v6/latest/USD')
-        .then(res => res.json())
-        .then(data => { liveExchangeRates = data.rates; });
-
-      let browserLang = navigator.language || navigator.userLanguage;
-      let shortLang = browserLang.split('-')[0];
-      
-      let matchedLi = document.querySelector(`.lang-dropdown li[data-lang="${browserLang.toLowerCase()}"]`) || document.querySelector(`.lang-dropdown li[data-lang="${shortLang}"]`);
-      
-      if(matchedLi) {
-        currentLang = matchedLi.getAttribute('data-lang').split('-')[0];
-        currentCurrency = matchedLi.getAttribute('data-currency');
-        currentSymbol = matchedLi.getAttribute('data-symbol');
-        currentLocale = matchedLi.getAttribute('data-locale');
-        document.getElementById('current-lang').innerHTML = matchedLi.innerHTML;
-        
-        // TR'den girildiyse varsayılan girdi para birimini TRY yap
-        if(currentCurrency === "TRY") document.getElementById('investCurrency').value = "TRY";
-        if(currentCurrency === "GBP") document.getElementById('investCurrency').value = "GBP";
-      }
-      updateLanguage(currentLang);
-    });
-
-    // Modalları Açma Kapatma Mantığı
-    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
-    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-    function closeCookie() { document.getElementById('cookieBanner').style.display = 'none'; }
-    
-    // Modal Dışı Tıklama
-    window.onclick = function(event) {
-      if (event.target.classList.contains('modal-overlay')) event.target.style.display = "none";
+    let curLang = 'en';
+    function setTexts(){
+      const t = translations[curLang];
+      document.title = t.title;
+      $('curLang').innerText = curLang === 'en' ? '🇺🇸 English (US)' : '🇹🇷 Türkçe';
+      // Labels
+      document.querySelector('label[for="investAmount"]').innerText = t.amt;
+      document.querySelector('label[for="buyPrice"]').innerText = t.buy;
+      document.querySelector('label[for="sellPrice"]').innerText = t.sell;
+      document.querySelector('label[for="holdingPeriod"]').innerText = t.tax;
+      document.getElementById('optGross').innerText = t.optGross;
+      document.getElementById('optShort').innerText = t.optShort;
+      document.getElementById('optLong').innerText = t.optLong;
+      document.getElementById('ui-faq-title').innerText = t.faq;
+      document.getElementById('ui-faq-q1').innerText = t.faqQ1;
+      document.getElementById('ui-faq-a1').innerText = t.faqA1;
+      document.getElementById('ui-faq-q2').innerText = t.faqQ2;
+      document.getElementById('ui-faq-a2').innerText = t.faqA2;
+      document.getElementById('ui-faq-q3').innerText = t.faqQ3;
+      document.getElementById('ui-faq-a3').innerText = t.faqA3;
+      document.getElementById('ui-cookie-text').innerText = t.cookie;
+      document.getElementById('ui-cookie-accept').innerText = t.accept;
+      document.getElementById('ui-cookie-essential').innerText = t.essential;
+      document.getElementById('ui-cookie-reject').innerText = t.reject;
     }
+    // Language menu
+    $('langBtn').onclick = e => { e.stopPropagation(); $('langMenu').classList.toggle('show'); };
+    window.onclick = e => { if(!e.target.closest('.lang')) $('langMenu').classList.remove('show'); };
+    $('langMenu').onclick = e => { if(e.target.dataset.lang){ curLang = e.target.dataset.lang; setTexts(); } };
+    setTexts();
 
-    // Dil Menüsü İşlemleri
-    document.querySelectorAll('#langDropdown li').forEach(item => {
-      item.addEventListener('click', () => {
-        currentLang = item.getAttribute('data-lang').split('-')[0];
-        currentCurrency = item.getAttribute('data-currency');
-        currentSymbol = item.getAttribute('data-symbol');
-        currentLocale = item.getAttribute('data-locale');
-        document.getElementById('current-lang').innerHTML = item.innerHTML;
-        updateLanguage(currentLang);
-        if(document.getElementById('investAmount').value !== "") { calculateProfit(); }
-      });
-    });
+    // ---------- LIVE RATES ----------
+    let liveRates = {};
+    fetch('https://open.er-api.com/v6/latest/USD')
+      .then(r=>r.json())
+      .then(d=>{ liveRates = d.rates; });
+    const fmtUsd = v => new Intl.NumberFormat('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}).format(v);
 
-    document.getElementById('langBtn').addEventListener('click', (e) => {
-      e.stopPropagation(); document.getElementById('langDropdown').classList.toggle('show');
-    });
-    window.addEventListener('click', (e) => { if(!e.target.closest('.language-selector')) document.getElementById('langDropdown').classList.remove('show'); });
+    // ---------- CALCULATION ----------
+    function calculateProfit(){
+      const amt = parseFloat($('investAmount').value) || 0;
+      const buy = parseFloat($('buyPrice').value) || 0;
+      const sell = parseFloat($('sellPrice').value) || 0;
+      const taxPeriod = $('holdingPeriod').value;
+      const curCurrency = $('investCurrency').value;
 
-    function updateLanguage(lang) {
-      const t = translations[lang] || translations["en"];
-      document.getElementById('ui-title').innerText = t.title;
-      document.getElementById('ui-subtitle').innerText = t.subtitle;
-      document.getElementById('ui-label-amount').innerText = t.amount;
-      document.getElementById('ui-label-buy').innerText = t.buy;
-      document.getElementById('ui-label-sell').innerText = t.sell;
-      document.getElementById('ui-calc-btn').innerText = t.calcBtn;
-      document.getElementById('ui-result-title').innerText = t.resultTitle;
-      document.getElementById('ui-tax-label').innerText = t.taxLabel;
-      document.getElementById('ui-tax-opt1').innerText = t.taxOpt1;
-      document.getElementById('ui-tax-opt2').innerText = t.taxOpt2;
-      document.getElementById('ui-tax-opt3').innerText = t.taxOpt3;
-      document.getElementById('ui-faq-title').innerHTML = `<i class="fa-solid fa-circle-question"></i> ${t.faqTitle}`;
-      document.getElementById('ui-faq-q1').innerText = t.faqQ1; document.getElementById('ui-faq-a1').innerText = t.faqA1;
-      document.getElementById('ui-faq-q2').innerText = t.faqQ2; document.getElementById('ui-faq-a2').innerText = t.faqA2;
-      document.getElementById('ui-faq-q3').innerText = t.faqQ3; document.getElementById('ui-faq-a3').innerText = t.faqA3;
-      
-      document.getElementById('ui-foot-privacy').innerText = t.footPrivacy;
-      document.getElementById('ui-foot-terms').innerText = t.footTerms;
-      document.getElementById('ui-foot-about').innerText = t.footAbout;
-      document.getElementById('ui-foot-contact').innerText = t.footContact;
-      
-      document.getElementById('ui-cookie-text').innerText = t.cookieText;
-      document.getElementById('ui-cookie-accept').innerText = t.cookieAcc;
-      document.getElementById('ui-cookie-essential').innerText = t.cookieEss;
-      document.getElementById('ui-cookie-reject').innerText = t.cookieRej;
-      document.querySelector('#ui-tax-link span').innerText = t.taxLink;
+      if(!amt || !buy || !sell){ $('policyMsg').innerText = 'Enter valid numbers.'; return; }
 
-      // Modal Çevirileri
-      document.getElementById('m-priv-title').innerText = t.mPrivTitle; document.getElementById('m-priv-text').innerText = t.mPrivText;
-      document.getElementById('m-term-title').innerText = t.mTermTitle; document.getElementById('m-term-text').innerText = t.mTermText;
-      document.getElementById('m-abt-title').innerText = t.mAbtTitle; document.getElementById('m-abt-text').innerText = t.mAbtText;
-      document.getElementById('m-cnt-title').innerText = t.mCntTitle; document.getElementById('m-cnt-desc').innerText = t.mCntDesc;
-      document.getElementById('m-cnt-name').placeholder = t.mCntName; document.getElementById('m-cnt-mail').placeholder = t.mCntMail;
-      document.getElementById('m-cnt-msg').placeholder = t.mCntMsg; document.getElementById('m-cnt-btn').innerText = t.mCntBtn;
-    }
+      // Convert to USD
+      let usdAmt = curCurrency === 'USD' ? amt : (liveRates[curCurrency] ? amt / liveRates[curCurrency] : amt);
+      if(curCurrency !== 'USD' && liveRates[curCurrency]){ $('usdHint').style.display='block'; $('usdHint').innerText = `≈ ${fmtUsd(usdAmt)} USD`; }
+      else { $('usdHint').style.display='none'; }
 
-    function clearForm() {
-      document.getElementById('calcForm').reset();
-      const formatter = new Intl.NumberFormat(currentLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      document.getElementById('localReturnResult').innerText = "+ " + formatter.format(0) + " " + currentSymbol;
-      document.getElementById('usdReturnResult').innerText = "+ 0.00 $";
-      document.getElementById('percentResult').innerText = "+0.00%";
-      document.getElementById('taxReturnResult').style.display = 'none';
-      document.getElementById('percentResult').style.backgroundColor = "rgba(46, 204, 113, 0.2)";
-      document.getElementById('percentResult').style.color = "#2ecc71";
-      document.getElementById('taxBox').style.display = 'none';
-      document.getElementById('convertedUsdAmount').style.display = 'none';
-    }
+      const tokens = usdAmt / buy;
+      const totalUSD = tokens * sell;
+      const grossUSD = totalUSD - usdAmt;
+      const tax = grossUSD > 0 ? (taxPeriod === 'short' ? grossUSD*0.20 : taxPeriod === 'long' ? grossUSD*0.10 : 0) : 0;
+      const netUSD = grossUSD - tax;
 
-    // YENİ MATEMATİK: TL girilirse Dolar'a çevirip işlemi yap
-    function calculateProfit() {
-      let rawAmount = parseFloat(document.getElementById('investAmount').value) || 0;
-      const buy = parseFloat(document.getElementById('buyPrice').value) || 0;
-      const sell = parseFloat(document.getElementById('sellPrice').value) || 0;
-      const taxPeriod = document.getElementById('holdingPeriod').value;
-      const invCurrency = document.getElementById('investCurrency').value;
+      const sign = netUSD >= 0 ? '+' : '';
+      $('netReturn').innerHTML = `${sign}${fmtUsd(netUSD)} $`;
 
-      if (rawAmount === 0 || buy === 0 || sell === 0) {
-        document.getElementById('taxBox').style.display = 'none';
-        return; 
-      }
-
-      document.getElementById('taxBox').style.display = 'block';
-
-      let investAmountUSD = rawAmount;
-      const usdFormatter = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-      // Eğer girilen para birimi USD değilse anlık kurdan USD'ye böl
-      if(invCurrency !== "USD" && liveExchangeRates[invCurrency]) {
-         investAmountUSD = rawAmount / liveExchangeRates[invCurrency];
-         document.getElementById('convertedUsdAmount').style.display = 'block';
-         document.getElementById('convertedUsdAmount').innerText = `≈ ${usdFormatter.format(investAmountUSD)} USD`;
+      if(tax > 0){
+        $('policyMsg').innerHTML = `<span style="color:var(--danger);">Tax: −${fmtUsd(tax)} USD</span><br><small style="color:var(--muted);">Estimates only – not tax advice.</small>`;
       } else {
-         document.getElementById('convertedUsdAmount').style.display = 'none';
-      }
-
-      // Kripto Matematiği USD üzerinden yapılır
-      let tokenAmount = investAmountUSD / buy;
-      let totalValueUSD = tokenAmount * sell;
-      let grossProfitUSD = totalValueUSD - investAmountUSD;
-      let percent = (grossProfitUSD / investAmountUSD) * 100;
-
-      let taxDeductionUSD = 0;
-      if (grossProfitUSD > 0 && taxPeriod !== 'none') {
-        taxDeductionUSD = taxPeriod === 'short' ? grossProfitUSD * 0.20 : grossProfitUSD * 0.10;
-      }
-      
-      let netProfitUSD = grossProfitUSD - taxDeductionUSD;
-      const sign = netProfitUSD >= 0 ? "+" : "";
-      
-      document.getElementById('usdReturnResult').innerText = `${sign}${usdFormatter.format(netProfitUSD)} $`;
-      document.getElementById('percentResult').innerText = `${sign}${percent.toFixed(2)}%`;
-      
-      if(taxDeductionUSD > 0) {
-        document.getElementById('taxReturnResult').innerText = `- ${usdFormatter.format(taxDeductionUSD)} $ (Tax / Vergi)`;
-        document.getElementById('taxReturnResult').style.display = 'block';
-      } else {
-        document.getElementById('taxReturnResult').style.display = 'none';
-      }
-
-      if (netProfitUSD >= 0) {
-        document.getElementById('localReturnResult').style.color = "#2ecc71";
-        document.getElementById('percentResult').style.backgroundColor = "rgba(46, 204, 113, 0.2)";
-        document.getElementById('percentResult').style.color = "#2ecc71";
-      } else {
-        document.getElementById('localReturnResult').style.color = "#e74c3c";
-        document.getElementById('percentResult').style.backgroundColor = "rgba(231, 76, 60, 0.2)";
-        document.getElementById('percentResult').style.color = "#e74c3c";
-      }
-
-      // Yerel Para Birimi Çevirisi (Sağ Üstteki Seçili Dile Göre)
-      const localFormatter = new Intl.NumberFormat(currentLocale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      if(currentCurrency === "USD") {
-        document.getElementById('localReturnResult').innerText = `${sign}${localFormatter.format(netProfitUSD)} $`;
-      } else if (liveExchangeRates[currentCurrency]) {
-        let profitLocal = netProfitUSD * liveExchangeRates[currentCurrency];
-        document.getElementById('localReturnResult').innerText = `${sign}${localFormatter.format(profitLocal)} ${currentSymbol}`;
-      } else {
-        document.getElementById('localReturnResult').innerText = "Kur Bağlantı Hatası";
+        $('policyMsg').innerText = 'All calculations are estimates. Not financial advice.';
       }
     }
 
-    ['investAmount', 'buyPrice', 'sellPrice', 'holdingPeriod', 'investCurrency'].forEach(id => {
-      document.getElementById(id).addEventListener('input', calculateProfit);
-    });
-</script>
+    function clearForm(){
+      $('calcForm').reset();
+      $('netReturn').innerHTML = '+0.00 $';
+      $('policyMsg').innerText = 'All calculations are estimates. Not financial advice.';
+      $('usdHint').style.display='none';
+    }
+
+    // ---------- MODALS ----------
+    function openModal(id){$(id).style.display='flex';}
+    function closeModal(id){$(id).style.display='none';}
+    function closeAll(){ $('cookieBanner').style.display='none'; }
+    window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
+
+    // ---------- SPHERE ANIMATION ----------
+    const canvas = $('sphereCanvas');
+    const ctx = canvas.getContext('2d');
+    function resize(){ canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; }
+    window.addEventListener('resize', resize);
+    resize();
+    function drawSphere(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      const w = canvas.width, h = canvas.height;
+      const cx = w/2, cy = h/2;
+      const r = Math.min(w,h)/3;
+      const grad = ctx.createRadialGradient(cx,cy,0,cx,cy,r);
+      grad.addColorStop(0,'#00ff66'); grad.addColorStop(1,'#005500');
+      ctx.fillStyle = grad;
+      ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.fill();
+      ctx.strokeStyle = '#00ff66'; ctx.lineWidth = 1;
+      const offset = Date.now() / 800;
+      for(let i=0;i<36;i++){
+        const a = i * Math.PI/18 + offset;
+        ctx.beginPath(); ctx.moveTo(cx,cy);
+        ctx.lineTo(cx + Math.cos(a)*r*0.7, cy + Math.sin(a)*r*0.7);
+        ctx.stroke();
+      }
+      requestAnimationFrame(drawSphere);
+    }
+    requestAnimationFrame(drawSphere);
+
+    // Initialize with a default calculation so UI shows formatted numbers
+    calculateProfit();
+  </script>
 </body>
 </html>

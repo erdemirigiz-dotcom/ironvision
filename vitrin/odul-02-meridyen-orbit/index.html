@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MERIDYEN — An archive of nocturnal stays</title>
+  <meta name="description" content="MERIDYEN is a curated archive of nocturnal luxury stays that orbit the meridian — a rotating 3D index of rare hotels, from a Cappadocian cave to a Lofoten fjord. Browse the collection and enquire.">
+  <meta name="theme-color" content="#F4F1EB">
+  <link rel="canonical" href="https://example.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MERIDYEN — An archive of nocturnal stays">
+  <meta property="og:description" content="A rotating 3D index of rare nocturnal stays that orbit the meridian. Browse the collection and enquire.">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <meta property="og:url" content="https://example.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F4F1EB'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%231B2A4A' stroke-width='2'/%3E%3Cpath d='M16 7a9 9 0 0 1 0 18' fill='none' stroke='%239B4A24' stroke-width='2'/%3E%3C/svg%3E">
+
+  <link rel="preload" href="fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "MERIDYEN — An archive of nocturnal stays",
+    "description": "A curated, rotating index of rare nocturnal luxury stays.",
+    "url": "https://example.com/",
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+<body>
+  <!-- typographic loader (JS reveals; hidden under no-JS / reduced-motion) -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div>
+      <div class="loader-word">MERIDYEN</div>
+      <div class="loader-bar"><span id="loaderFill"></span></div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="MERIDYEN — home">
+        <span class="mk" aria-hidden="true"></span> Meridyen
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#orbit">The archive</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#ethos">Ethos</a></li>
+          <li><a href="#enquire">Enquire</a></li>
+          <li class="nav-lang"><a href="rehber/" hreflang="tr" lang="tr">Rehber <span class="tag" aria-hidden="true">TR</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-h">
+      <div class="wrap hero-inner">
+        <h1 class="hero-title" id="hero-h" data-reveal>
+          <span class="thin">The archive of</span>
+          Nocturnal Stays
+        </h1>
+        <p class="hero-lede" data-reveal>Rare places to spend a night, kept in a single slowly turning index. A cave carved into Cappadocian tuff, a cabin over a Lofoten fjord, a tent under the Atacama sky — each waits on the meridian for its moment to come round.</p>
+        <div class="hero-actions" data-reveal>
+          <a class="btn btn-cta btn-lg" href="#orbit">Enter the archive <span class="arw" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost btn-lg" href="#collection">The full collection</a>
+        </div>
+        <p class="hero-meta" data-reveal>
+          <span class="mono">EST. MMXXVI</span><span>·</span>
+          <span class="mono">VOL. I — NIGHTFALL</span><span>·</span>
+          <span><span class="accent" id="count">·</span> stays indexed</span><span>·</span>
+          <span>New moon — <span id="moon">·</span></span>
+        </p>
+      </div>
+      <p class="hero-scroll" aria-hidden="true">Scroll to spin ↓</p>
+    </section>
+
+    <!-- ============ ORBIT (signature) ============ -->
+    <section class="orbit" id="orbit" aria-labelledby="orbit-h">
+      <div class="wrap orbit-intro">
+        <p class="eyebrow" data-reveal>The archive <span class="dot">—</span> in orbit</p>
+        <h2 id="orbit-h" class="section-h" data-reveal>Scroll, and the collection comes round</h2>
+        <p class="section-lede" data-reveal>Every plate is one stay, hung on a single tilted ring. Turn the page and the ring turns with you; the plate at the front of the ellipse is the one nearest the night.</p>
+      </div>
+
+      <!-- pinned 3D ring, built by JS; decorative (the readable index is #collection) -->
+      <div class="orbit-stage" aria-hidden="true">
+        <div class="ring" id="ring"></div>
+        <p class="orbit-caption"><span class="orbit-readout" id="orbitReadout">Númana</span>Now at the front of the ring</p>
+      </div>
+
+      <!-- readable fallback rail (default / mobile / reduced-motion) -->
+      <div class="wrap orbit-fallback">
+        <ul class="rail" aria-label="Featured stays">
+          <li class="rail-card t-dusk"><span class="rc-idx">I · Cappadocia</span><h3>Númana</h3><p>A cave suite carved into tuff, lit only by lantern.</p></li>
+          <li class="rail-card t-sea"><span class="rc-idx">II · Lofoten</span><h3>Sölve</h3><p>A glass cabin cantilevered over a black fjord.</p></li>
+          <li class="rail-card t-ember"><span class="rc-idx">III · Douro</span><h3>Vespra</h3><p>A vineyard tower where the vintage sets the light.</p></li>
+          <li class="rail-card t-dune"><span class="rc-idx">IV · Atlas</span><h3>Mera</h3><p>A rammed-earth riad at the edge of the dunes.</p></li>
+          <li class="rail-card t-forest"><span class="rc-idx">V · Kyoto</span><h3>Koru</h3><p>A moss-garden ryokan behind a single sliding door.</p></li>
+          <li class="rail-card t-forest"><span class="rc-idx">VI · Patagonia</span><h3>Silva</h3><p>A timber refuge under the southern silence.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ COLLECTION (accessible index) ============ -->
+    <section class="section-pad" id="collection" aria-labelledby="coll-h">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>The full index</p>
+        <h2 id="coll-h" class="section-h" data-reveal>Eight stays, one meridian</h2>
+        <ol class="coll-list" id="collList">
+          <li class="coll" data-reveal><span class="c-idx">01</span><span class="c-name">Númana</span><span class="c-place">Cappadocia, Türkiye · cave suite</span><span class="c-meta">38.6° N · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">02</span><span class="c-name">Sölve</span><span class="c-place">Lofoten, Norway · fjord cabin</span><span class="c-meta">68.2° N · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">03</span><span class="c-name">Vespra</span><span class="c-place">Douro, Portugal · vineyard tower</span><span class="c-meta">41.2° N · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">04</span><span class="c-name">Mera</span><span class="c-place">Atlas, Morocco · earth riad</span><span class="c-meta">31.1° N · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">05</span><span class="c-name">Koru</span><span class="c-place">Kyoto, Japan · garden ryokan</span><span class="c-meta">35.0° N · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">06</span><span class="c-name">Silva</span><span class="c-place">Patagonia, Chile · timber refuge</span><span class="c-meta">51.0° S · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">07</span><span class="c-name">Akya</span><span class="c-place">Datça, Türkiye · sea pavilion</span><span class="c-meta">36.7° N · from [PH]</span></li>
+          <li class="coll" data-reveal><span class="c-idx">08</span><span class="c-name">Nokta</span><span class="c-place">Uyuni, Bolivia · mirror lodge</span><span class="c-meta">20.1° S · from [PH]</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ETHOS ============ -->
+    <section class="section-pad ethos" id="ethos" aria-labelledby="ethos-h">
+      <div class="wrap">
+        <p class="eyebrow" style="color: rgba(244,241,235,0.6)" data-reveal>Why an archive, not a booking site</p>
+        <h2 id="ethos-h" class="section-h" data-reveal>We keep few places, and we keep them well</h2>
+        <p class="section-lede" data-reveal>MERIDYEN is not a marketplace. Each stay is visited, drawn and added by hand; when a place stops feeling nocturnal, it leaves the ring. No fake scarcity, no countdowns — the collection changes only when the night does.</p>
+        <div class="ethos-grid">
+          <div class="ethos-stat" data-reveal><span class="big">8</span><span class="lbl">stays in the ring</span></div>
+          <div class="ethos-stat" data-reveal><span class="big">6</span><span class="lbl">continents on the meridian</span></div>
+          <div class="ethos-stat" data-reveal><span class="big"><span class="ph">[PH]</span></span><span class="lbl">nights arranged — real figure at launch</span></div>
+          <div class="ethos-stat" data-reveal><span class="big">1</span><span class="lbl">ring, hand-kept</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENQUIRE ============ -->
+    <section class="section-pad enquire" id="enquire" aria-labelledby="enq-h">
+      <div class="wrap enquire-inner">
+        <div class="enquire-copy" data-reveal>
+          <p class="eyebrow">Enquire</p>
+          <h2 id="enq-h" class="section-h">Ask us to open a night</h2>
+          <p class="section-lede">Tell us which stay caught you and when you'd travel. A keeper replies by hand — usually the same day — with availability and the way in. No payment is taken here.</p>
+          <p class="trust">
+            <span><span class="tick" aria-hidden="true">✦</span> A real keeper answers, not a bot.</span>
+            <span><span class="tick" aria-hidden="true">✦</span> No fake scarcity, no countdowns.</span>
+            <span><span class="tick" aria-hidden="true">✦</span> Your dates decide, nothing else.</span>
+          </p>
+        </div>
+        <form class="form" id="enquireForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Email or phone</label>
+            <input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-stay">Which stay?</label>
+            <select id="f-stay" name="stay" required>
+              <option value="" selected disabled>Choose from the ring…</option>
+              <option>Númana — Cappadocia</option>
+              <option>Sölve — Lofoten</option>
+              <option>Vespra — Douro</option>
+              <option>Mera — Atlas</option>
+              <option>Koru — Kyoto</option>
+              <option>Silva — Patagonia</option>
+              <option>Akya — Datça</option>
+              <option>Nokta — Uyuni</option>
+              <option>Not sure yet — surprise me</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-date">Earliest night</label>
+              <input id="f-date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="f-guests">Guests</label>
+              <input id="f-guests" name="guests" type="number" min="1" max="8" step="1" value="2" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-notes">Anything we should know? <span class="opt">(optional)</span></label>
+            <textarea id="f-notes" name="notes" rows="3" placeholder="An occasion, a view you're after, access needs…"></textarea>
+          </div>
+          <button class="btn btn-cta btn-lg btn-block" type="submit">Send enquiry <span class="arw" aria-hidden="true">↗</span></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-fine">Demo form — not wired to a backend yet. <a href="rehber/">See how this site was built (TR)</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top"><span class="mk" aria-hidden="true"></span> Meridyen</a>
+          <p>An archive of nocturnal stays, kept by hand. A fictional showcase by VYRON; every figure marked [PH] and all imagery are stand-ins until launch.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#orbit">Archive</a>
+          <a href="#collection">Collection</a>
+          <a href="#ethos">Ethos</a>
+          <a href="#enquire">Enquire</a>
+          <a href="rehber/" hreflang="tr" lang="tr">Rehber (TR)</a>
+        </nav>
+      </div>
+      <p class="footer-coords">
+        <span>ON THE MERIDIAN</span><span>0.0° · GREENWICH</span><span>MMXXVI</span><span>VOL. I — NIGHTFALL</span>
+      </p>
+      <p class="footer-legal">© <span id="yr">2026</span> MERIDYEN (showcase). Stay names, coordinates and prices are illustrative stand-ins.</p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

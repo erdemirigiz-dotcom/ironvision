@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder: Aegean olive grove at golden hour">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4a26"/><stop offset=".55" stop-color="#26331b"/><stop offset="1" stop-color="#171f10"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="72%" cy="20%" r="45%">
+      <stop offset="0" stop-color="#c9a94a" stop-opacity=".55"/><stop offset="1" stop-color="#c9a94a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a5c2a"/><stop offset="1" stop-color="#2a3719"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#sky)"/>
+  <rect width="800" height="1000" fill="url(#sun)"/>
+  <path d="M0 640 Q200 560 420 620 T800 600 V1000 H0 Z" fill="url(#hill)"/>
+  <path d="M0 780 Q260 700 520 770 T800 740 V1000 H0 Z" fill="#212d16" opacity=".9"/>
+  <!-- stylised olive trees -->
+  <g fill="#8FA33E" opacity=".85">
+    <ellipse cx="150" cy="600" rx="70" ry="52"/><rect x="144" y="620" width="12" height="70" fill="#3a2c1a"/>
+    <ellipse cx="330" cy="640" rx="58" ry="44"/><rect x="325" y="656" width="10" height="60" fill="#3a2c1a"/>
+    <ellipse cx="520" cy="600" rx="76" ry="56"/><rect x="514" y="622" width="12" height="72" fill="#3a2c1a"/>
+    <ellipse cx="690" cy="650" rx="60" ry="46"/><rect x="684" y="668" width="11" height="60" fill="#3a2c1a"/>
+  </g>
+  <g fill="#a9be4f" opacity=".5">
+    <circle cx="120" cy="585" r="6"/><circle cx="185" cy="610" r="5"/><circle cx="500" cy="585" r="6"/><circle cx="545" cy="615" r="5"/>
+  </g>
+  <text x="400" y="930" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#F4F1E8" opacity=".85" font-style="italic">SAFİ · the grove</text>
+  <text x="400" y="965" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" letter-spacing="3" fill="#C9D2AE" opacity=".8">[VIDEO POSTER PLACEHOLDER]</text>
+</svg>

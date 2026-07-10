@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DALGA Outdoor — Whitewater Rafting, Canyoning & Zipline</title>
+  <meta name="description" content="DALGA Outdoor runs half- and full-day whitewater rafting, canyoning and zipline trips on a fast river gorge. No swimming required, all gear and certified guides included.">
+  <meta name="theme-color" content="#0A1F1C">
+  <link rel="canonical" href="https://example.com/">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DALGA Outdoor — Surrender to the flow">
+  <meta property="og:description" content="Half- and full-day whitewater rafting, canyoning and zipline on a fast river gorge. Certified guides, all gear included.">
+  <meta property="og:image" content="assets/hero-poster.jpg">
+  <meta property="og:url" content="https://example.com/">
+
+  <!-- Favicon: inline SVG, no extra request -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1F1C'/%3E%3Cpath d='M3 20c3 0 3-3 6.5-3s3.5 3 6.5 3 3-3 6.5-3 3.5 3 6.5 3' fill='none' stroke='%23EAF23C' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M3 25c3 0 3-2.5 6.5-2.5S13 25 16 25s3-2.5 6.5-2.5S26 25 29 25' fill='none' stroke='%2314B8A6' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Fonts: preload the two variable files, then the face declarations -->
+  <link rel="preload" href="fonts/unbounded-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/hankengrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "DALGA Outdoor",
+    "description": "Whitewater rafting, canyoning and zipline adventure operator on a fast river gorge.",
+    "sport": "Whitewater rafting",
+    "url": "https://example.com/",
+    "telephone": "[PLACEHOLDER +90 5xx xxx xx xx]",
+    "priceRange": "[PLACEHOLDER]",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "[PLACEHOLDER — Canyon Village]",
+      "addressCountry": "TR"
+    }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="DALGA Outdoor — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 34 20" width="34" height="20" focusable="false">
+            <path d="M2 12c3 0 3-4 6.5-4S12 12 15 12s3-4 6.5-4S25 12 28 12s3-2 4-2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M2 17c3 0 3-3 6.5-3S12 17 15 17s3-3 6.5-3S25 17 28 17s3-1.5 4-1.5" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-name">DALGA<span class="brand-sub">outdoor</span></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#trips">Trips</a></li>
+          <li><a href="#flow">The day</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#media">Photos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="nav-lang"><a href="rehber/" hreflang="tr" lang="tr">Rehber&nbsp;<span aria-hidden="true">TR</span></a></li>
+          <li><a class="btn btn-cta nav-cta" href="#book">Grab your run</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Live flow meter (the signature): scroll speed = river discharge -->
+  <div class="flow-meter" id="flowMeter" aria-hidden="true">
+    <div class="flow-dial">
+      <span class="flow-value" id="flowValue">0</span>
+      <span class="flow-unit">m³/s</span>
+    </div>
+    <span class="flow-label">discharge</span>
+    <div class="flow-bar"><span class="flow-bar-fill" id="flowBarFill"></span></div>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-media">
+        <video class="hero-video" id="heroVideo" poster="assets/hero-poster.jpg"
+               autoplay muted loop playsinline preload="none"
+               aria-label="Whitewater rafting team paddling through a canyon rapid">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+        <canvas class="hero-water" id="heroWater" aria-hidden="true"></canvas>
+        <div class="hero-scrim" aria-hidden="true"></div>
+      </div>
+
+      <div class="wrap hero-inner">
+        <p class="hero-kicker">Rafting · Canyoning · Zipline</p>
+        <h1 class="hero-title">
+          <span class="line">Surrender</span>
+          <span class="line accent" data-tremor>to the flow</span>
+        </h1>
+        <p class="hero-lede">
+          A fast river gorge, a certified guide in every boat, and all the gear you
+          need. Half day or full day — you bring the nerve, we bring the river.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-cta btn-lg" href="#book">Grab your run</a>
+          <a class="btn btn-ghost" href="#trips">See the trips</a>
+        </div>
+
+        <!-- Social proof — PLACEHOLDER (no fabricated data) -->
+        <div class="proof" role="group" aria-label="Reputation">
+          <span class="proof-stars" aria-hidden="true">★★★★★</span>
+          <span class="proof-text">
+            <strong>[PLACEHOLDER rating]</strong> from
+            <strong>[PLACEHOLDER review count]</strong> paddlers ·
+            <strong>[PLACEHOLDER years]</strong> on the river
+          </span>
+        </div>
+        <p class="hero-hint" data-reveal>Scroll faster — feel the river rise. <span aria-hidden="true">↓</span></p>
+      </div>
+    </section>
+
+    <!-- ============ RAPIDS SCALE ============ -->
+    <section class="rapids" id="rapids" aria-labelledby="rapids-h">
+      <div class="wrap">
+        <h2 id="rapids-h" class="section-h" data-reveal>Pick your grade</h2>
+        <p class="section-lede" data-reveal>
+          Every trip sits on the international rapids scale (I–VI). Choose a grade and
+          the whole page takes on its pace and colour — a preview of the water you’re
+          buying into.
+        </p>
+
+        <div class="grade-picker" role="radiogroup" aria-label="Rapids grade">
+          <button class="grade" role="radio" aria-checked="true" data-grade="1" data-flow="18">
+            <span class="grade-num">I</span><span class="grade-word">Easy</span>
+          </button>
+          <button class="grade" role="radio" aria-checked="false" data-grade="2" data-flow="30">
+            <span class="grade-num">II</span><span class="grade-word">Novice</span>
+          </button>
+          <button class="grade is-on" role="radio" aria-checked="false" data-grade="3" data-flow="55">
+            <span class="grade-num">III</span><span class="grade-word">Intermediate</span>
+          </button>
+          <button class="grade" role="radio" aria-checked="false" data-grade="4" data-flow="90">
+            <span class="grade-num">IV</span><span class="grade-word">Advanced</span>
+          </button>
+          <button class="grade" role="radio" aria-checked="false" data-grade="5" data-flow="140">
+            <span class="grade-num">V</span><span class="grade-word">Expert</span>
+          </button>
+          <button class="grade grade-vi" role="radio" aria-checked="false" data-grade="6" data-flow="200">
+            <span class="grade-num">VI</span><span class="grade-word">Extreme</span>
+          </button>
+        </div>
+        <p class="grade-readout" aria-live="polite" id="gradeReadout">
+          Grade <strong>III</strong> — Intermediate · regular rapids, clear lines, big fun.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ TRIPS ============ -->
+    <section class="trips" id="trips" aria-labelledby="trips-h">
+      <div class="wrap">
+        <h2 id="trips-h" class="section-h" data-reveal>Trips</h2>
+        <p class="section-lede" data-reveal>Three ways down the gorge. Prices are per person, gear and guide included.</p>
+
+        <ul class="trip-grid">
+          <li class="trip-card" data-reveal>
+            <span class="trip-grade">Grade II–III</span>
+            <h3 class="trip-name">Half-Day Raft</h3>
+            <p class="trip-desc">Two to three hours on the water — enough rapids to soak you, gentle enough for a first timer.</p>
+            <ul class="trip-meta">
+              <li><span>Duration</span><strong>~3 h</strong></li>
+              <li><span>Min age</span><strong>12</strong></li>
+              <li><span>From</span><strong>[PLACEHOLDER ₺]</strong></li>
+            </ul>
+            <a class="btn btn-outline trip-cta" href="#book" data-trip="Half-Day Raft">Book this</a>
+          </li>
+
+          <li class="trip-card trip-card-feature" data-reveal>
+            <span class="trip-badge">Most booked</span>
+            <span class="trip-grade">Grade III–IV</span>
+            <h3 class="trip-name">Full-Day Raft</h3>
+            <p class="trip-desc">The whole gorge, top to take-out, with a riverside lunch. Bigger water, longer lines, one very good story.</p>
+            <ul class="trip-meta">
+              <li><span>Duration</span><strong>~6 h</strong></li>
+              <li><span>Min age</span><strong>15</strong></li>
+              <li><span>From</span><strong>[PLACEHOLDER ₺]</strong></li>
+            </ul>
+            <a class="btn btn-cta trip-cta" href="#book" data-trip="Full-Day Raft">Book this</a>
+          </li>
+
+          <li class="trip-card" data-reveal>
+            <span class="trip-grade">Canyon + zip</span>
+            <h3 class="trip-name">Canyon &amp; Zipline</h3>
+            <p class="trip-desc">Scramble, slide and swim the narrow canyon, then fly the take-out on a 300 m zipline over the water.</p>
+            <ul class="trip-meta">
+              <li><span>Duration</span><strong>~5 h</strong></li>
+              <li><span>Min age</span><strong>14</strong></li>
+              <li><span>From</span><strong>[PLACEHOLDER ₺]</strong></li>
+            </ul>
+            <a class="btn btn-outline trip-cta" href="#book" data-trip="Canyon &amp; Zipline">Book this</a>
+          </li>
+        </ul>
+
+        <p class="trips-note" data-reveal>Groups of 8+ and corporate team days: ask about the group rate in the form below.</p>
+      </div>
+    </section>
+
+    <!-- ============ THE DAY (3 steps) ============ -->
+    <section class="flow" id="flow" aria-labelledby="flow-h">
+      <div class="wrap">
+        <h2 id="flow-h" class="section-h" data-reveal>How the day runs</h2>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step-num">01</span>
+            <h3 class="step-h">Meet &amp; brief</h3>
+            <p>Meet at base, get fitted for a wetsuit, helmet and PFD, and take the safety talk. No experience assumed.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num">02</span>
+            <h3 class="step-h">On the water</h3>
+            <p>Your guide runs the lines, calls the paddle strokes and reads the river for you. You just commit and pull.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num">03</span>
+            <h3 class="step-h">Dry off &amp; relive it</h3>
+            <p>Warm up at take-out, then grab the photo &amp; video pack shot from the boat and the banks all day.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SAFETY & GEAR ============ -->
+    <section class="safety" id="safety" aria-labelledby="safety-h">
+      <div class="wrap safety-inner">
+        <div class="safety-copy" data-reveal>
+          <h2 id="safety-h" class="section-h">Safety is the whole product</h2>
+          <p class="section-lede">
+            Fast water is only fun when it’s run properly. Here’s what’s standard on
+            every DALGA trip — no upsell, no exceptions.
+          </p>
+          <ul class="safety-list">
+            <li><span class="tick" aria-hidden="true">✓</span> Certified river guides, one in every boat</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Wetsuit, helmet &amp; coastguard-approved PFD supplied</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Full safety briefing &amp; dry-land practice before launch</li>
+            <li><span class="tick" aria-hidden="true">✓</span> Safety kayaker and throw-bags on grade III+ water</li>
+            <li><span class="tick" aria-hidden="true">✓</span> First-aid trained crew &amp; a daily river check</li>
+          </ul>
+        </div>
+        <aside class="safety-figure" data-reveal aria-label="Gear included">
+          <div class="gear-card">
+            <p class="gear-kicker">Included, always</p>
+            <ul class="gear-chips">
+              <li>Wetsuit</li><li>Helmet</li><li>PFD</li><li>Paddle</li>
+              <li>Dry bag</li><li>Guide</li><li>Safety brief</li>
+            </ul>
+            <p class="gear-foot">Bring: swimwear, a towel, secured footwear and a change of clothes.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ PHOTO / VIDEO PACK ============ -->
+    <section class="media" id="media" aria-labelledby="media-h">
+      <div class="wrap media-inner">
+        <div class="media-copy" data-reveal>
+          <h2 id="media-h" class="section-h">Take the whole run home</h2>
+          <p class="section-lede">
+            Our crew shoots from the raft and the banks all day — big-rapid faces
+            included. Add the pack when you book and download it the same evening.
+          </p>
+          <ul class="media-points">
+            <li><strong>Photo pack</strong> — the full edited gallery, yours to keep.</li>
+            <li><strong>Photo + video</strong> — a cut reel of your day plus every still.</li>
+          </ul>
+          <a class="btn btn-outline" href="#book">Add it to a booking</a>
+        </div>
+        <div class="media-grid" data-reveal aria-hidden="true">
+          <span class="ph ph-1">POV</span>
+          <span class="ph ph-2">Rapid</span>
+          <span class="ph ph-3">Zip</span>
+          <span class="ph ph-4">Team</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOCIAL PROOF (PLACEHOLDER) ============ -->
+    <section class="voices" id="voices" aria-labelledby="voices-h">
+      <div class="wrap">
+        <h2 id="voices-h" class="section-h" data-reveal>Paddlers say</h2>
+        <ul class="voice-grid">
+          <li class="voice" data-reveal>
+            <p class="voice-quote">“[PLACEHOLDER — real guest review. Keep it specific: the rapid, the guide, the moment.]”</p>
+            <p class="voice-by"><strong>[PLACEHOLDER name]</strong> · [PLACEHOLDER trip]</p>
+          </li>
+          <li class="voice" data-reveal>
+            <p class="voice-quote">“[PLACEHOLDER — a first-timer’s ‘I was nervous and then…’ story reads best here.]”</p>
+            <p class="voice-by"><strong>[PLACEHOLDER name]</strong> · [PLACEHOLDER trip]</p>
+          </li>
+          <li class="voice" data-reveal>
+            <p class="voice-quote">“[PLACEHOLDER — a group / corporate day review to reassure organisers.]”</p>
+            <p class="voice-by"><strong>[PLACEHOLDER name]</strong> · [PLACEHOLDER trip]</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-h">
+      <div class="wrap">
+        <h2 id="faq-h" class="section-h" data-reveal>Questions before you commit</h2>
+        <div class="faq-list">
+          <details class="faq-item" data-reveal open>
+            <summary>Do I need to know how to swim?</summary>
+            <div class="faq-body">
+              <p>No. Everyone wears a coastguard-approved buoyancy aid (PFD) that keeps
+              you floating face-up, and your guide briefs the exact “what if I fall in”
+              drill before you launch. Being comfortable in water helps your nerves, but
+              swimming ability is not a requirement for our grade II–III trips. If you’re
+              anxious about water, tell us in the booking notes and we’ll put you in the
+              right boat.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>What are the age and health limits?</summary>
+            <div class="faq-body">
+              <p>Minimum age is 12 for the half-day, 14–15 for canyon and full-day trips.
+              You should be in reasonable health and able to hold and pull a paddle.
+              Please tell us in advance about pregnancy, heart conditions, recent surgery
+              or reduced mobility so we can advise the right trip.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>What if the weather or water level is bad?</summary>
+            <div class="faq-body">
+              <p>Rafting runs in rain — it’s a wet sport. We only cancel for genuine safety
+              reasons (extreme flow, storms, unsafe levels). If <em>we</em> cancel, you get
+              a free reschedule or a full refund. Real river conditions decide, never a
+              countdown timer.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>Can I cancel or reschedule?</summary>
+            <div class="faq-body">
+              <p>[PLACEHOLDER — state the real policy, e.g. “Free reschedule up to 48 h
+              before; refunds per our terms.”] Whatever it is, we spell it out here in
+              plain language before you pay.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>What should I bring and wear?</summary>
+            <div class="faq-body">
+              <p>Come in swimwear with a towel and a dry change of clothes. We provide the
+              wetsuit, helmet, PFD and paddle. Wear footwear that straps on (no flip-flops),
+              and leave phones and valuables in the lockers — the photo pack covers the shots.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-reveal>
+            <summary>Do you run trips for groups and companies?</summary>
+            <div class="faq-body">
+              <p>Yes. Student groups, stag/hen parties and corporate team days are our
+              speciality. Groups of 8+ get a rate and a dedicated guide team — put the
+              headcount in the form and we’ll come back with options.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING ============ -->
+    <section class="book" id="book" aria-labelledby="book-h">
+      <div class="wrap book-inner">
+        <div class="book-copy" data-reveal>
+          <h2 id="book-h" class="section-h">Grab your run</h2>
+          <p class="section-lede">
+            Send a request and we’ll confirm your spot and the meeting point by message.
+            No payment is taken on this form.
+          </p>
+          <p class="book-trust">
+            <span class="tick" aria-hidden="true">✓</span> Free reschedule if the river
+            forces a cancellation · <span class="tick" aria-hidden="true">✓</span> Real
+            person replies, usually same day.
+          </p>
+        </div>
+
+        <form class="book-form" id="bookForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Email or phone</label>
+            <input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-trip">Trip</label>
+            <select id="f-trip" name="trip" required>
+              <option value="" selected disabled>Choose a trip…</option>
+              <option>Half-Day Raft</option>
+              <option>Full-Day Raft</option>
+              <option>Canyon &amp; Zipline</option>
+              <option>Group / corporate day</option>
+            </select>
+          </div>
+          <div class="field field-half">
+            <label for="f-date">Preferred date</label>
+            <input id="f-date" name="date" type="date" required>
+          </div>
+          <div class="field field-half">
+            <label for="f-people">Paddlers</label>
+            <input id="f-people" name="people" type="number" min="1" max="60" step="1" value="2" required>
+          </div>
+          <div class="field field-full">
+            <label for="f-notes">Anything we should know? <span class="opt">(optional)</span></label>
+            <textarea id="f-notes" name="notes" rows="3" placeholder="First-timers, nervous swimmers, photo pack, group rate…"></textarea>
+          </div>
+          <button class="btn btn-cta btn-lg btn-block" type="submit">Send booking request</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-fineprint">
+            This demo form is not connected to a booking system —
+            <a href="rehber/">see how this site was built</a>.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">DALGA<span class="brand-sub">outdoor</span></span>
+        <p>Whitewater rafting · canyoning · zipline. A fictional showcase brand by VYRON.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#trips">Trips</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
+        <a href="#book">Book</a>
+        <a href="rehber/" hreflang="tr" lang="tr">Rehber (TR)</a>
+      </nav>
+      <p class="footer-contact">
+        [PLACEHOLDER address] · [PLACEHOLDER +90 5xx xxx xx xx] ·
+        <a href="mailto:hello@example.com">hello@example.com</a>
+      </p>
+    </div>
+    <p class="footer-legal wrap">© <span id="yr">2026</span> DALGA Outdoor (showcase). All imagery is placeholder.</p>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>
+</body>
+</html>

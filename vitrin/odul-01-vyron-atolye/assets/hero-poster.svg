@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Placeholder for the cinematic hero video">
+  <defs>
+    <radialGradient id="g1" cx="18%" cy="14%" r="80%">
+      <stop offset="0%" stop-color="#E7502E" stop-opacity="0.30"/>
+      <stop offset="55%" stop-color="#7A2A1B" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0B0C10" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B0C10"/>
+      <stop offset="60%" stop-color="#131519"/>
+      <stop offset="100%" stop-color="#0B0C10"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g2)"/>
+  <rect width="1600" height="900" fill="url(#g1)"/>
+  <g fill="none" stroke="#E9E5DB" stroke-opacity="0.06" stroke-width="1.5">
+    <path d="M0 620 C 400 560 520 700 800 640 S 1200 560 1600 640"/>
+    <path d="M0 700 C 400 650 560 780 800 720 S 1220 650 1600 720"/>
+    <path d="M0 780 C 400 740 540 850 800 800 S 1200 740 1600 800"/>
+  </g>
+  <text x="60" y="120" fill="#E9E5DB" fill-opacity="0.34" font-family="Georgia, serif" font-size="26" letter-spacing="6">HERO VIDEO SLOT</text>
+</svg>

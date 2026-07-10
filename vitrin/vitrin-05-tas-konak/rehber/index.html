@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="tr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rehber · KALEHAN Konak sitesi nasıl kuruldu — VYRON Site Fabrikası</title>
+<meta name="description" content="KALEHAN Konak vitrin sitesinin arkasındaki fikir: 'ışığın saatleri' imza anı, taş dokusu paleti ve VYRON Site Fabrikası'nın çalışma yöntemi.">
+<meta name="theme-color" content="#E7DDCB">
+<link rel="canonical" href="https://tashankonak.example/rehber/">
+<link rel="alternate" hreflang="en" href="https://tashankonak.example/">
+<link rel="alternate" hreflang="tr" href="https://tashankonak.example/rehber/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KALEHAN Konak sitesi nasıl kuruldu">
+<meta property="og:description" content="'Işığın saatleri' imza anı ve VYRON Site Fabrikası yöntemi.">
+<meta property="og:url" content="https://tashankonak.example/rehber/">
+<meta property="og:image" content="https://tashankonak.example/assets/og-cover.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232E2620'/%3E%3Cpath d='M9 23V13a7 7 0 0 1 14 0v10' fill='none' stroke='%23C05A3E' stroke-width='2.4'/%3E%3Cline x1='16' y1='13' x2='16' y2='23' stroke='%23C05A3E' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preload" href="../assets/fonts/boska-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/style.css">
+
+<a class="skip" href="#doc">İçeriğe geç</a>
+
+<header class="hdr scrolled">
+  <div class="hdr__in">
+    <a class="brand" href="../" aria-label="KALEHAN Konak — ana sayfa">KALEHAN<small>Konak</small></a>
+    <nav class="nav" aria-label="Birincil">
+      <a href="../" class="lang" hreflang="en" lang="en">Site&nbsp;·&nbsp;EN</a>
+      <a href="../#reserve" class="btn btn--cta">Oda ayırt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="doc">
+  <article class="doc wrap">
+    <a class="back" href="../">← KALEHAN Konak ana sayfasına dön</a>
+    <p class="eyebrow">Rehber · Türkçe</p>
+    <h1>Bu site nasıl kuruldu</h1>
+    <p>KALEHAN Konak, gerçek bir işletme değil — <strong>VYRON Site Fabrikası</strong>'nın
+      vitrin serisinden bir gösteri sitesi. Amacı tek bir şeyi kanıtlamak: bir turizm
+      işletmesinin <em>gerçeğinden</em> doğan, taklit edilemeyen bir web sitesi nasıl
+      görünür? Bu sayfa, perde arkasını kısaca anlatır — çünkü satın aldığınız şey
+      şablon değil, bir fikir.</p>
+
+    <h2>İmza anı: "Işığın saatleri"</h2>
+    <p>Bir taş konağın asıl ürünü mimari değil, <strong>ışıktır</strong> — güneşin gün
+      boyunca taş duvarlarda dolaşması. Site tam da bunu bir etkileşime çevirir:
+      sayfayı kaydırdıkça (ya da üstteki saat kadranını sürükledikçe) avludaki güneş
+      doğudan batıya geçer, gölgenin açısı döner, taş sabahtan akşama doğru ısınır ve
+      akşam olunca gökyüzünde yıldızlar belirir. Her oda, "gün içinde en güzel
+      göründüğü saatte" tanıtılır. Ürünün gerçeği — ışığın taşla oyunu — tek bir
+      etkileşimde toplanır.</p>
+    <p>Teknik olarak bu, sayfa ilerlemesinin (0'dan 1'e) bir "gün" değişkenine
+      bağlanmasıdır; renkler üç anahtar kare (şafak · öğle · akşam) arasında yumuşakça
+      geçer, güneş ve gölge yalnızca <code>transform</code> ile hareket eder. Hareketi
+      azaltılmış cihazlarda sahne durur, hoş bir sabah ışığında sabitlenir — herkes
+      için erişilebilir.</p>
+
+    <h2>Neden bu palet ve bu yazı tipleri?</h2>
+    <p>Renkler taşın kendisinden alındı: taş kumu zemin, gölge kahvesi metin, kiremit
+      terracotta vurgu, avlu yeşili aksan. <strong>Altın ya da parlak metal yok</strong>
+      — malzeme mat, çünkü konağın ruhu ağırbaşlı ve dokunsal. Başlıklarda
+      <strong>Boska</strong> (klasik oranlı mimari bir serif), gövdede
+      <strong>General Sans</strong> (sakin, modern bir grotesk) kullanıldı. VYRON
+      anayasasının bir kırmızı çizgisi: <em>Inter yasak</em> — herkesin kullandığı
+      "bedava lüks" görünümünden bilinçli olarak kaçınıyoruz.</p>
+
+    <h2>Kırmızı çizgiler (VYRON anayasası)</h2>
+    <ul>
+      <li>Her metin/zemin çifti için WCAG AA kontrastı hesaplanır — gövde metni AAA (11:1).</li>
+      <li>Performans bütçesi: Lighthouse ≥90, JS ≤150KB (gzip), ilk yükleme ≤5MB.</li>
+      <li>Statik HTML/CSS/JS — framework yok; GSAP yerelde, sürümü sabit. "2. yılda kim açsa anlamalı."</li>
+      <li>Tek net çağrı (Oda ayırt), sahte aciliyet/kontenjan yok, en az 5 SSS.</li>
+      <li>Klavye erişimi, <code>prefers-reduced-motion</code>, mobil öncelik.</li>
+    </ul>
+
+    <h2>Örnek içerikler — yayından önce değişecekler</h2>
+    <p>Yıldız puanı, misafir yorumları ve iletişim bilgileri şu an <em>örnek</em>
+      içeriktir ("sample" etiketli). Gerçek bir müşteride bunlar doğrulanmış verilerle
+      değişir; sahte sosyal kanıt yayınlanmaz. Hero videosu için de bir slot hazırdır
+      (<code>assets/hero.mp4</code>) — müşterinin kendi çekimi konunca sahnenin arkasına
+      yerleşir.</p>
+
+    <h2>VYRON Site Fabrikası nasıl çalışır?</h2>
+    <p>"Videonuzu verin, sitenizi yapalım." İşletmenin ham videosundan sitenin ışığı,
+      temposu ve mekânı çıkarılır; bir arketip seçilir; metin, palet ve imza anı
+      buradan doğar. Site tek promptla bırakılmaz — bir <strong>denetçi panelinden</strong>
+      (estetik, performans, dönüşüm, dil jürileri + makine denetçisi) geçmeden müşteriye
+      gitmez.</p>
+
+    <a class="back" href="../" style="margin-top:2.4rem">← Ana sayfaya dön ve ışığı izle</a>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__base" style="margin-top:0;border:0;padding-top:0">
+      <span>© <span>2026</span> KALEHAN Konak · bir VYRON Site Fabrikası vitrini</span>
+      <span><a href="../" style="color:var(--terra-lt)">EN site</a></span>
+    </div>
+  </div>
+</footer>

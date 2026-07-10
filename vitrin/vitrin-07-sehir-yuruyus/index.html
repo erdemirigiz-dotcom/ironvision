@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KERVAN Walks — Small-group city walks with a licensed local guide</title>
+<meta name="description" content="KERVAN Walks: licensed, small-group walking tours of the old city — market kitchens, street art and hidden courtyards. Pick a neighbourhood and watch the board flip.">
+<link rel="canonical" href="https://patikawalks.example/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KERVAN Walks — Turn the corner with a local">
+<meta property="og:description" content="Licensed, small-group walking tours: market kitchens, street art, hidden courtyards. Book your walk.">
+<meta property="og:image" content="assets/hero-poster.jpg">
+<meta name="theme-color" content="#F0EEE6">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="https://patikawalks.example/">
+<link rel="alternate" hreflang="tr" href="https://patikawalks.example/?lang=tr">
+<link rel="alternate" hreflang="x-default" href="https://patikawalks.example/">
+<link rel="preload" as="font" type="font/woff2" href="fonts/melodrama-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/switzer-400.woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TouristTrip","name":"KERVAN Walks",
+"description":"Small-group walking tours of the old city led by a licensed guide.",
+"provider":{"@type":"LocalBusiness","name":"KERVAN Walks","priceRange":"$$","areaServed":"Old City"},
+"touristType":["Independent traveller","Small group","Food & culture"]}
+</script>
+</head>
+<body>
+<a class="skip" href="#tours" data-i18n="skip">Skip to tours</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-head">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="KERVAN Walks — home">KERVAN<span class="dot">.</span>Walks</a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-links" id="navLinks">
+        <a class="navlink" href="#tours" data-i18n="nav.tours">Tours</a>
+        <a class="navlink" href="#route" data-i18n="nav.route">Route</a>
+        <a class="navlink" href="#guide" data-i18n="nav.guide">Guide</a>
+        <a class="navlink" href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a class="btn" href="#book" data-i18n="nav.book">Join a walk</a>
+      </div>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="tr" aria-pressed="false">TR</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" data-i18n="nav.menu">Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero section" aria-labelledby="hero-h">
+  <div class="wrap grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="num">01</span><span data-i18n="hero.eyebrow">Licensed local guide · old city</span></p>
+      <h1 class="display h-hero" id="hero-h"><span data-i18n="hero.h1a">Turn the corner</span><br><span data-i18n="hero.h1b">with a</span> <span class="ink-swap" data-i18n="hero.h1c">local</span></h1>
+      <p class="lead" data-i18n="hero.lead">Small-group walks through the old city's market kitchens, painted lanes and hidden courtyards. No coach, no crowd — just the streets, at a walking pace, with someone who lives here.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#book"><span data-i18n="hero.cta">Join a walk</span><span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <!-- [PLACEHOLDER] social proof — swap for real aggregate rating + review count -->
+      <div class="proof">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span><b>4.9</b> / 5 · <span data-i18n="hero.proof">320+ walkers hosted</span></span>
+        <span class="tag" data-i18n="badge.sample">sample</span>
+      </div>
+    </div>
+
+    <!-- SIGNATURE MOMENT: split-flap departure board -->
+    <div class="board" aria-labelledby="board-h">
+      <div class="board-top">
+        <span id="board-h" data-i18n="board.title">Today's departure</span>
+        <span class="live" data-i18n="board.live">Now boarding</span>
+      </div>
+      <div class="board-row">
+        <div class="label" data-i18n="board.neigh">Neighbourhood</div>
+        <div class="flaps" id="flapNeigh" aria-live="polite" aria-label="Selected neighbourhood"></div>
+      </div>
+      <div class="board-row">
+        <div class="label" data-i18n="board.walk">Walk</div>
+        <div class="flaps tour" id="flapTour" aria-live="polite" aria-label="Selected walk"></div>
+      </div>
+      <div class="board-chips" role="group" aria-label="Pick a neighbourhood">
+        <button class="chip" data-neigh="0" aria-pressed="true">Old Harbour</button>
+        <button class="chip" data-neigh="1" aria-pressed="false">Tanners' Hill</button>
+        <button class="chip" data-neigh="2" aria-pressed="false">Spice Quarter</button>
+      </div>
+      <p class="board-hint" data-i18n="board.hint">Pick a neighbourhood — the board flips, the route redraws.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOURS ============ -->
+<section class="tours section" id="tours" aria-labelledby="tours-h">
+  <div class="grid-overlay" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="wrap">
+    <div class="tours-head">
+      <div>
+        <p class="eyebrow"><span class="num">02</span><span data-i18n="tours.eyebrow">The walks</span></p>
+        <h2 class="display h-2" data-i18n="tours.h">Six routes, one pace: yours</h2>
+      </div>
+      <p class="lead" data-i18n="tours.lead">Every walk is capped small and led on foot. Red is a flavour walk, blue is a canvas walk — pick by appetite.</p>
+    </div>
+    <div class="tour-grid" id="tourGrid"><!-- tour cards injected by JS --></div>
+  </div>
+</section>
+
+<!-- ============ ROUTE + STOPS ============ -->
+<section class="route section" id="route" aria-labelledby="route-h">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">03</span><span data-i18n="route.eyebrow">Selected route</span></p>
+    <h2 class="display h-2" id="route-h" data-i18n="route.h">Where today's walk goes</h2>
+    <div class="route-grid">
+      <figure class="route-map" aria-labelledby="route-cap">
+        <svg viewBox="0 0 400 300" role="img" aria-labelledby="route-cap">
+          <path class="rt-base" d="M40 250 L120 210 L180 150 L250 170 L320 90 L360 60"/>
+          <path class="rt-path" id="rtPath" d="M40 250 L120 210 L180 150 L250 170 L320 90 L360 60"/>
+          <g id="rtStops"></g>
+        </svg>
+        <figcaption id="route-cap" class="mono" style="position:absolute;left:12px;bottom:10px;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#7c786f">
+          <span data-i18n="route.cap">Schematic route — not to scale</span>
+        </figcaption>
+      </figure>
+      <div class="route-info">
+        <p class="rt-cat" id="routeCat">Flavour walk</p>
+        <h3 id="routeName">Old Harbour Table</h3>
+        <ol class="stops-list" id="stopsList"><!-- stops injected by JS --></ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GUIDE ============ -->
+<section class="guide section" id="guide" aria-labelledby="guide-h">
+  <div class="wrap guide-grid">
+    <!-- poster'd <video> slot — replace assets/hero.mp4 with real guide B-roll -->
+    <figure class="guide-media">
+      <video muted loop playsinline preload="none" poster="assets/hero-poster.jpg" aria-label="Guide walking the old city (placeholder ambient clip)">
+        <source src="assets/hero.mp4" type="video/mp4">
+      </video>
+      <figcaption><span data-i18n="guide.capk">Your guide</span><span class="mono" data-i18n="badge.demo">demo clip</span></figcaption>
+    </figure>
+    <div class="guide-body">
+      <p class="eyebrow"><span class="num">04</span><span data-i18n="guide.eyebrow">Who you walk with</span></p>
+      <h2 class="display h-2" id="guide-h">Deniz Aral</h2>
+      <p class="lead" data-i18n="guide.lead">I've spent fifteen years learning this city on foot — which baker opens first, which courtyard is worth the detour, which mural has a story the guidebooks skip. I keep groups tiny so the walk stays a conversation, not a broadcast.</p>
+      <!-- [PLACEHOLDER] credentials — swap for real licence no. / years / group cap -->
+      <div class="guide-credentials">
+        <div><div class="n">15</div><div class="k" data-i18n="guide.k1">Years guiding</div></div>
+        <div><div class="n">≤8</div><div class="k" data-i18n="guide.k2">Walkers per group</div></div>
+        <div><div class="n">TR-04821</div><div class="k" data-i18n="guide.k3">Licence no. [demo]</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how section" aria-labelledby="how-h">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">05</span><span data-i18n="how.eyebrow">How it works</span></p>
+    <h2 class="display h-2" id="how-h" data-i18n="how.h">Three steps to the street</h2>
+    <div class="steps">
+      <div class="step"><div class="s-num">STEP 01</div><h3 data-i18n="how.s1h">Pick a walk</h3><p data-i18n="how.s1p">Choose a neighbourhood and a date. Tell me how many are coming and any food or mobility notes.</p></div>
+      <div class="step"><div class="s-num">STEP 02</div><h3 data-i18n="how.s2h">I confirm by hand</h3><p data-i18n="how.s2p">Within a day you get a personal reply with the meeting point, what to wear, and a weather plan B.</p></div>
+      <div class="step"><div class="s-num">STEP 03</div><h3 data-i18n="how.s3h">We walk</h3><p data-i18n="how.s3p">We meet, we walk, we stop where it's worth stopping. Pay on the day, cash or card — no deposit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="proof-sec section" aria-labelledby="rev-h">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">06</span><span data-i18n="rev.eyebrow">Walkers say</span></p>
+    <h2 class="display h-2" id="rev-h" data-i18n="rev.h">Small group, long memory</h2>
+    <!-- [PLACEHOLDER] reviews — replace with real, attributed guest quotes -->
+    <div class="reviews">
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><blockquote data-i18n="rev.q1">"We ate in three kitchens no map would have found. Deniz knows everyone's name."</blockquote><figcaption class="who" data-i18n="rev.w1">Marta &amp; Jan · Old Harbour Table</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><blockquote data-i18n="rev.q2">"The street-art walk felt like a private tour. Eight people, zero rush."</blockquote><figcaption class="who" data-i18n="rev.w2">Priya · Tanners' Hill Canvas</figcaption></figure>
+      <figure class="review"><div class="stars" aria-hidden="true">★★★★★</div><blockquote data-i18n="rev.q3">"Rained the whole afternoon and it was still the best day of the trip."</blockquote><figcaption class="who" data-i18n="rev.w3">The Okafor family · Spice Quarter at Dusk</figcaption></figure>
+    </div>
+    <p class="sample-note" data-i18n="rev.note">Quotes shown are sample content for this demo build and carry no real guest data.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq section" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">07</span><span data-i18n="faq.eyebrow">Before you book</span></p>
+    <h2 class="display h-2" id="faq-h" data-i18n="faq.h">Questions, answered</h2>
+    <div class="faq-grid">
+      <details><summary><span class="q-num">01</span><span data-i18n="faq.q1">How big are the groups?</span><span class="q-sign" aria-hidden="true">+</span></summary><div class="a" data-i18n="faq.a1">Every walk is capped at eight people. Most run with four to six, so you can actually hear, ask and stop when something catches your eye.</div></details>
+      <details><summary><span class="q-num">02</span><span data-i18n="faq.q2">What happens if it rains?</span><span class="q-sign" aria-hidden="true">+</span></summary><div class="a" data-i18n="faq.a2">We walk in light rain — bring a layer. In heavy weather I shift to a covered-market and courtyard version of the route, or we reschedule at no cost. You decide the morning of.</div></details>
+      <details><summary><span class="q-num">03</span><span data-i18n="faq.q3">Which languages do you guide in?</span><span class="q-sign" aria-hidden="true">+</span></summary><div class="a" data-i18n="faq.a3">Walks run in English and Turkish. German, Spanish and French can be arranged for private groups — just ask when you book.</div></details>
+      <details><summary><span class="q-num">04</span><span data-i18n="faq.q4">Can I cancel or change my booking?</span><span class="q-sign" aria-hidden="true">+</span></summary><div class="a" data-i18n="faq.a4">Free cancellation up to 24 hours before the walk. There's no deposit — you pay on the day, cash or card — so changing plans is simple.</div></details>
+      <details><summary><span class="q-num">05</span><span data-i18n="faq.q5">Is the walk suitable for kids or slower walkers?</span><span class="q-sign" aria-hidden="true">+</span></summary><div class="a" data-i18n="faq.a5">Most routes are two to three kilometres at an easy pace with plenty of stops. Tell me about young children or mobility needs and I'll pick or adapt a route to match.</div></details>
+      <details><summary><span class="q-num">06</span><span data-i18n="faq.q6">Are food and drinks included?</span><span class="q-sign" aria-hidden="true">+</span></summary><div class="a" data-i18n="faq.a6">On flavour walks a few tastings are included; anything you order beyond that is your own. Canvas walks include a coffee stop. Prices are confirmed in your booking reply.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="book section" id="book" aria-labelledby="book-h">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">08</span><span data-i18n="book.eyebrow">Join a walk</span></p>
+    <div class="book-grid">
+      <div class="book-lede">
+        <h2 class="display h-2" id="book-h" data-i18n="book.h">Tell me when — I'll do the rest</h2>
+        <p class="lead" data-i18n="book.lead">Send the date, the walk and how many are coming. You'll get a personal reply within a day — no accounts, no upfront payment.</p>
+        <ul class="trust">
+          <li><span class="tk" aria-hidden="true">✓</span><span data-i18n="book.t1">Licensed guide · small groups capped at eight</span></li>
+          <li><span class="tk" aria-hidden="true">✓</span><span data-i18n="book.t2">Free cancellation up to 24 hours before</span></li>
+          <li><span class="tk" aria-hidden="true">✓</span><span data-i18n="book.t3">Pay on the day — no deposit, no card details online</span></li>
+        </ul>
+        <p class="wa-line"><span data-i18n="book.wa">Prefer to message? </span><a href="https://wa.me/000000000000" rel="nofollow" data-i18n="book.walink">Reach me on WhatsApp →</a></p>
+      </div>
+
+      <form class="book-form" id="bookForm" novalidate>
+        <div class="field">
+          <label for="bf-name" data-i18n="form.name">Your name</label>
+          <input id="bf-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="bf-date" data-i18n="form.date">Date</label>
+            <input id="bf-date" name="date" type="date" required>
+          </div>
+          <div class="field">
+            <label for="bf-people" data-i18n="form.people">Walkers</label>
+            <select id="bf-people" name="people" required>
+              <option value="1">1</option><option value="2" selected>2</option>
+              <option value="3">3</option><option value="4">4</option>
+              <option value="5">5</option><option value="6">6</option>
+              <option value="7">7</option><option value="8">8</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="bf-tour" data-i18n="form.tour">Which walk?</label>
+          <select id="bf-tour" name="tour" required></select>
+        </div>
+        <div class="field">
+          <label for="bf-note" data-i18n="form.note">Anything I should know? (optional)</label>
+          <textarea id="bf-note" name="note"></textarea>
+        </div>
+        <button class="btn" type="submit"><span data-i18n="form.submit">Request this walk</span><span class="arrow" aria-hidden="true">→</span></button>
+        <p class="form-note" data-i18n="form.microcopy">No payment now. I reply personally within a day.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">KERVAN<span class="dot">.</span>Walks</div>
+        <p data-i18n="foot.tag">Licensed small-group walks through the old city. Run by one guide, on foot, at a human pace.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4 data-i18n="foot.explore">Explore</h4>
+          <a href="#tours" data-i18n="nav.tours">Tours</a>
+          <a href="#route" data-i18n="nav.route">Route</a>
+          <a href="#guide" data-i18n="nav.guide">Guide</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4 data-i18n="foot.book">Book</h4>
+          <a href="#book" data-i18n="nav.book">Join a walk</a>
+          <a href="https://wa.me/000000000000" rel="nofollow">WhatsApp</a>
+          <a href="rehber/" data-i18n="foot.rehber">Nasıl yapıldı? (TR)</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> KERVAN Walks · <span data-i18n="foot.fiction">Fictional demo brand — VYRON showcase</span></span>
+      <span data-i18n="foot.built">Built by VYRON Site Fabrikası</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/i18n.js" defer></script>
+<script src="js/main.js" defer></script>
+
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!--
+  MERCEK STUDIO — vitrin-09-fotografci
+  VYRON Site Fabrikası vitrin serisi · arketip: variable-type brutalism / gallery
+  KURGUSAL marka — gerçek kişi/veri yok. Sosyal kanıt & iletişim satırları
+  [PLACEHOLDER] (aşağıda HTML yorumlarıyla işaretli; rapor.md envanterine bak).
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MERCEK Studio — Travel &amp; Wedding Photography</title>
+  <meta name="description" content="MERCEK Studio frames travel stories and destination weddings — an itinerant photographer working with couples, hotels and magazines. Ask a date." />
+  <meta name="theme-color" content="#131313" />
+  <link rel="canonical" href="https://ayna.studio/" />
+  <link rel="alternate" hreflang="en" href="https://ayna.studio/" />
+  <link rel="alternate" hreflang="tr" href="https://ayna.studio/rehber/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23131313'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23FF3B00' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23FF3B00'/%3E%3C/svg%3E" />
+
+  <!-- open graph / twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MERCEK Studio — Travel &amp; Wedding Photography" />
+  <meta property="og:description" content="The instant, kept sharp. Travel stories & destination weddings, framed by MERCEK Studio." />
+  <meta property="og:image" content="https://ayna.studio/assets/hero-poster.svg" />
+  <meta property="og:url" content="https://ayna.studio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- perf: preload the two live subsets of the variable faces -->
+  <link rel="preload" href="assets/fonts/anybody-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/martianmono-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://ayna.studio/#studio",
+    "name": "MERCEK Studio",
+    "description": "Travel and destination-wedding photography.",
+    "url": "https://ayna.studio/",
+    "image": "https://ayna.studio/assets/hero-poster.svg",
+    "priceRange": "$$$",
+    "areaServed": "Worldwide",
+    "knowsLanguage": ["en", "tr"],
+    "makesOffer": [
+      { "@type": "Offer", "name": "Travel stories" },
+      { "@type": "Offer", "name": "Destination weddings" },
+      { "@type": "Offer", "name": "Brand & editorial" }
+    ]
+  }
+  </script>
+</head>
+<body class="no-gsap">
+  <a class="skip" href="#work">Skip to gallery</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-head">
+    <a class="brand" href="#top" aria-label="MERCEK Studio — home">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__mark js-brand">MERCEK</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__hide" href="#work">Work</a>
+      <a class="nav__hide" href="#services">Services</a>
+      <a class="nav__hide" href="#process">Process</a>
+      <a class="nav__hide" href="#studio">Studio</a>
+      <a class="nav__hide" href="#faq">FAQ</a>
+      <a class="nav__lang mono" href="rehber/" hreflang="tr" lang="tr">TR · Rehber</a>
+      <a class="nav__cta" href="#contact"><span class="nav__hide">Ask a date</span><span aria-hidden="true">→</span></a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__media" aria-hidden="true">
+        <!-- MEDYA BOŞLUĞU 1: hero.mp4 (Higgsfield istek listesi #1).
+             Skeleton'da dosya YOK → poster gösterilir, ağ isteği sıfır.
+             TESLİMDE: aşağıdaki <source> satırının yorumunu kaldır. -->
+        <video class="js-hero-video" muted loop playsinline preload="none"
+               poster="assets/hero-poster.svg">
+          <!-- <source src="assets/hero.mp4" type="video/mp4" /> -->
+        </video>
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__inner wrap">
+        <p class="tag">MERCEK Studio — Travel &amp; Wedding Frames · Est. field notes</p>
+        <h1 class="display hero__title" id="hero-title">
+          Hold the light<span class="l2">until it's true</span></h1>
+        <p class="hero__sub">
+          An itinerant photographer for couples, hotels and editors. I don't stage the moment —
+          I wait for it, then keep it sharp. Scroll slowly; the frames come into focus.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--dark" href="#contact">Ask a date <span class="btn__arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#work" style="color:var(--bg);border-color:var(--line-dark)">See the work</a>
+        </div>
+        <!-- Sosyal kanıt satırı — [PLACEHOLDER], gerçek sayılar müşteriden gelecek -->
+        <div class="hero__exif" role="group" aria-label="Studio at a glance (sample figures)">
+          <span><b>ISO</b> 64 · pin-sharp</span>
+          <span><b>140+</b> stories shot<!-- PLACEHOLDER: gerçek sayı --></span>
+          <span><b>26</b> countries<!-- PLACEHOLDER --></span>
+          <span><b>1:1</b> creative direction</span>
+        </div>
+      </div>
+      <span class="scroll-cue" aria-hidden="true">Scroll to focus</span>
+    </section>
+
+    <!-- ===================== SIGNATURE GALLERY ===================== -->
+    <section class="section gallery" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">01 / WORK</span>
+          <h2 class="display section__title" id="work-title">Selected series</h2>
+        </div>
+        <p class="gallery__note" style="padding-left:0;padding-right:0">
+          A contact sheet you read with your wrist. Move fast and the frames smear like a
+          slow shutter; hold still and they lock to glass. <span class="tag tag--accent">Shutter speed = scroll speed.</span>
+        </p>
+        <div class="velo" aria-hidden="true">
+          <span class="tag">SHUTTER</span>
+          <span class="velo__bar"><span class="velo__fill js-velo"></span></span>
+          <span class="tag js-velo-read">1/8000</span>
+        </div>
+      </div>
+
+      <div class="gallery__viewport js-gv" aria-label="Selected photographs, horizontal gallery" role="region" tabindex="0">
+        <div class="gallery__track js-track">
+
+          <figure class="frame frame--wide">
+            <span class="frame__no">F/01</span>
+            <span class="frame__title" aria-hidden="true">First light, Cappadocia</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 267" role="img" aria-label="Duotone frame: a low sun over a ridge line at dawn, a lone figure on the crest.">
+                <rect width="400" height="267" fill="#161514"/>
+                <circle cx="270" cy="96" r="34" fill="#ff3b00" fill-opacity="0.85"/>
+                <circle cx="270" cy="96" r="70" fill="#ff3b00" fill-opacity="0.14"/>
+                <path d="M0 170 L110 156 L210 176 L300 158 L400 174 L400 267 L0 267Z" fill="#0b0b0a"/>
+                <path d="M0 200 L130 188 L260 206 L400 192 L400 267 L0 267Z" fill="#050504"/>
+                <rect x="196" y="150" width="4" height="24" fill="#050504"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>TRAVEL</span><b>ISO64 · 1/500 · 35mm ƒ8</b></figcaption>
+          </figure>
+
+          <figure class="frame">
+            <span class="frame__no">F/02</span>
+            <span class="frame__title" aria-hidden="true">The first look</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 500" role="img" aria-label="Duotone frame: two figures under an arch, warm rim light between them.">
+                <rect width="400" height="500" fill="#1a1917"/>
+                <path d="M120 500 V210 a80 80 0 0 1 160 0 V500Z" fill="#0c0c0b"/>
+                <circle cx="200" cy="190" r="120" fill="none" stroke="#ff3b00" stroke-opacity="0.25" stroke-width="2"/>
+                <g fill="#050504">
+                  <path d="M150 320 q0 -60 26 -60 q26 0 26 60 v180 h-52Z"/>
+                  <circle cx="176" cy="240" r="22"/>
+                  <path d="M224 330 q0 -54 24 -54 q24 0 24 54 v170 h-48Z"/>
+                  <circle cx="248" cy="252" r="20"/>
+                </g>
+                <rect x="186" y="150" width="28" height="6" fill="#ff3b00" fill-opacity="0.8"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>WEDDING</span><b>ISO200 · 1/250 · 85mm ƒ1.8</b></figcaption>
+          </figure>
+
+          <figure class="frame">
+            <span class="frame__no">F/03</span>
+            <span class="frame__title" aria-hidden="true">Doorway, Sétif</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 500" role="img" aria-label="Duotone frame: a bright doorway cutting a wedge of light across a dark stone room.">
+                <rect width="400" height="500" fill="#0e0e0d"/>
+                <rect x="150" y="90" width="110" height="360" fill="#edebe4" fill-opacity="0.9"/>
+                <path d="M260 90 L400 250 L340 500 L260 450Z" fill="#ff3b00" fill-opacity="0.10"/>
+                <path d="M150 450 L260 450 L200 500 L90 500Z" fill="#edebe4" fill-opacity="0.35"/>
+                <rect x="150" y="90" width="110" height="360" fill="none" stroke="#050504" stroke-width="4"/>
+                <circle cx="240" cy="270" r="6" fill="#050504"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>TRAVEL</span><b>ISO400 · 1/125 · 28mm ƒ4</b></figcaption>
+          </figure>
+
+          <figure class="frame frame--wide">
+            <span class="frame__no">F/04</span>
+            <span class="frame__title" aria-hidden="true">Exit, 1/15s</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 267" role="img" aria-label="Duotone frame: motion-blurred figures leaving a hall, streaks of light dragged across the frame.">
+                <rect width="400" height="267" fill="#141312"/>
+                <g stroke="#edebe4" stroke-opacity="0.5">
+                  <line x1="20" y1="120" x2="320" y2="132" stroke-width="10"/>
+                  <line x1="60" y1="160" x2="360" y2="150" stroke-width="6" stroke-opacity="0.3"/>
+                </g>
+                <g stroke="#ff3b00" stroke-opacity="0.8">
+                  <line x1="40" y1="90" x2="380" y2="96" stroke-width="4"/>
+                  <line x1="10" y1="200" x2="300" y2="188" stroke-width="3" stroke-opacity="0.5"/>
+                </g>
+                <rect x="150" y="70" width="20" height="130" fill="#050504" opacity="0.6"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>WEDDING</span><b>ISO1600 · 1/15 · 50mm ƒ2</b></figcaption>
+          </figure>
+
+          <figure class="frame">
+            <span class="frame__no">F/05</span>
+            <span class="frame__title" aria-hidden="true">Portrait, north wind</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 500" role="img" aria-label="Duotone frame: a profile portrait, half in shadow, one catchlight of colour on the cheek.">
+                <rect width="400" height="500" fill="#1b1a18"/>
+                <path d="M120 500 C120 300 170 120 260 120 C320 120 330 260 300 360 C280 430 250 500 250 500Z" fill="#0b0b0a"/>
+                <path d="M260 120 C300 130 312 210 300 300 L262 300 C258 220 250 160 240 130Z" fill="#050504"/>
+                <circle cx="250" cy="220" r="7" fill="#ff3b00" fill-opacity="0.85"/>
+                <path d="M232 250 q14 6 0 18" stroke="#ff3b00" stroke-opacity="0.3" fill="none" stroke-width="3"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>BRAND</span><b>ISO100 · 1/200 · 105mm ƒ2.8</b></figcaption>
+          </figure>
+
+          <figure class="frame">
+            <span class="frame__no">F/06</span>
+            <span class="frame__title" aria-hidden="true">Still life, film grain</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 500" role="img" aria-label="Duotone frame: a bottle and two glasses on a table, single hard light from the left.">
+                <rect width="400" height="500" fill="#17110d"/>
+                <rect y="360" width="400" height="140" fill="#0b0b0a"/>
+                <rect x="150" y="150" width="40" height="210" rx="10" fill="#050504"/>
+                <rect x="162" y="120" width="16" height="40" fill="#050504"/>
+                <path d="M150 250 h40 v110 h-40Z" fill="#ff3b00" fill-opacity="0.18"/>
+                <path d="M230 300 q10 0 10 20 v40 h-20 v-40 q0 -20 10 -20Z" fill="#050504"/>
+                <path d="M270 300 q10 0 10 20 v40 h-20 v-40 q0 -20 10 -20Z" fill="#050504"/>
+                <circle cx="120" cy="120" r="10" fill="#edebe4" fill-opacity="0.5"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>BRAND</span><b>ISO100 · 1/160 · 90mm ƒ11</b></figcaption>
+          </figure>
+
+          <figure class="frame frame--wide">
+            <span class="frame__no">F/07</span>
+            <span class="frame__title" aria-hidden="true">Coastline, from above</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 267" role="img" aria-label="Duotone frame: an aerial coastline, pale surf curving against dark water and land.">
+                <rect width="400" height="267" fill="#0d0f10"/>
+                <path d="M0 120 Q160 60 260 130 T400 110 L400 267 L0 267Z" fill="#14110d"/>
+                <path d="M0 120 Q160 60 260 130 T400 110" fill="none" stroke="#edebe4" stroke-opacity="0.6" stroke-width="4"/>
+                <path d="M0 140 Q160 84 258 150 T400 132" fill="none" stroke="#ff3b00" stroke-opacity="0.4" stroke-width="2"/>
+                <circle cx="320" cy="200" r="4" fill="#edebe4" fill-opacity="0.6"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>TRAVEL</span><b>ISO100 · 1/1000 · 24mm ƒ5.6</b></figcaption>
+          </figure>
+
+          <figure class="frame">
+            <span class="frame__no">F/08</span>
+            <span class="frame__title" aria-hidden="true">After the vows, midnight</span>
+            <div class="frame__img">
+              <svg viewBox="0 0 400 500" role="img" aria-label="Duotone frame: a night sky of scattered stars over a thin horizon, one warm lamp glowing.">
+                <rect width="400" height="500" fill="#0a0b0e"/>
+                <g fill="#edebe4" fill-opacity="0.75">
+                  <circle cx="60" cy="80" r="2"/><circle cx="140" cy="140" r="1.5"/>
+                  <circle cx="230" cy="60" r="2.4"/><circle cx="320" cy="120" r="1.6"/>
+                  <circle cx="90" cy="220" r="1.4"/><circle cx="360" cy="220" r="2"/>
+                  <circle cx="180" cy="300" r="1.5"/><circle cx="280" cy="260" r="1.3"/>
+                </g>
+                <rect y="420" width="400" height="80" fill="#050506"/>
+                <circle cx="210" cy="418" r="16" fill="#ff3b00" fill-opacity="0.85"/>
+                <circle cx="210" cy="418" r="40" fill="#ff3b00" fill-opacity="0.16"/>
+              </svg>
+            </div>
+            <figcaption class="frame__meta"><span>WEDDING</span><b>ISO3200 · 4s · 20mm ƒ1.4</b></figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="section" id="services" aria-labelledby="svc-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">02 / SERVICES</span>
+          <h2 class="display section__title" id="svc-title">Three ways I work</h2>
+        </div>
+        <div class="grid3">
+          <article class="card reveal">
+            <span class="card__no">S/01</span>
+            <h3 class="display card__title">Travel stories</h3>
+            <p>Multi-day coverage of a place and the people in it — for hotels, tourism boards and magazines that need frames with a pulse, not a stock library.</p>
+            <ul class="card__list">
+              <li>Half-day &amp; full-day rates</li>
+              <li>Location scouting included</li>
+              <li>Licensing for print &amp; web</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <span class="card__no">S/02</span>
+            <h3 class="display card__title">Destination weddings</h3>
+            <p>One photographer, all day, wherever the two of you say yes. Documentary first, a few directed portraits when the light asks for them.</p>
+            <ul class="card__list">
+              <li>Single &amp; multi-day (welcome → brunch)</li>
+              <li>Travel arranged from base city</li>
+              <li>Second shooter on request</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <span class="card__no">S/03</span>
+            <h3 class="display card__title">Brand &amp; editorial</h3>
+            <p>Campaign and product frames that carry a house style — art direction, shot list and delivery handled end to end.</p>
+            <ul class="card__list">
+              <li>Studio or on-location</li>
+              <li>Usage &amp; buy-out options</li>
+              <li>Retouch &amp; delivery specs</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section class="section" id="process" aria-labelledby="proc-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">03 / PROCESS</span>
+          <h2 class="display section__title" id="proc-title">Enquire → frame → deliver</h2>
+        </div>
+        <div class="process">
+          <div class="step reveal">
+            <div class="step__no display" aria-hidden="true">01</div>
+            <h3 class="display step__title">Ask a date</h3>
+            <p>Send the date, the type and the place. Within two working days you get availability, a plain-language quote and a sample gallery from similar work.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step__no display" aria-hidden="true">02</div>
+            <h3 class="display step__title">Frame the day</h3>
+            <p>We agree a light-led plan — golden hours, key moments, must-have portraits. On the day I stay out of the way and read the room.</p>
+          </div>
+          <div class="step reveal">
+            <div class="step__no display" aria-hidden="true">03</div>
+            <h3 class="display step__title">Deliver &amp; license</h3>
+            <p>A colour-graded online gallery, print-ready files and a clear licence. Standard delivery is four weeks; a sneak set lands within 72 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STUDIO / ABOUT (dark) ===================== -->
+    <section class="section studio" id="studio" aria-labelledby="studio-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">04 / STUDIO</span>
+          <h2 class="display section__title" id="studio-title">Behind the shutter</h2>
+        </div>
+        <div class="studio__grid">
+          <div>
+            <p class="studio__statement">A photograph is a decision about <em>when</em>, not what.</p>
+            <!-- [PLACEHOLDER] biyografi — kurgusal marka; gerçek fotoğrafçı metni buraya -->
+            <p style="margin-top:1.6rem">
+              MERCEK Studio is a one-person practice built on a simple habit: arrive early, stay late,
+              and let the place set the pace. Ten years between airports and aisles have taught me
+              that the frame worth keeping usually happens in the quiet minute before everyone
+              expects it.
+            </p>
+            <p class="tag" style="margin-top:1.4rem">Based nowhere in particular · shooting everywhere · replies in EN &amp; TR</p>
+          </div>
+          <div class="portrait" aria-hidden="false">
+            <!-- MEDYA BOŞLUĞU 2: fotoğrafçı portresi (Higgsfield istek listesi #2) -->
+            <svg viewBox="0 0 400 500" role="img" aria-label="Duotone self-portrait of the photographer, camera raised, face half-hidden behind it.">
+              <rect width="400" height="500" fill="#0e0e0d"/>
+              <path d="M110 500 C110 320 150 200 210 200 C270 200 290 320 290 500Z" fill="#1c1b19"/>
+              <rect x="150" y="230" width="120" height="80" rx="8" fill="#050504"/>
+              <circle cx="210" cy="270" r="30" fill="#131313" stroke="#ff3b00" stroke-width="4"/>
+              <circle cx="210" cy="270" r="10" fill="#ff3b00" fill-opacity="0.85"/>
+              <rect x="196" y="210" width="14" height="20" fill="#050504"/>
+              <path d="M150 226 q60 -30 120 0" fill="none" stroke="#edebe4" stroke-opacity="0.2" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROOF / PRESS ===================== -->
+    <section class="section" id="proof" aria-labelledby="proof-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">05 / VOICES</span>
+          <h2 class="display section__title" id="proof-title">In their words</h2>
+        </div>
+        <!-- [PLACEHOLDER] — örnek alıntılar; gerçek yorumlar müşteriden gelmeden yayınlanmaz -->
+        <div class="quotes">
+          <figure class="quote reveal">
+            <blockquote>He shot our elopement like he'd known us for years and disappeared exactly when we needed to be alone. The gallery still makes us cry.</blockquote>
+            <cite>— Sample couple, Aegean coast<!-- PLACEHOLDER --></cite>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>The travel set doubled our booking-page conversions. Every frame looks like a place you'd cancel plans to visit.</blockquote>
+            <cite>— Sample boutique hotel, marketing lead<!-- PLACEHOLDER --></cite>
+          </figure>
+          <figure class="quote reveal">
+            <blockquote>Delivered ahead of deadline, licensing crystal clear, zero hand-holding. A rare, professional shoot.</blockquote>
+            <cite>— Sample magazine, photo editor<!-- PLACEHOLDER --></cite>
+          </figure>
+        </div>
+        <!-- [PLACEHOLDER] basın adları — kurgusal; gerçek logolar eklenene dek metin -->
+        <div class="press" aria-label="Featured in (sample)">
+          <span>Wander Journal</span>
+          <span>Rite Mag</span>
+          <span>Coastlines</span>
+          <span>Atlas Weddings</span>
+          <span>Northlight</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">06 / FAQ</span>
+          <h2 class="display section__title" id="faq-title">Before you ask a date</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Do I pay for your travel?</summary>
+            <p>For destination work, travel and accommodation are quoted transparently up front — no surprises after booking. Within your region, travel is folded into the day rate. You always see the full number before you commit.</p>
+          </details>
+          <details>
+            <summary>How long until I get the photos?</summary>
+            <p>A hand-picked sneak set arrives within 72 hours. The full, colour-graded gallery is delivered within four weeks of the shoot; rush delivery is available on request for an added fee.</p>
+          </details>
+          <details>
+            <summary>Who owns the images, and how can I use them?</summary>
+            <p>I retain copyright as the author, and you receive a clear written licence for your use — personal, print and web for couples; defined commercial usage or buy-out for brands. Nothing is published without your say-so.</p>
+          </details>
+          <details>
+            <summary>Do you deliver the raw files?</summary>
+            <p>Editing is part of the craft, so raw files aren't part of standard delivery. You receive high-resolution, finished files plus web-ready versions. If your workflow genuinely needs raws, we can discuss a separate archive licence.</p>
+          </details>
+          <details>
+            <summary>What happens if we cancel or reschedule?</summary>
+            <p>The date is held with a deposit. Reschedules are honoured subject to availability; if you cancel, the deposit covers the reserved date and any non-recoverable travel already booked. The full terms are written into your agreement — no fine print.</p>
+          </details>
+          <details>
+            <summary>Where are you based, and how far will you go?</summary>
+            <p>I work as an itinerant photographer with no fixed studio, which means most of the world is on the table. Tell me the location in your enquiry and I'll confirm feasibility and any travel window with the quote.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT (single CTA, dark) ===================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__idx">07 / CONTACT</span>
+          <h2 class="display section__title" id="contact-title">Ask a date</h2>
+        </div>
+        <div class="contact__grid">
+          <div>
+            <p class="contact__lead">Tell me <em>when</em>, <em>what</em> and <em>where</em>.</p>
+            <p style="color:#dedbd2;max-width:44ch">
+              One form, one reply from me — not a bot, not a sales team. If the date is open,
+              you'll have availability and a plain quote within two working days.
+            </p>
+            <ul class="guarantee">
+              <li>Reply within two working days, from the photographer</li>
+              <li>Transparent quote — travel &amp; licensing itemised</li>
+              <li>No deposit until you've seen a matching sample gallery</li>
+            </ul>
+            <p class="tag" style="margin-top:1.8rem">
+              Prefer email? <a href="mailto:hello@ayna.studio" style="color:var(--accent)">hello@ayna.studio</a>
+              <!-- [PLACEHOLDER] gerçek iletişim -->
+            </p>
+          </div>
+
+          <form class="js-form" novalidate aria-describedby="form-status">
+            <div class="row2">
+              <div class="field">
+                <label for="f-date">Date <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-date" name="date" type="date" required autocomplete="off" />
+              </div>
+              <div class="field">
+                <label for="f-type">Shoot type <span class="req" aria-hidden="true">*</span></label>
+                <select id="f-type" name="type" required>
+                  <option value="">Select…</option>
+                  <option>Travel story</option>
+                  <option>Destination wedding</option>
+                  <option>Brand / editorial</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-place">Location <span class="req" aria-hidden="true">*</span></label>
+              <input id="f-place" name="place" type="text" required placeholder="City, region or venue" autocomplete="off" />
+            </div>
+            <div class="row2">
+              <div class="field">
+                <label for="f-name">Your name <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-name" name="name" type="text" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-email" name="email" type="email" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-note">Anything else</label>
+              <textarea id="f-note" name="note" placeholder="Tell me about the day…"></textarea>
+            </div>
+            <button class="btn" type="submit">Send enquiry <span class="btn__arrow" aria-hidden="true">→</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note">
+              <!-- Demo iskeleti: form backend'e bağlı değil (Higgsfield/medya değil, teslimde bağlanır). -->
+              This is a demo gallery. On the live site your enquiry reaches the studio inbox directly.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot__top">
+        <h2 class="foot__mark display" aria-hidden="true">MERCEK</h2>
+        <div class="foot__cols">
+          <div class="foot__col">
+            <h4>Menu</h4>
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="foot__col">
+            <h4>Studio</h4>
+            <a href="#contact">Ask a date</a>
+            <a href="mailto:hello@ayna.studio">hello@ayna.studio</a>
+            <a href="rehber/" hreflang="tr" lang="tr">Türkçe rehber</a>
+          </div>
+          <div class="foot__col">
+            <h4>Social</h4>
+            <!-- [PLACEHOLDER] gerçek sosyal hesaplar -->
+            <a href="#top">Instagram — @ayna.studio</a>
+            <a href="#top">Behance — ayna</a>
+          </div>
+        </div>
+      </div>
+      <div class="foot__legal">
+        <span>© 2026 MERCEK Studio — fictional showcase by VYRON.</span>
+        <span>Travel &amp; wedding photography · worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- mobile sticky CTA -->
+  <div class="mcta">
+    <a class="btn" href="#contact">Ask a date <span class="btn__arrow" aria-hidden="true">→</span></a>
+  </div>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>
+</body>
+</html>

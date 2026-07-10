@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HALLEY Desert Camp — Borrow the Sky · Desert Stargazing Glamping</title>
+<meta name="description" content="A luxury tented camp far from every city light. Reserve a night, and we draw the exact sky you will sleep under — constellations, moon phase and a silent desert dawn.">
+<meta name="theme-color" content="#0B0713">
+<link rel="canonical" href="https://nukta-desertcamp.example/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HALLEY Desert Camp — Borrow the Sky">
+<meta property="og:description" content="Luxury desert glamping under a Bortle 2 sky. Pick your night; we map the stars you'll sleep beneath.">
+<meta property="og:image" content="https://nukta-desertcamp.example/assets/ambience-poster.jpg">
+<meta property="og:url" content="https://nukta-desertcamp.example/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HALLEY Desert Camp — Borrow the Sky">
+<meta name="twitter:description" content="Luxury desert glamping under a Bortle 2 sky. Pick your night; we map the stars you'll sleep beneath.">
+<meta name="twitter:image" content="https://nukta-desertcamp.example/assets/ambience-poster.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/zodiak-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "HALLEY Desert Camp",
+  "description": "Luxury tented desert camp and astro-tourism experience under a Bortle 2 dark sky.",
+  "url": "https://nukta-desertcamp.example/",
+  "priceRange": "€€€",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Guided telescope stargazing", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Desert breakfast at dawn", "value": true }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312"
+  }
+}
+</script>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ====================== NAV ====================== -->
+<nav class="nav" aria-label="Primary">
+  <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>HALLEY</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#nights">The night</a>
+    <a href="#tents">Tents</a>
+    <a href="#sky">The sky</a>
+    <a href="#faq">Questions</a>
+    <a class="nav-cta" href="#reserve">Reserve a night</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ====================== HERO · imza anı ====================== -->
+<header class="hero" id="top">
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="horizon-glow" aria-hidden="true"></div>
+  <svg class="dunes" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+    <path class="d1" d="M0,200 C220,150 360,240 620,205 C880,170 1040,250 1440,190 L1440,320 L0,320 Z"></path>
+    <path class="d2" d="M0,250 C260,215 420,285 700,255 C980,225 1180,290 1440,250 L1440,320 L0,320 Z"></path>
+  </svg>
+
+  <figure class="moon" aria-label="Moon phase for the selected night">
+    <div class="moon-disc" id="moonDisc"></div>
+    <figcaption class="moon-cap">Tonight's moon<b id="moonName">—</b></figcaption>
+  </figure>
+
+  <div class="hero-inner">
+    <span class="kicker"><span class="pip" aria-hidden="true"></span>Bortle 2 · zero city light</span>
+    <h1>Borrow the sky <span class="em">for one night</span></h1>
+    <p class="sub">A luxury tented camp on a silent desert plateau. Choose your date and we chart the exact stars you'll sleep beneath.</p>
+
+    <div class="sky-pick">
+      <div class="field-date">
+        <label for="nightDate">Pick your night</label>
+        <input type="date" id="nightDate" name="nightDate" aria-describedby="pickHelp">
+      </div>
+      <a class="btn btn-primary" href="#reserve">Reserve your night <span class="btn-arrow" aria-hidden="true">→</span></a>
+    </div>
+    <p id="pickHelp" class="sr-only">Choosing a date redraws the star map above with the constellations and moon phase visible that night.</p>
+
+    <!-- SOSYAL KANIT — örnek veri, müşteri gerçek verisiyle değişecek (bkz. rapor PLACEHOLDER envanteri) -->
+    <p class="proof">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <b>4.9</b> average <span class="sep" aria-hidden="true">·</span>
+      <b>300+</b> nights under the stars <span class="sep" aria-hidden="true">·</span>
+      Featured in <b>Condé Nast Traveller</b>
+    </p>
+  </div>
+
+  <p class="sky-hint" aria-hidden="true"><span class="rot"></span> Drag the sky to turn the dome</p>
+</header>
+
+<!-- ====================== THE NIGHT ====================== -->
+<section class="band" id="nights">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <p class="eyebrow">A night at HALLEY</p>
+      <h2>The desert keeps time by starlight</h2>
+      <p class="lead">No screens, no schedule you didn't choose. Just a slow arc from last light to first — the way people read the sky before there were cities to forget it.</p>
+    </div>
+    <ol class="prog reveal">
+      <li>
+        <span class="t">18:30</span>
+        <div><h3>Blue hour arrival</h3><p>Tea by the fire pit as the plateau cools and the first planets appear. Your host walks you to your tent while there is still light on the dunes.</p></div>
+      </li>
+      <li>
+        <span class="t">21:00</span>
+        <div><h3>Telescope stargazing</h3><p>A guided hour at the Dobsonian: rings of Saturn, the craters along the moon's terminator, and whichever deep-sky objects are highest that night.</p></div>
+      </li>
+      <li>
+        <span class="t">23:30</span>
+        <div><h3>The silence</h3><p>The guides step back. You lie on a heated daybed under a sky rated Bortle 2 — dark enough that the Milky Way casts a faint shadow.</p></div>
+      </li>
+      <li>
+        <span class="t">05:40</span>
+        <div><h3>Desert breakfast at dawn</h3><p>Cardamom coffee and warm bread as the horizon turns from violet to amber and the stars quietly hand the sky back to the sun.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ====================== AMBIENCE (poster'lı video slotu) ====================== -->
+<section class="ambience" aria-label="The Milky Way over the plateau">
+  <!-- assets/hero.mp4 eklenince otomatik oynar; yoksa poster gösterir (HIGGSFIELD istek listesi: rapor) -->
+  <video class="ambience-video" autoplay muted loop playsinline preload="none"
+         poster="assets/ambience-poster.jpg" aria-hidden="true"></video>
+  <blockquote>“You forget how many stars there are until nothing else is lit.”
+    <cite>— what most guests say around midnight</cite></blockquote>
+</section>
+
+<!-- ====================== TENTS ====================== -->
+<section class="band" id="tents">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <p class="eyebrow">Where you sleep</p>
+      <h2>Three tents, one open roof</h2>
+      <p class="lead">Every tent has a retractable skylight over the bed — so the last thing you see is the sky you chose.</p>
+    </div>
+    <div class="tents reveal">
+      <article class="tent">
+        <div class="tent-fig ph-a" data-ph="Tent · Nomad" role="img" aria-label="The Nomad tent, softly lit against a violet night sky">
+          <div class="glyph" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#EDE4D3" stroke-width="1.4" opacity=".8"><path d="M32 12 L54 50 H10 Z"/><path d="M32 12 V50"/></svg></div>
+        </div>
+        <div class="tent-body">
+          <h3>The Nomad</h3>
+          <p class="cap">A snug canvas suite for two, wood stove and a skylight framed straight over the pillows.</p>
+          <div class="tent-meta"><span class="price">€280 <small>/ night</small></span><span class="cnt">Sleeps 2</span></div>
+        </div>
+      </article>
+      <article class="tent">
+        <div class="tent-fig ph-b" data-ph="Tent · Meridian" role="img" aria-label="The Meridian tent glowing under a nebula-purple sky">
+          <div class="glyph" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#EDE4D3" stroke-width="1.4" opacity=".8"><path d="M12 50 Q32 8 52 50 Z"/><path d="M32 20 V50"/></svg></div>
+        </div>
+        <div class="tent-body">
+          <h3>The Meridian</h3>
+          <p class="cap">Our signature dome-tent with a private deck, deep soaking tub and a full half-sphere of glass above the bed.</p>
+          <div class="tent-meta"><span class="price">€440 <small>/ night</small></span><span class="cnt">Sleeps 2</span></div>
+        </div>
+      </article>
+      <article class="tent">
+        <div class="tent-fig ph-c" data-ph="Tent · Caravan" role="img" aria-label="The Caravan family tent under a warm horizon glow">
+          <div class="glyph" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#EDE4D3" stroke-width="1.4" opacity=".8"><path d="M8 50 H56"/><path d="M14 50 Q22 20 32 20 Q42 20 50 50"/><path d="M32 20 V50"/></svg></div>
+        </div>
+        <div class="tent-body">
+          <h3>The Caravan</h3>
+          <p class="cap">Two connected tents for families or friends, a shared fire terrace and twin skylights for the children's bunks.</p>
+          <div class="tent-meta"><span class="price">€620 <small>/ night</small></span><span class="cnt">Sleeps 4</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ====================== SKY QUALITY ====================== -->
+<section class="band" id="sky">
+  <div class="wrap">
+    <div class="loc">
+      <div class="reveal">
+        <p class="eyebrow">Why here</p>
+        <h2 style="font-size:clamp(2rem,4.4vw,3.3rem);margin-bottom:1rem">The darkest sky within a day's drive</h2>
+        <p class="lead">HALLEY sits on a high plateau three hours from the nearest streetlight. On the Bortle scale — the astronomer's ruler for night darkness — we measure a class 2. The zodiacal light is visible. The Milky Way has structure, not just a smudge.</p>
+        <dl class="loc-facts">
+          <div><dt>Bortle class</dt><dd>2 / 9</dd></div>
+          <div><dt>Elevation</dt><dd>1,340 m</dd></div>
+          <div><dt>Clear nights / yr</dt><dd>270+</dd></div>
+          <div><dt>Nearest light</dt><dd>3 hrs</dd></div>
+        </dl>
+      </div>
+      <div class="bortle reveal">
+        <h3>Where our sky lands on the Bortle scale</h3>
+        <div class="bortle-scale" role="img" aria-label="Bortle darkness scale from class 1 to 9. HALLEY is marked at class 2, near the darkest end.">
+          <span class="marker"></span>
+        </div>
+        <div class="bortle-ends"><span>1 · truly dark</span><span>9 · inner city</span></div>
+        <p class="note">Most people have only ever seen a class 5–8 sky. The jump to class 2 is the difference between counting a few dozen stars and losing count entirely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== TESTIMONIALS ====================== -->
+<section class="band" aria-labelledby="voices-h">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <p class="eyebrow">Guests</p>
+      <h2 id="voices-h">People come for a hotel. They leave talking about the sky</h2>
+    </div>
+    <!-- YORUMLAR — örnek veri; gerçek misafir yorumlarıyla değişecek (rapor PLACEHOLDER envanteri) -->
+    <div class="quotes reveal">
+      <figure class="quote">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <blockquote><p>“We picked our anniversary date on the site and slept under exactly the sky it drew. I cried at the telescope. Actually cried.”</p></blockquote>
+        <figcaption class="who"><b>Lena &amp; Marc</b>Berlin · Meridian tent</figcaption>
+      </figure>
+      <figure class="quote">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <blockquote><p>“The dawn breakfast is the quietest hour of my life. Worth the three-hour drive twice over.”</p></blockquote>
+        <figcaption class="who"><b>Priya N.</b>solo traveller · Nomad tent</figcaption>
+      </figure>
+      <figure class="quote">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <blockquote><p>“Brought two teenagers who never look up from their phones. They spent two hours naming constellations. Astonishing.”</p></blockquote>
+        <figcaption class="who"><b>The Okonkwo family</b>Caravan tent</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== FAQ ====================== -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="band-head reveal">
+      <p class="eyebrow">Before you book</p>
+      <h2>Honest answers</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>What happens if it's cloudy? <span class="ico" aria-hidden="true"></span></summary>
+        <div class="ans"><p>Skies here are clear on roughly 270 nights a year, but weather is weather. If cloud cover blocks the stargazing session entirely, we run an indoor astronomy talk and give you a voucher for a free return telescope night within 12 months. Your stay itself is never charged twice.</p></div>
+      </details>
+      <details>
+        <summary>Is the telescope session included? <span class="ico" aria-hidden="true"></span></summary>
+        <div class="ans"><p>Yes. Every booking includes the guided hour at the telescope with a resident astronomy guide. No extra fee, no upsell. Serious astrophotographers can request the observation deck and a mount for their own gear when booking.</p></div>
+      </details>
+      <details>
+        <summary>Can we bring children? <span class="ico" aria-hidden="true"></span></summary>
+        <div class="ans"><p>The Caravan tent is built for families and sleeps up to four. Children are welcome at the early telescope session; the later silent hours are quieter and best suited to older kids and adults. There is no minimum age.</p></div>
+      </details>
+      <details>
+        <summary>What's your cancellation policy? <span class="ico" aria-hidden="true"></span></summary>
+        <div class="ans"><p>Free cancellation up to 7 days before arrival for a full refund. Within 7 days we hold your deposit as credit toward any future date for a year. We'd rather you came under a sky you're excited about than one you're stuck with.</p></div>
+      </details>
+      <details>
+        <summary>When is the best time of year to come? <span class="ico" aria-hidden="true"></span></summary>
+        <div class="ans"><p>Every season shows a different sky. Winter brings Orion and crisp, steady air; summer brings the bright core of the Milky Way and Scorpius low on the horizon. Pick a date near a new moon for the darkest possible sky — the map on this page shows you the moon phase for any night you choose.</p></div>
+      </details>
+      <details>
+        <summary>How do we get there? <span class="ico" aria-hidden="true"></span></summary>
+        <div class="ans"><p>The camp is about a three-hour drive from the nearest regional airport, the last stretch on graded desert track. We offer a private 4×4 transfer from the airport or the nearest town, arranged after you book. Self-drive guests receive detailed offline directions.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== RESERVE ====================== -->
+<section class="band" id="reserve">
+  <div class="wrap">
+    <div class="reserve">
+      <div class="reserve-copy reveal">
+        <p class="eyebrow">Reserve a night</p>
+        <h2>Tell us your night. We'll hold the sky</h2>
+        <p class="lead">Send a request and a host replies within one day with availability and the exact sky forecast for your dates. No payment is taken here.</p>
+        <ul class="trust">
+          <li><span class="tick" aria-hidden="true">✦</span><span>Free cancellation up to 7 days before arrival.</span></li>
+          <li><span class="tick" aria-hidden="true">✦</span><span>A real person replies within 24 hours — not an auto-booker.</span></li>
+          <li><span class="tick" aria-hidden="true">✦</span><span>Telescope session and dawn breakfast included in every rate.</span></li>
+        </ul>
+      </div>
+
+      <form class="book" id="bookForm" novalidate>
+        <div class="book-fields">
+          <div class="row">
+            <label>Name <span class="req" aria-hidden="true">*</span>
+              <input type="text" name="name" autocomplete="name" required placeholder="Your name">
+            </label>
+            <label>Email <span class="req" aria-hidden="true">*</span>
+              <input type="email" name="email" autocomplete="email" required placeholder="you@email.com">
+            </label>
+          </div>
+          <div class="row">
+            <label>Phone / WhatsApp <span style="opacity:.6">(optional)</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+00 000 000 0000">
+            </label>
+            <label>Guests
+              <select name="guests">
+                <option>1 guest</option>
+                <option selected>2 guests</option>
+                <option>3 guests</option>
+                <option>4 guests</option>
+              </select>
+            </label>
+          </div>
+          <div class="row">
+            <label>Preferred night
+              <input type="date" name="date" id="bookDate">
+            </label>
+            <label>Tent
+              <select name="tent">
+                <option>The Nomad — €280</option>
+                <option selected>The Meridian — €440</option>
+                <option>The Caravan — €620</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn btn-primary" type="submit">Request this night <span class="btn-arrow" aria-hidden="true">→</span></button>
+          <p class="fineprint">We reply within 24 hours. No payment is taken on this form.</p>
+        </div>
+        <div class="book-done" id="bookDone" tabindex="-1" role="status" aria-live="polite">
+          Thank you — your request is in. A host will email you within 24 hours with availability and the sky forecast for your night.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>HALLEY</h4>
+        <p>A luxury tented camp on a dark-sky desert plateau. We don't sell rooms — we lend you a night of sky.</p>
+      </div>
+      <div class="col">
+        <h5>Visit</h5>
+        <a href="#nights">A night here</a>
+        <a href="#tents">The tents</a>
+        <a href="#sky">The sky</a>
+        <a href="#faq">Questions</a>
+      </div>
+      <div class="col">
+        <h5>Contact</h5>
+        <!-- iletişim — örnek; müşteri gerçek verisiyle değişecek -->
+        <a href="mailto:stay@nukta-desertcamp.example">stay@nukta-desertcamp.example</a>
+        <a href="tel:+000000000000">+00 000 000 0000</a>
+        <a href="rehber/">Bu site nasıl kuruldu? (TR)</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 HALLEY Desert Camp — a fictional showcase by VYRON.</span>
+      <a href="rehber/">Rehber / Nasıl kuruldu</a>
+    </div>
+  </div>
+</footer>
+
+<!-- mobil yapışkan CTA -->
+<div class="mbar" aria-hidden="false">
+  <span class="from">From <b>€280</b> / night</span>
+  <a class="btn btn-primary" href="#reserve">Reserve a night</a>
+</div>
+
+<script src="assets/site.js" defer></script>
+
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>
+</html>

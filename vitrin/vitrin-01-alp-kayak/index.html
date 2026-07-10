@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IGLU Alpine Lodge — first tracks, above the crowd</title>
+<meta name="description" content="A twelve-room lodge above the snow line. Cut the first track at dawn, warm by the fire at dusk — no lift queues, only altitude and quiet. Reserve a winter stay at IGLU Alpine Lodge.">
+<meta name="theme-color" content="#F4F6F8">
+<link rel="canonical" href="https://karven.example/">
+<link rel="alternate" hreflang="en" href="https://karven.example/?lang=en">
+<link rel="alternate" hreflang="tr" href="https://karven.example/?lang=tr">
+<link rel="alternate" hreflang="x-default" href="https://karven.example/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1B2A'/%3E%3Cpath d='M16 7 L26 25 H6 Z' fill='%23F4F6F8'/%3E%3Cpath d='M16 7 L20.5 15 L16 12.6 L11.5 15 Z' fill='%232E6F95'/%3E%3C/svg%3E">
+<!-- open graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="IGLU Alpine Lodge — first tracks, above the crowd">
+<meta property="og:description" content="A twelve-room lodge above the snow line. First tracks at dawn, fire at dusk.">
+<meta property="og:image" content="assets/hero-poster.svg">
+<meta property="og:url" content="https://karven.example/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IGLU Alpine Lodge">
+<meta name="twitter:description" content="A twelve-room lodge above the snow line. First tracks at dawn, fire at dusk.">
+<meta name="twitter:image" content="assets/hero-poster.svg">
+<!-- critical font preload -->
+<link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "IGLU Alpine Lodge",
+  "description": "A twelve-room boutique ski lodge above the snow line. First tracks at dawn, fire at dusk.",
+  "url": "https://karven.example/",
+  "priceRange": "$$$",
+  "numberOfRooms": 12,
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "Ski-in access", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Thermal outdoor pool", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Private ski guides", "value": true}
+  ],
+  "address": {"@type": "PostalAddress", "addressRegion": "Alpine valley", "addressCountry": "CH"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Is snow guaranteed?", "acceptedAnswer": {"@type": "Answer", "text": "Our runs sit between 2,200 and 3,100 m on a north face, so the upper mountain holds snow across the whole season. If the lifts on your dates cannot open for weather, you may rebook within twelve months or receive a full refund."}},
+    {"@type": "Question", "name": "Can beginners ski here?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Two in-house guides run private lessons from never-ever to off-piste. The lower forest slopes are gentle and quiet."}},
+    {"@type": "Question", "name": "What is your cancellation policy?", "acceptedAnswer": {"@type": "Answer", "text": "Cancel up to 30 days before arrival for a full refund, up to 14 days for a 50% refund. Inside 14 days the stay is non-refundable but you may move your dates once."}},
+    {"@type": "Question", "name": "How do we get to the lodge?", "acceptedAnswer": {"@type": "Answer", "text": "We coordinate the whole last leg: airport transfer, the valley road, and the final snow-cat ride from the village."}},
+    {"@type": "Question", "name": "Can we bring children or a dog?", "acceptedAnswer": {"@type": "Answer", "text": "Children of all ages are welcome. We take one dog at a time by prior arrangement."}},
+    {"@type": "Question", "name": "Is the thermal pool open in all weather?", "acceptedAnswer": {"@type": "Answer", "text": "The pool is heated year-round and stays open through snow and wind; we only close it briefly during lightning."}}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ header ============ -->
+<header class="site-head">
+  <a class="brand" href="#top" aria-label="IGLU Alpine Lodge — home">
+    <span class="peak" aria-hidden="true"></span>IGLU <small>Alpine Lodge</small>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    <a class="navlink" href="#experience" data-i18n="nav.experience">Experience</a>
+    <a class="navlink" href="#rooms" data-i18n="nav.rooms">Rooms</a>
+    <a class="navlink" href="#season" data-i18n="nav.season">Season</a>
+    <a class="navlink" href="#faq" data-i18n="nav.faq">FAQ</a>
+    <span class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="tr" aria-pressed="false">TR</button>
+    </span>
+    <a class="btn btn-primary" href="#reserve" data-i18n="nav.reserve">Reserve</a>
+  </nav>
+</header>
+
+<!-- ============ altitude rail (signature) ============ -->
+<div class="rail" aria-hidden="true">
+  <span class="rail__peak">3,100 m</span>
+  <div class="rail__track">
+    <div class="rail__snow"></div>
+    <div class="rail__marker"></div>
+  </div>
+  <span class="rail__valley">1,450 m</span>
+</div>
+<div class="rail__read" aria-hidden="true">
+  <div class="rail__alt"><span data-alt-num>1,450</span><sup>m</sup></div>
+  <div class="rail__zone" data-alt-zone>Forest</div>
+</div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============ hero ============ -->
+<section class="hero" id="hero">
+  <div class="hero__media" aria-hidden="true">
+    <video class="hero__video" muted loop playsinline preload="metadata"
+           poster="assets/hero-poster.svg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <img class="hero__poster" src="assets/hero-poster.svg" alt="" hidden>
+  </div>
+  <canvas class="snow-canvas" aria-hidden="true"></canvas>
+  <div class="wrap hero__inner">
+    <p class="eyebrow hero__eyebrow" data-i18n="hero.eyebrow">Above the snow line · 12 rooms</p>
+    <h1>First tracks,<br><em>above the crowd</em></h1>
+    <p class="hero__lede" data-i18n="hero.lede">A twelve-room lodge above the tree line. Cut the first track at dawn, warm by the fire at dusk. No lift queues, no crowds — only altitude and quiet.</p>
+    <div class="hero__cta">
+      <a class="btn btn-primary" href="#reserve" data-i18n="hero.cta">Reserve a stay</a>
+      <a class="btn btn-ghost" href="#rooms" data-i18n="hero.cta2">See the rooms</a>
+    </div>
+    <!-- [PLACEHOLDER] social proof — replace rating & count with verified guest data before launch. Marked "SAMPLE" in UI. -->
+    <div class="proof">
+      <span class="proof__stars" aria-hidden="true">★★★★★</span>
+      <span class="proof__txt"><b>4.9</b> · 120+ <span data-i18n="proof.text">rated by guests across three winters</span></span>
+      <span class="proof__mark">SAMPLE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ experience zones ============ -->
+<section class="band" id="experience">
+  <div class="wrap">
+    <div class="band__head reveal">
+      <p class="eyebrow" data-i18n="exp.eyebrow">The climb</p>
+      <h2 data-i18n="exp.title">Three heights, three moods</h2>
+      <p data-i18n="exp.intro">Every stay moves through the mountain — from the sheltered forest, up past the snow line, to the still air of the summit.</p>
+    </div>
+    <div class="zones">
+      <article class="zone reveal">
+        <span class="zone__art" aria-hidden="true"></span>
+        <div class="zone__ix">01</div>
+        <div class="zone__band" data-i18n="exp.z1.band">Forest · 1,450 m</div>
+        <h3 data-i18n="exp.z1.title">First tracks</h3>
+        <p data-i18n="exp.z1.body">Guides wake you before the lifts. Step onto untouched powder while the valley is still blue — the mountain, for an hour, is only yours.</p>
+      </article>
+      <article class="zone reveal">
+        <span class="zone__art" aria-hidden="true"></span>
+        <div class="zone__ix">02</div>
+        <div class="zone__band" data-i18n="exp.z2.band">Snow line · 2,200 m</div>
+        <h3 data-i18n="exp.z2.title">The long fire</h3>
+        <p data-i18n="exp.z2.body">Back by mid-afternoon. A stone hearth, a slow lunch, wool blankets and a window full of weather. Nothing scheduled after this.</p>
+      </article>
+      <article class="zone reveal">
+        <span class="zone__art" aria-hidden="true"></span>
+        <div class="zone__ix">03</div>
+        <div class="zone__band" data-i18n="exp.z3.band">Summit · 3,100 m</div>
+        <h3 data-i18n="exp.z3.title">Thermal &amp; sky</h3>
+        <p data-i18n="exp.z3.body">A steaming outdoor pool cut into the rock, open to the ridge line. Steam, cold air, and a sky that goes from gold to black to full of stars.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ rooms ============ -->
+<section class="band" id="rooms">
+  <div class="wrap">
+    <div class="band__head reveal">
+      <p class="eyebrow" data-i18n="rooms.eyebrow">Rooms</p>
+      <h2 data-i18n="rooms.title">Twelve rooms, each facing the weather</h2>
+      <p data-i18n="rooms.intro">No two rooms are alike. All face the valley or the ridge; all have a fire, deep windows and a bath with a view.</p>
+    </div>
+    <div class="rooms">
+      <article class="room reveal">
+        <div class="room__img">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Illustration of the Valley Room outlook" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="rm1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E6F95"/><stop offset="1" stop-color="#EAF1F5"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#rm1)"/>
+            <path d="M0 300 L90 240 L160 285 L230 235 L300 280 L300 400 L0 400Z" fill="#ffffff" opacity="0.92"/>
+            <path d="M0 340 L120 300 L210 335 L300 305 L300 400 L0 400Z" fill="#cfdbe4"/>
+            <circle cx="225" cy="95" r="42" fill="#F4EDE3" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="room__body">
+          <h3 data-i18n="rooms.r1.name">Valley Room</h3>
+          <div class="room__meta">
+            <span data-i18n="rooms.r1.meta">28 m² · 2 guests · valley view</span>
+          </div>
+          <div class="room__meta"><span class="room__price"><span class="cur" data-i18n="rooms.from">from</span> €340 <span class="cur" data-i18n="rooms.night">/ night</span></span></div>
+        </div>
+      </article>
+      <article class="room reveal">
+        <div class="room__img">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Illustration of the Ridge Suite balcony view" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="rm2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1B2A"/><stop offset="1" stop-color="#9CB2C2"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#rm2)"/>
+            <path d="M0 250 L70 150 L140 250 L210 140 L300 250 L300 400 L0 400Z" fill="#e9eef2"/>
+            <path d="M70 150 L96 190 L70 178 L44 190Z" fill="#ffffff"/>
+            <path d="M210 140 L238 186 L210 172 L182 186Z" fill="#ffffff"/>
+            <g fill="#F4EDE3" opacity="0.7"><circle cx="60" cy="70" r="2"/><circle cx="150" cy="46" r="1.6"/><circle cx="240" cy="80" r="2"/></g>
+          </svg>
+        </div>
+        <div class="room__body">
+          <h3 data-i18n="rooms.r2.name">Ridge Suite</h3>
+          <div class="room__meta"><span data-i18n="rooms.r2.meta">44 m² · 2 guests · private balcony</span></div>
+          <div class="room__meta"><span class="room__price"><span class="cur" data-i18n="rooms.from">from</span> €520 <span class="cur" data-i18n="rooms.night">/ night</span></span></div>
+        </div>
+      </article>
+      <article class="room reveal">
+        <div class="room__img">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Illustration of the Summit Loft with fireplace glow" preserveAspectRatio="xMidYMid slice">
+            <defs><linearGradient id="rm3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2c3d"/><stop offset="1" stop-color="#C25A2E"/></linearGradient></defs>
+            <rect width="300" height="400" fill="url(#rm3)"/>
+            <path d="M0 280 L90 220 L170 275 L250 215 L300 260 L300 400 L0 400Z" fill="#f2f5f7" opacity="0.9"/>
+            <rect x="120" y="300" width="60" height="70" rx="4" fill="#0E1B2A"/>
+            <path d="M150 312 q14 18 0 40 q-14 -18 0 -40Z" fill="#C25A2E"/>
+            <circle cx="60" cy="90" r="34" fill="#F4EDE3" opacity="0.8"/>
+          </svg>
+        </div>
+        <div class="room__body">
+          <h3 data-i18n="rooms.r3.name">Summit Loft</h3>
+          <div class="room__meta"><span data-i18n="rooms.r3.meta">60 m² · 3 guests · fireplace + tub</span></div>
+          <div class="room__meta"><span class="room__price"><span class="cur" data-i18n="rooms.from">from</span> €780 <span class="cur" data-i18n="rooms.night">/ night</span></span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ season & access ============ -->
+<section class="band" id="season">
+  <div class="wrap split">
+    <div class="reveal">
+      <div class="band__head" style="margin-bottom:2rem">
+        <p class="eyebrow" data-i18n="season.eyebrow">Season &amp; access</p>
+        <h2 data-i18n="season.title">When to come, how to arrive</h2>
+      </div>
+      <dl class="season-list">
+        <li><dt data-i18n="season.s1.k">Early season</dt><b data-i18n="season.s1.v">Dec – mid Jan</b><span data-i18n="season.s1.note">Cold, quiet, reliable snow up high. Best for first tracks and long fires.</span></li>
+        <li><dt data-i18n="season.s2.k">High season</dt><b data-i18n="season.s2.v">mid Jan – Feb</b><span data-i18n="season.s2.note">Deepest base, longest days on the glacier runs.</span></li>
+        <li><dt data-i18n="season.s3.k">Spring skiing</dt><b data-i18n="season.s3.v">Mar – mid Apr</b><span data-i18n="season.s3.note">Soft afternoons, sun on the terrace, thermal pool weather.</span></li>
+      </dl>
+    </div>
+    <div class="access reveal">
+      <h3 data-i18n="access.title">Getting here</h3>
+      <ol>
+        <li data-i18n="access.i1">Fly to the regional airport (transfer partners listed at booking).</li>
+        <li data-i18n="access.i2">90-minute private transfer up the valley road — we arrange it.</li>
+        <li data-i18n="access.i3">Last 4 km by snow-cat from the village; luggage handled door to door.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ testimonials [PLACEHOLDER] ============ -->
+<section class="band" id="guests">
+  <div class="wrap">
+    <div class="band__head reveal">
+      <p class="eyebrow" data-i18n="quotes.eyebrow">Guests</p>
+      <h2 data-i18n="quotes.title">What the winters sound like</h2>
+    </div>
+    <!-- [PLACEHOLDER] testimonials — swap for real, attributable guest reviews before launch. -->
+    <div class="quotes">
+      <figure class="quote reveal">
+        <p>&ldquo;We had the whole slope to ourselves before eight. I've never skied anything that quiet.&rdquo;</p>
+        <footer><span class="av" aria-hidden="true"></span><span>Sample guest · Ridge Suite <span class="proof__mark">SAMPLE</span></span></footer>
+      </figure>
+      <figure class="quote reveal">
+        <p>&ldquo;Steam off the pool, stars overhead, minus fifteen. Best hour of the trip, every night.&rdquo;</p>
+        <footer><span class="av" aria-hidden="true"></span><span>Sample guest · Summit Loft <span class="proof__mark">SAMPLE</span></span></footer>
+      </figure>
+      <figure class="quote reveal">
+        <p>&ldquo;They carried our bags from the village and planned every transfer. We just skied.&rdquo;</p>
+        <footer><span class="av" aria-hidden="true"></span><span>Sample guest · Valley Room <span class="proof__mark">SAMPLE</span></span></footer>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ faq ============ -->
+<section class="band" id="faq">
+  <div class="wrap">
+    <div class="band__head reveal">
+      <p class="eyebrow" data-i18n="faq.eyebrow">Good to know</p>
+      <h2 data-i18n="faq.title">Questions before you book</h2>
+    </div>
+    <div class="faq reveal">
+      <details open><summary data-i18n="faq.q1">Is snow guaranteed?</summary><div class="ans" data-i18n="faq.a1">Our runs sit between 2,200 and 3,100 m on a north face, so the upper mountain holds snow across the whole season. If the lifts on your dates cannot open for weather, you may rebook within twelve months or receive a full refund.</div></details>
+      <details><summary data-i18n="faq.q2">Can beginners ski here?</summary><div class="ans" data-i18n="faq.a2">Yes. Two in-house guides run private lessons from never-ever to off-piste. The lower forest slopes are gentle and quiet — a good place to learn without an audience.</div></details>
+      <details><summary data-i18n="faq.q3">What is your cancellation policy?</summary><div class="ans" data-i18n="faq.a3">Cancel up to 30 days before arrival for a full refund, up to 14 days for a 50% refund. Inside 14 days the stay is non-refundable, but you may move your dates once, subject to availability.</div></details>
+      <details><summary data-i18n="faq.q4">How do we actually get to the lodge?</summary><div class="ans" data-i18n="faq.a4">We coordinate the whole last leg: airport transfer, the valley road, and the final snow-cat ride from the village. You send us your flights; we handle the rest, luggage included.</div></details>
+      <details><summary data-i18n="faq.q5">Can we bring children, or a dog?</summary><div class="ans" data-i18n="faq.a5">Children of all ages are welcome; the Summit Loft sleeps three. We are a small, quiet house, so we take one dog at a time by prior arrangement — just tell us when you book.</div></details>
+      <details><summary data-i18n="faq.q6">Is the thermal pool open in all weather?</summary><div class="ans" data-i18n="faq.a6">The pool is heated year-round and stays open through snow and wind; we only close it briefly during lightning. Robes, towels and a warm changing room are always provided.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ reservation ============ -->
+<section class="band" id="reserve">
+  <div class="wrap">
+    <div class="reserve reveal">
+      <div class="reserve__intro">
+        <p class="eyebrow" data-i18n="reserve.eyebrow">Reserve</p>
+        <h2 data-i18n="reserve.title">Hold your dates on the mountain</h2>
+        <p data-i18n="reserve.intro">Tell us who's coming and when. We reply within one working day with availability and the full transfer plan — no deposit taken online.</p>
+        <ul class="trust">
+          <li><span class="tick" aria-hidden="true">✦</span><span data-i18n="reserve.t1">No online payment — we confirm by hand</span></li>
+          <li><span class="tick" aria-hidden="true">✦</span><span data-i18n="reserve.t2">Free rebooking if the lifts stay shut for weather</span></li>
+          <li><span class="tick" aria-hidden="true">✦</span><span data-i18n="reserve.t3">One real person answers, in your language</span></li>
+        </ul>
+      </div>
+      <form class="reserve__form" id="reserve-form" novalidate>
+        <div class="field">
+          <label for="f-name"><span data-i18n="form.name">Full name</span> <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email"><span data-i18n="form.email">Email</span> <span class="req" aria-hidden="true">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-phone"><span data-i18n="form.phone">Phone</span> <span style="color:var(--ink-55);font-weight:500">(<span data-i18n="form.optional">optional</span>)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-guests" data-i18n="form.guests">Guests</label>
+            <select id="f-guests" name="guests">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-date" data-i18n="form.arrival">Arrival date</label>
+          <input id="f-date" name="arrival" type="date">
+        </div>
+        <button class="btn btn-primary" type="submit" data-i18n="form.submit">Request availability</button>
+        <p class="form-note" data-i18n="form.note">We use your details only to answer this request. No newsletter, no sharing.</p>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ footer ============ -->
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top"><span class="peak" aria-hidden="true"></span>IGLU <small>Alpine Lodge</small></a>
+      <p data-i18n="foot.tag">A twelve-room lodge above the snow line. First tracks at dawn, fire at dusk.</p>
+    </div>
+    <div class="foot-cols">
+      <div>
+        <h4 data-i18n="foot.explore">Explore</h4>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#rooms" data-i18n="nav.rooms">Rooms</a>
+        <a href="#season" data-i18n="nav.season">Season</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </div>
+      <div>
+        <h4 data-i18n="foot.contact">Contact</h4>
+        <ul>
+          <li>stay@karven.example</li>
+          <li>+00 000 000 00 00</li>
+          <li>Alpine valley</li>
+        </ul>
+      </div>
+      <div>
+        <h4>&nbsp;</h4>
+        <a href="rehber.html" data-i18n="foot.legal">How this site was made</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-base">
+    <span data-i18n="foot.rights">IGLU Alpine Lodge — fictional showcase brand by VYRON Website Faktory.</span>
+    <span>© 2026 · VYRON Website Faktory</span>
+  </div>
+</footer>
+
+<!-- ============ mobile sticky CTA ============ -->
+<div class="mobile-bar" aria-hidden="false">
+  <div class="m-alt"><span data-i18n="nav.reserve">Reserve</span><b data-m-alt>1,450 m</b></div>
+  <a class="btn btn-primary" href="#reserve" data-i18n="hero.cta">Reserve a stay</a>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js" defer></script>
+
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>
+</body>
+</html>

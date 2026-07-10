@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rehber — ATÖLYE VYRON bu site nasıl yapıldı</title>
+  <meta name="description" content="ATÖLYE VYRON vitrin sitesinin arkasındaki teknikler: yığılan kart destesi imza anı, koyu editorial palet, WCAG AA kontrast ve performans bütçesi — Yıldız Dikme analizlerinden damıtıldı.">
+  <meta name="theme-color" content="#0B0C10">
+  <link rel="canonical" href="https://example.com/rehber/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rehber — ATÖLYE VYRON bu site nasıl yapıldı">
+  <meta property="og:description" content="Yığılan kart destesi imza anı, koyu editorial palet, WCAG AA ve performans bütçesi — Yıldız Dikme analizlerinden damıtıldı.">
+  <meta property="og:image" content="../assets/og-cover.svg">
+  <meta property="og:url" content="https://example.com/rehber/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0C10'/%3E%3Cpath d='M8 9l5 14 5-14M18 23l6-14' fill='none' stroke='%23E7502E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preload" href="../fonts/zodiak-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/space-grotesk-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .guide { max-width: 760px; margin-inline: auto; padding: clamp(6rem, 12vh, 9rem) 0 5rem; }
+    .guide h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .guide h2 { font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin: 2.8rem 0 0.8rem; }
+    .guide p, .guide li { color: var(--bone); }
+    .guide .lede { color: var(--muted); font-size: 1.15rem; margin-bottom: 1rem; }
+    .guide ul { margin: 0.6rem 0 0; display: grid; gap: 0.6rem; }
+    .guide li { padding-left: 1.3rem; position: relative; }
+    .guide li::before { content: '✳'; color: var(--ember); position: absolute; left: 0; }
+    .guide .src { color: var(--muted); font-size: 0.86rem; letter-spacing: 0.02em; }
+    .guide code { background: var(--ink-2); border: var(--hair); border-radius: 5px; padding: 0.1em 0.45em; font-size: 0.9em; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; gap: 0.5ch; margin-bottom: 1rem; color: var(--muted); }
+    .back:hover { color: var(--bone); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#g">İçeriğe geç</a>
+  <main class="wrap guide" id="g">
+    <a class="back" href="../"><span aria-hidden="true">←</span> Siteye dön (EN)</a>
+    <p class="eyebrow">Rehber · üretim notu</p>
+    <h1>Bu site nasıl yapıldı?</h1>
+    <p class="lede">ATÖLYE VYRON vitrin sitesi, Yıldız Dikme'nin “Claude'a ödüllü site yaptırdım” video serisinden damıtılan tekniklerin, VYRON Site Fabrikası anayasasıyla birleştirilmiş halidir. Aşağıda hangi kararın nereden geldiğini açıkça yazıyoruz — çünkü farkımız gizli prompt değil, denetlenebilir zanaat.</p>
+
+    <h2>İmza anı: yığılan kart destesi</h2>
+    <p>Sayfanın kalbi, scroll'a kilitlenen (pinned) bir <strong>vaka çalışması destesi</strong>. En üstteki kart üst kenarından öne devrilip (<code>rotateX</code>) kalkıyor ve altındaki iş öne geçiyor. Bu etkileşim, ödüllü Brand Appart sitesinin “istiflenen kart” geçişinden ilham alır; kopya değil, framework'süz yeniden yorum.</p>
+    <p class="src">Kaynak: <em>video-kimi-awwwards-site-oSXE0jsBDDs</em> (stacked-card + editorial grid) ve <em>video-awwwards-3d-galeri-klon</em> (perspektif + “değeri değiştirme” disiplini).</p>
+
+    <h2>Koyu editorial palet</h2>
+    <p>Zemin <code>#0B0C10</code>, metin <code>#E9E5DB</code>, tek kontrollü vurgu <code>#E7502E</code> (kızıl-turuncu). Yıldız'ın parfüm sitesi dersindeki gibi vurgu rengiyle sayfayı boğmuyoruz; jenerik “koyu zemin + altın yazı” klişesine düşmemek için altın yerine sıcak bir ateş tonu seçtik.</p>
+    <p class="src">Kaynak: <em>video-premium-site-promptu-yildiz-dikme</em> — “sakin, kontrollü, pahalı hissettir; AI çıktısı gibi görünmesin.”</p>
+
+    <h2>Dünya-kurma detayları</h2>
+    <p>Stüdyoyu gerçek hissettiren ucuz ama etkili dokular: <code>EST. MMXXVI</code>, koordinatlar (41.0° N / 28.9° E), canlı stüdyo saati, “Available — Autumn 2026”. Bunlar bilgi olarak kalır; anayasa gereği <strong>sahte aciliyet</strong>e (“son 2 yer!”) asla dönüşmez.</p>
+    <p class="src">Kaynak: <em>video-claude-odullu-site-shorts</em> — Lume(n) Practice'in EST./koordinat/sezon rozeti dokuları.</p>
+
+    <h2>Kırmızı çizgiler (anayasa)</h2>
+    <ul>
+      <li><strong>Inter yasak.</strong> Başlık <strong>Zodiak</strong>, gövde <strong>Space Grotesk</strong>; hepsi lokal woff2, CDN yok.</li>
+      <li><strong>WCAG AA.</strong> Her metin/zemin çifti için kontrast oranı hesaplandı (en düşük 4.79:1).</li>
+      <li><strong>Performans bütçesi.</strong> Statik HTML/CSS/JS + lokal GSAP; JS ≤ 150 KB gz, ilk yük ≤ 5 MB, Lighthouse ≥ 90.</li>
+      <li><strong>Erişilebilirlik.</strong> <code>prefers-reduced-motion</code> destesi kapatır; mobilde ve JS yokken dürüst dikey yığın gösterilir.</li>
+      <li><strong>Medya üretilmez.</strong> Hero bir CSS/Canvas yer tutucudur; gerçek video slotu işaretlidir. Görseller müşterinin kendi videosundan gelir.</li>
+    </ul>
+
+    <h2>Fark: kalite kapısı</h2>
+    <p>Yıldız prompt öğretiyor; biz bitmiş, jüriden geçmiş ve denetlenmiş site teslim ediyoruz. Her site dört bağımsız jüri (Awwwards estetik / performans / dönüşüm / dil) artı otomatik <code>denetci.py</code> taramasından geçmeden yayınlanmaz. 48 saatte demo, üç revize turu, sonra teslim.</p>
+
+    <a class="back" href="../"><span aria-hidden="true">←</span> Siteye dön</a>
+  </main>
+</body>
+</html>

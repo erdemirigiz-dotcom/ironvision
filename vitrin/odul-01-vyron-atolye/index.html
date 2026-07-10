@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATÖLYE VYRON — Award-grade websites, built from your video</title>
+  <meta name="description" content="ATÖLYE VYRON is a site factory for tourism and hospitality brands. Give us your video; we return an award-grade, hand-audited website in 48 hours — analysis, original design, jury review and delivery included.">
+  <meta name="theme-color" content="#0B0C10">
+  <link rel="canonical" href="https://example.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ATÖLYE VYRON — built from your video">
+  <meta property="og:description" content="Give us your video; we return an award-grade, hand-audited website. Analysis → original design → jury review → delivery, in 48 hours.">
+  <meta property="og:image" content="assets/og-cover.svg">
+  <meta property="og:url" content="https://example.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0C10'/%3E%3Cpath d='M8 9l5 14 5-14M18 23l6-14' fill='none' stroke='%23E7502E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <link rel="preload" href="fonts/zodiak-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ATÖLYE VYRON",
+    "description": "A website factory for tourism and hospitality brands: video-to-website production with jury review and 48-hour demo delivery.",
+    "serviceType": "Web design & development",
+    "areaServed": "Worldwide",
+    "url": "https://example.com/",
+    "telephone": "[PLACEHOLDER +90 5xx xxx xx xx]"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="ATÖLYE VYRON — home">
+        ATÖLYE&nbsp;<span class="amp">V</span>YRON <span class="brand-sub">Site&nbsp;Atölyesi</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#craft">Craft</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="nav-lang"><a href="rehber/" hreflang="tr" lang="tr">Rehber <span class="tag" aria-hidden="true">TR</span></a></li>
+          <li><a class="btn btn-cta nav-cta" href="#contact">Start a project <span class="arw" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-media" aria-hidden="true">
+        <!-- HIGGSFIELD VIDEO SLOT — swap this canvas+poster for:
+             <video class="hero-poster" poster="assets/hero-poster.svg" autoplay muted loop playsinline preload="none">
+               <source src="assets/hero.mp4" type="video/mp4"></video>
+             Poster + prompt spec live in rapor.md → "Higgsfield istek listesi". -->
+        <img class="hero-poster" src="assets/hero-poster.svg" alt="" width="1600" height="900">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="wrap hero-inner">
+        <p class="eyebrow" data-reveal>Video&nbsp;<span class="dot">·</span>&nbsp;to&nbsp;<span class="dot">·</span>&nbsp;website · İstanbul &amp; worldwide</p>
+        <h1 class="hero-title" data-reveal>You film the place. <span class="em">We frame</span> the site</h1>
+        <p class="hero-lede" data-reveal>ATÖLYE VYRON is a website factory for tourism and hospitality. Hand us a raw clip of your hotel, your valley, your table — you get back an award-grade site that a design jury already signed off. No templates. No AI-generic haze.</p>
+        <div class="hero-actions" data-reveal>
+          <a class="btn btn-cta btn-lg" href="#contact">Start a project <span class="arw" aria-hidden="true">↗</span></a>
+          <a class="btn btn-ghost btn-lg" href="#work">See the work</a>
+        </div>
+        <p class="hero-meta" data-reveal>
+          <span class="mono">EST. MMXXVI</span>
+          <span>·</span>
+          <span class="mono">41.0&deg;&nbsp;N&nbsp;/&nbsp;28.9&deg;&nbsp;E</span>
+          <span>·</span>
+          <span><span class="live" id="clock">·&nbsp;·&nbsp;·</span> local studio time</span>
+          <span>·</span>
+          <span>Available — Autumn 2026</span>
+        </p>
+      </div>
+      <p class="hero-hint" aria-hidden="true">Scroll ↓</p>
+    </section>
+
+    <!-- ============ MANIFESTO ============ -->
+    <section class="manifesto section-x" aria-labelledby="man-h">
+      <div class="wrap">
+        <h2 id="man-h" data-reveal>We would rather make <span class="em">one thing that lasts</span> than ten that look like everyone else's prompt</h2>
+      </div>
+    </section>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee">
+        <span>Analyse <span class="star">✳</span> Design <span class="star">✳</span> Write <span class="star">✳</span> Build <span class="star">✳</span> Audit <span class="star">✳</span> Ship <span class="star">✳</span> </span>
+        <span>Analyse <span class="star">✳</span> Design <span class="star">✳</span> Write <span class="star">✳</span> Build <span class="star">✳</span> Audit <span class="star">✳</span> Ship <span class="star">✳</span> </span>
+      </div>
+    </div>
+
+    <!-- ============ WORK / STAGE (signature) ============ -->
+    <section class="stage" id="work" aria-labelledby="work-h">
+      <div class="wrap stage-intro">
+        <p class="eyebrow" data-reveal>Selected work <span class="dot">—</span> 2026</p>
+        <h2 id="work-h" class="section-h" data-reveal>A deck of pieces we shaped from a single video</h2>
+        <p class="section-lede" data-reveal>Scroll and the top plate tips away to reveal the next. Every card below is a fictional showcase brand — the real gallery arrives once your project ships.</p>
+      </div>
+
+      <!-- pinned 3D deck built by JS from the source cards below -->
+      <div class="stage-pin" aria-hidden="true">
+        <div class="deck" id="deck">
+          <div class="deck-grid" aria-hidden="true"></div>
+        </div>
+        <div class="stage-rail" id="stageRail"></div>
+      </div>
+
+      <!-- canonical, always-in-DOM source (no-JS + mobile + reduced-motion) -->
+      <div class="wrap">
+        <ol class="stage-fallback" id="deckSource">
+          <li class="card card-1" data-tint="1">
+            <div class="card-top"><span class="card-idx">01 / 04</span><span class="card-tag">Boutique hotel</span></div>
+            <div class="card-body">
+              <span class="card-kind">Dark editorial · cinematic hero</span>
+              <h3 class="card-title">Maison&nbsp;Solène</h3>
+              <p class="card-desc">A cliff-side stay whose booking flow feels like turning the pages of a private journal.</p>
+              <div class="card-foot"><span>Video → site</span><span>7 languages</span><span>Lighthouse 98</span></div>
+            </div>
+          </li>
+          <li class="card card-2" data-tint="2">
+            <div class="card-top"><span class="card-idx">02 / 04</span><span class="card-tag">Adventure</span></div>
+            <div class="card-body">
+              <span class="card-kind">Maximalist · kinetic type</span>
+              <h3 class="card-title">Debi&nbsp;Outdoor</h3>
+              <p class="card-desc">Scroll speed becomes the river's discharge — the page rises when the water does.</p>
+              <div class="card-foot"><span>Signature meter</span><span>WCAG AA</span><span>JS 41&nbsp;KB</span></div>
+            </div>
+          </li>
+          <li class="card card-3" data-tint="3">
+            <div class="card-top"><span class="card-idx">03 / 04</span><span class="card-tag">Wine estate</span></div>
+            <div class="card-body">
+              <span class="card-kind">Retro-analog · paper grain</span>
+              <h3 class="card-title">Bağ&nbsp;Şato</h3>
+              <p class="card-desc">A vineyard archive where the vintage year drives the palette and the grain.</p>
+              <div class="card-foot"><span>Orbit gallery</span><span>Schema.org</span><span>≤ 5&nbsp;MB</span></div>
+            </div>
+          </li>
+          <li class="card card-4" data-tint="4">
+            <div class="card-top"><span class="card-idx">04 / 04</span><span class="card-tag">Your brand</span></div>
+            <div class="card-body">
+              <span class="card-kind">Yet to be filmed</span>
+              <h3 class="card-title">This&nbsp;could be&nbsp;yours</h3>
+              <p class="card-desc">Send one clip. In 48 hours a demo like these is waiting, jury-passed and ready to revise.</p>
+              <div class="card-foot"><span>48-hour demo</span><span>3 revisions</span><span>Jury sign-off</span></div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section-pad" id="process" aria-labelledby="proc-h">
+      <div class="wrap">
+        <p class="eyebrow" data-reveal>How a project runs</p>
+        <h2 id="proc-h" class="section-h" data-reveal>Five people-shaped steps, one machine jury</h2>
+        <ol class="process-grid">
+          <li class="pstep" data-reveal><span class="num">01</span><h3>Read the video</h3><p>We inventory your footage and pull the atmosphere — light, tempo, the one true colour. No stock, no invented imagery.</p></li>
+          <li class="pstep" data-reveal><span class="num">02</span><h3>Choose a stance</h3><p>An archetype is picked from the mood of your clip, not a menu. If it echoes a recent build, we reject it and start again.</p></li>
+          <li class="pstep" data-reveal><span class="num">03</span><h3>Write &amp; build</h3><p>Copy in your languages, then a static, framework-free build with a real signature moment — never a lone fade-up.</p></li>
+          <li class="pstep" data-reveal><span class="num">04</span><h3>Face the jury</h3><p>Four independent critics plus an automated auditor score the site as if it were entering an award. It ships only when it passes.</p></li>
+          <li class="pstep" data-reveal><span class="num">05</span><h3>Hand off</h3><p>A 48-hour demo, three rounds of your taste, then the keys. Real photos and reviews take their place before launch.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CRAFT / CAPABILITIES ============ -->
+    <section class="section-pad" id="craft" aria-labelledby="craft-h">
+      <div class="wrap caps">
+        <div>
+          <p class="eyebrow" data-reveal>What "award-grade" means here</p>
+          <h2 id="craft-h" class="section-h" data-reveal>Craft you can measure, not just admire</h2>
+          <ul class="cap-list">
+            <li data-reveal><span class="k">A</span><span><span class="t">A real signature moment</span><br><span class="d">One interaction born from your product — a flow meter, an orbit, a page that breathes with the scroll.</span></span></li>
+            <li data-reveal><span class="k">B</span><span><span class="t">Performance as a constraint</span><br><span class="d">Static HTML/CSS/JS with locally-vendored GSAP. JS under 150&nbsp;KB gzip, first load under 5&nbsp;MB, Lighthouse ≥ 90.</span></span></li>
+            <li data-reveal><span class="k">C</span><span><span class="t">Accessible by contract</span><br><span class="d">WCAG AA contrast computed per pair, keyboard paths, reduced-motion honoured, screen-reader order intact.</span></span></li>
+            <li data-reveal><span class="k">D</span><span><span class="t">Multilingual from day one</span><br><span class="d">Copy written — not machine-dumped — in your markets, with correct dates, currency and cultural register.</span></span></li>
+          </ul>
+        </div>
+        <aside class="stat-stack" aria-label="Delivery figures">
+          <div class="stat" data-reveal><span class="big">48<span class="ph">h</span></span><span class="lbl">to first demo</span></div>
+          <div class="stat" data-reveal><span class="big">≥90</span><span class="lbl">Lighthouse floor</span></div>
+          <div class="stat" data-reveal><span class="big"><span class="ph">[PH]</span></span><span class="lbl">sites shipped — real number at launch</span></div>
+          <div class="stat" data-reveal><span class="big">4+1</span><span class="lbl">jurors per site</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section-pad contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap contact-inner">
+        <div class="contact-copy" data-reveal>
+          <p class="eyebrow">Start a project</p>
+          <h2 id="contact-h" class="section-h">Send one video. See what we frame</h2>
+          <p class="section-lede">Tell us about the place and drop a link to a clip. We reply — a real person — usually the same day, with a plan and a date for your demo.</p>
+          <p class="trust">
+            <span><span class="tick" aria-hidden="true">✓</span> No payment on this form.</span>
+            <span><span class="tick" aria-hidden="true">✓</span> 48-hour demo, three revision rounds.</span>
+            <span><span class="tick" aria-hidden="true">✓</span> Jury sign-off before anything ships.</span>
+          </p>
+        </div>
+
+        <form class="form" id="projectForm" novalidate>
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-contact">Email or phone</label>
+            <input id="f-contact" name="contact" type="text" inputmode="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-brand">Brand / place</label>
+            <input id="f-brand" name="brand" type="text" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="f-video">Link to a video <span class="opt">(optional)</span></label>
+            <input id="f-video" name="video" type="url" inputmode="url" placeholder="https://">
+          </div>
+          <div class="field">
+            <label for="f-brief">What should the site do?</label>
+            <textarea id="f-brief" name="brief" rows="3" placeholder="Bookings, atmosphere, languages, a reference site you love…"></textarea>
+          </div>
+          <button class="btn btn-cta btn-lg btn-block" type="submit">Send the brief <span class="arw" aria-hidden="true">↗</span></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-fine">Demo form — not wired to a backend yet. <a href="rehber/">See how this site was built (TR)</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="#top">ATÖLYE&nbsp;<span class="amp">V</span>YRON</a>
+          <p>A website factory for tourism &amp; hospitality. Video in, award-grade site out. This showcase is fictional; every figure marked [PH] is a stand-in until launch.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#craft">Craft</a>
+          <a href="#contact">Contact</a>
+          <a href="rehber/" hreflang="tr" lang="tr">Rehber (TR)</a>
+        </nav>
+      </div>
+      <p class="footer-coords">
+        <span>İSTANBUL &amp; WORLDWIDE</span><span>41.0&deg; N · 28.9&deg; E</span><span>MMXXVI</span><span>MADE WITH CARE</span>
+      </p>
+      <p class="footer-legal">© <span id="yr">2026</span> ATÖLYE VYRON (showcase). Imagery is stand-in art — real assets come from your video.</p>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

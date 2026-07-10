@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bu site nasıl yapıldı? — KERVAN Walks · VYRON Site Fabrikası</title>
+<meta name="description" content="KERVAN Walks vitrin sitesinin kısa yapım notu: imza anı (split-flap mahalle panosu), Swiss editöryel grid, tipografi ve performans kararları. VYRON Site Fabrikası.">
+<link rel="canonical" href="https://patikawalks.example/rehber/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bu site nasıl yapıldı? — KERVAN Walks">
+<meta property="og:description" content="Split-flap mahalle panosu, Swiss editöryel grid ve performans bütçesiyle kurgulanan bir vitrin sitesinin yapım notu.">
+<meta property="og:image" content="../assets/hero-poster.jpg">
+<meta name="theme-color" content="#F0EEE6">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<a class="skip" href="#doc">İçeriğe geç</a>
+<header class="site-head">
+  <div class="wrap bar">
+    <a class="brand" href="../">KERVAN<span class="dot">.</span>Walks</a>
+    <nav class="nav" aria-label="Birincil">
+      <a class="btn btn--ghost" href="../">← Siteye dön</a>
+    </nav>
+  </div>
+</header>
+
+<main id="doc" class="section">
+  <div class="wrap doc">
+    <p class="eyebrow"><span class="num">R</span><span>VYRON Site Fabrikası · yapım notu</span></p>
+    <h1>Bu site nasıl yapıldı?</h1>
+    <p>KERVAN Walks, gerçek bir müşteri için değil; VYRON Site Fabrikası'nın <b>vitrin serisinden</b> kurgusal bir örnek. Amaç şunu göstermek: bir tur/rehber işine, hazır şablon kokmayan, o işin karakterinden doğan bir site nasıl kurulur. Marka da, rehber de, yorumlar da kurgusaldır — gerçek kişi verisi taşımaz.</p>
+
+    <h2>Fikir: şehrin kendi temposu</h2>
+    <p>Bir şehir yürüyüş rehberinin işi bir <i>kalkış panosu</i> enerjisi taşır: “bugün nereye gidiyoruz?”. Bu yüzden sitenin kalbine eski istasyonların <b>split-flap (Solari) panosunu</b> koyduk.</p>
+    <ul class="bul">
+      <li>Hero'daki pano, harfleri çevirerek mahalle ve yürüyüş adını yazar — sitenin <b>imza anı</b>.</li>
+      <li>Bir mahalle seçince pano yeniden çevrilir, o yürüyüşün rengi (kırmızı = lezzet, mavi = sanat) tüm sayfaya yayılır ve <b>rota</b> ince bir hat olarak çizilir, duraklar sırayla açılır.</li>
+      <li>Böylece site bir katalog değil, bir <b>kalkış panosu</b> gibi çalışır.</li>
+    </ul>
+
+    <h2>Tasarım dili: Swiss editöryel grid</h2>
+    <p>Gazete kâğıdı zemini, mürekkep siyahı metin, tramvay kırmızısı ve boğaz mavisi ile kodlanmış kategoriler. Görünür <b>12 kolon grid</b>, büyük numaralı bölümler ve sert hizalama; tipografi burada yıldız oyuncu.</p>
+    <ul class="bul">
+      <li>Display: <b>Melodrama</b> — dramatik, yüksek kontrastlı serif.</li>
+      <li>Gövde: <b>Switzer</b> — berrak İsviçre grotesk'i. Pano ve numaralar: <b>IBM Plex Mono</b>.</li>
+      <li><code>Inter</code> yasağı dahil tüm anayasa kırmızı çizgilerine uyuldu; hiçbir font Inter değil.</li>
+    </ul>
+
+    <h2>Erişilebilirlik ve performans</h2>
+    <ul class="bul">
+      <li>Tüm metin/zemin çiftleri <b>WCAG AA</b> için hesaplandı; küçük renkli etiketler için ayrı, kontrastı yüksek renk tonları tanımlandı.</li>
+      <li>Hareket yalnızca <code>transform</code>/<code>opacity</code>; <code>prefers-reduced-motion</code> açıkken pano anında yazar, rota anında görünür.</li>
+      <li>Fontlar <b>subset woff2</b> olarak yerelde barındırılır; <code>font-display:swap</code> + preload. GSAP yerelde, sürüm sabit. Çerçeve (framework) yok.</li>
+      <li>Performans bütçesi: Lighthouse ≥90, JS ≤150KB gz, ilk yük ≤5MB, INP &lt;200ms hedeflendi.</li>
+    </ul>
+
+    <h2>Dürüstlük</h2>
+    <p>Sahte aciliyet yok (“son 3 koltuk!” gibi). Yorumlar ve lisans numarası <b>örnek/demo</b> olarak işaretlidir; gerçek yayında müşterinin kendi verisiyle değişir. Rezervasyon, hesap ve peşin ödeme gerektirmeyen bir form + WhatsApp hattıdır.</p>
+
+    <h2>Sizin işiniz için</h2>
+    <p>Turizm ya da hizmet işletmenizin videosunu verin; ondan doğan, taklit edilemez bir site kuralım — “videonuzu verin, sitenizi yapalım”. Bu sayfa, o üretim hattının nasıl düşündüğünün küçük bir örneğidir.</p>
+
+    <a class="back" href="../">← KERVAN Walks sitesine dön</a>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-bottom" style="margin-top:0;border-top:0">
+    <span>© 2026 KERVAN Walks · Kurgusal demo marka — VYRON vitrini</span>
+    <span>VYRON Site Fabrikası yapımı</span>
+  </div>
+</footer>
+</body>
+</html>

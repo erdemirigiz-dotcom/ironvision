@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="ATÖLYE VYRON">
+  <defs>
+    <radialGradient id="og" cx="15%" cy="20%" r="90%">
+      <stop offset="0%" stop-color="#E7502E" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0B0C10" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0B0C10"/>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <text x="80" y="300" fill="#E9E5DB" font-family="Georgia, serif" font-size="92" letter-spacing="-1">ATÖLYE <tspan fill="#E7502E">V</tspan>YRON</text>
+  <text x="82" y="360" fill="#9A968C" font-family="Arial, sans-serif" font-size="26" letter-spacing="4">YOU FILM THE PLACE. WE FRAME THE SITE.</text>
+  <text x="82" y="560" fill="#9A968C" font-family="Arial, sans-serif" font-size="20" letter-spacing="6">EST. MMXXVI · İSTANBUL &amp; WORLDWIDE</text>
+</svg>

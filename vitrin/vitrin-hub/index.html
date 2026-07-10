@@ -1,0 +1,258 @@
+<!--
+  VYRON SİTE FABRİKASI — VİTRİN HUB
+  10 vitrin sitesinin tek sayfalık galerisi / kontrol paneli.
+  Veri kaynağı: her sitenin rapor.md dosyası (imza anı, arketip, denetçi skoru, JS boyutu, palet).
+  Statik HTML/CSS/JS · framework yok · Inter yok · JS ~2.5 KB · REC koyu sinematik dil.
+  Göreli linkler hatlar/ kökünden serve edildiğinde çalışır (bkz. serve-vitrin.sh).
+-->
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VYRON Vitrin Filosu — 10 İklim, 10 Stüdyo</title>
+  <meta name="description" content="VYRON Site Fabrikası vitrin filosu: 10 turizm ve KOBİ konsept sitesi tek panelde — imza anı, arketip, denetçi skoru ve palet ile gezilebilir kontrol merkezi." />
+  <meta name="theme-color" content="#0a0b0d" />
+  <link rel="canonical" href="https://ironvisiontools.com/vitrin/vitrin-hub/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0b0d'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='%23ff3b30' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23ff3b30'/%3E%3C/svg%3E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VYRON Vitrin Filosu — 10 İklim, 10 Stüdyo" />
+  <meta property="og:description" content="10 konsept sitesi tek panelde: imza anı, arketip, denetçi skoru ve palet." />
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%230a0b0d'/%3E%3Ctext x='80' y='330' fill='%23f2f0ea' font-family='monospace' font-size='90' font-weight='700'%3EVYRON FİLO%3C/text%3E%3C/svg%3E" />
+  <meta property="og:url" content="https://ironvisiontools.com/vitrin/vitrin-hub/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg:#0a0b0d; --panel:#101216; --panel-2:#14171c; --line:#23272e;
+      --ink:#f2f0ea; --muted:#9aa0ab; --dim:#6b7079;
+      --rec:#ff3b30; --accent:#e8f24a;
+      --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+      --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+      -webkit-font-smoothing:antialiased; line-height:1.5;
+      background-image:
+        radial-gradient(1200px 600px at 80% -10%, rgba(232,242,74,.05), transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, rgba(255,59,48,.05), transparent 55%);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+    .mono{font-family:var(--mono)}
+
+    /* ---- status bar (REC) ---- */
+    .status{
+      position:sticky;top:0;z-index:20;background:rgba(10,11,13,.86);
+      backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    }
+    .status .wrap{display:flex;align-items:center;gap:16px;height:52px;
+      font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+    .rec{display:inline-flex;align-items:center;gap:8px;color:var(--ink)}
+    .rec .dot{width:9px;height:9px;border-radius:50%;background:var(--rec);
+      box-shadow:0 0 0 0 rgba(255,59,48,.6);animation:pulse 2s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.55)}
+      70%{box-shadow:0 0 0 7px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
+    .status .sep{color:var(--dim)}
+    .status .grow{flex:1}
+    .status .tc{color:var(--ink)}
+
+    /* ---- header ---- */
+    header.hero{padding:clamp(38px,7vw,84px) 0 clamp(20px,3vw,34px)}
+    .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.28em;
+      text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+    h1{margin:0;font-size:clamp(34px,7vw,68px);line-height:1.02;font-weight:800;
+      letter-spacing:-.02em}
+    h1 .thin{color:var(--muted);font-weight:400}
+    .lede{margin:20px 0 0;max-width:64ch;color:var(--muted);font-size:clamp(15px,1.7vw,18px)}
+    .kpis{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;
+      font-family:var(--mono);font-size:13px;color:var(--muted)}
+    .kpis b{color:var(--ink);font-weight:700}
+
+    /* ---- grid ---- */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      padding:8px 0 clamp(40px,7vw,88px)}
+    .card{position:relative;display:flex;flex-direction:column;
+      background:linear-gradient(180deg,var(--panel),var(--panel-2));
+      border:1px solid var(--line);border-radius:14px;overflow:hidden;
+      min-height:262px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-3px);border-color:#3a4048;
+      box-shadow:0 16px 40px -18px rgba(0,0,0,.8)}
+    .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    /* viewfinder brackets */
+    .card::before,.card::after{content:"";position:absolute;width:14px;height:14px;
+      border-color:#3a4048;border-style:solid;opacity:.8;transition:border-color .18s}
+    .card::before{top:10px;left:10px;border-width:1.5px 0 0 1.5px}
+    .card::after{bottom:10px;right:10px;border-width:0 1.5px 1.5px 0}
+    .card:hover::before,.card:hover::after{border-color:var(--accent)}
+
+    .strip{display:flex;height:7px}
+    .strip i{flex:1;display:block}
+    .cbody{padding:18px 18px 16px;display:flex;flex-direction:column;flex:1}
+    .crow{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+    .cno{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.1em}
+    .arch{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;
+      color:var(--muted);text-align:right;max-width:56%}
+    .brand{margin:8px 0 2px;font-size:24px;font-weight:800;letter-spacing:-.01em}
+    .concept{color:var(--muted);font-size:13.5px;margin:0 0 10px}
+    .imza{color:var(--ink);font-size:13.5px;margin:0;padding-left:12px;
+      border-left:2px solid #333941;position:relative;flex:1}
+    .imza .q{color:var(--dim)}
+    .meta{display:flex;align-items:center;gap:10px;margin-top:14px;
+      font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;
+      border:1px solid var(--line);background:#0d0f13}
+    .badge .d{width:7px;height:7px;border-radius:50%}
+    .ok .d{background:#3ddc84}.warn .d{background:var(--accent)}
+    .badge.ok{color:#8fe7b4}.badge.warn{color:#e8f24a}
+    .js{margin-left:auto;color:var(--dim)}
+    .go{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:12px;
+      color:var(--dim);transition:color .18s,transform .18s}
+    .card:hover .go{color:var(--accent);transform:translate(2px,-2px)}
+
+    footer{border-top:1px solid var(--line);padding:26px 0 60px;color:var(--dim);
+      font-family:var(--mono);font-size:12px}
+    footer a{color:var(--muted);display:inline-flex;align-items:center;min-height:40px;padding:0 2px}
+    footer a:hover{color:var(--ink)}
+
+    @media (max-width:520px){
+      .arch{display:none}
+      .grid{grid-template-columns:1fr}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="status">
+    <div class="wrap">
+      <span class="rec"><span class="dot" aria-hidden="true"></span>REC</span>
+      <span class="sep">·</span>
+      <span>VYRON SİTE FABRİKASI</span>
+      <span class="grow"></span>
+      <span class="mono">FİLO 10/10</span>
+      <span class="sep">·</span>
+      <span class="tc mono" id="tc" aria-hidden="true">00:00:00:00</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Vitrin Filosu · Kontrol Paneli</p>
+      <h1>10 iklim, 10 stüdyo.<br><span class="thin">Tek panelden gez</span></h1>
+      <p class="lede">Site fabrikasının vitrin serisi: her biri farklı bir turizm/KOBİ konsepti,
+        kendi arketibi, kendi paleti ve <b>üründen doğan tek bir imza anı</b> ile. Hepsi statik,
+        hafif ve makine jürisinden geçmiş. Bir karta tıkla, siteyi canlı gez.</p>
+      <div class="kpis">
+        <span><b>10</b> vitrin sitesi</span>
+        <span><b>7</b> tam temiz (0/0/0)</span>
+        <span><b>3</b> sitede 2 uyarı = bilinçli yer tutucu</span>
+        <span>JS aralığı <b>2.6–55 KB</b></span>
+        <span>Inter yok · framework yok</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid" id="grid"><!-- kartlar JS ile basılır --></div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      VYRON Site Fabrikası — vitrin filosu · veri kaynağı: her sitenin <span class="mono">rapor.md</span> dosyası ·
+      kurgusal vitrin markaları (gerçek müşteri verisi yok)
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    // --- filo verisi (rapor.md'lerden) ---
+    var F = [
+      {n:"01",slug:"vitrin-01-alp-kayak",brand:"IGLU Alpine Lodge",
+       concept:"Yüksek irtifa lüks kayak lodge’u",
+       imza:"Kaydırdıkça rakım sayacı 1.450 m’den 3.100 m zirveye tırmanır, kar hattı dolar ve ray zirvede buzul mavisinden ateş sıcağına döner.",
+       arch:"Minimal İskandinav / Sessiz Güven", clean:true, js:"7.8 KB",
+       pal:["#0E1B2A","#2E6F95","#C25A2E","#F4F6F8"]},
+      {n:"02",slug:"vitrin-02-col-glamping",brand:"HALLEY Desert Camp",
+       concept:"Karanlık gökyüzü çöl glamping kampı",
+       imza:"Bir gece seçilince canvas’a o mevsimin takımyıldızları çizilir ve köşedeki ay o tarihin gerçek evresini gösterir.",
+       arch:"Gece/Gökyüzü — astro-scrollytelling", clean:true, js:"5.1 KB",
+       pal:["#0B0713","#37E0C4","#7B5CFF","#EDE4D3"]},
+      {n:"03",slug:"vitrin-03-bag-sarap",brand:"SALKIM Bağ Evi",
+       concept:"Bağ + şarap evi + mevsimsel gastronomi",
+       imza:"Hero’daki SVG kaydırıldıkça tomurcuktan kadehe morflanır; 12 aylık hasat çemberi seçilen mevsime göre menüyü değiştirir.",
+       arch:"Retro-Analog / editoryel gastronomi", clean:true, js:"19.6 KB",
+       pal:["#F3EBDD","#7A1F2B","#5F6B34","#C0703E"]},
+      {n:"04",slug:"vitrin-04-rafting",brand:"DALGA Outdoor",
+       concept:"Rafting / kanyon / zipline macera",
+       imza:"Kaydırma hızın debi sayacını (m³/s) yükseltir, hero su yüzeyini köpürtür; Rapids ölçeği (I–VI) tüm sayfanın temposunu ve rengini değiştirir.",
+       arch:"Maksimalist Renk / Enerji", clean:false, js:"47.7 KB",
+       pal:["#0A1F1C","#EAF23C","#FF5E3A","#14B8A6"]},
+      {n:"05",slug:"vitrin-05-tas-konak",brand:"KALEHAN Konak",
+       concept:"Restore taş konak butik otel",
+       imza:"Sayfa ilerlemesi bir güne bağlanır: güneş doğudan batıya yay çizer, sütun gölgesi döner, taş ısınır, akşam yıldızlar belirir; saat kadranı sürüklenebilir.",
+       arch:"Mimari-minimal / miras dokusu", clean:true, js:"48.5 KB",
+       pal:["#E7DDCB","#2E2620","#C05A3E","#4E5A42"]},
+      {n:"06",slug:"vitrin-06-yayla-ekolodge",brand:"RAKIM Highland Eco-Lodge",
+       concept:"Karadeniz yaylası sisli eko-lodge",
+       imza:"Scroll/sürükleme sis perdesini açar; site aşağı değil yukarı tırmanır (900 m → 3.000 m) ve her rakım kuşağında palet ile botanik değişir.",
+       arch:"Atmosferik sis / botanik", clean:true, js:"2.6 KB",
+       pal:["#DCE3DB","#1F2A26","#4C6B57","#9A4327"]},
+      {n:"07",slug:"vitrin-07-sehir-yuruyus",brand:"KERVAN Walks",
+       concept:"Şehir yürüyüş turu rehberi (kişisel marka)",
+       imza:"Hero’daki Solari kalkış panosu mahalle ve yürüyüş adını çevirir; bir mahalle seçilince o rotanın rengi tüm sayfaya yayılır ve rota çizilir.",
+       arch:"Swiss editöryel grid + kinetik tipografi", clean:true, js:"55 KB",
+       pal:["#F0EEE6","#101010","#D42A2A","#1B4DE8"]},
+      {n:"08",slug:"vitrin-08-hamam",brand:"TAS Hamam",
+       concept:"Tarihi hamam / wellness ritüeli",
+       imza:"Tek bir ısı değişkeni ısı eğrisini çizer, göstergeyi doldurur ve vurgu rengini buhar mavisinden bakıra çevirir — soğuktan sıcağa hamam yolculuğu.",
+       arch:"Sıcak minimal / ritüel (mermer–bakır)", clean:false, js:"47.5 KB",
+       pal:["#EDE6DE","#2B2724","#A6603F","#7C9AA6"]},
+      {n:"09",slug:"vitrin-09-fotografci",brand:"MERCEK Studio",
+       concept:"Gezgin seyahat & düğün fotoğrafçısı portfolyosu",
+       imza:"Kaydırma hızı enstantane hızına döner: değişken font hızda kalınlaşıp genişler, galeri kareleri harekette bulanır, durunca cama kilitlenir.",
+       arch:"Variable-type brutalizm / galeri", clean:true, js:"47.5 KB",
+       pal:["#EDEBE4","#131313","#FF3B00","#5C5C55"]},
+      {n:"10",slug:"vitrin-10-zeytinyagi",brand:"SAFİ Zeytinyağı",
+       concept:"Tek bahçe, izlenebilir zeytinyağı ürün vitrini",
+       imza:"Kaydırdıkça zeytin preslenir, altın-yeşil damla düşüp şişeyi doldurur ve lot künyesi belirir; lot seçince damla o ürünün rengini ve dolum seviyesini alır.",
+       arch:"Ürün/paketleme minimalizmi (izlenebilir zanaat)", clean:false, js:"51.7 KB",
+       pal:["#F4F1E8","#2C3A1E","#A85423","#8FA33E"]}
+    ];
+
+    function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+    var grid=document.getElementById("grid"), html="";
+    for(var i=0;i<F.length;i++){
+      var c=F[i], strip="";
+      for(var j=0;j<c.pal.length;j++) strip+='<i style="background:'+c.pal[j]+'"></i>';
+      var badge = c.clean
+        ? '<span class="badge ok"><span class="d"></span>Denetçi 0/0/0</span>'
+        : '<span class="badge warn"><span class="d"></span>Denetçi 0/2/0</span>';
+      html+=''
+        +'<a class="card" href="../'+c.slug+'/" aria-label="'+esc(c.brand)+' — vitrini aç">'
+        +'<span class="go" aria-hidden="true">↗</span>'
+        +'<span class="strip" aria-hidden="true">'+strip+'</span>'
+        +'<span class="cbody">'
+          +'<span class="crow"><span class="cno mono">VİT_'+c.n+'</span><span class="arch mono">'+esc(c.arch)+'</span></span>'
+          +'<span class="brand">'+esc(c.brand)+'</span>'
+          +'<span class="concept">'+esc(c.concept)+'</span>'
+          +'<span class="imza"><span class="q">“</span>'+esc(c.imza)+'<span class="q">”</span></span>'
+          +'<span class="meta">'+badge+'<span class="js">JS '+c.js+'</span></span>'
+        +'</span>'
+        +'</a>';
+    }
+    grid.innerHTML=html;
+
+    // --- REC timecode (dekoratif) ---
+    var tc=document.getElementById("tc"),
+        rm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+    function p(x){return(x<10?"0":"")+x;}
+    function tick(){var d=new Date();
+      tc.textContent=p(d.getHours())+":"+p(d.getMinutes())+":"+p(d.getSeconds())+":"+p(Math.floor(d.getMilliseconds()/40));}
+    if(!rm){tick();setInterval(tick,80);}else{tc.textContent="00:00:00:00";}
+  })();
+  </script>
+</body>
+</html>

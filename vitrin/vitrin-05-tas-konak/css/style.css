@@ -1,0 +1,490 @@
+/* =========================================================================
+   KALEHAN Konak — vitrin-05  ·  arketip: mimari-minimal / miras dokusu
+   İmza: "Işık saati" — scroll'a bağlı güneş açısı, taşın gün içindeki ısınması.
+   Fontlar: Boska (display) · General Sans (gövde) — Inter YASAK.
+   Renk sistemi kontrastları rapor.md'de.
+   ========================================================================= */
+
+/* ---- Fontlar (lokal, vendor) ------------------------------------------- */
+@font-face{font-family:'Boska';src:url('../assets/fonts/boska-300.woff2') format('woff2');
+  font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Boska';src:url('../assets/fonts/boska-400.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Boska';src:url('../assets/fonts/boska-500.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'General Sans';src:url('../assets/fonts/general-400.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'General Sans';src:url('../assets/fonts/general-500.woff2') format('woff2');
+  font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'General Sans';src:url('../assets/fonts/general-600.woff2') format('woff2');
+  font-weight:600;font-style:normal;font-display:swap}
+
+/* ---- Renk & sistem token'ları ------------------------------------------ */
+:root{
+  --stone:#E7DDCB;      /* zemin */
+  --ink:#2E2620;        /* metin  · 11.0:1 AAA */
+  --ink-muted:#5A5044;  /* ikincil metin · 5.85:1 AA */
+  --terra:#C05A3E;      /* birincil vurgu — sadece büyük metin/CTA */
+  --terra-lt:#D07A5E;   /* koyu zeminde vurgu · 4.69:1 */
+  --olive:#7E8A6F;      /* dekoratif dolgu/çizgi (metin DEĞİL) */
+  --olive-tx:#4E5A42;   /* etiket metni · 5.45:1 AA */
+  --sand:#B79E7E;       /* ince çizgi / kart kenarı */
+  --sand-soft:#D9CBB0;  /* kart zemini */
+
+  /* — imza anı: gün durumu (JS bunları günceller; no-JS = sabah) — */
+  --sky-top:#B9CDD7;
+  --sky-bot:#F2E3CD;
+  --wall:#CBB294;
+  --ground:#D8C9AC;
+  --sun-x:16%; --sun-y:30%;
+  --sun-col:#F6E2B8;
+  --shadow-rot:34deg; --shadow-scale:1.15; --shadow-op:.14;
+  --star-op:0; --amb:0;
+
+  --maxw:1180px;
+  --pad:clamp(1.15rem,4vw,3rem);
+  --r:14px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--stone);color:var(--ink);
+  font-family:'General Sans',system-ui,sans-serif;font-weight:400;
+  font-size:clamp(1rem,.55vw + .9rem,1.12rem);line-height:1.62;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:clip; /* clip: yatay taşmayı keser AMA body'yi scroll konteynerine çevirmez
+                      (hidden overflow-y'yi auto yapıp window scroll matematiğini bozuyordu) */
+}
+img,svg,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:'Boska',Georgia,serif;font-weight:400;line-height:1.06;
+  margin:0;letter-spacing:-.01em}
+p{margin:0 0 1rem}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px;border-radius:3px}
+::selection{background:var(--terra);color:#fff}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.eyebrow{font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;
+  font-weight:600;color:var(--olive-tx);margin:0 0 1.1rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--stone);
+  padding:.7rem 1.1rem;z-index:200;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+
+/* ---- Header ------------------------------------------------------------ */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:100;
+  background:color-mix(in srgb,var(--stone) 82%,transparent);
+  backdrop-filter:saturate(1.1) blur(8px);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.hdr.scrolled{border-bottom-color:var(--sand);
+  background:color-mix(in srgb,var(--stone) 92%,transparent)}
+.hdr__in{display:flex;align-items:center;gap:1.4rem;
+  min-height:72px;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.brand{font-family:'Boska';font-weight:500;font-size:1.42rem;letter-spacing:.02em;
+  text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;
+  white-space:nowrap;min-height:44px}
+.brand small{font-family:'General Sans';font-weight:500;font-size:.62rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--olive-tx)}
+.nav{margin-left:auto;display:flex;align-items:center;gap:1.9rem}
+.nav a{text-decoration:none;font-weight:500;font-size:.94rem;color:var(--ink);
+  position:relative;padding:.3rem 0}
+.nav a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:-2px;
+  height:2px;background:var(--terra);transition:right .32s var(--ease)}
+.nav a:not(.btn):hover::after,.nav a:not(.btn):focus-visible::after{right:0}
+.nav .lang{font-size:.8rem;letter-spacing:.12em;color:var(--ink-muted);
+  text-transform:uppercase}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:'General Sans';font-weight:600;text-decoration:none;cursor:pointer;
+  border:none;border-radius:10px;transition:transform .25s var(--ease),
+  background .25s,box-shadow .25s;will-change:transform}
+.btn--cta{background:var(--terra);color:var(--ink);
+  font-size:1.2rem;padding:.62rem 1.35rem;box-shadow:0 1px 0 rgba(0,0,0,.12)}
+.btn--cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px -10px rgba(192,90,62,.8)}
+.btn--lg{font-size:1.24rem;padding:1rem 2.1rem;border-radius:12px}
+.btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--sand);
+  font-size:1.06rem;padding:.9rem 1.7rem}
+.btn--ghost:hover{border-color:var(--terra);transform:translateY(-2px)}
+
+.navtoggle{display:none;margin-left:auto;background:none;border:1.5px solid var(--sand);
+  border-radius:9px;width:46px;height:46px;cursor:pointer;color:var(--ink)}
+.navtoggle svg{margin:auto}
+
+/* ---- Genel bölüm ------------------------------------------------------- */
+section{position:relative}
+.section{padding-block:clamp(3.6rem,9vw,7rem)}
+.section__head{max-width:52ch;margin-bottom:clamp(2rem,5vw,3.4rem)}
+.section__head h2{font-size:clamp(2rem,5.4vw,3.5rem);font-weight:300}
+.section__head p{color:var(--ink-muted);font-size:1.08rem;margin-top:1rem}
+.rule{height:1px;background:linear-gradient(90deg,var(--sand),transparent);
+  border:0;margin:0}
+
+/* animasyon: yalnızca .anim-ready iken gizle (no-JS/reduced-motion = görünür) */
+.anim-ready .reveal{opacity:0;transform:translateY(26px)}
+
+/* =========================================================================
+   HERO — imza sahnesi + ışık saati kadranı
+   ========================================================================= */
+.hero{padding-top:96px;position:relative;overflow:clip}
+.hero__grid{display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(1.5rem,4vw,3.4rem);
+  align-items:center;min-height:min(86vh,760px)}
+.hero__copy{max-width:34ch}
+.hero__phase{display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.76rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  color:var(--olive-tx);margin-bottom:1.3rem}
+.hero__phase b{font-family:'General Sans';font-weight:600;color:var(--terra);
+  font-variant-numeric:tabular-nums;letter-spacing:.1em}
+.hero h1{font-size:clamp(2.9rem,8.2vw,5.6rem);font-weight:300;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--terra)}
+.hero__lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--ink-muted);
+  margin:1.5rem 0 2rem;max-width:38ch}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.9rem 1.1rem;align-items:center}
+.hero__proof{display:flex;align-items:center;gap:.7rem;margin-top:1.9rem;
+  font-size:.92rem;color:var(--ink-muted)}
+.hero__proof .stars{color:var(--terra);letter-spacing:.08em;font-size:1.02rem}
+.hero__proof b{color:var(--ink);font-weight:600}
+.tag-sample{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--olive-tx);border:1px solid var(--sand);border-radius:20px;
+  padding:.14rem .55rem;font-weight:600}
+
+/* --- kadran (clock dial) --- */
+.dial{display:inline-flex;align-items:center;gap:.85rem;margin-bottom:1.6rem;
+  padding:.4rem .5rem .4rem .4rem;border:1px solid var(--sand);border-radius:40px;
+  background:color-mix(in srgb,var(--sand-soft) 60%,transparent);
+  cursor:grab;touch-action:pan-y;user-select:none}
+.dial:active{cursor:grabbing}
+.dial:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.dial__face{position:relative;width:46px;height:46px;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,#fff8ea,var(--sand-soft));
+  border:1px solid var(--sand);flex:none}
+.dial__hand{position:absolute;left:50%;top:50%;width:2px;height:17px;
+  background:var(--terra);border-radius:2px;transform-origin:bottom center;
+  transform:translate(-50%,-100%) rotate(var(--dial-rot,120deg))}
+.dial__pip{position:absolute;left:50%;top:4px;width:3px;height:3px;border-radius:50%;
+  background:var(--olive);transform:translateX(-50%)}
+.dial__txt{font-size:.72rem;line-height:1.25;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:600;color:var(--ink-muted);padding-right:.5rem}
+.dial__txt b{display:block;font-size:.98rem;color:var(--ink);letter-spacing:.06em;
+  font-variant-numeric:tabular-nums}
+.dial__hint{font-size:.64rem;color:var(--olive-tx);letter-spacing:.08em}
+
+/* --- imza sahnesi (courtyard) --- */
+.scene{position:relative;aspect-ratio:5/6;width:100%;border-radius:var(--r);
+  overflow:hidden;box-shadow:0 30px 60px -34px rgba(46,38,32,.55);
+  border:1px solid var(--sand);isolation:isolate}
+.scene__sky{position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--sky-top),var(--sky-bot))}
+.scene__stars{position:absolute;inset:0;opacity:var(--star-op);
+  background-image:
+    radial-gradient(1.4px 1.4px at 20% 18%,#fff,transparent),
+    radial-gradient(1.2px 1.2px at 68% 12%,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 45% 28%,#fff,transparent),
+    radial-gradient(1.1px 1.1px at 82% 22%,#fff,transparent),
+    radial-gradient(1.3px 1.3px at 33% 10%,#fff,transparent),
+    radial-gradient(1.2px 1.2px at 88% 34%,#fff,transparent),
+    radial-gradient(1.1px 1.1px at 12% 32%,#fff,transparent);
+  transition:opacity .3s linear;pointer-events:none}
+.scene__sun{position:absolute;left:0;top:0;width:34%;aspect-ratio:1;
+  transform:translate(calc(var(--sun-x) * 2.7),calc(var(--sun-y) * 2.7));
+  background:radial-gradient(circle at 50% 50%,
+     var(--sun-col) 0 21%,
+     color-mix(in srgb,var(--sun-col) 55%,transparent) 34%,
+     transparent 66%);
+  will-change:transform;pointer-events:none}
+/* taş avlu zemini */
+.scene__ground{position:absolute;left:0;right:0;bottom:0;height:38%;
+  background:linear-gradient(180deg,
+     color-mix(in srgb,var(--ground) 88%,#000 0%),
+     color-mix(in srgb,var(--ground) 78%,#3a2c1e 10%));
+  box-shadow:inset 0 2px 0 color-mix(in srgb,var(--wall) 80%,#fff 20%)}
+.scene__ground::before{content:"";position:absolute;inset:0;opacity:.5;
+  background:repeating-linear-gradient(90deg,transparent 0 58px,
+     color-mix(in srgb,var(--ink) 22%,transparent) 58px 59px)}
+/* sütunun avluya düşen gölgesi — sadece transform, blur YOK */
+.scene__shadow{position:absolute;left:38%;bottom:0;width:15%;height:56%;
+  background:linear-gradient(180deg,
+     color-mix(in srgb,var(--ink) 78%,transparent),
+     color-mix(in srgb,var(--ink) 30%,transparent));
+  opacity:var(--shadow-op);transform-origin:bottom center;
+  transform:rotate(var(--shadow-rot)) scaleY(var(--shadow-scale));
+  border-radius:40% 40% 0 0;will-change:transform,opacity;pointer-events:none}
+/* ön plan: kemerli taş duvar (arch) */
+.scene__arch{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.scene__arch .wall{fill:var(--wall)}
+.scene__arch .col{fill:color-mix(in srgb,var(--wall) 86%,#3a2c1e 14%)}
+.scene__arch .line{stroke:color-mix(in srgb,var(--ink) 26%,transparent);
+  stroke-width:1.4;fill:none}
+.scene__badge{position:absolute;left:14px;bottom:14px;z-index:3;
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--stone);background:color-mix(in srgb,var(--ink) 74%,transparent);
+  padding:.4rem .7rem;border-radius:8px;backdrop-filter:blur(2px)}
+
+/* =========================================================================
+   STORY
+   ========================================================================= */
+.story__grid{display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(1.6rem,5vw,4rem);align-items:center}
+.story__lead{font-family:'Boska';font-weight:300;font-size:clamp(1.5rem,3vw,2.15rem);
+  line-height:1.32}
+.story__lead b{font-weight:400;color:var(--terra);font-style:italic}
+.story__facts{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.2rem}
+.fact{border-top:1.5px solid var(--sand);padding-top:.8rem}
+.fact b{display:block;font-family:'Boska';font-weight:400;font-size:2.2rem;
+  color:var(--ink);line-height:1}
+.fact span{font-size:.86rem;color:var(--ink-muted)}
+/* taş doku makro yer tutucu (CSS) */
+.stonecard{aspect-ratio:4/5;border-radius:var(--r);border:1px solid var(--sand);
+  position:relative;overflow:hidden;
+  background:
+    linear-gradient(135deg,color-mix(in srgb,var(--sand) 70%,#fff),var(--sand)),
+    var(--sand)}
+.stonecard::before{content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:multiply;
+  background:
+    radial-gradient(120px 90px at 22% 30%,rgba(90,70,50,.35),transparent 70%),
+    radial-gradient(160px 120px at 78% 68%,rgba(90,70,50,.28),transparent 70%),
+    repeating-linear-gradient(58deg,transparent 0 22px,rgba(70,52,36,.10) 22px 24px)}
+.stonecard::after{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent 0 46px,
+    color-mix(in srgb,var(--ink) 14%,transparent) 46px 47px)}
+.stonecard span{position:absolute;left:16px;bottom:14px;z-index:2;
+  font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  color:var(--ink);opacity:.6}
+
+/* =========================================================================
+   ROOMS — saate bağlı kartlar (3:4)
+   ========================================================================= */
+.rooms__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.room{border:1px solid var(--sand);border-radius:var(--r);overflow:hidden;
+  background:var(--sand-soft);transition:transform .35s var(--ease),
+  box-shadow .35s var(--ease)}
+.room:hover{transform:translateY(-6px);box-shadow:0 24px 44px -28px rgba(46,38,32,.6)}
+.room__img{aspect-ratio:3/4;position:relative;overflow:hidden;
+  background:linear-gradient(160deg,
+    color-mix(in srgb,var(--sky-top) 60%,var(--sand)),
+    color-mix(in srgb,var(--wall) 80%,var(--sand)))}
+/* her odanın "en güzel saatinde" mini güneşi (data ile konumlanır, JS'siz de görünür) */
+.room__sun{position:absolute;width:22%;aspect-ratio:1;border-radius:50%;
+  top:var(--ry,26%);left:var(--rx,20%);
+  background:radial-gradient(circle,#fff4d6 0 30%,transparent 62%);opacity:.9}
+.room__hour{position:absolute;left:12px;bottom:12px;
+  font-size:.72rem;letter-spacing:.1em;font-weight:600;color:var(--stone);
+  background:color-mix(in srgb,var(--ink) 66%,transparent);
+  padding:.28rem .6rem;border-radius:20px;font-variant-numeric:tabular-nums}
+.room__body{padding:1.3rem 1.3rem 1.5rem}
+.room__body h3{font-size:1.5rem;font-weight:400}
+.room__body .meta{font-size:.82rem;color:var(--olive-tx);letter-spacing:.08em;
+  text-transform:uppercase;font-weight:600;margin:.3rem 0 .7rem}
+.room__body p{font-size:.95rem;color:var(--ink-muted);margin:0}
+.room__price{margin-top:1rem;font-family:'Boska';font-size:1.5rem;color:var(--ink)}
+.room__price small{font-family:'General Sans';font-size:.8rem;color:var(--ink-muted);
+  font-weight:500}
+
+/* =========================================================================
+   EXPERIENCES
+   ========================================================================= */
+.exp__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.exp{padding:1.9rem 1.6rem;border:1px solid var(--sand);border-radius:var(--r);
+  background:color-mix(in srgb,var(--sand-soft) 55%,var(--stone))}
+.exp__ico{width:42px;height:42px;color:var(--terra);margin-bottom:1.1rem}
+.exp h3{font-size:1.4rem;font-weight:400;margin-bottom:.5rem}
+.exp p{font-size:.95rem;color:var(--ink-muted);margin:0}
+.exp .when{display:block;margin-top:.9rem;font-size:.78rem;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:600;color:var(--olive-tx)}
+
+/* =========================================================================
+   VISIT — konum & erişim
+   ========================================================================= */
+.visit__grid{display:grid;grid-template-columns:1.1fr .9fr;
+  gap:clamp(1.6rem,4vw,3.2rem);align-items:start}
+.visit dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.2rem 1.4rem}
+.visit dt{font-weight:600;color:var(--olive-tx);font-size:.82rem;
+  letter-spacing:.08em;text-transform:uppercase;padding-top:.9rem;
+  border-top:1px solid var(--sand)}
+.visit dd{margin:0;padding-top:.9rem;border-top:1px solid var(--sand);
+  color:var(--ink)}
+.access{margin-top:1.8rem;padding:1.3rem 1.4rem;border-radius:var(--r);
+  background:color-mix(in srgb,var(--olive) 22%,var(--stone));
+  border:1px solid color-mix(in srgb,var(--olive) 50%,var(--sand))}
+.access h3{font-size:1.15rem;font-family:'General Sans';font-weight:600;
+  margin-bottom:.5rem;display:flex;gap:.5rem;align-items:center}
+.access p{font-size:.92rem;color:var(--ink-muted);margin:0}
+/* harita yer tutucu */
+.mapcard{aspect-ratio:4/3;border-radius:var(--r);border:1px solid var(--sand);
+  position:relative;overflow:hidden;background:
+    radial-gradient(circle at 62% 44%,color-mix(in srgb,var(--olive) 40%,var(--sand)),transparent 60%),
+    var(--sand-soft)}
+.mapcard::before{content:"";position:absolute;inset:0;opacity:.5;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 46px,rgba(70,52,36,.14) 46px 47px),
+    repeating-linear-gradient(0deg,transparent 0 46px,rgba(70,52,36,.14) 46px 47px)}
+.mapcard .pin{position:absolute;left:60%;top:42%;width:16px;height:16px;
+  border-radius:50% 50% 50% 0;background:var(--terra);transform:rotate(-45deg);
+  box-shadow:0 6px 12px -4px rgba(46,38,32,.5)}
+.mapcard span{position:absolute;left:14px;bottom:12px;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink);opacity:.6}
+
+/* =========================================================================
+   VOICES — sosyal kanıt (örnek içerik, yayından önce doğrulanır)
+   ========================================================================= */
+.voices{background:color-mix(in srgb,var(--sand-soft) 45%,var(--stone))}
+.voices__note{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--olive-tx);display:flex;align-items:center;gap:.6rem;
+  margin-bottom:1.6rem}
+.voices__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.quote{padding:1.7rem 1.5rem;border:1px solid var(--sand);border-radius:var(--r);
+  background:var(--stone)}
+.quote .stars{color:var(--terra);letter-spacing:.1em;font-size:1rem}
+.quote blockquote{margin:.9rem 0 1.1rem;font-family:'Boska';font-weight:300;
+  font-size:1.22rem;line-height:1.4}
+.quote cite{font-style:normal;font-size:.86rem;color:var(--ink-muted)}
+.quote cite b{color:var(--ink);font-weight:600;font-style:normal}
+
+/* =========================================================================
+   FAQ — native details/summary
+   ========================================================================= */
+.faq__list{max-width:56rem;border-top:1px solid var(--sand)}
+.faq details{border-bottom:1px solid var(--sand)}
+.faq summary{cursor:pointer;list-style:none;padding:1.4rem 2.5rem 1.4rem 0;
+  position:relative;font-family:'Boska';font-weight:400;font-size:1.28rem;
+  color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:.2rem;top:1.15rem;
+  font-family:'General Sans';font-size:1.7rem;color:var(--terra);
+  transition:transform .3s var(--ease);line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.faq__a{padding:0 2.5rem 1.5rem 0;color:var(--ink-muted);font-size:1rem;
+  max-width:62ch}
+
+/* =========================================================================
+   RESERVE — form
+   ========================================================================= */
+.reserve{background:var(--ink);color:var(--stone)}
+.reserve h2{color:var(--stone)}
+.reserve .eyebrow{color:var(--terra-lt)}
+.reserve__grid{display:grid;grid-template-columns:.9fr 1.1fr;
+  gap:clamp(1.8rem,5vw,4rem);align-items:start}
+.reserve__intro p{color:color-mix(in srgb,var(--stone) 80%,transparent)}
+.reserve__trust{list-style:none;padding:0;margin:1.8rem 0 0}
+.reserve__trust li{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:.8rem;
+  font-size:.95rem;color:color-mix(in srgb,var(--stone) 86%,transparent)}
+.reserve__trust svg{flex:none;color:var(--terra-lt);margin-top:.15rem}
+.form{background:color-mix(in srgb,var(--stone) 8%,var(--ink));
+  border:1px solid color-mix(in srgb,var(--stone) 22%,transparent);
+  border-radius:var(--r);padding:clamp(1.4rem,3vw,2.1rem)}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1.05rem;display:flex;flex-direction:column;gap:.4rem}
+.field label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:600;color:color-mix(in srgb,var(--stone) 78%,transparent)}
+.field label .req{color:var(--terra-lt)}
+.field input,.field select{font-family:'General Sans';font-size:1rem;
+  color:var(--stone);background:color-mix(in srgb,var(--stone) 12%,var(--ink));
+  border:1.5px solid color-mix(in srgb,var(--stone) 26%,transparent);
+  border-radius:9px;padding:.72rem .85rem;width:100%}
+.field input::placeholder{color:color-mix(in srgb,var(--stone) 45%,transparent)}
+.field input:focus,.field select:focus{outline:3px solid var(--terra-lt);
+  outline-offset:1px;border-color:var(--terra-lt)}
+.field select{appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--terra-lt) 50%),
+    linear-gradient(135deg,var(--terra-lt) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 55%,calc(100% - 13px) 55%;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:2.2rem}
+.form__submit{margin-top:.4rem}
+.form__submit .btn{width:100%}
+.form__note{font-size:.8rem;color:color-mix(in srgb,var(--stone) 62%,transparent);
+  margin:.9rem 0 0;text-align:center}
+.form__done{display:none;margin-top:1rem;padding:1rem;border-radius:9px;
+  background:color-mix(in srgb,var(--olive) 40%,var(--ink));
+  border:1px solid var(--olive);font-size:.95rem}
+.form__done.show{display:block}
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.foot{background:var(--ink);color:color-mix(in srgb,var(--stone) 82%,transparent);
+  border-top:1px solid color-mix(in srgb,var(--stone) 16%,transparent);
+  padding-block:clamp(2.6rem,6vw,4rem)}
+.foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+.foot .brand{color:var(--stone)}
+.foot p{font-size:.9rem;max-width:34ch;color:color-mix(in srgb,var(--stone) 70%,transparent)}
+.foot h4{font-family:'General Sans';font-weight:600;font-size:.78rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--terra-lt);
+  margin-bottom:1rem}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.foot a{text-decoration:none;font-size:.94rem;
+  color:color-mix(in srgb,var(--stone) 82%,transparent)}
+.foot a:hover{color:var(--stone)}
+.foot__base{margin-top:2.6rem;padding-top:1.4rem;
+  border-top:1px solid color-mix(in srgb,var(--stone) 16%,transparent);
+  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;
+  font-size:.8rem;color:color-mix(in srgb,var(--stone) 55%,transparent)}
+
+/* =========================================================================
+   MOBİL yapışkan CTA çubuğu
+   ========================================================================= */
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  gap:.9rem;align-items:center;justify-content:space-between;
+  padding:.65rem clamp(1rem,4vw,1.4rem);
+  background:color-mix(in srgb,var(--ink) 94%,transparent);
+  backdrop-filter:blur(8px);
+  border-top:1px solid color-mix(in srgb,var(--stone) 18%,transparent);
+  transform:translateY(110%);transition:transform .35s var(--ease)}
+.stickybar.show{transform:translateY(0)}
+.stickybar .from{color:var(--stone);font-size:.86rem;line-height:1.2}
+.stickybar .from b{display:block;font-family:'Boska';font-size:1.25rem}
+.stickybar .btn{padding:.7rem 1.3rem;font-size:1.05rem}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width:920px){
+  .hero__grid,.story__grid,.visit__grid,.reserve__grid{grid-template-columns:1fr}
+  .hero{padding-top:88px}
+  .hero__scene-wrap{order:-1}
+  .scene{aspect-ratio:16/12;max-height:52vh;margin-inline:auto}
+  .rooms__grid,.exp__grid,.voices__grid{grid-template-columns:1fr 1fr}
+  .foot__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .nav{display:none}
+  .nav.open{display:flex;position:fixed;inset:72px 0 auto 0;flex-direction:column;
+    gap:0;background:var(--stone);border-bottom:1px solid var(--sand);
+    padding:.5rem var(--pad) 1.3rem}
+  .nav.open a{padding:.85rem 0;border-bottom:1px solid var(--sand);width:100%}
+  .nav.open .btn{margin-top:.9rem;width:100%}
+  .navtoggle{display:flex}
+  .rooms__grid,.exp__grid,.voices__grid,.story__facts,.form__row,.foot__grid{
+    grid-template-columns:1fr}
+  .stickybar{display:flex}
+  .dial{width:100%;justify-content:flex-start}
+  body{padding-bottom:0}
+  /* mobil dokunma hedefleri ≥44px (yükseklik + genişlik) */
+  .foot a,.doc .back,.foot__base a{display:inline-flex;align-items:center;
+    min-height:44px;min-width:44px}
+  .foot ul{gap:.2rem}
+  .nav .lang{min-height:44px;display:inline-flex;align-items:center}
+}
+
+/* =========================================================================
+   REDUCED MOTION — imza sabit, her şey görünür
+   ========================================================================= */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .anim-ready .reveal{opacity:1!important;transform:none!important}
+  .btn,.room{will-change:auto}
+}
+
+/* rehber sayfası ufak eklemeler */
+.doc{max-width:44rem;margin-inline:auto;padding-top:120px}
+.doc h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:300;margin-bottom:.6rem}
+.doc h2{font-size:1.7rem;font-weight:400;margin:2.4rem 0 .8rem}
+.doc p{color:var(--ink-muted)}
+.doc ul{color:var(--ink-muted);padding-left:1.1rem}
+.doc li{margin-bottom:.5rem}
+.doc .back{display:inline-block;margin-bottom:2rem;color:var(--terra);
+  text-decoration:none;font-weight:600;font-size:.9rem}
+.doc code{background:var(--sand-soft);padding:.1rem .4rem;border-radius:5px;
+  font-size:.85em;font-family:ui-monospace,monospace}

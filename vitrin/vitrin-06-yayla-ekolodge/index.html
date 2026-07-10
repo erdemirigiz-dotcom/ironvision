@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RAKIM — Highland Eco-Lodge & Botanic Trails</title>
+    <meta
+      name="description"
+      content="RAKIM is a timber eco-lodge on a Black Sea plateau — cloud-forest trekking, endemic botany walks and highland cooking, wrapped in the mist that gives it its name. Reserve your stay."
+    />
+    <meta name="theme-color" content="#dce3db" />
+    <link rel="canonical" href="https://sis-lodge.example/" />
+    <link rel="alternate" hreflang="en" href="https://sis-lodge.example/" />
+    <link
+      rel="alternate"
+      hreflang="tr"
+      href="https://sis-lodge.example/rehber/"
+    />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="RAKIM — Highland Eco-Lodge & Botanic Trails" />
+    <meta
+      property="og:description"
+      content="A timber eco-lodge in the cloud forest. Trekking, endemic botany and highland cooking, wrapped in mist."
+    />
+    <meta property="og:image" content="https://sis-lodge.example/assets/hero-poster.jpg" />
+    <meta property="og:url" content="https://sis-lodge.example/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RAKIM — Highland Eco-Lodge & Botanic Trails" />
+    <meta
+      name="twitter:description"
+      content="A timber eco-lodge in the cloud forest. Trekking, endemic botany and highland cooking, wrapped in mist."
+    />
+    <meta name="twitter:image" content="https://sis-lodge.example/assets/hero-poster.jpg" />
+
+    <!-- Favicon: layered ridge + fog glyph -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231F2A26'/%3E%3Cpath d='M3 24l7-9 5 6 4-7 10 10z' fill='%234C6B57'/%3E%3Cpath d='M0 20c6 2 10-2 16 0s10 2 16 0v4c-6 2-10-1-16 0s-10 1-16-1z' fill='%23DCE3DB' opacity='.85'/%3E%3C/svg%3E"
+    />
+
+    <!-- Preload primary text fonts (same-origin, CORS mode) -->
+    <link
+      rel="preload"
+      href="assets/fonts/hedvig-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/instrument-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "RAKIM Highland Eco-Lodge",
+        "description": "Timber eco-lodge on a Black Sea plateau offering cloud-forest trekking, endemic botany walks and highland cuisine.",
+        "url": "https://sis-lodge.example/",
+        "image": "https://sis-lodge.example/assets/hero-poster.jpg",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Eastern Black Sea Highlands",
+          "addressCountry": "TR"
+        },
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Guided trekking" },
+          { "@type": "LocationFeatureSpecification", "name": "Botany walks" },
+          { "@type": "LocationFeatureSpecification", "name": "Highland kitchen" }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ===================== Header ===================== -->
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="RAKIM Highland Eco-Lodge — home">
+        <span class="brand__mark">RAKIM</span>
+        <span class="brand__sub">Highland Lodge</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+        <ul class="site-nav__links">
+          <li><a href="#altitude">The plateau</a></li>
+          <li><a href="#lodge">Lodge</a></li>
+          <li><a href="#routes">Trails</a></li>
+          <li><a href="#kitchen">Kitchen</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="btn" href="#reserve">Reserve your stay</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <span id="top"></span>
+
+      <!-- ===================== Hero — fog curtain ===================== -->
+      <section class="hero" aria-label="Introduction">
+        <!-- (a) CSS scene base + (b) poster'd video slot: assets/hero.mp4 -->
+        <div class="hero__scene" aria-hidden="true"></div>
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="assets/hero-poster.jpg"
+          aria-hidden="true"
+        >
+          <source src="assets/hero.mp4" type="video/mp4" />
+        </video>
+
+        <!-- layered ridge silhouettes revealed as the fog lifts -->
+        <svg
+          class="hero__ridges"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          <path class="hero__ridge" data-depth="0" style="opacity:.35"
+            d="M0 470 L180 400 L360 450 L560 360 L760 430 L980 370 L1200 440 L1440 390 L1440 900 L0 900 Z"
+            fill="#8fa096" />
+          <path class="hero__ridge" data-depth="0.5" style="opacity:.35"
+            d="M0 560 L220 500 L420 560 L640 470 L880 560 L1120 490 L1440 560 L1440 900 L0 900 Z"
+            fill="#5a6f61" />
+          <path class="hero__ridge" data-depth="1" style="opacity:.35"
+            d="M0 680 L260 610 L520 690 L760 600 L1020 690 L1280 620 L1440 680 L1440 900 L0 900 Z"
+            fill="#2c3a32" />
+        </svg>
+
+        <!-- three drifting fog layers -->
+        <div class="fog fog--3" aria-hidden="true"></div>
+        <div class="fog fog--2" aria-hidden="true"></div>
+        <div class="fog fog--1" aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <h1 class="hero__wordmark">RAKIM</h1>
+          <p class="hero__tagline">A lodge inside the cloud.</p>
+          <p class="hero__meta">
+            <em>Rakım</em> is the Turkish word for altitude — the only address
+            this lodge has. A timber eco-lodge where the mountain arrives in layers —
+            tea gardens, forest, alpine meadow, summit — and reveals itself only
+            to those who stay a while.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--lg" href="#reserve">Reserve your stay</a>
+            <a class="btn btn--ghost btn--lg" href="#altitude">Read the plateau</a>
+          </div>
+          <!-- Social proof line — SAMPLE data, replace before launch (see rapor) -->
+          <p class="trust-line" data-sample>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span>4.9 average · 120+ guest stays · carbon-light operation</span>
+          </p>
+        </div>
+
+        <div class="hero__hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M5 12h14M5 12l4-4M5 12l4 4M19 12l-4-4M19 12l-4 4" />
+          </svg>
+          Drag to part the fog · scroll to descend
+        </div>
+      </section>
+
+      <!-- ===================== Altitude bands ===================== -->
+      <div class="bands">
+        <!-- fixed dot navigation -->
+        <nav class="band-nav" aria-label="Altitude bands">
+          <button type="button" data-target="band-tea" aria-current="false">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="label">Tea gardens · 900 m</span>
+          </button>
+          <button type="button" data-target="band-forest" aria-current="false">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="label">Cloud forest · 1600 m</span>
+          </button>
+          <button type="button" data-target="band-meadow" aria-current="false">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="label">Alpine meadow · 2300 m</span>
+          </button>
+          <button type="button" data-target="band-summit" aria-current="false">
+            <span class="dot" aria-hidden="true"></span>
+            <span class="label">Summit ridge · 3000 m</span>
+          </button>
+        </nav>
+
+        <div class="bands__intro wrap reveal" id="altitude">
+          <p class="eyebrow">The plateau, band by band</p>
+          <h2 class="section-head" style="font-size:clamp(1.9rem,1.3rem+2.6vw,3.2rem)">
+            You do not arrive at RAKIM. You climb through it</h2>
+          <p class="section__lead">
+            Every 700 metres the mountain changes its mind — the plants, the
+            light, the palette all shift. Move through the four bands below; the
+            page climbs with you.
+          </p>
+        </div>
+
+        <!-- Band 1 — tea gardens -->
+        <section class="band" id="band-tea" data-tint="#dce3db">
+          <div class="wrap band__grid">
+            <div class="reveal">
+              <p class="band__index">Band 01</p>
+              <p class="band__alt">≈ 900 m</p>
+              <h3>Tea gardens &amp; the lower mist</h3>
+              <p>
+                The road ends where the tea terraces begin. Morning fog pools in
+                the valley and burns off by ten; the air smells of wet leaf and
+                woodsmoke. This is the softest walking on the mountain — good for
+                a first afternoon.
+              </p>
+              <ul class="species">
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V12M16 12c-4 0-7-3-7-7 4 0 7 3 7 7Zm0 0c4 0 7-3 7-7-4 0-7 3-7 7Z"/></svg>
+                  <span class="name">Camellia (wild tea)</span>
+                  <span class="latin">Camellia sinensis</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="12" r="5"/><path d="M16 17v11M11 22h10"/></svg>
+                  <span class="name">Pontic azalea</span>
+                  <span class="latin">Rhododendron luteum</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V8M9 14c3 0 7 2 7 6M23 14c-3 0-7 2-7 6"/></svg>
+                  <span class="name">Hazel thicket</span>
+                  <span class="latin">Corylus avellana</span>
+                </li>
+              </ul>
+            </div>
+            <div class="band__scene reveal">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="300" fill="#a9b7ac" />
+                <rect y="150" width="400" height="150" fill="#7f9584" />
+                <path d="M0 300 Q100 250 200 270 T400 260 V300Z" fill="#5d7462" />
+                <g stroke="#4c6b57" stroke-width="2" opacity="0.7">
+                  <path d="M0 230 Q200 210 400 230" fill="none"/>
+                  <path d="M0 255 Q200 235 400 255" fill="none"/>
+                  <path d="M0 280 Q200 260 400 280" fill="none"/>
+                </g>
+                <path d="M0 90 Q120 130 220 100 T400 120 V0 H0Z" fill="#dce3db" opacity="0.55"/>
+              </svg>
+              <span class="media-note">Illustration · tea terraces</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Band 2 — cloud forest -->
+        <section class="band" id="band-forest" data-tint="#cdd8ce">
+          <div class="wrap band__grid">
+            <div class="reveal">
+              <p class="band__index">Band 02</p>
+              <p class="band__alt">≈ 1600 m</p>
+              <h3>Cloud forest &amp; the standing mist</h3>
+              <p>
+                Above the tea line the forest closes in and the fog stops
+                lifting. Spruce and beech drip all day; moss climbs everything
+                that holds still. Guides read the trail by sound as much as
+                sight. Bring a layer — it is ten degrees cooler here.
+              </p>
+              <ul class="species">
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 30V6M16 6l-6 8h12ZM16 14l-7 9h14Z"/></svg>
+                  <span class="name">Oriental spruce</span>
+                  <span class="latin">Picea orientalis</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 20c6-8 14-8 20 0M6 20c6 8 14 8 20 0"/></svg>
+                  <span class="name">Oriental beech</span>
+                  <span class="latin">Fagus orientalis</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 24c0-6 3-9 8-9s8 3 8 9M16 15V8"/></svg>
+                  <span class="name">Caucasian whortleberry</span>
+                  <span class="latin">Vaccinium arctostaphylos</span>
+                </li>
+              </ul>
+            </div>
+            <div class="band__scene reveal">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="300" fill="#8b9d90" />
+                <g fill="#3f5648">
+                  <path d="M40 300V150l16 24-16 6 20 20-24 6 24 20-40 0Z"/>
+                  <path d="M120 300V130l18 26-18 8 22 22-26 8 26 22-42 0Z"/>
+                  <path d="M300 300V160l14 22-14 6 18 18-22 6 22 18-38 0Z"/>
+                  <path d="M360 300V140l16 24-16 6 20 20-24 6 24 20-40 0Z"/>
+                </g>
+                <path d="M0 60 Q100 110 200 80 T400 100 V0 H0Z" fill="#d3ddd4" opacity="0.6"/>
+                <path d="M0 180 Q120 160 200 185 T400 175 V210 Q200 230 0 210Z" fill="#cdd8ce" opacity="0.5"/>
+              </svg>
+              <span class="media-note">Illustration · cloud forest</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Band 3 — alpine meadow -->
+        <section class="band" id="band-meadow" data-tint="#dbe2d2">
+          <div class="wrap band__grid">
+            <div class="reveal">
+              <p class="band__index">Band 03</p>
+              <p class="band__alt">≈ 2300 m</p>
+              <h3>Alpine meadow &amp; the wildflower window</h3>
+              <p>
+                The trees give out and the world opens. For six weeks in early
+                summer the meadow turns to colour — gentians, primulas, an
+                endemic bellflower found on no other range. This is the band our
+                botany walks are built around.
+              </p>
+              <ul class="species">
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V14M16 14c-3-4-3-8 0-10 3 2 3 6 0 10Z"/><circle cx="16" cy="13" r="2"/></svg>
+                  <span class="name">Trumpet gentian</span>
+                  <span class="latin">Gentiana verna</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="11" r="4"/><path d="M16 15v13M10 20l6-3 6 3"/></svg>
+                  <span class="name">Caucasian primrose</span>
+                  <span class="latin">Primula auriculata</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V12M16 12l-5-4M16 12l5-4M12 18l-5-2M20 18l5-2"/></svg>
+                  <span class="name">Pontic bellflower</span>
+                  <span class="latin">Campanula pontica</span>
+                </li>
+              </ul>
+            </div>
+            <div class="band__scene reveal">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="300" fill="#c3cdb8" />
+                <path d="M0 300 Q200 240 400 290 V300Z" fill="#9aab86" />
+                <g>
+                  <circle cx="70" cy="230" r="5" fill="#b5502f"/>
+                  <circle cx="150" cy="250" r="5" fill="#4c6b57"/>
+                  <circle cx="230" cy="235" r="5" fill="#7b5cff" opacity="0.7"/>
+                  <circle cx="310" cy="255" r="5" fill="#b5502f"/>
+                  <circle cx="110" cy="265" r="4" fill="#c9a227"/>
+                  <circle cx="270" cy="270" r="4" fill="#c9a227"/>
+                </g>
+                <path d="M0 130 L120 70 L230 120 L340 60 L400 110 V0 H0Z" fill="#8ea08f" opacity="0.5"/>
+                <path d="M0 90 Q150 120 400 95 V60 Q150 85 0 60Z" fill="#eef1ea" opacity="0.55"/>
+              </svg>
+              <span class="media-note">Illustration · alpine meadow</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Band 4 — summit -->
+        <section class="band" id="band-summit" data-tint="#c6cfc9">
+          <div class="wrap band__grid">
+            <div class="reveal">
+              <p class="band__index">Band 04</p>
+              <p class="band__alt">≈ 3000 m</p>
+              <h3>Summit ridge &amp; the sea of cloud</h3>
+              <p>
+                On clear dawns the ridge stands above the weather: a white sea of
+                cloud fills every valley below and only the far peaks break the
+                surface. It is a guided, weather-dependent climb — and the reason
+                many guests come back.
+              </p>
+              <ul class="species">
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V16M12 20c-2-3-1-6 4-8 5 2 6 5 4 8Z"/></svg>
+                  <span class="name">Cushion saxifrage</span>
+                  <span class="latin">Saxifraga sancta</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 24c4-2 4-8 8-8s4 6 8 8M16 16V9"/></svg>
+                  <span class="name">Alpine sandwort</span>
+                  <span class="latin">Minuartia recurva</span>
+                </li>
+                <li>
+                  <svg class="glyph" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 28V10M10 16l6-6 6 6M13 22l3-3 3 3"/></svg>
+                  <span class="name">Rock juniper</span>
+                  <span class="latin">Juniperus communis</span>
+                </li>
+              </ul>
+            </div>
+            <div class="band__scene reveal">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <rect width="400" height="300" fill="#aebbb2" />
+                <path d="M0 150 L110 60 L200 130 L300 40 L400 120 V150Z" fill="#3a4a42"/>
+                <path d="M110 60 L140 95 L90 95Z" fill="#eef1ea"/>
+                <path d="M300 40 L330 82 L275 82Z" fill="#eef1ea"/>
+                <rect y="150" width="400" height="150" fill="#e6ebe4" opacity="0.9"/>
+                <path d="M0 175 Q100 160 200 175 T400 170 V300 H0Z" fill="#f2f5f0" opacity="0.85"/>
+                <circle cx="330" cy="70" r="16" fill="#f4e7d3" opacity="0.7"/>
+              </svg>
+              <span class="media-note">Illustration · summit cloud sea</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ===================== Lodge & rooms ===================== -->
+      <section class="section" id="lodge">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">The lodge</p>
+            <h2>Timber, wool and a wood stove that never quite goes out</h2>
+            <p class="section__lead">
+              Fourteen rooms in local spruce, built low so the fog moves over
+              rather than around us. No televisions. Full-height windows on the
+              valley side, and a shared hearth room where the day is planned over
+              tea.
+            </p>
+          </div>
+          <div class="rooms__grid">
+            <article class="room reveal">
+              <div class="room__media">
+                <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect width="300" height="400" fill="#2c261f"/>
+                  <rect x="30" y="60" width="240" height="200" fill="#4a3d2e"/>
+                  <rect x="45" y="75" width="210" height="170" fill="#6f5a3f"/>
+                  <rect x="120" y="260" width="120" height="140" fill="#3a3227"/>
+                  <path d="M0 320 Q150 290 300 320 V400 H0Z" fill="#dce3db" opacity="0.18"/>
+                </svg>
+                <span class="media-note">Photo slot · room 3:4</span>
+              </div>
+              <div class="room__body">
+                <h3 class="room__name">Valley room</h3>
+                <p class="room__spec">2 guests · valley-facing window · wood stove</p>
+                <p class="room__price">from <b>€140</b> / night · breakfast included</p>
+              </div>
+            </article>
+            <article class="room reveal">
+              <div class="room__media">
+                <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect width="300" height="400" fill="#25302a"/>
+                  <rect x="40" y="50" width="220" height="150" fill="#3f5648"/>
+                  <rect x="55" y="210" width="190" height="150" fill="#5d4a34"/>
+                  <path d="M0 120 Q150 150 300 120 V60 Q150 90 0 60Z" fill="#dce3db" opacity="0.3"/>
+                </svg>
+                <span class="media-note">Photo slot · room 3:4</span>
+              </div>
+              <div class="room__body">
+                <h3 class="room__name">Forest cabin</h3>
+                <p class="room__spec">2–3 guests · private deck · outdoor bath</p>
+                <p class="room__price">from <b>€185</b> / night · breakfast included</p>
+              </div>
+            </article>
+            <article class="room reveal">
+              <div class="room__media">
+                <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                  <rect width="300" height="400" fill="#2a2a22"/>
+                  <rect x="35" y="40" width="230" height="120" fill="#6f5a3f"/>
+                  <rect x="35" y="180" width="230" height="180" fill="#4a3d2e"/>
+                  <circle cx="150" cy="100" r="34" fill="#b5502f" opacity="0.55"/>
+                </svg>
+                <span class="media-note">Photo slot · room 3:4</span>
+              </div>
+              <div class="room__body">
+                <h3 class="room__name">Hearth suite</h3>
+                <p class="room__spec">4 guests · sitting room · panoramic corner</p>
+                <p class="room__price">from <b>€260</b> / night · breakfast included</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Trekking routes ===================== -->
+      <section class="section routes" id="routes">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Guided trails</p>
+            <h2>Four ways up, graded honestly</h2>
+            <p class="section__lead">
+              Every walk leaves with a licensed mountain guide and a weather
+              call made that morning. Difficulty is graded to European hiking
+              norms — no route is longer or higher than it says here.
+            </p>
+          </div>
+          <div class="routes__list">
+            <article class="route reveal">
+              <span class="route__alt">900 m</span>
+              <div>
+                <h3 class="route__name">Tea terrace loop</h3>
+                <div class="route__meta">
+                  <span>2.5 hrs</span><span>·</span><span>4 km</span><span>·</span><span>+180 m</span>
+                </div>
+              </div>
+              <span class="pill pill--easy">Easy</span>
+            </article>
+            <article class="route reveal">
+              <span class="route__alt">1600 m</span>
+              <div>
+                <h3 class="route__name">Cloud forest traverse</h3>
+                <div class="route__meta">
+                  <span>5 hrs</span><span>·</span><span>9 km</span><span>·</span><span>+620 m</span>
+                </div>
+              </div>
+              <span class="pill pill--mod">Moderate</span>
+            </article>
+            <article class="route reveal">
+              <span class="route__alt">2300 m</span>
+              <div>
+                <h3 class="route__name">Meadow &amp; botany walk</h3>
+                <div class="route__meta">
+                  <span>4 hrs</span><span>·</span><span>7 km</span><span>·</span><span>+400 m</span><span>·</span><span>seasonal</span>
+                </div>
+              </div>
+              <span class="pill pill--mod">Moderate</span>
+            </article>
+            <article class="route reveal">
+              <span class="route__alt">3000 m</span>
+              <div>
+                <h3 class="route__name">Summit ridge &amp; cloud sea</h3>
+                <div class="route__meta">
+                  <span>8–9 hrs</span><span>·</span><span>14 km</span><span>·</span><span>+1000 m</span><span>·</span><span>dawn start</span>
+                </div>
+              </div>
+              <span class="pill pill--hard">Strenuous</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Kitchen ===================== -->
+      <section class="section" id="kitchen">
+        <div class="wrap kitchen__grid">
+          <div class="kitchen__media reveal">
+            <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="400" height="320" fill="#241c15"/>
+              <rect x="0" y="200" width="400" height="120" fill="#3a2c1e"/>
+              <ellipse cx="200" cy="205" rx="150" ry="30" fill="#6f5a3f"/>
+              <circle cx="140" cy="185" r="26" fill="#4c6b57"/>
+              <circle cx="210" cy="180" r="30" fill="#b5502f" opacity="0.85"/>
+              <circle cx="270" cy="190" r="22" fill="#c9a227"/>
+              <path d="M180 120 q20 -30 40 0" fill="none" stroke="#dce3db" stroke-width="3" opacity="0.5"/>
+              <path d="M195 100 q20 -30 40 0" fill="none" stroke="#dce3db" stroke-width="3" opacity="0.35"/>
+            </svg>
+            <span class="media-note">Photo slot · highland table</span>
+          </div>
+          <div class="reveal">
+            <p class="eyebrow">Highland kitchen</p>
+            <h2>Cooked from the same 30 kilometres you walked</h2>
+            <p>
+              The kitchen runs on what the plateau gives: mountain butter and
+              aged cheeses from the summer pastures, wild greens picked that
+              morning, cornbread, honey from hives two ridges over. Dinner is one
+              shared sitting, announced when the fog closes in.
+            </p>
+            <ul class="kitchen__list">
+              <li>Muhlama — mountain cheese folded into cornmeal, at the table hot</li>
+              <li>Foraged greens &amp; herbs, changing with the altitude window</li>
+              <li>Wood-oven cornbread and plateau honey</li>
+              <li>Vegetarian and vegan menus with a day's notice</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Social proof ===================== -->
+      <section class="section proof" aria-label="Guest impressions">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="eyebrow">In guests' words</p>
+            <h2>Why people climb back up</h2>
+          </div>
+          <span class="sample-tag">Sample content — replace with verified reviews before launch</span>
+          <div class="proof__grid">
+            <figure class="quote">
+              <p>“We came for one night and rebooked for three. Waking above the cloud is not a photograph you can fake.”</p>
+              <figcaption>Guest from Istanbul · summer stay</figcaption>
+            </figure>
+            <figure class="quote">
+              <p>“The botany walk was the most quietly expert guiding we've had anywhere in Europe.”</p>
+              <figcaption>Walking couple · United Kingdom</figcaption>
+            </figure>
+            <figure class="quote">
+              <p>“No screens, no signal, one shared dinner. Exactly the disconnection we needed.”</p>
+              <figcaption>Family of four · Germany</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ ===================== -->
+      <section class="section" id="faq">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Before you book</p>
+            <h2>Questions the mountain raises</h2>
+          </div>
+          <div class="faq__list">
+            <details class="faq__item" open>
+              <summary>The fog is the whole idea — but does it ruin the walking?</summary>
+              <div class="faq__answer">
+                <p>
+                  Rarely. Fog usually sits in the valleys and lifts through the
+                  morning, so the higher trails are often clear while the lodge
+                  is still wrapped in cloud. Every walk gets a weather call at
+                  breakfast, and guides reroute rather than cancel wherever it is
+                  safe. The summit climb is the one exception — it only runs on
+                  settled dawns.
+                </p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>How fit do I need to be?</summary>
+              <div class="faq__answer">
+                <p>
+                  The tea terrace loop suits anyone comfortable on their feet for
+                  a couple of hours. Moderate routes assume regular walking and a
+                  head for uneven ground. The summit ridge is strenuous — a long
+                  day with real ascent — and we ask for prior hill experience.
+                  Grades follow European hiking norms and are never overstated.
+                </p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>How do we reach the lodge?</summary>
+              <div class="faq__answer">
+                <p>
+                  The nearest airport is roughly a three-hour drive. We arrange a
+                  shared transfer from the valley town on set arrival days; the
+                  final stretch is unpaved mountain road, so private cars are
+                  best left below and collected on the way out. Full directions
+                  and transfer times come with your confirmation.
+                </p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>When is the wildflower season?</summary>
+              <div class="faq__answer">
+                <p>
+                  The alpine meadow peaks for about six weeks from early summer,
+                  though exact timing shifts with snowmelt each year. The botany
+                  walk runs through this window; ask us for the current forecast
+                  when you enquire and we'll tell you honestly how far along the
+                  bloom is.
+                </p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>What is your cancellation policy?</summary>
+              <div class="faq__answer">
+                <p>
+                  Reservations can be changed or cancelled free of charge up to
+                  14 days before arrival. Inside 14 days we hold the first
+                  night; inside 72 hours the full stay is charged. If we cancel a
+                  guided walk for weather, that walk is refunded in full — your
+                  room is never affected.
+                </p>
+              </div>
+            </details>
+            <details class="faq__item">
+              <summary>Is there mobile signal or Wi-Fi?</summary>
+              <div class="faq__answer">
+                <p>
+                  There is a single satellite line at reception for essentials,
+                  and that is deliberately all. Rooms and trails have no signal.
+                  Most guests find this is the point; if you need to stay
+                  reachable, tell us before you arrive and we'll help you plan
+                  around it.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== Reservation ===================== -->
+      <section class="section reserve" id="reserve">
+        <div class="wrap reserve__grid">
+          <div class="reserve__aside reveal">
+            <p class="eyebrow">Reserve your stay</p>
+            <h2>Hold your dates</h2>
+            <p class="section__lead">
+              Send your dates and we reply within one working day with
+              availability, a room recommendation and the walks that suit the
+              season. No payment is taken at this step.
+            </p>
+            <ul class="trust-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Free changes &amp; cancellation up to 14 days before arrival</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Weather-cancelled walks refunded in full</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>A real person replies — not an automated booking wall</span>
+              </li>
+            </ul>
+          </div>
+
+          <form class="form reveal" novalidate aria-labelledby="reserve-form-title">
+            <h3 id="reserve-form-title" class="visually-hidden">Reservation request</h3>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-name">Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone <span aria-hidden="true">(optional)</span></label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-date">Arrival date <span class="req" aria-hidden="true">*</span></label>
+                <input id="f-date" name="date" type="date" required />
+              </div>
+              <div class="field">
+                <label for="f-pax">Guests <span class="req" aria-hidden="true">*</span></label>
+                <select id="f-pax" name="pax" required>
+                  <option value="1">1 guest</option>
+                  <option value="2" selected>2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                  <option value="5">5+ guests</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-package">Stay type</label>
+              <select id="f-package" name="package">
+                <option value="lodge">Lodge stay only</option>
+                <option value="walk" selected>Lodge + guided walks</option>
+                <option value="botany">Botany-season package</option>
+                <option value="summit">Summit expedition</option>
+              </select>
+            </div>
+            <button class="btn btn--lg" type="submit">Send reservation request</button>
+            <p class="form__note">
+              We use your details only to answer this request. Demo form — no
+              data is stored or sent.
+            </p>
+            <p class="form__status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== Footer ===================== -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <span class="brand__mark">RAKIM</span>
+            <p style="margin-top:1rem;max-width:34ch">
+              A timber eco-lodge in the cloud forest of the Eastern Black Sea
+              highlands. Walk the mountain in four bands; stay for the mist.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="#altitude">The plateau</a></li>
+              <li><a href="#lodge">Lodge &amp; rooms</a></li>
+              <li><a href="#routes">Guided trails</a></li>
+              <li><a href="#kitchen">Highland kitchen</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Plan</h4>
+            <ul>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#reserve">Reserve your stay</a></li>
+              <li><a href="rehber/">Nasıl yapıldı (TR)</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <span>RAKIM Highland Eco-Lodge — a fictional VYRON showcase brand.</span>
+          <span>Contact details [to be supplied by operator]</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- mobile sticky CTA -->
+    <div class="mobile-cta" aria-hidden="false">
+      <a class="btn" href="#reserve">Reserve your stay</a>
+    </div>
+
+    <script src="assets/app.js" defer></script>
+  
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="tr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bu site nasıl kuruldu? — HALLEY Desert Camp · VYRON Rehber</title>
+<meta name="description" content="HALLEY Desert Camp vitrin sitesinin arkasındaki tasarım kararları: tarihe bağlı gökyüzü haritası imzası, kozmik palet, self-host tipografi ve performans bütçesi.">
+<meta name="theme-color" content="#0B0713">
+<link rel="canonical" href="https://nukta-desertcamp.example/rehber/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HALLEY — Bu site nasıl kuruldu? (VYRON Rehber)">
+<meta property="og:description" content="Tek bir gecenin gökyüzünü çizen bir vitrin sitesinin tasarım günlüğü.">
+<meta property="og:image" content="https://nukta-desertcamp.example/assets/ambience-poster.jpg">
+<meta property="og:url" content="https://nukta-desertcamp.example/rehber/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HALLEY — Bu site nasıl kuruldu?">
+<meta name="twitter:description" content="Tek bir gecenin gökyüzünü çizen bir vitrin sitesinin tasarım günlüğü.">
+<meta name="twitter:image" content="https://nukta-desertcamp.example/assets/ambience-poster.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/zodiak-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/site.css">
+
+<a class="skip" href="#doc">İçeriğe geç</a>
+
+<nav class="nav solid nav--doc" aria-label="Ana menü">
+  <a class="brand" href="../"><span class="dot" aria-hidden="true"></span>HALLEY</a>
+  <a class="nav-cta" href="../#reserve">Gecene yer ayır</a>
+</nav>
+
+<main id="doc">
+  <article class="doc">
+    <span class="tag">VYRON Rehber · Türkçe</span>
+    <h1>Bu site nasıl kuruldu?</h1>
+    <p class="lede">HALLEY Desert Camp gerçek bir işletme değil — VYRON'un “videonuzu verin, sitenizi yapalım” üretim hattının bir vitrin örneği. Ama sahte bir demo gibi değil, satılabilir bir site gibi kuruldu. İşte arkasındaki kararlar.</p>
+
+    <h2>İmza anı: o gecenin gökyüzü haritası</h2>
+    <p>Çoğu otel sitesi güzel fotoğraflar dizer ve geçer. Biz ürünün kendisinden doğan tek bir fikir aradık: bu kamp gökyüzünü satıyor. O yüzden site de gökyüzünü çiziyor.</p>
+    <ul class="bul">
+      <li><span class="tick" aria-hidden="true">✦</span><span>Üstteki tarih seçiciden bir gece seçtiğinizde, o mevsimde o enlemde görünen takımyıldızlar canvas üzerine tek tek çiziliyor — çizgiler gerçekten “çiziliyormuş” gibi beliriyor.</span></li>
+      <li><span class="tick" aria-hidden="true">✦</span><span>Köşedeki ay, seçtiğiniz tarihin gerçek ay evresini gösteriyor. Bu, gerçek bir astronomik hesap (sinodik ay döngüsü) — canlı API değil, tarayıcıda hafifçe hesaplanıyor.</span></li>
+      <li><span class="tick" aria-hidden="true">✦</span><span>Gökyüzünü fareyle ya da parmakla sürükleyince gök kubbe dönüyor. Sayfayı aşağı kaydırdıkça gece yavaşça şafağa dönüyor ve çöl silueti aydınlanıyor — gece turunun sabaha bağlanışı.</span></li>
+    </ul>
+
+    <h2>Renk ve tipografi</h2>
+    <p>Bu koyu bir site, ama “koyu zemin + altın yazı” lüks klişesinden bilinçli kaçındık. Palet kozmik mor (#7B5CFF) ve fosfor turkuazdan (#37E0C4) kuruldu; metin çöl kumu tonunda (#EDE4D3) ve zeminle kontrastı 15:1'in üzerinde — WCAG'ın en yüksek (AAA) eşiğini rahatça geçiyor.</p>
+    <p>Yazı tipleri gökbilim atlası hissi veren <strong>Zodiak</strong> (başlıklar) ve teknik, ölçüm hissi veren <strong>Space Grotesk</strong> (gövde). İkisi de siteye gömülü (self-host) — dışa bağımlılık ve gizlilik sızıntısı yok. Yaygın “Inter” fontu bilinçle kullanılmadı.</p>
+
+    <h2>Görünmeyen kısım: performans ve erişim</h2>
+    <ul class="bul">
+      <li><span class="tick" aria-hidden="true">✦</span><span>Framework yok — sade HTML, CSS ve tek bir JavaScript dosyası. İkinci yılda kim açarsa açsın anlayabilsin diye.</span></li>
+      <li><span class="tick" aria-hidden="true">✦</span><span>Yıldız alanı, ekranın piksel yoğunluğuna göre yıldız sayısını sınırlıyor ve hero görünmüyorken çizimi tamamen durduruyor — pil ve işlemci dostu.</span></li>
+      <li><span class="tick" aria-hidden="true">✦</span><span>Hareketi azalt (reduced-motion) tercihini açık kullanıcılarda animasyonlar durur ama gökyüzü haritası yine de tam çizili görünür — imza kaybolmaz.</span></li>
+      <li><span class="tick" aria-hidden="true">✦</span><span>Klavyeyle gezilebilir, ekran okuyucuya uygun; sahte aciliyet (“son 2 çadır!”) yok.</span></li>
+    </ul>
+
+    <h2>Peki bu neden önemli?</h2>
+    <p>Çünkü bir site, işletmenin gerçeğinden doğduğunda taklit edilemez hâle gelir. Hazır şablonla üretilmiş yüzlerce otel sitesi birbirine benzer; ürünün ruhundan doğan tek bir fikir ise akılda kalır. VYRON'un yaptığı iş tam olarak bu: sizin videonuzdan, sizin hikâyenizden doğan bir site.</p>
+
+    <a class="back" href="../">← Siteye dön</a>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-base">
+      <span>© 2026 HALLEY Desert Camp — VYRON tarafından üretilmiş kurgusal vitrin.</span>
+      <a href="../">Ana sayfa</a>
+    </div>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bu site nasıl yapıldı — IGLU · VYRON Website Faktory</title>
+<meta name="description" content="IGLU Alpine Lodge vitrin sitesinin arkasındaki üretim hattı: videodan doğan tasarım, rakım ölçeği imza anı, performans bütçesi ve çok dilli altyapı. VYRON Website Faktory rehberi.">
+<meta name="theme-color" content="#F4F6F8">
+<link rel="canonical" href="https://karven.example/rehber.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1B2A'/%3E%3Cpath d='M16 7 L26 25 H6 Z' fill='%23F4F6F8'/%3E%3Cpath d='M16 7 L20.5 15 L16 12.6 L11.5 15 Z' fill='%232E6F95'/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bu site nasıl yapıldı — IGLU Alpine Lodge">
+<meta property="og:description" content="Videodan doğan tasarım, rakım ölçeği imza anı, performans bütçesi ve çok dilli altyapı.">
+<meta property="og:image" content="assets/hero-poster.svg">
+<meta property="og:url" content="https://karven.example/rehber.html">
+<link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#doc">İçeriğe geç</a>
+<header class="site-head is-stuck">
+  <a class="brand" href="index.html" aria-label="IGLU Alpine Lodge — ana sayfa">
+    <span class="peak" aria-hidden="true"></span>IGLU <small>Alpine Lodge</small>
+  </a>
+  <nav class="nav" aria-label="Birincil">
+    <a class="btn btn-ghost" href="index.html">← Siteye dön</a>
+  </nav>
+</header>
+
+<main id="doc">
+<article class="doc">
+  <p class="eyebrow">VYRON Website Faktory · Vitrin Serisi 01</p>
+  <h1>Bu site nasıl yapıldı</h1>
+  <p class="lead">IGLU Alpine Lodge gerçek bir otel değil — VYRON Website Faktory'nin kurgusal bir vitrin markası. Amacı tek şeyi göstermek: bir müşterinin videosundan, taklit edilemeyen, satılabilir bir site nasıl doğuyor. Aşağıda bu sitenin arkasındaki kararlar var.</p>
+
+  <h2>1. Tasarım videodan doğar, şablondan değil</h2>
+  <p>Hazır şablonlar aynı kokar; müşteriyi ayrıştırmaz. Biz her siteyi müşterinin kendi görüntüsündeki ışıktan, tempodan ve mekândan başlatıyoruz. IGLU için iklim belliydi: yüksek-anahtar (high-key) kar parlaması, soğuk maviler, bol boşluk, tek bir sıcak aksan. Sonuç sakin, iddiasız ama pahalı hisseden bir dil — "sessiz güven" arketipi.</p>
+
+  <h2>2. İmza anı: rakım ölçeği</h2>
+  <p>Her iyi sitenin taklit edilemez tek bir hareketi olur. IGLU'da bu, sağ kenardaki <strong>rakım ölçeği</strong>. Sayfada aşağı indikçe sayaç vadiden (1.450 m) zirveye (3.100 m) tırmanır, kar hattı yukarı çıkar ve her bölüm bir yükseklik kuşağına denk gelir — orman, kar hattı, zirve. Palet kuşak değiştikçe bir tık soğur. Bu fikir üründen doğuyor: IGLU'nun sattığı şey zaten yükseklik ve tırmanış.</p>
+
+  <h2>3. Performans bir kısıt değil, bir söz</h2>
+  <div class="spec">
+    <dl>
+      <dt>Çatı</dt><dd>statik HTML/CSS/JS — çerçeve yok, 2. yılda kim açsa anlar</dd>
+      <dt>Animasyon</dt><dd>IntersectionObserver + CSS geçiş — kütüphane yok, yalnızca transform/opacity</dd>
+      <dt>Tipografi</dt><dd>Clash Display + Satoshi (lokal barındırılıyor, Inter yok)</dd>
+      <dt>Hareket saygısı</dt><dd>prefers-reduced-motion'da kar ve video durur</dd>
+      <dt>Erişilebilirlik</dt><dd>WCAG AA kontrast, klavye yolu, ekran okuyucu düzeni</dd>
+    </dl>
+  </div>
+  <p>Kar taneleri Canvas2D ile, sınırlı sayıda çizilir ve ekrandan çıkınca durur; hero videosu 2 MB'ın çok altında ve sessiz. İmza korunur ama sayfa hafif kalır.</p>
+
+  <h2>4. Dönüşüm iskeleti — sahte aciliyet yok</h2>
+  <p>Hero'da tek bir net çağrı var: <em>Rezervasyon</em>. "Son 3 oda!" gibi uydurma kıtlık kullanmıyoruz — güveni bozar. Bunun yerine gerçek güven sinyalleri veriyoruz: elden onay, hava nedeniyle liftler kapanırsa ücretsiz yeni tarih, gerçek bir insanın cevap vermesi. Sosyal kanıt alanları şimdilik <strong>örnek (SAMPLE)</strong> olarak işaretli; yayın öncesi gerçek misafir yorumlarıyla değiştirilir.</p>
+
+  <h2>5. Çok dillilik gerçek altyapı</h2>
+  <p>Site EN yayınlanır; dil değiştiriciyle Türkçeye geçer ve altyapı DE/FR/RU için hazırdır. Çeviri makine kokmaz — sektör jargonu her dilde ayrı ele alınır. Bu rehber sayfası da Türkçedir: pazarlama materyalimiz olarak, bir sitenin arkasındaki emeği görünür kılar.</p>
+
+  <h2>Sizin işiniz için</h2>
+  <p>Elinizde bir video varsa, gerisini biz yapıyoruz: videonuzdan doğan, hızlı, çok dilli ve size ait hisseden bir site. IGLU bunun bir gösterisi.</p>
+
+  <a class="backhome" href="index.html">← IGLU Alpine Lodge'a dön</a>
+</article>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-base">
+    <span>IGLU Alpine Lodge — VYRON Website Faktory'nin kurgusal vitrin markası.</span>
+    <span>© 2026 · VYRON Website Faktory</span>
+  </div>
+</footer>
+</body>
+</html>

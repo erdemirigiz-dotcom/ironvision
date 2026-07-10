@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bu site nasıl yapıldı? — TAS Hamam · VYRON Site Fabrikası</title>
+<meta name="description" content="TAS Hamam vitrin sitesinin arkasındaki fikir: ürünün gerçeğinden doğan bir imza anı, mermer–bakır paleti ve buhar yoğunlaşması. VYRON Site Fabrikası'nın çalışma biçimi.">
+<meta name="theme-color" content="#EDE6DE">
+<link rel="canonical" href="https://buhar-hammam.example/rehber/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EDE6DE'/%3E%3Cpath d='M16 5c5 0 9 4 9 9v13H7V14c0-5 4-9 9-9z' fill='none' stroke='%23A6603F' stroke-width='2'/%3E%3Ccircle cx='16' cy='14' r='2.4' fill='%237C9AA6'/%3E%3C/svg%3E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TAS Hamam bu site nasıl yapıldı?">
+<meta property="og:description" content="Ürünün gerçeğinden doğan imza anı, mermer–bakır palet ve buhar yoğunlaşması — VYRON Site Fabrikası'nın çalışma biçimi.">
+<meta property="og:image" content="https://buhar-hammam.example/assets/og.jpg">
+<meta property="og:url" content="https://buhar-hammam.example/rehber/">
+<link rel="alternate" hreflang="en" href="https://buhar-hammam.example/">
+<link rel="alternate" hreflang="tr" href="https://buhar-hammam.example/rehber/">
+<link rel="alternate" hreflang="x-default" href="https://buhar-hammam.example/">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .guide { max-width: 46rem; margin: 0 auto; }
+  .guide__hero { padding: 8rem var(--gut) 3rem; }
+  .guide h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+  .guide h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-top: 2.5rem; }
+  .guide .lede { font-size: clamp(1.1rem, 1.4vw, 1.3rem); }
+  .guide ul { padding-left: 1.1rem; }
+  .guide li { margin-bottom: 0.6rem; color: var(--ink-soft); }
+  .swatches { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
+  .swatches li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--ink-soft); margin: 0; }
+  .swatches .chip { width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 1px solid var(--sand); }
+  .back { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 3rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#g-main">İçeriğe geç</a>
+
+<header class="site-header is-stuck">
+  <a class="brand" href="../" aria-label="TAS Hamam — ana sayfa">
+    <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4c6 0 10 4.5 10 10.5V28H6V14.5C6 8.5 10 4 16 4z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="14" r="2.2" fill="currentColor"/><path d="M11 28v-4M21 28v-4" stroke="currentColor" stroke-width="1.6"/></svg>
+    Buhar
+  </a>
+  <nav class="nav" aria-label="Birincil">
+    <button class="lang" type="button" onclick="location.href='../'" aria-label="English site">EN</button>
+    <a class="btn nav__cta" href="../#reserve">Rezervasyon</a>
+  </nav>
+</header>
+
+<main id="g-main">
+<article class="guide">
+  <div class="guide__hero">
+    <p class="eyebrow">VYRON Site Fabrikası · Rehber</p>
+    <h1>Bu siteyi nasıl kurduk</h1>
+    <p class="lede">TAS Hamam kurgusal bir vitrin markasıdır — ama tasarımı gerçek bir prensiple yapıldı: <strong>site, ürünün kendi gerçeğinden doğar</strong>. Bir hamamın gerçeği ısı geçişidir; biz de tüm siteyi onun üzerine kurduk.</p>
+  </div>
+
+  <div class="wrap">
+    <h2>1. Önce imza anı, sonra tasarım</h2>
+    <p>Hazır şablon kokan siteler birbirine benzer. Biz her iş için ürüne özgü tek bir “imza anı” arıyoruz. Hamamda bu, ziyaretçinin <em>soğuktan sıcağa</em> geçişidir. Sayfada aşağı kaydırdıkça ısı eğrisi çizilir, kenardaki sıcaklık göstergesi dolar ve vurgu rengi buhar mavisinden bakıra ısınır. Mekânın kendi ritüeli, scroll deneyimine dönüşür.</p>
+
+    <h2>2. Renk ve his: mermer–bakır</h2>
+    <p>Soğuk İskandinav minimalinin karşı kutbu: sıcak bir mermer zemin, bakır tas vurgusu ve ölçülü bir buhar mavisi serinliği. Her metin/zemin çifti için WCAG AA kontrastı elle hesaplandı; gövde metni AAA seviyesinde okunur.</p>
+    <ul class="swatches">
+      <li><span class="chip" style="background:#EDE6DE"></span> Mermer #EDE6DE</li>
+      <li><span class="chip" style="background:#2B2724"></span> Sıcak gölge #2B2724</li>
+      <li><span class="chip" style="background:#A6603F"></span> Bakır #A6603F</li>
+      <li><span class="chip" style="background:#7C9AA6"></span> Buhar mavisi #7C9AA6</li>
+      <li><span class="chip" style="background:#CBBBA6"></span> Kum-mermer #CBBBA6</li>
+    </ul>
+
+    <h2>3. Tipografi: Inter değil</h2>
+    <p>“Bedava lüks” yazı tiplerini reddediyoruz. Başlıklarda <strong>Marcellus</strong> — Roma kapitali dinginliğinde, taş kitabe hissi veren, Osmanlı hamam temasına yakışan bir serif. Gövdede <strong>Familjen Grotesk</strong> — yumuşak, çağdaş, sıcak bir grotesk. İkisi de siteye gömülü (CDN yok), Türkçe karakterler dahil.</p>
+
+    <h2>4. Hız bir kısıttır, süs değil</h2>
+    <p>Buhar efekti pahalı <code>filter: blur</code> yerine hafif, GPU-dostu katmanlarla yapıldı; animasyonlar yalnızca transform/opacity kullanır. Framework yok — düz HTML/CSS/JS ve yerel GSAP. Hedef: Lighthouse ≥90, ilk yük ≤5 MB, hareket duyarlılığı olanlar için tam <code>reduced-motion</code> desteği.</p>
+
+    <h2>5. Dürüst dönüşüm</h2>
+    <ul>
+      <li>Hero'da tek net çağrı: <em>Ritüelini ayır</em>.</li>
+      <li>Sahte aciliyet, sahte “son 3 yer!” yok.</li>
+      <li>Yorumlar, puanlar ve iletişim bilgileri gerçek veri gelene kadar <strong>[PLACEHOLDER]</strong> olarak işaretli — uydurma yorum yayına çıkmaz.</li>
+      <li>Sektörün 1 numaralı itirazları (mayo/örtü, karma/ayrı seans, hijyen, iptal) doğrudan SSS'te yanıtlanıyor.</li>
+    </ul>
+
+    <h2>Sizin işletmeniz için</h2>
+    <p>Bu vitrin, VYRON Site Fabrikası'nın çalışma biçiminin bir örneğidir: videonuzu verin, mekânınızın gerçeğinden doğan, taklit edilemez bir site kuralım. Hamam, otel, tur, restoran — her işin kendi imza anı vardır.</p>
+
+    <a class="btn back" href="../">← Siteye dön</a>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="../">Buhar</a>
+      <p>Kurgusal vitrin markası · VYRON Site Fabrikası.</p>
+    </div>
+    <div>
+      <h4>Bağlantılar</h4>
+      <ul>
+        <li><a href="../">Ana site (EN)</a></li>
+        <li><a href="../#reserve">Rezervasyon</a></li>
+        <li><a href="../#faq">SSS</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Not</h4>
+      <ul><li>Gerçek kişisel veri içermez. Yorum ve iletişim bilgileri placeholder'dır.</li></ul>
+    </div>
+    <div class="footer__legal">
+      <span>© <span id="year">2026</span> TAS Hamam — VYRON Site Fabrikası kurgusal vitrini.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

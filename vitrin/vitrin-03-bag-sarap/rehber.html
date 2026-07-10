@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rehber — SALKIM Bağ Evi sitesi nasıl kuruldu | VYRON Site Fabrikası</title>
+<meta name="description" content="SALKIM Bağ Evi vitrin sitesinin nasıl tasarlandığı: imza anı, retro-analog arketip, palet ve kontrast, tipografi, performans bütçesi ve çok dilli mimari. VYRON Site Fabrikası pazarlama rehberi.">
+<meta name="theme-color" content="#241C15">
+<link rel="canonical" href="https://asma.example/rehber.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bu site nasıl kuruldu — SALKIM Bağ Evi">
+<meta property="og:description" content="Videodan doğan, taklit edilemez bir turizm sitesi: imza anı, arketip, palet, tipografi ve performans yaklaşımımız.">
+<meta property="og:image" content="assets/hero-poster.svg">
+<meta property="og:locale" content="tr_TR">
+<link rel="preload" href="assets/fonts/gambetta-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/supreme-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip" href="#doc">İçeriğe geç</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="SALKIM Bağ Evi — ana sayfa">SALKIM<span>Bağ Evi</span></a>
+    <div class="nav-actions" style="margin-left:auto">
+      <a class="btn header-cta" href="index.html">Siteye dön</a>
+    </div>
+  </div>
+</header>
+
+<main id="doc">
+<section>
+  <div class="wrap doc">
+    <a class="back" href="index.html">← Ana sayfaya dön</a>
+    <p class="eyebrow">VYRON Site Fabrikası · Rehber</p>
+    <h1 style="font-size:clamp(2.2rem,5vw,3.6rem)">Bu site nasıl kuruldu?</h1>
+    <p class="lede">SALKIM Bağ Evi kurgusal bir vitrin markasıdır — gerçek bir müşteri değil, üretim
+      hattımızın ne yapabildiğini gösteren bir örnek. Aşağıda bu sayfayı hangi kararlarla
+      kurduğumuzu kısaca anlatıyoruz. Amacımız hazır şablon değil, ürünün kendi gerçeğinden
+      doğan bir site: “videonuzu verin, sitenizi yapalım”.</p>
+
+    <h2>İmza anı: “Asmadan kadehe” mevsim çemberi</h2>
+    <p>Her sitede taklit edilemez tek bir fikir kurarız. Burada bu fikir bağın gerçeği olan
+      <strong>mevsimselliktir</strong>. Hero’da bir asma; tomurcuktan salkıma, sıkılan üzümden
+      dolan kadehe doğru scroll ile evrilir. Sayfanın ortasında bir <strong>hasat çemberi</strong>
+      (12 ay) döner; ziyaretçi bir mevsim seçtiğinde sofra da, şarap da, bağdaki iş de onunla
+      değişir. Yani site sabit bir menü değil, yaşayan bir takvim gibi davranır.</p>
+
+    <h2>Arketip: Retro-Analog / editoryel gastronomi</h2>
+    <p>Konu bir yamaç bağı ve toprak sofrası olunca, koyu sinematik dil yerine sıcak, dergi kokan
+      bir <strong>editoryel analog</strong> dil seçtik: gün ışığı kremi zemin, film greni ve kâğıt
+      dokusu (hepsi CSS ile, ağır görsel yok), geniş baş harf (drop-cap) ve çift kolonlu alıntı.
+      Doku süs değil, hikâyenin parçası.</p>
+
+    <h2>Palet ve kontrast (WCAG AA)</h2>
+    <p>Beş renklik dar bir palet; her metin/zemin çifti için kontrast oranını hesapladık.</p>
+    <table class="spec-table">
+      <thead><tr><th>Renk</th><th>Kod</th><th>Krem zeminde kontrast</th><th>Kullanım</th></tr></thead>
+      <tbody>
+        <tr><td><span class="swatch" style="background:#F3EBDD"></span>Gün ışığı kremi</td><td>#F3EBDD</td><td>zemin</td><td>Ana zemin</td></tr>
+        <tr><td><span class="swatch" style="background:#241C15"></span>Mürekkep kahvesi</td><td>#241C15</td><td>14.2:1 (AAA)</td><td>Gövde metni</td></tr>
+        <tr><td><span class="swatch" style="background:#5A4B3B"></span>Yumuşak mürekkep</td><td>#5A4B3B</td><td>7.1:1 (AAA)</td><td>İkincil metin</td></tr>
+        <tr><td><span class="swatch" style="background:#7A1F2B"></span>Şarap kırmızısı</td><td>#7A1F2B</td><td>8.6:1 (AAA)</td><td>Başlık, vurgu, buton</td></tr>
+        <tr><td><span class="swatch" style="background:#5F6B34"></span>Bağ yeşili</td><td>#5F6B34</td><td>4.9:1 (AA)</td><td>Etiket, küçük metin</td></tr>
+        <tr><td><span class="swatch" style="background:#C0703E"></span>Kil / terracotta</td><td>#C0703E</td><td>3.2:1</td><td>Yalnız büyük/dekor aksan</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Tipografi (Inter yasak)</h2>
+    <p>“Bedava lüks” varsayılanlarını sorgularız. Burada display için <strong>Gambetta</strong>
+      (kalem-uçlu, editoryel serif) ve gövde için <strong>Supreme</strong> (sıcak, hümanist
+      grotesk) ikilisini seçtik — ikisi de yerel <code>woff2</code> olarak servis ediliyor,
+      CDN yok, <code>font-display: swap</code> ve preload ile. Bağın el işi karakteri serifin
+      kalem izinde, mekânın ferahlığı grotesk gövdede.</p>
+
+    <h2>Performans ve erişilebilirlik</h2>
+    <ul>
+      <li>Statik HTML/CSS/JS; hiçbir çatı (framework) yok, harici JS kütüphanesi yok.</li>
+      <li>Tüm animasyon yalnız <code>transform</code>/<code>opacity</code> ile; her karede çalışan
+        pahalı işlem yok, <code>prefers-reduced-motion</code> tam destekli.</li>
+      <li>İmza animasyonu görünürken çalışır, mobilde sadeleşir; kadehe ulaşan kare korunur.</li>
+      <li>Görsel boşluklar şık CSS/SVG yer tutucularla dolduruldu; gerçek fotoğraf/video geldiğinde
+        yerine geçecek slotlar hazır (hero için poster’lı <code>&lt;video&gt;</code> yuvası).</li>
+      <li>Semantik markup, klavye yolu, görünür odak, schema.org (Winery + FAQ) ve OG etiketleri.</li>
+    </ul>
+
+    <h2>Çok dilli mimari</h2>
+    <p>Arayüz İngilizce yayınlanır; sağ üstteki seçiciden <strong>EN · TR · DE · FR · IT</strong>
+      arasında geçilir. Çeviriler tek bir sözlükte tutulur; dil değişince menüden sofraya, SSS’ten
+      butona kadar her görünen metin birlikte değişir — karışık dil sızıntısı olmaz. Bu sayfa
+      (rehber) bilinçli olarak Türkçedir: pazarlama materyalimizdir.</p>
+
+    <h2>Dürüstlük ilkesi</h2>
+    <p>Sahte aciliyet (“son 3 masa!”) veya uydurma puan kullanmayız. Sosyal kanıt alanı ve misafir
+      yorumları <em>örnek</em> olarak işaretlidir; gerçek, doğrulanmış yorumlarla değiştirilmek
+      üzere durur. Adres, telefon ve fiyat gibi veriler müşteriyle netleşince yerine konur.</p>
+
+    <a class="back" href="index.html" style="margin-top:2rem">← Ana sayfaya dön</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-bottom" style="margin-top:0;border-top:0">
+    <span>© <span id="yr">2026</span> · SALKIM Bağ Evi — kurgusal vitrin markası.</span>
+    <span>VYRON Site Fabrikası vitrini</span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

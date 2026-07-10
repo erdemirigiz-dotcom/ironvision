@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bu site nasıl kuruldu? — SAFİ · VYRON Site Fabrikası</title>
+<meta name="description" content="SAFİ zeytinyağı vitrini nasıl tasarlandı: imza anı (zeytin→damla→şişe), toprak paleti, erişilebilirlik ve performans anayasası. VYRON Site Fabrikası pazarlama rehberi.">
+<meta name="theme-color" content="#F4F1E8">
+<link rel="canonical" href="https://hasat.example/rehber/">
+<meta property="og:title" content="Bu site nasıl kuruldu? — SAFİ">
+<meta property="og:description" content="İmza anı, toprak paleti ve performans anayasası — VYRON Site Fabrikası.">
+<meta property="og:image" content="../assets/grove-poster.svg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='18' r='9' fill='%238FA33E'/%3E%3Cpath d='M16 9c4-5 9-4 9-4s-1 6-6 7' fill='%232C3A1E'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../css/styles.css">
+<style>
+  .rehber-hero{padding:clamp(3rem,8vw,6rem) 0 1rem}
+  .rehber-hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);max-width:20ch}
+  .rehber-body{max-width:760px}
+  .rehber-body h2{font-size:clamp(1.5rem,3vw,2rem);margin:2.6rem 0 .8rem}
+  .rehber-body h3{font-family:var(--f-display);font-size:1.2rem;margin:1.6rem 0 .4rem;color:var(--terra-ink)}
+  .rehber-body p{color:var(--bark);margin:0 0 1rem}
+  .rehber-body ul{color:var(--bark);padding-left:1.1rem;margin:0 0 1rem}
+  .rehber-body li{margin:.4rem 0}
+  .chip-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0}
+  .chip{font-size:.78rem;font-weight:600;letter-spacing:.03em;background:var(--cream);
+    border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem;color:var(--olive)}
+  .swatches{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0 1.6rem}
+  .sw-chip{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--bark)}
+  .sw-dot{width:26px;height:26px;border-radius:8px;border:1px solid var(--line)}
+  .cta-back{margin:2.6rem 0}
+</style>
+</head>
+<body>
+<header class="site-header is-stuck" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Birincil">
+      <a class="brand" href="../" aria-label="SAFİ ana sayfa">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="18" r="9" fill="#8FA33E"/><path d="M16 9c4-5 9-4 9-4s-1 6-6 7" fill="#2C3A1E"/></svg>
+        <span>SAFİ<small>Single Estate</small></span>
+      </a>
+      <div class="nav__end" style="margin-left:auto">
+        <a class="btn btn--ghost nav__cta" href="../" style="display:inline-flex">← Siteye dön</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="rehber-hero section" style="padding-bottom:0">
+  <div class="wrap">
+    <p class="eyebrow">VYRON Site Fabrikası · rehber</p>
+    <h1>Bu vitrin nasıl kuruldu?</h1>
+    <p class="lead" style="margin-top:1.2rem">SAFİ, “videonuzu verin, sitenizi yapalım” üretim hattımızın bir gösteri parçası — kurgusal bir butik zeytinyağı markası. Aşağıda bu sayfanın hangi kararlarla tasarlandığını açıyoruz: markanızın sitesi de aynı disiplinle çıkar.</p>
+    <div class="chip-row">
+      <span class="chip">Statik HTML/CSS/JS · framework yok</span>
+      <span class="chip">Lighthouse ≥ 90 hedefi</span>
+      <span class="chip">JS ≤ 150 KB (gz)</span>
+      <span class="chip">WCAG AA kontrast</span>
+      <span class="chip">Çok dilli (EN + TR)</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:2rem">
+  <div class="wrap rehber-body">
+
+    <h2>1. İmza anı — “Hasat damlası”</h2>
+    <p>Her sitenin taklit edilemez tek bir anı olmalı. SAFİ’ta bu an <strong>zeytinin sıkılıp damlanın şişeyi doldurması</strong>: sayfayı kaydırdıkça yukarıdaki zeytin preslenir, altın-yeşil bir damla düşer ve aşağıdaki şişeyi doldurur. Şişe dolarken kenarda o lotun künyesi (hasat tarihi, rakım, asitlik, şişe adedi) belirir.</p>
+    <p>Markanın asıl vaadi — <em>tek bahçe, tam izlenebilirlik</em> — böylece bir slogan değil, bir <strong>jest</strong> hâline gelir. Farklı bir lot seçtiğinizde damla o ürünün rengini ve dolum seviyesini alır. Bu, hazır şablonlardan çıkmaz; ürünün kendi hikâyesinden doğar.</p>
+    <p>Ağır bir WebGL sıvı simülasyonu yerine saf SVG maske + <code>clip-path</code> kullandık: aynı etki, çok daha hafif. Mobilde ve “hareketi azalt” tercihinde animasyon tek, dolu kareye iner — imza korunur, bütçe aşılmaz.</p>
+
+    <h2>2. Toprak paleti — metalik yok</h2>
+    <p>Zeytinyağı klişesi altın parlaklıktır; biz bilinçli olarak mat, toprak bir palet seçtik. Renkler etiket disiplini ve bol boşlukla nefes alıyor.</p>
+    <div class="swatches">
+      <span class="sw-chip"><span class="sw-dot" style="background:#F4F1E8"></span> Fildişi zemin</span>
+      <span class="sw-chip"><span class="sw-dot" style="background:#2C3A1E"></span> Koyu zeytin metin</span>
+      <span class="sw-chip"><span class="sw-dot" style="background:#8FA33E"></span> Genç zeytin aksan</span>
+      <span class="sw-chip"><span class="sw-dot" style="background:#A85423"></span> Terracotta CTA</span>
+      <span class="sw-chip"><span class="sw-dot" style="background:#6E4B2A"></span> Ağaç kabuğu çizgi</span>
+    </div>
+    <p>Gövde metni koyu zeytin, fildişi üstünde <strong>10,7:1</strong> kontrast verir (WCAG AAA). CTA butonu, beyaz yazının AA’yı geçmesi için parlak terracotta yerine bir ton koyu terracotta (<strong>5,3:1</strong>) kullanır. Her metin/zemin çifti tek tek hesaplandı.</p>
+
+    <h2>3. Tipografi — Inter yasak</h2>
+    <p>“Bedava lüks” varsayılanı Inter’dir; biz onu kullanmıyoruz. Başlıklarda <strong>Spectral</strong> (edebi, gıda-etiketi hissi veren zarif bir serif), gövdede <strong>Spline Sans</strong> (temiz, ferah bir grotesk) var. İkisi de kendi sunucumuzda barındırılıyor — dışa bağımlılık ve gizlilik sızıntısı yok, Türkçe karakterler (ş, ğ, ı, ç) için latin-ext alt kümesi dâhil.</p>
+
+    <h2>4. Dönüşüm iskeleti</h2>
+    <ul>
+      <li><strong>Tek net CTA:</strong> “Sipariş ver” — hero’da, sabit mobil çubukta ve formda tekrar eder.</li>
+      <li><strong>Dürüst sosyal kanıt:</strong> yıldız ve yorumlar <span class="chip" style="padding:.15rem .5rem">[PLACEHOLDER]</span> olarak işaretli; gerçek veriyle doldurulacak.</li>
+      <li><strong>Sahte aciliyet yok:</strong> “son 3 şişe!” gibi uydurma kıtlık kullanmıyoruz.</li>
+      <li><strong>İtiraz avcısı SSS:</strong> kargo/soğuk zincir, asitlik, raf ömrü, hasar/iade, tek-bahçe — en çok sorulan altı itiraz.</li>
+    </ul>
+
+    <h2>5. Erişilebilirlik & performans anayasası</h2>
+    <ul>
+      <li>Sadece <code>transform</code>/<code>opacity</code> animasyonu; her karede çalışan pahalı scroll kodu yok.</li>
+      <li><code>prefers-reduced-motion</code> ve tam klavye erişimi; görünür odak halkaları.</li>
+      <li>İçerik JavaScript olmadan da okunur (metin HTML’de; JS yalnızca zenginleştirir).</li>
+      <li>Görseller tembel yüklenir, tek hero varlığı; ilk yük ≤ 5 MB hedefi.</li>
+      <li>GSAP yerelde ve sürümü sabit — “2. yılda kim açsa anlar”.</li>
+    </ul>
+
+    <div class="cta-back">
+      <a class="btn btn--primary" href="../#order">Kendi siteni konuşalım</a>
+      <a class="btn btn--ghost" href="../" style="margin-left:.6rem">← Siteye dön</a>
+    </div>
+    <p style="font-size:.85rem"><span class="chip" style="padding:.15rem .5rem">Not</span> SAFİ kurgusal bir markadır; tüm veriler örnektir. Gerçek projede içerik, fotoğraf/video ve fiyatlar sizden gelir.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-bottom" style="margin-top:0;border-top:0">
+      <span>© <span id="y">2026</span> SAFİ — kurgusal VYRON vitrini</span>
+      <span>Bir VYRON Site Fabrikası vitrini</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>

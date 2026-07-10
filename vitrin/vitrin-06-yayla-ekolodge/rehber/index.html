@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RAKIM — Bu site nasıl kuruldu? · VYRON Rehberi</title>
+    <meta
+      name="description"
+      content="RAKIM Yayla Lodge vitrin sitesinin arkasındaki üretim hikâyesi: imza anı olarak sis perdesi ve rakım kuşakları, palet ve font kararları, performans bütçesi. VYRON Site Fabrikası."
+    />
+    <meta name="theme-color" content="#dce3db" />
+    <link rel="canonical" href="https://sis-lodge.example/rehber/" />
+    <link rel="alternate" hreflang="en" href="https://sis-lodge.example/" />
+    <link rel="alternate" hreflang="tr" href="https://sis-lodge.example/rehber/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="RAKIM — Bu site nasıl kuruldu?" />
+    <meta
+      property="og:description"
+      content="Sis perdesi imzası, rakım kuşakları navigasyonu ve performans bütçesiyle bir vitrin sitesinin üretim hikâyesi."
+    />
+    <meta property="og:image" content="https://sis-lodge.example/assets/hero-poster.jpg" />
+    <meta property="og:url" content="https://sis-lodge.example/rehber/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="RAKIM — Bu site nasıl kuruldu?" />
+    <meta name="twitter:image" content="https://sis-lodge.example/assets/hero-poster.jpg" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231F2A26'/%3E%3Cpath d='M3 24l7-9 5 6 4-7 10 10z' fill='%234C6B57'/%3E%3Cpath d='M0 20c6 2 10-2 16 0s10 2 16 0v4c-6 2-10-1-16 0s-10 1-16-1z' fill='%23DCE3DB' opacity='.85'/%3E%3C/svg%3E"
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/hedvig-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/instrument-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../assets/styles.css" />
+    <style>
+      /* rehber page — light editorial layout on the shared token system */
+      .guide-hero {
+        padding: clamp(6rem, 12vw, 9rem) 0 clamp(2rem, 5vw, 4rem);
+        background: linear-gradient(180deg, #cdd8ce, var(--mist));
+      }
+      .guide-body {
+        max-width: 74ch;
+      }
+      .guide-body h2 {
+        font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.2rem);
+        margin-top: 2.4rem;
+      }
+      .guide-body h3 {
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 1.05rem;
+        letter-spacing: 0.01em;
+        margin: 1.6rem 0 0.4rem;
+      }
+      .swatches {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin: 1.2rem 0 1.6rem;
+        padding: 0;
+        list-style: none;
+      }
+      .swatch {
+        flex: 1 1 150px;
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid color-mix(in srgb, var(--slate) 40%, transparent);
+        background: var(--paper);
+        font-size: 0.8rem;
+      }
+      .swatch .chip {
+        height: 54px;
+      }
+      .swatch .meta {
+        padding: 0.5rem 0.6rem;
+      }
+      .swatch b {
+        display: block;
+        font-weight: 600;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        min-height: 44px;
+        padding-block: 0.4rem;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      /* rehber nav has no hamburger — keep links reachable + tappable */
+      .site-header .site-nav__links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+      @media (max-width: 680px) {
+        .site-header .site-nav__links {
+          display: flex;
+          gap: 0.7rem;
+        }
+      }
+      .callout {
+        border-left: 3px solid var(--tea);
+        padding: 0.4rem 0 0.4rem 1.2rem;
+        margin: 1.6rem 0;
+        color: color-mix(in srgb, var(--forest) 84%, var(--mist));
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+
+    <header class="site-header is-solid">
+      <a class="brand" href="../index.html" aria-label="RAKIM ana sayfa">
+        <span class="brand__mark">RAKIM</span>
+        <span class="brand__sub">Rehber</span>
+      </a>
+      <nav class="site-nav" aria-label="Birincil">
+        <ul class="site-nav__links">
+          <li><a href="../index.html">Site (EN)</a></li>
+          <li><a class="btn" href="../index.html#reserve">Yerini ayır</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="guide-hero">
+        <div class="wrap">
+          <a class="back-link" href="../index.html">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+            Siteye dön
+          </a>
+          <p class="eyebrow" style="margin-top:1.4rem">VYRON Site Fabrikası · vitrin-06</p>
+          <h1 style="font-size:clamp(2.2rem,1.5rem+3vw,3.6rem)">
+            Bu site nasıl kuruldu?
+          </h1>
+          <p class="section__lead">
+            RAKIM Yayla Lodge gerçek bir işletme değil — VYRON'un “videonuzu verin,
+            sitenizi yapalım” vitrini için üretilmiş bir gösteri sitesidir. Aşağıda
+            bu sitenin neden böyle göründüğünü ve hangi kararların arkasında ne
+            olduğunu anlatıyoruz.
+          </p>
+        </div>
+      </section>
+
+      <article class="section" style="padding-top:clamp(2rem,5vw,3.5rem)">
+        <div class="wrap guide-body">
+          <h2>İmza anı: sis perdesi ve rakım kuşakları</h2>
+          <p>
+            Her VYRON sitesinin, ürünün kendi gerçeğinden doğan tek bir “imza
+            anı” vardır — taklit edilemeyen o an. Yayla için en doğal gerçek
+            <strong>sis</strong> ve <strong>yükseklik</strong>tir. Bu yüzden
+            gezinme mantığını doğrudan dağın kendisinden aldık:
+          </p>
+          <h3>1. Sis perdesi</h3>
+          <p>
+            Açılışta manzara katman katman sisin ardında yarı görünürdür.
+            Kaydırdıkça sis katmanları farklı hızlarda yukarı kayar ve manzara
+            derinlemesine açılır — sanki sis dağılıyor. İsteyen imleciyle
+            (dokunmatikte parmağıyla) sise “üfleyip” manzarayı erken açabilir.
+          </p>
+          <h3>2. Rakım kuşakları</h3>
+          <p>
+            Site aşağı doğru kaydıkça değil, dağda <em>yukarı çıkar</em>: çay
+            bahçeleri (900 m) → bulut ormanı (1600 m) → alpin çayır (2300 m) →
+            zirve sırtı (3000 m). Her kuşakta paletin tonu, bitki örtüsü ve
+            “tür kartları” değişir; sağdaki nokta göstergesi hangi yükseklikte
+            olduğunuzu söyler.
+          </p>
+          <div class="callout">
+            Neden canlı <code>blur</code> yok? Gerçek zamanlı bulanıklaştırma
+            mobil GPU'yu tüketir. Sis, önceden yumuşatılmış degrade katmanlarıyla
+            yapıldı; hareket yalnızca <code>transform</code> ve
+            <code>opacity</code> ile — böylece performans bütçesi korunur.
+          </div>
+
+          <h2>Palet: parlak deniz değil, serin sis</h2>
+          <p>
+            Bu kart bilinçle aydınlık deniz atmosferinden ayrıştırıldı. Renkler
+            ıslak orman ve yayla tonlarından seçildi; her metin/zemin çifti için
+            WCAG AA kontrastı hesaplandı.
+          </p>
+          <ul class="swatches">
+            <li class="swatch"><div class="chip" style="background:#dce3db"></div><div class="meta"><b>#DCE3DB</b>Sis zemini</div></li>
+            <li class="swatch"><div class="chip" style="background:#1f2a26"></div><div class="meta"><b>#1F2A26</b>Orman metni · 11.3:1</div></li>
+            <li class="swatch"><div class="chip" style="background:#4c6b57"></div><div class="meta"><b>#4C6B57</b>Yosun vurgu · 4.5:1</div></li>
+            <li class="swatch"><div class="chip" style="background:#9a4327"></div><div class="meta"><b>#9A4327</b>Bakır CTA · 5.0:1</div></li>
+          </ul>
+
+          <h2>Tipografi: Inter değil</h2>
+          <p>
+            VYRON anayasasında Inter yasaktır — herkesin aynı promptla aldığı
+            “bedava lüks” hissinden kaçınırız. Burada başlıklar
+            <strong>Hedvig Letters Serif</strong> (yumuşak, el hissi taşıyan bir
+            serif), gövde ise <strong>Instrument Sans</strong> (sakin, havadar
+            bir grotesk). İkisi de siteyle birlikte yerelden yüklenir; dışarıya
+            font CDN bağımlılığı yoktur.
+          </p>
+
+          <h2>Performans ve erişilebilirlik</h2>
+          <p>
+            Site tek bir statik HTML/CSS/JS paketidir — framework yok, harici
+            kütüphane yok. Hedef bütçe: Lighthouse ≥90, JS ≤150 KB (gz), ilk
+            yükleme ≤5 MB, INP &lt;200 ms. Hareketi azalt (reduced-motion) tercih
+            eden ziyaretçide sis, donuk yarı-açık bir karede durur; parallax ve
+            sürükleme devre dışı kalır, içerik eksiksiz görünür.
+          </p>
+
+          <h2>Dürüstlük çizgileri</h2>
+          <p>
+            Sahte aciliyet veya sahte kontenjan (“Son 3 oda!”) kullanılmadı.
+            Yorumlar ve puanlar örnek içeriktir ve “sample” etiketiyle
+            işaretlenmiştir; gerçek yayında doğrulanmış misafir yorumlarıyla
+            değiştirilir. İptal politikası açıkça yazıldı, iletişim bilgileri
+            işletmeye bırakıldı.
+          </p>
+
+          <div class="callout" style="border-color:var(--moss)">
+            Kendi işletmeniz için böyle bir site mi istiyorsunuz? VYRON, sizin
+            kendi videonuzdan yola çıkarak bu kalitede tek bir satılabilir site
+            üretir. <a href="../index.html#reserve">Örnek rezervasyon akışını</a>
+            inceleyin ya da bize ulaşın.
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer__bottom" style="margin-top:0;border:0">
+          <span>RAKIM Highland Eco-Lodge — VYRON Site Fabrikası vitrin örneği.</span>
+          <a href="../index.html">Siteye dön (EN)</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/app.js" defer></script>
+  </body>
+</html>

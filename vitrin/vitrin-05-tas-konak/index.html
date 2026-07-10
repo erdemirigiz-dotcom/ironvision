@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KALEHAN Konak · A Restored Stone Manor · Boutique Hotel</title>
+<meta name="description" content="KALEHAN Konak is a nine-room boutique hotel inside a century-old courtyard manor of hewn stone. Arched rooms, terrace breakfasts, craft workshops — architecture and stillness, hour by hour.">
+<meta name="theme-color" content="#E7DDCB">
+<link rel="canonical" href="https://tashankonak.example/">
+<link rel="alternate" hreflang="en" href="https://tashankonak.example/">
+<link rel="alternate" hreflang="tr" href="https://tashankonak.example/rehber/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KALEHAN Konak">
+<meta property="og:title" content="KALEHAN Konak · A Restored Stone Manor">
+<meta property="og:description" content="Nine arched rooms in a century-old courtyard manor. Watch the light move across the stone — hour by hour.">
+<meta property="og:url" content="https://tashankonak.example/">
+<meta property="og:image" content="https://tashankonak.example/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KALEHAN Konak · A Restored Stone Manor">
+<meta name="twitter:description" content="Nine arched rooms in a century-old courtyard manor. The light is the amenity.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232E2620'/%3E%3Cpath d='M9 23V13a7 7 0 0 1 14 0v10' fill='none' stroke='%23C05A3E' stroke-width='2.4'/%3E%3Cline x1='16' y1='13' x2='16' y2='23' stroke='%23C05A3E' stroke-width='2.4'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/boska-300.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/general-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Hotel",
+  "name":"KALEHAN Konak",
+  "description":"A nine-room boutique hotel inside a restored century-old stone courtyard manor.",
+  "url":"https://tashankonak.example/",
+  "priceRange":"€€€",
+  "starRating":{"@type":"Rating","ratingValue":"4"},
+  "numberOfRooms":"9",
+  "petsAllowed":false,
+  "amenityFeature":[
+    {"@type":"LocationFeatureSpecification","name":"Terrace breakfast","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Craft workshops","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Courtyard garden","value":true}
+  ],
+  "address":{"@type":"PostalAddress","addressLocality":"Old Stone Quarter","addressRegion":"South-East","addressCountry":"TR"}
+}
+</script>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr" id="hdr">
+  <div class="hdr__in">
+    <a class="brand" href="#hero" aria-label="KALEHAN Konak — home">KALEHAN<small>Konak</small></a>
+    <button class="navtoggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#story">Story</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#visit">Visit</a>
+      <a href="#faq">FAQ</a>
+      <a href="rehber/" class="lang" hreflang="tr" lang="tr">Rehber&nbsp;·&nbsp;TR</a>
+      <a href="#reserve" class="btn btn--cta">Reserve a room</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="hero" aria-labelledby="hero-h">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <div class="dial" id="dial" role="slider" tabindex="0"
+             aria-label="Time of day — drag to move the sun across the courtyard"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="06:00, morning">
+          <span class="dial__face" aria-hidden="true">
+            <span class="dial__pip"></span>
+            <span class="dial__hand" id="dialHand"></span>
+          </span>
+          <span class="dial__txt">
+            <span class="dial__hint">The light hour</span>
+            <b id="dialTime">06:00</b>
+          </span>
+        </div>
+
+        <p class="hero__phase"><span id="phaseName">Morning</span> · <b id="phaseTime">06:00</b></p>
+        <h1 id="hero-h">The <em>light</em> is<br>the amenity</h1>
+        <p class="hero__lede">Nine arched rooms in a century-old courtyard manor of hewn stone.
+          Scroll — or drag the dial — and watch the sun cross the walls, from first light
+          to the last warm hour.</p>
+        <div class="hero__cta">
+          <a href="#reserve" class="btn btn--cta btn--lg">Reserve a room</a>
+          <a href="#rooms" class="btn btn--ghost">See the nine rooms</a>
+        </div>
+        <p class="hero__proof" data-placeholder="social-proof (sample until verified reviews)">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <b>4.9</b>&nbsp;· 210+ stays
+          <span class="tag-sample">sample</span>
+        </p>
+      </div>
+
+      <div class="hero__scene-wrap">
+        <!-- İMZA ANI: ışık saati sahnesi. Görsel/video slotu: assets/hero.mp4 (poster) buraya konur. -->
+        <div class="scene" id="scene" aria-label="Illustration of the stone courtyard as sunlight moves through the day">
+          <div class="scene__sky"></div>
+          <div class="scene__stars"></div>
+          <div class="scene__sun" id="sceneSun"></div>
+          <div class="scene__ground">
+            <div class="scene__shadow" id="sceneShadow"></div>
+          </div>
+          <svg class="scene__arch" viewBox="0 0 500 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <!-- yan taş duvarlar + kemer boşluğu -->
+            <path class="wall" d="M0 0 H150 V240 A100 100 0 0 1 350 240 V0 H500 V600 H0 Z"/>
+            <!-- sol sütun -->
+            <rect class="col" x="150" y="240" width="30" height="360"/>
+            <rect class="col" x="320" y="240" width="30" height="360"/>
+            <!-- taş sıra çizgileri (duvar) -->
+            <g class="line">
+              <path d="M0 70 H150 M350 70 H500"/>
+              <path d="M0 140 H150 M350 140 H500"/>
+              <path d="M0 210 H150 M350 210 H500"/>
+              <path d="M150 300 H180 M320 300 H350"/>
+              <path d="M150 380 H180 M320 380 H350"/>
+              <path d="M150 460 H180 M320 460 H350"/>
+              <path d="M0 300 H150 M350 300 H500"/>
+              <path d="M0 380 H150 M350 380 H500"/>
+              <path d="M0 460 H150 M350 460 H500"/>
+              <!-- kemer taşları -->
+              <path d="M150 240 A100 100 0 0 1 350 240"/>
+            </g>
+          </svg>
+          <span class="scene__badge">Courtyard · live light</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STORY ============================ -->
+  <section class="section" id="story" aria-labelledby="story-h">
+    <div class="wrap story__grid">
+      <div>
+        <p class="eyebrow">The manor</p>
+        <h2 id="story-h" class="section__head" style="margin-bottom:1.4rem">A house that keeps time in stone</h2>
+        <p class="story__lead">For a hundred years these walls have measured the day in
+          shadow. We restored the courtyard, kept the arches, and did the one thing a
+          stone house asks for — <b>we let the light back in.</b></p>
+        <p style="color:var(--ink-muted);margin-top:1.2rem">Master masons re-set every course
+          by hand. Lime plaster, chestnut beams, cool floors underfoot. Nine rooms, one
+          courtyard, and a terrace that catches the last sun of the day.</p>
+        <div class="story__facts">
+          <div class="fact"><b>1911</b><span>Year the manor was first raised</span></div>
+          <div class="fact"><b>9</b><span>Rooms, each with its own hour</span></div>
+          <div class="fact"><b>2</b><span>Years of stone-by-stone restoration</span></div>
+          <div class="fact"><b>3</b><span>Craft workshops in the old cellars</span></div>
+        </div>
+      </div>
+      <div class="stonecard" role="img" aria-label="Macro texture of warm hewn courtyard stone in raking light">
+        <span>Stone macro · raking light</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" style="max-width:var(--maxw)">
+
+  <!-- ============================ ROOMS ============================ -->
+  <section class="section" id="rooms" aria-labelledby="rooms-h">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Nine rooms · shown at their hour</p>
+        <h2 id="rooms-h">Every room has a moment when it is at its most beautiful</h2>
+        <p>We photograph — and describe — each room at the hour the light finds it best.
+          Book the room; keep the hour.</p>
+      </div>
+      <div class="rooms__grid">
+
+        <article class="room reveal">
+          <div class="room__img" style="--rx:14%;--ry:44%">
+            <span class="room__sun" aria-hidden="true"></span>
+            <span class="room__hour">07:30 · morning</span>
+          </div>
+          <div class="room__body">
+            <h3>Avlu — Courtyard</h3>
+            <p class="meta">Ground floor · 1 king · 26 m²</p>
+            <p>Doors open straight onto the stone courtyard. First light comes low and
+              gold across the floor while the house is still quiet.</p>
+            <p class="room__price">€180 <small>/ night</small></p>
+          </div>
+        </article>
+
+        <article class="room reveal">
+          <div class="room__img" style="--rx:40%;--ry:14%">
+            <span class="room__sun" aria-hidden="true"></span>
+            <span class="room__hour">13:00 · midday</span>
+          </div>
+          <div class="room__body">
+            <h3>Kemer — Arch</h3>
+            <p class="meta">First floor · 1 king · 30 m²</p>
+            <p>A deep stone arch frames the window. At noon the sun stands overhead and
+              the room fills with a clean, even light.</p>
+            <p class="room__price">€230 <small>/ night</small></p>
+          </div>
+        </article>
+
+        <article class="room reveal">
+          <div class="room__img" style="--rx:70%;--ry:40%">
+            <span class="room__sun" aria-hidden="true"></span>
+            <span class="room__hour">18:30 · golden hour</span>
+          </div>
+          <div class="room__body">
+            <h3>Teras — Terrace Suite</h3>
+            <p class="meta">Top floor · 1 king + terrace · 42 m²</p>
+            <p>The only room that keeps the sun to the very end. Step onto the private
+              terrace as the stone turns amber over the rooftops.</p>
+            <p class="room__price">€340 <small>/ night</small></p>
+          </div>
+        </article>
+
+      </div>
+      <p style="margin-top:1.6rem;color:var(--ink-muted);font-size:.95rem">
+        Six further rooms — <em>Bahçe, Ocak, Zeytin, Kuyu, Taş, Gölge</em> — share the
+        same courtyard. Ask us which hour suits you and we will match the room.</p>
+    </div>
+  </section>
+
+  <!-- ========================= EXPERIENCES ========================= -->
+  <section class="section" id="experiences" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Slow days</p>
+        <h2 id="exp-h">Three ways to spend the light</h2>
+      </div>
+      <div class="exp__grid">
+        <div class="exp reveal">
+          <svg class="exp__ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 30h28M9 30V16l11-7 11 7v14M16 30v-8h8v8"/></svg>
+          <h3>Terrace breakfast</h3>
+          <p>Bread from the wood oven, local cheeses, honey and figs, laid out on the
+            terrace while the sun clears the eastern wall.</p>
+          <span class="when">Served 07:30 – 10:30</span>
+        </div>
+        <div class="exp reveal">
+          <svg class="exp__ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 32c6-10 18-10 24 0M20 6v6M14 12l12 0M12 20c4-4 12-4 16 0"/></svg>
+          <h3>Craft workshops</h3>
+          <p>In the cool old cellars: copper-beating, natural dye, and stone carving with
+            masters from the quarter. Small groups, half a day.</p>
+          <span class="when">By arrangement · daily</span>
+        </div>
+        <div class="exp reveal">
+          <svg class="exp__ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 4v6M20 30v6M4 20h6M30 20h6M9 9l4 4M27 27l4 4M31 9l-4 4M13 27l-4 4"/><circle cx="20" cy="20" r="6"/></svg>
+          <h3>Guided old-town walk</h3>
+          <p>A quiet hour through the stone lanes at dusk with the manor's own guide,
+            ending where the light lasts longest.</p>
+          <span class="when">Sunset walk · on request</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ VISIT ============================ -->
+  <section class="section" id="visit" aria-labelledby="visit-h">
+    <div class="wrap visit__grid">
+      <div>
+        <p class="eyebrow">Getting here</p>
+        <h2 id="visit-h" class="section__head" style="margin-bottom:1.6rem">In the old stone quarter, easy to reach, hard to leave</h2>
+        <dl>
+          <dt>Nearest airport</dt><dd>1 h 10 min by road · private transfer on request</dd>
+          <dt>From the centre</dt><dd>A 6-minute walk through the pedestrian lanes</dd>
+          <dt>Parking</dt><dd>Attended lot 90 m away · we carry your bags</dd>
+          <dt>Check-in</dt><dd>From 14:00 · check-out until 12:00</dd>
+        </dl>
+        <div class="access">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="5" r="2"/><path d="M6 9h12M12 9v6l-3 5M12 15l3 5"/></svg>
+            Access in a historic building
+          </h3>
+          <p>This is a protected 1911 stone house: doorways are low, floors are uneven,
+            and there is no lift. Three ground-floor rooms avoid stairs entirely.
+            Tell us your needs when you book and we will place you well and honestly.</p>
+        </div>
+      </div>
+      <div class="mapcard" role="img" aria-label="Map showing KALEHAN Konak in the old stone quarter">
+        <span class="pin" aria-hidden="true"></span>
+        <span>Old stone quarter</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ VOICES ============================ -->
+  <section class="section voices" id="voices" aria-labelledby="voices-h">
+    <div class="wrap">
+      <p class="voices__note" data-placeholder="testimonials are sample content — replace with verified guest reviews before launch">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>
+        Guest voices · sample until verified
+      </p>
+      <h2 id="voices-h" class="section__head">What stays with people is the quiet</h2>
+      <div class="voices__grid">
+        <figure class="quote reveal">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>We came for the architecture and left having learned to slow down.
+            The morning light in the courtyard is something I still think about.</blockquote>
+          <cite><b>A. — sample guest</b>, two nights in Avlu</cite>
+        </figure>
+        <figure class="quote reveal">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>The terrace at golden hour is worth the trip on its own. Breakfast
+            was generous and the staff carried our bags up the lanes.</blockquote>
+          <cite><b>M. — sample guest</b>, Terrace Suite</cite>
+        </figure>
+        <figure class="quote reveal">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <blockquote>They were honest about the stairs before we booked, which we
+            appreciated. The copper workshop in the cellar was a highlight.</blockquote>
+          <cite><b>S. — sample guest</b>, Kemer</cite>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Good to know</p>
+        <h2 id="faq-h">Questions, answered plainly</h2>
+      </div>
+      <div class="faq__list">
+        <details>
+          <summary>Is the building accessible? Is there a lift?</summary>
+          <div class="faq__a">KALEHAN Konak is a protected 1911 stone manor, so there is
+            no lift and some doorways are low with uneven floors. Three ground-floor rooms
+            avoid stairs entirely. Tell us your needs when booking and we will place you
+            honestly rather than promise more than the house can give.</div>
+        </details>
+        <details>
+          <summary>How do the rooms differ from one another?</summary>
+          <div class="faq__a">Each of the nine rooms faces the courtyard at a different
+            angle, so each has its own best hour — from Avlu's early gold to the Terrace
+            Suite's long evening sun. Sizes run 24–42 m². Tell us the hour you love and
+            we will match the room.</div>
+        </details>
+        <details>
+          <summary>What are your cancellation and refund terms?</summary>
+          <div class="faq__a">Cancel free of charge up to 7 days before arrival for a full
+            refund. Within 7 days, the first night is charged and the rest refunded.
+            If we ever have to cancel on you, you are refunded in full — no small print.</div>
+        </details>
+        <details>
+          <summary>Is breakfast included, and can you cater to diets?</summary>
+          <div class="faq__a">Yes — a terrace breakfast of oven bread, local cheese,
+            fruit and honey is included every morning, 07:30–10:30. Vegetarian, vegan and
+            gluten-free tables are no trouble; just let us know in advance.</div>
+        </details>
+        <details>
+          <summary>Do you have parking, and how do we arrive with a car?</summary>
+          <div class="faq__a">The quarter is pedestrian, so cars stop at an attended lot
+            about 90 m away and we carry your bags in. Private airport transfer (about
+            1 h 10 min) can be arranged when you book.</div>
+        </details>
+        <details>
+          <summary>Are children or pets welcome?</summary>
+          <div class="faq__a">Children over eight are welcome in the family rooms. Because
+            of the stone stairs, open courtyard and quiet-house feeling, we are not set up
+            for infants or pets — we would rather say so kindly in advance.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ RESERVE ============================ -->
+  <section class="section reserve" id="reserve" aria-labelledby="reserve-h">
+    <div class="wrap reserve__grid">
+      <div class="reserve__intro">
+        <p class="eyebrow">Reserve</p>
+        <h2 id="reserve-h" class="section__head" style="margin-bottom:1.2rem">Ask for a room. We reply within the day</h2>
+        <p>Send us your dates and the room — or the hour — you have in mind. This is a
+          request, not an instant charge: we confirm availability and answer any question
+          before anything is booked.</p>
+        <ul class="reserve__trust">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Free cancellation up to 7 days before arrival</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> A real person replies — no automated booking wall</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Honest guidance on access and stairs before you commit</li>
+        </ul>
+      </div>
+
+      <form class="form" id="bookForm" novalidate aria-describedby="formNote">
+        <div class="form__row">
+          <div class="field">
+            <label for="fArrive">Arrival <span class="req" aria-hidden="true">*</span></label>
+            <input type="date" id="fArrive" name="arrive" required autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="fDepart">Departure <span class="req" aria-hidden="true">*</span></label>
+            <input type="date" id="fDepart" name="depart" required autocomplete="off">
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="field">
+            <label for="fRoom">Room</label>
+            <select id="fRoom" name="room">
+              <option value="courtyard">Avlu — Courtyard (07:30)</option>
+              <option value="arch">Kemer — Arch (13:00)</option>
+              <option value="terrace">Teras — Terrace Suite (18:30)</option>
+              <option value="any" selected>Match me to an hour</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fGuests">Guests</label>
+            <select id="fGuests" name="guests">
+              <option>1 guest</option>
+              <option selected>2 guests</option>
+              <option>3 guests</option>
+              <option>4 guests</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fName">Name <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="fName" name="name" required autocomplete="name" placeholder="Your name">
+        </div>
+        <div class="form__row">
+          <div class="field">
+            <label for="fEmail">Email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="fEmail" name="email" required autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="fPhone">Phone / WhatsApp <span style="opacity:.6">(optional)</span></label>
+            <input type="tel" id="fPhone" name="phone" autocomplete="tel" placeholder="+90 …">
+          </div>
+        </div>
+        <div class="form__submit">
+          <button type="submit" class="btn btn--cta btn--lg">Request this room</button>
+        </div>
+        <p class="form__note" id="formNote">No card needed now · we reply within the day.</p>
+        <div class="form__done" id="formDone" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <a class="brand" href="#hero">KALEHAN<small>Konak</small></a>
+        <p>A restored nine-room stone courtyard manor. Architecture, stillness, and the
+          light — hour by hour.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="#rooms">The nine rooms</a></li>
+          <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#visit">Getting here</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href="mailto:stay@tashankonak.example">stay@tashankonak.example</a></li>
+          <li><a href="tel:+900000000000">+90&nbsp;000&nbsp;000&nbsp;00&nbsp;00</a></li>
+          <li><a href="https://wa.me/900000000000" rel="noopener">WhatsApp</a></li>
+          <li><a href="rehber/" hreflang="tr" lang="tr">Rehber (Türkçe)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>© <span id="yr">2026</span> KALEHAN Konak · a VYRON Site Fabrikası showcase</span>
+      <span>Contact details shown are sample values for this demo.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="stickybar" id="stickybar" aria-hidden="true">
+  <span class="from">From <b>€180</b><span style="font-size:.72rem;opacity:.7"> / night</span></span>
+  <a href="#reserve" class="btn btn--cta">Reserve</a>
+</div>
+
+<script src="vendor/gsap-3.12.5.min.js" defer></script>
+<script src="vendor/ScrollTrigger-3.12.5.min.js" defer></script>
+<script src="js/app.js" defer></script>
+
+<!-- vyron-demo-rozet -->
+<div style="padding:14px 16px;text-align:center;font-size:12px;line-height:1.6;letter-spacing:.04em;background:#0b0c10;color:#9aa0ab;border-top:1px solid rgba(255,255,255,.08)">
+  ⚡ Fictional showcase by <strong style="color:#e6e8ec">VYRON Site Factory</strong> — your site, from your own footage, in 48 hours.
+  <a href="../odul-01-vyron-atolye/" style="color:#ff6b57;text-decoration:none">See how →</a>
+  <span style="opacity:.7">· Bu site kurgusal bir VYRON demosudur.</span>
+</div>

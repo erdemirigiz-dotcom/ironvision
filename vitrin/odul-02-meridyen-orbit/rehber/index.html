@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rehber — MERIDYEN bu site nasıl yapıldı</title>
+  <meta name="description" content="MERIDYEN vitrin sitesinin arkasındaki teknikler: 3D orbit arşiv imza anı, açık editorial palet, loader→intro spin, WCAG AA ve performans bütçesi — Yıldız Dikme analizlerinden damıtıldı.">
+  <meta name="theme-color" content="#F4F1EB">
+  <link rel="canonical" href="https://example.com/rehber/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Rehber — MERIDYEN bu site nasıl yapıldı">
+  <meta property="og:description" content="3D orbit arşiv imza anı, açık editorial palet, WCAG AA ve performans bütçesi — Yıldız Dikme analizlerinden damıtıldı.">
+  <meta property="og:image" content="../assets/og-cover.svg">
+  <meta property="og:url" content="https://example.com/rehber/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F4F1EB'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%231B2A4A' stroke-width='2'/%3E%3Cpath d='M16 7a9 9 0 0 1 0 18' fill='none' stroke='%239B4A24' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="preload" href="../fonts/marcellus-latinext.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../fonts/fonts.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .guide { max-width: 760px; margin-inline: auto; padding: clamp(5rem, 11vh, 8rem) 0 5rem; }
+    .guide h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .guide h2 { font-size: clamp(1.4rem, 3.4vw, 2rem); text-transform: uppercase; letter-spacing: 0.03em; margin: 2.6rem 0 0.7rem; }
+    .guide .lede { color: var(--muted); font-size: 1.12rem; margin-bottom: 1rem; }
+    .guide ul { margin: 0.6rem 0 0; display: grid; gap: 0.6rem; }
+    .guide li { padding-left: 1.3rem; position: relative; }
+    .guide li::before { content: '✦'; color: var(--terra); position: absolute; left: 0; }
+    .guide .src { color: var(--muted); font-size: 0.86rem; }
+    .guide code { background: var(--bg-2); border: var(--hair); border-radius: 5px; padding: 0.1em 0.45em; font-size: 0.9em; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; gap: 0.5ch; margin-bottom: 1rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; }
+    .back:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#g">İçeriğe geç</a>
+  <main class="wrap guide" id="g">
+    <a class="back" href="../"><span aria-hidden="true">←</span> Siteye dön (EN)</a>
+    <p class="eyebrow">Rehber · üretim notu</p>
+    <h1>Bu site nasıl yapıldı?</h1>
+    <p class="lede">MERIDYEN, Yıldız Dikme'nin ödüllü (Awwwards SOTD) sitelerden ilham serisindeki tekniklerin VYRON Site Fabrikası anayasasıyla birleşimidir. Konsept kurgusal: “meridyeni yörüngede dolaşan gece konaklamaları arşivi”. Aşağıda her kararın kaynağı açık.</p>
+
+    <h2>İmza anı: 3D orbit arşivi</h2>
+    <p>Sayfanın kalbi, eğik (<code>rotateX 62°</code>) bir halka etrafında dizilmiş konaklama plakalarından oluşan <strong>üç boyutlu dönen arşiv</strong>. Scroll halkayı döndürür (pinned + scrub); önce tipografik bir loader, sonra halkanın bir tam turluk “yerine oturma” dönüşü, sonra etkileşim. Clou/Unseen Studio'nun ödüllü dairesel arşiv sitesinin tekniği — kopya değil, framework'süz yeniden yorum.</p>
+    <p class="src">Kaynak: <em>video-awwwards-3d-galeri-klon-NyNScAc2u_o</em> (TILT/ROT_Y yörünge, loader→intro spin, 15 görsel→136 kart “tekrar” hilesi — burada 8 konak→32 plaka).</p>
+
+    <h2>Açık editorial palet</h2>
+    <p>Zemin <code>#F4F1EB</code>, metin <code>#14130F</code>, gece-mavisi vurgu <code>#1B2A4A</code> + sıcak <code>#9B4A24</code>. Koyu plakalar açık “galeri duvarına” asılı baskılar gibi durur. Yıldız'ın off-white + siyah editorial dersinin doğrudan uygulaması.</p>
+    <p class="src">Kaynak: <em>video-awwwards-3d-galeri-klon</em> design tokens (<code>--bg #f4f3f1 / --ink #0d0d0d</code>) + <em>video-kimi-awwwards-site</em> “loud but controlled editorial”.</p>
+
+    <h2>Dünya-kurma + dürüstlük</h2>
+    <p>Arşivi gerçek hissettiren dokular: <code>EST. MMXXVI</code>, <code>VOL. I — NIGHTFALL</code>, koordinatlar (her konak için enlem), yeni ay tarihi. Anayasa gereği <strong>sahte aciliyet yok</strong>: “son oda!” / geri sayım yok; koleksiyon “yalnızca gece değişince değişir”.</p>
+    <p class="src">Kaynak: <em>video-claude-odullu-site-shorts</em> — Lume(n) Practice dünya-kurma dokusu (sahte aciliyet uyarısıyla).</p>
+
+    <h2>Kırmızı çizgiler (anayasa)</h2>
+    <ul>
+      <li><strong>Inter yasak.</strong> Başlık <strong>Marcellus</strong>, gövde <strong>Satoshi</strong>; lokal woff2, CDN yok.</li>
+      <li><strong>WCAG AA.</strong> Her metin/zemin çifti hesaplandı (en düşük 5.0:1).</li>
+      <li><strong>Performans.</strong> Statik + lokal GSAP; JS ~46.5 KB gz (≤150), ilk yük ~0.22 MB (≤5 MB). Gerçek görsel yok — plakalar CSS gradyan yer tutucu.</li>
+      <li><strong>Erişilebilirlik + düşüş.</strong> <code>prefers-reduced-motion</code> ve mobilde orbit kapanır; yerine okunur yatay ray + tam koleksiyon indeksi (<code>#collection</code>) gösterilir. İçerik JS'siz DOM'da.</li>
+    </ul>
+
+    <h2>Fark: kalite kapısı</h2>
+    <p>Yıldız prompt/teknik öğretir; biz jüriden ve <code>denetci.py</code>'den geçmiş, denetlenmiş, çok dilli site teslim ederiz. 48 saatte demo, üç revize, sonra teslim.</p>
+
+    <a class="back" href="../"><span aria-hidden="true">←</span> Siteye dön</a>
+  </main>
+</body>
+</html>

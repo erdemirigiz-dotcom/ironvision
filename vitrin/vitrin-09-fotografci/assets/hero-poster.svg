@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Duotone still: a lone figure on a ridge against a low sun.">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1b19"/>
+      <stop offset="0.55" stop-color="#131313"/>
+      <stop offset="1" stop-color="#0c0c0b"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.66" cy="0.44" r="0.5">
+      <stop offset="0" stop-color="#ff3b00" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#ff3b00" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ff3b00" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect width="1600" height="900" fill="url(#sun)"/>
+  <circle cx="1056" cy="396" r="86" fill="#ff3b00" fill-opacity="0.85"/>
+  <path d="M0 640 L360 600 L720 660 L1040 610 L1320 664 L1600 620 L1600 900 L0 900 Z" fill="#0a0a09"/>
+  <path d="M0 720 L420 690 L860 742 L1220 700 L1600 748 L1600 900 L0 900 Z" fill="#050504"/>
+  <g fill="#050504">
+    <rect x="742" y="560" width="10" height="96"/>
+    <path d="M736 560 q11 -30 22 0 z"/>
+  </g>
+  <g stroke="#edebe4" stroke-opacity="0.12" stroke-width="1">
+    <line x1="0" y1="300" x2="1600" y2="300"/>
+    <line x1="0" y1="450" x2="1600" y2="450"/>
+    <line x1="533" y1="0" x2="533" y2="900"/>
+    <line x1="1066" y1="0" x2="1066" y2="900"/>
+  </g>
+</svg>

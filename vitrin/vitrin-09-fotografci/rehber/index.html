@@ -1,0 +1,141 @@
+<!--
+  /rehber (TR) — VYRON pazarlama sayfası: "bu site nasıl kuruldu".
+  Kurgusal MERCEK Studio vitrini · variable-type brutalizm arketipi.
+-->
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rehber — MERCEK Studio bu site nasıl kuruldu · VYRON</title>
+  <meta name="description" content="MERCEK Studio vitrin sitesinin arkasındaki karar: imza etkileşimi, palet, tipografi ve VYRON Site Fabrikası üretim hattı — Türkçe rehber." />
+  <meta name="theme-color" content="#131313" />
+  <link rel="canonical" href="https://ayna.studio/rehber/" />
+  <link rel="alternate" hreflang="en" href="https://ayna.studio/" />
+  <link rel="alternate" hreflang="tr" href="https://ayna.studio/rehber/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23131313'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23FF3B00' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23FF3B00'/%3E%3C/svg%3E" />
+  <meta property="og:title" content="Rehber — MERCEK Studio bu site nasıl kuruldu" />
+  <meta property="og:description" content="İmza etkileşimi, palet ve tipografi kararları — VYRON Site Fabrikası." />
+  <meta property="og:image" content="https://ayna.studio/assets/hero-poster.svg" />
+  <link rel="preload" href="../assets/fonts/anybody-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .doc { max-width: 820px; padding-top: 6.5rem; }
+    .doc h2.display { font-size: clamp(1.6rem, 5vw, 2.8rem); margin: 2.6rem 0 0.9rem;
+      font-variation-settings: "wght" 620, "wdth" 108; }
+    .doc p { max-width: 68ch; margin: 0.8rem 0; }
+    .doc .lead { font-family: "Anybody", sans-serif; text-transform: none;
+      font-variation-settings: "wght" 480, "wdth" 100; font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      line-height: 1.35; }
+    .doc ul { padding-left: 1.1rem; }
+    .doc li { margin: 0.4rem 0; }
+    .swatch { display: inline-flex; align-items: center; gap: 0.5rem; margin: 0.3rem 0.9rem 0.3rem 0;
+      font-family: "Martian Mono", monospace; font-size: 0.72rem; }
+    .swatch b { width: 20px; height: 20px; border: 1.5px solid var(--ink); display: inline-block; }
+    .kv { border-top: 2px solid var(--ink); margin-top: 2.4rem; }
+    .kv dl { display: grid; grid-template-columns: 12ch 1fr; gap: 0.2rem 1rem; margin: 0; }
+    .kv dt { font-family: "Martian Mono", monospace; font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--label); padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+    .kv dd { margin: 0; padding: 0.7rem 0; border-bottom: 1px solid var(--line); font-size: 0.88rem; }
+    @media (max-width: 560px){ .kv dl { grid-template-columns: 1fr; } .kv dd { padding-top: 0; border-bottom: 1px solid var(--line); } .kv dt{ border-bottom: none; padding-bottom: 0.2rem; } }
+  </style>
+</head>
+<body class="no-gsap">
+  <a class="skip" href="#doc">İçeriğe geç</a>
+  <header class="site-head">
+    <a class="brand" href="../" aria-label="MERCEK Studio — ana sayfa (EN)">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__mark">MERCEK</span>
+    </a>
+    <nav class="nav" aria-label="Rehber">
+      <a class="nav__lang mono" href="../" hreflang="en" lang="en">EN · Site</a>
+      <a href="../#contact">Tarih sor →</a>
+    </nav>
+  </header>
+
+  <main id="doc" class="section wrap doc">
+    <p class="tag tag--accent">VYRON SİTE FABRİKASI · REHBER</p>
+    <h1 class="display" style="font-size:clamp(2.2rem,8vw,4.6rem);margin:0.6rem 0 1.2rem">Bu site nasıl kuruldu</h1>
+    <p class="lead">
+      MERCEK Studio kurgusal bir gezgin fotoğrafçı markası — VYRON'un “kişisel marka”
+      da çıkarabildiğini gösteren bir vitrin. Aşağıda bu sayfanın arkasındaki
+      tasarım ve mühendislik kararlarını açıyoruz. Amaç: hazır şablon değil,
+      işin kendisinden doğan bir site.
+    </p>
+
+    <h2 class="display">İmza anı — “deklanşör gibi gezinme”</h2>
+    <p>
+      Fotoğrafçılığın özü iki şey: <strong>an</strong> ve <strong>keskinlik</strong>.
+      Bu siteyi tek bir etkileşim fikrinin üstüne kurduk: <strong>scroll hızın enstantane
+      hızın olur.</strong> Hızlı kaydırdığında ana başlığın değişken (variable) fontu
+      kalınlaşıp genişler ve galeri kareleri uzun pozlama gibi hafif bulanır; durduğunda
+      her şey cam gibi netleşir. Yani sayfayı okuma biçimin, fotoğrafçının işini taklit eder.
+    </p>
+    <p>
+      Teknik olarak bu, JavaScript'te ölçülen scroll hızının bir CSS değişkenine
+      (<code>font-variation-settings</code> ve sınırlı <code>filter: blur</code>) bağlanmasıyla
+      yapılıyor — sadece görünen kareye, sadece hareket anında. Kullanıcı “hareketi azalt”
+      (reduced-motion) derse tüm bu efektler tamamen kapanır, site okunur kalır.
+    </p>
+
+    <h2 class="display">Palet</h2>
+    <p>Galeri duvarı hissi: kırık beyaz zemin, mürekkep siyahı metin, tek keskin vermilyon aksan.</p>
+    <p>
+      <span class="swatch"><b style="background:#edebe4"></b> #EDEBE4 zemin</span>
+      <span class="swatch"><b style="background:#fbfaf6"></b> #FBFAF6 kâğıt</span>
+      <span class="swatch"><b style="background:#131313"></b> #131313 mürekkep</span>
+      <span class="swatch"><b style="background:#ff3b00"></b> #FF3B00 vermilyon</span>
+      <span class="swatch"><b style="background:#5c5c55"></b> #5C5C55 etiket</span>
+    </p>
+    <p>
+      Erişilebilirlik (WCAG): metin/zemin kontrastı 15.58:1 (AAA). Vermilyon yalnızca iri/kalın
+      öğelerde ve koyu zeminde metin olarak kullanılır; gövde metninde asla. Butonlarda vermilyon
+      üstüne siyah yazı (5.2:1) tercih edildi.
+    </p>
+
+    <h2 class="display">Tipografi</h2>
+    <p>
+      <strong>Inter yasak</strong> (anayasa kuralı). İki karakterli aile seçtik:
+    </p>
+    <ul>
+      <li><strong>Anybody</strong> — değişken display fontu; genişlik ve ağırlık ekseni oynak. İmza etkileşiminin motoru bu: scroll ile canlı canlı nefes alır.</li>
+      <li><strong>Martian Mono</strong> — teknik monospace; ISO/enstantane/diyafram gibi EXIF etiketlerini gerçek bir vizör okuması gibi gösterir.</li>
+    </ul>
+
+    <h2 class="display">Performans &amp; sağlamlık</h2>
+    <ul>
+      <li>Framework yok — statik HTML/CSS/JS + lokal GSAP (sürüm sabit). İkinci yılda kim açsa anlar.</li>
+      <li>Değişken fontlar tek dosya, latin alt kümesiyle preload; <code>font-display: swap</code>.</li>
+      <li>Ekran-dışı hero videosu <code>preload="none"</code> + IntersectionObserver ile yönetilir.</li>
+      <li>Bütçe hedefi: Lighthouse ≥90, JS ≤150KB gz, ilk yük ≤5MB, INP &lt;200ms.</li>
+    </ul>
+
+    <h2 class="display">Ne gerçek, ne yer tutucu?</h2>
+    <p>
+      Fotoğraf kareleri şu an <strong>duotone SVG yer tutucular</strong> (her biri farklı kompozisyon):
+      canlı sürümde fotoğrafçının kendi kareleriyle değişir. Yorumlar, basın adları, sayılar ve
+      iletişim bilgisi örnektir — gerçek müşteri verisi gelmeden yayına alınmaz.
+    </p>
+
+    <div class="kv">
+      <dl>
+        <dt>Marka</dt><dd>MERCEK Studio (kurgusal)</dd>
+        <dt>Arketip</dt><dd>Variable-type brutalizm / galeri</dd>
+        <dt>Sektör</dt><dd>Seyahat &amp; destinasyon düğünü fotoğrafı</dd>
+        <dt>Site dili</dt><dd>EN (bu rehber TR)</dd>
+        <dt>Üretim</dt><dd>VYRON Site Fabrikası — vitrin serisi #09</dd>
+      </dl>
+    </div>
+
+    <p style="margin-top:2.6rem">
+      <a class="btn" href="../#contact">Kendi siten için tarih sor <span aria-hidden="true">→</span></a>
+    </p>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot__legal" style="border-top:none;padding-top:0">
+      <span>© 2026 MERCEK Studio — VYRON kurgusal vitrini.</span>
+      <span><a href="../" hreflang="en" style="color:var(--accent-ink)">← EN siteye dön</a></span>
+    </div>
+  </footer>
+</body>
+</html>

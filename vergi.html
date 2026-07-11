@@ -3,526 +3,773 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iron Vision Tools - Free Tax & Income Calculator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2750325310478431" crossorigin="anonymous"></script>
+    <title>IronVision Tools — Tax & Take-Home Salary Calculator (2026)</title>
+    <meta name="description" content="Free 2026 net salary & income tax estimator for the US, UK, Germany, France and Turkey. Progressive brackets, social contributions and take-home pay. For information only.">
+    <meta name="theme-color" content="#0b0f14">
+    <link rel="canonical" href="https://ironvisiontools.com/vergi.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,3 27,9 27,23 16,29 5,23 5,9' fill='none' stroke='%2312d18e' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%2312d18e'/%3E%3C/svg%3E">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IronVision Tools — Tax & Take-Home Salary Calculator (2026)">
+    <meta property="og:description" content="Free 2026 net salary & income tax estimator for the US, UK, Germany, France and Turkey. For information only.">
+    <meta property="og:url" content="https://ironvisiontools.com/vergi.html">
+    <meta property="og:image" content="https://ironvisiontools.com/assets/og-tools.png">
+    <meta name="twitter:card" content="summary_large_image">
     <style>
-        /* Sabit Kurumsal Iron Vision Logosu (Soft Renk Düzeni) */
-        .brand-logo {
-          font-size: 18px;
-          font-weight: 800;
-          color: #10B981; 
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          text-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
-        }
-        /* Form accessibility for older audience */
-        input, select, button {
-            min-height: 54px;
-        }
-        /* Anti-freeze custom animations */
-        .animate-fade-in {
-            animation: fadeIn 0.3s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        /* SSS Akordeon Animasyonu */
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
+      :root{
+        --bg:#0b0f14;
+        --panel:rgba(20,27,34,0.85);
+        --panel-2:rgba(27,35,44,0.9);
+        --border:rgba(255,255,255,0.09);
+        --border-strong:rgba(255,255,255,0.16);
+        --text:#e6edf3;
+        --muted:#9aa7b4;
+        --accent:#12d18e;
+        --accent-ink:#04130c;
+        --accent-soft:#34d399;
+        --danger:#f87171;
+        --radius:18px;
+        --radius-sm:12px;
+        --focus:0 0 0 3px rgba(18,209,142,0.45);
+        --shadow:0 18px 50px rgba(0,0,0,0.45);
+      }
+      *{ box-sizing:border-box; }
+      [hidden]{ display:none !important; }
+      html{ -webkit-text-size-adjust:100%; }
+      body{
+        margin:0;
+        min-height:100vh;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+        color:var(--text);
+        background:
+          radial-gradient(820px 380px at 12% -5%, rgba(18,209,142,0.12), transparent 60%),
+          radial-gradient(760px 360px at 100% 0%, rgba(52,211,153,0.08), transparent 60%),
+          var(--bg);
+        line-height:1.5;
+      }
+      a{ color:inherit; }
+      h1,h2,h3{ line-height:1.2; }
+
+      /* ---------- shared top bar ---------- */
+      .topbar{
+        position:sticky; top:0; z-index:50;
+        display:flex; align-items:center; justify-content:space-between;
+        gap:14px; flex-wrap:wrap;
+        padding:12px clamp(14px,3vw,28px);
+        background:rgba(11,15,20,0.86);
+        backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--border);
+      }
+      .brand{
+        display:inline-flex; align-items:center; gap:10px;
+        text-decoration:none; color:var(--text);
+        font-weight:800; letter-spacing:0.14em; font-size:14px;
+        min-height:44px; padding:2px 4px;
+      }
+      .brand b{ color:var(--accent); font-weight:800; }
+      .brand svg{ width:26px; height:26px; flex:none; }
+      .tools-nav{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+      .tool-link{
+        display:inline-flex; align-items:center; justify-content:center;
+        min-height:44px; padding:0 14px;
+        border-radius:999px; text-decoration:none;
+        font-weight:700; font-size:14px; color:var(--muted);
+        border:1px solid transparent;
+      }
+      .tool-link:hover{ color:var(--text); background:rgba(255,255,255,0.05); }
+      .tool-link[aria-current="page"]{
+        color:var(--accent); border-color:rgba(18,209,142,0.4);
+        background:rgba(18,209,142,0.08);
+      }
+      .lang-select{
+        min-height:44px; padding:0 12px;
+        background:var(--panel-2); color:var(--text);
+        border:1px solid var(--border-strong); border-radius:999px;
+        font-weight:700; font-size:14px; cursor:pointer;
+      }
+      .brand:focus-visible,.tool-link:focus-visible,.lang-select:focus-visible,
+      button:focus-visible,input:focus-visible,select:focus-visible{
+        outline:none; box-shadow:var(--focus);
+      }
+
+      /* ---------- layout ---------- */
+      main{ max-width:1080px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(14px,3vw,28px) 64px; }
+      .hero{ text-align:center; margin-bottom:28px; }
+      .hero h1{ margin:0 0 10px; font-size:clamp(26px,4.6vw,42px); font-weight:800; letter-spacing:-0.02em; }
+      .hero p{ margin:0 auto; max-width:640px; color:var(--muted); font-size:clamp(15px,2.2vw,18px); }
+      .badges{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:16px; }
+      .badge{
+        display:inline-flex; align-items:center; gap:6px;
+        padding:8px 14px; border-radius:999px; font-weight:700; font-size:13px;
+        background:rgba(18,209,142,0.10); color:var(--accent-soft);
+        border:1px solid rgba(18,209,142,0.28);
+      }
+      .badge.plain{ background:rgba(255,255,255,0.04); color:var(--muted); border-color:var(--border); }
+
+      .grid{ display:grid; grid-template-columns:1fr; gap:24px; align-items:start; }
+      @media (min-width:920px){ .grid{ grid-template-columns:minmax(0,5fr) minmax(0,7fr); } }
+
+      .card{
+        background:var(--panel); border:1px solid var(--border);
+        border-radius:var(--radius); box-shadow:var(--shadow);
+        backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+        padding:clamp(18px,3vw,28px);
+      }
+      .field{ margin-bottom:20px; }
+      .field:last-child{ margin-bottom:0; }
+      label.lbl{ display:block; font-weight:700; font-size:15px; margin-bottom:8px; color:var(--text); }
+      .money-input{ position:relative; }
+      .money-input .sym{
+        position:absolute; left:14px; top:50%; transform:translateY(-50%);
+        color:var(--muted); font-weight:800; font-size:18px; pointer-events:none;
+      }
+      input[type="number"], select.control{
+        width:100%; min-height:54px;
+        background:rgba(0,0,0,0.28); color:var(--text);
+        border:1.5px solid var(--border-strong); border-radius:var(--radius-sm);
+        padding:10px 14px; font-size:17px; font-weight:600;
+      }
+      input[type="number"]{ padding-left:38px; }
+      select.control{ font-weight:700; cursor:pointer; }
+      input::placeholder{ color:rgba(154,167,180,0.6); }
+
+      .dep-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+      .dep-btn{
+        min-height:54px; border-radius:var(--radius-sm);
+        background:rgba(0,0,0,0.28); color:var(--muted);
+        border:1.5px solid var(--border-strong);
+        font-size:17px; font-weight:800; cursor:pointer;
+      }
+      .dep-btn[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+
+      .actions{ display:flex; gap:10px; margin-top:24px; }
+      .btn-primary{
+        flex:1; min-height:56px; border:0; border-radius:var(--radius-sm);
+        background:var(--accent); color:var(--accent-ink);
+        font-size:18px; font-weight:800; cursor:pointer;
+        transition:filter .12s ease, transform .12s ease;
+      }
+      .btn-primary:hover{ filter:brightness(1.06); }
+      .btn-primary:active{ transform:translateY(1px); }
+      .btn-clear{
+        min-width:56px; min-height:56px; padding:0 16px;
+        border-radius:var(--radius-sm); cursor:pointer;
+        background:rgba(248,113,113,0.12); color:var(--danger);
+        border:1px solid rgba(248,113,113,0.4); font-weight:800; font-size:15px;
+      }
+      .btn-clear:hover{ background:rgba(248,113,113,0.2); }
+
+      /* ---------- results ---------- */
+      .results{ display:grid; gap:18px; }
+      .results[hidden]{ display:none; }
+      .res-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+      .res-head h2{ margin:0; font-size:22px; font-weight:800; }
+      .region-badge{
+        padding:6px 12px; border-radius:999px; font-size:13px; font-weight:800;
+        background:rgba(0,0,0,0.3); border:1px solid var(--border-strong); color:var(--muted);
+      }
+      .table-wrap{ overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-sm); }
+      table{ width:100%; border-collapse:collapse; min-width:440px; }
+      caption{ text-align:left; padding:0 0 8px; color:var(--muted); font-size:13px; }
+      th,td{ padding:14px 14px; text-align:left; border-bottom:1px solid var(--border); font-size:15px; }
+      thead th{ font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:800; background:rgba(0,0,0,0.25); }
+      tbody th{ font-weight:800; color:var(--text); }
+      td.tax{ color:var(--danger); font-weight:700; }
+      td.net{ color:var(--accent-soft); font-weight:800; }
+      tr:last-child td, tr:last-child th{ border-bottom:0; }
+      .rate-line{
+        display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+        padding:14px 16px; border-radius:var(--radius-sm);
+        background:rgba(0,0,0,0.25); border:1px solid var(--border); font-weight:700;
+      }
+      .rate-line strong{ color:var(--text); font-size:18px; }
+      .assump{
+        font-size:13px; color:var(--muted); line-height:1.6;
+        padding:14px 16px; border-radius:var(--radius-sm);
+        background:rgba(0,0,0,0.18); border:1px solid var(--border);
+      }
+      .assump b{ color:var(--accent-soft); }
+
+      /* ---------- FAQ ---------- */
+      .faq{ margin-top:4px; }
+      .faq h2{ font-size:18px; margin:0 0 14px; color:var(--accent-soft); }
+      details{ border-bottom:1px solid var(--border); padding:6px 0; }
+      details:last-of-type{ border-bottom:0; }
+      summary{
+        cursor:pointer; list-style:none; font-weight:700; padding:10px 0;
+        display:flex; justify-content:space-between; gap:12px; align-items:center;
+      }
+      summary::-webkit-details-marker{ display:none; }
+      summary .chev{ transition:transform .2s ease; flex:none; }
+      details[open] summary .chev{ transform:rotate(180deg); }
+      details p{ margin:0 0 12px; color:var(--muted); font-size:14px; }
+
+      footer{
+        border-top:1px solid var(--border); margin-top:56px;
+        padding:28px clamp(14px,3vw,28px);
+        text-align:center; color:var(--muted); font-size:13px;
+      }
+      footer .disc{ max-width:760px; margin:0 auto 14px; line-height:1.6; }
+      footer .links{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
+      footer button.linkbtn{
+        background:none; border:0; color:var(--accent-soft); font-weight:700; font-size:14px;
+        cursor:pointer; min-height:44px; padding:0 6px;
+      }
+      footer a{ color:var(--accent-soft); font-weight:700; display:inline-block; min-height:44px; line-height:44px; padding:0 4px; }
+
+      dialog{
+        max-width:560px; width:calc(100% - 32px); border:1px solid var(--border-strong);
+        border-radius:var(--radius); background:var(--panel-2); color:var(--text);
+        padding:24px; box-shadow:var(--shadow);
+      }
+      dialog::backdrop{ background:rgba(5,8,11,0.72); backdrop-filter:blur(3px); }
+      dialog h3{ margin:0 0 12px; }
+      dialog .close{ position:absolute; top:14px; right:16px; background:none; border:0; color:var(--muted); font-size:26px; cursor:pointer; line-height:1; min-height:44px; min-width:44px; }
+      dialog p{ color:var(--muted); font-size:14px; }
+
+      .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+      @media (max-width:560px){
+        table{ min-width:0; }
+        th,td{ padding:11px 8px; font-size:13px; }
+        thead th{ font-size:10px; }
+      }
+      @media (prefers-reduced-motion: reduce){
+        *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+      }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-slate-900">
-
-    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
-                        <defs>
-                            <filter id="softGreenGlowVergi" x="-30%" y="-30%" width="160%" height="160%">
-                                <feGaussianBlur stdDeviation="3" result="blur"/>
-                                <feMerge>
-                                    <feMergeNode in="blur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <g stroke="#10B981" stroke-width="2" fill="none" filter="url(#softGreenGlowVergi)">
-                            <polygon points="30,12 45,20 45,37 30,45 15,37 15,20" />
-                            <path d="M19,28 Q30,18 41,28 Q30,38 19,28 Z" />
-                            <circle cx="30" cy="28" r="4" fill="#10B981" />
-                        </g>
-                        <text x="60" y="30" fill="#10B981" font-family="sans-serif" font-size="15" font-weight="800" letter-spacing="1.5" filter="url(#softGreenGlowVergi)">IRON VISION</text>
-                        <text x="60" y="44" fill="#10B981" font-family="sans-serif" font-size="9" font-weight="300" letter-spacing="3" opacity="0.4" filter="url(#softGreenGlowVergi)">TOOLS</text>
-                    </svg>
-                </a>
-            </div>
-            
-            <div class="relative flex items-center gap-4">
-                <select id="langSelector" onchange="changeLanguage(this.value)" class="bg-slate-800 border border-slate-700 text-slate-300 text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-emerald-500 transition">
-                    <option value="en">🇬🇧 EN</option>
-                    <option value="tr">🇹🇷 TR</option>
-                    <option value="de">🇩🇪 DE</option>
-                </select>
-
-                <a href="index.html" class="inline-flex items-center px-4 py-2 text-sm font-bold rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white transition-all duration-150">
-                    <svg class="w-4 h-4 mr-2 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    <span data-i18n="menuOtherTools">Try Our Other Tools (Crypto)</span>
-                </a>
-            </div>
-        </div>
+<body>
+    <header class="topbar">
+        <a class="brand" href="kripto.html" aria-label="IronVision Tools">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><polygon points="16,3 27,9 27,23 16,29 5,23 5,9" fill="none" stroke="#12d18e" stroke-width="2.2"/><circle cx="16" cy="16" r="3.4" fill="#12d18e"/></svg>
+            <span>IRON&nbsp;VISION <b>TOOLS</b></span>
+        </a>
+        <nav class="tools-nav" aria-label="Tools">
+            <a class="tool-link" href="kripto.html" data-i18n="navCrypto">Crypto P/L</a>
+            <a class="tool-link" href="vergi.html" aria-current="page" data-i18n="navTax">Tax / Net Pay</a>
+            <label class="visually-hidden" for="langSelector" data-i18n="langLabel">Language</label>
+            <select id="langSelector" class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="en">🇬🇧 EN</option>
+                <option value="tr">🇹🇷 TR</option>
+                <option value="de">🇩🇪 DE</option>
+            </select>
+        </nav>
     </header>
 
-    <main class="max-w-5xl mx-auto px-4 py-8">
-        
-        <div class="mb-8 p-4 bg-slate-800/40 border border-slate-700/60 rounded-2xl text-center text-xs tracking-wider text-slate-500 max-w-[728px] mx-auto min-h-[90px] flex items-center justify-center">
-            ADVERTISEMENT PLACEHOLDER (728x90 Banner)
-        </div>
-
-        <section class="text-center mb-10 space-y-4">
-            <h1 id="hero-title" class="text-3xl md:text-5xl font-black text-white tracking-tight">Simple Tax & Take-Home Salary Calculator</h1>
-            <p id="hero-desc" class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto">Instant progressional breakdowns. Zero calculation traps.</p>
-            
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-2">
-                <span class="w-full sm:w-auto text-center bg-emerald-500 text-slate-950 font-black text-lg px-6 py-2.5 rounded-xl shadow-lg shadow-emerald-600/10 tracking-wide border-2 border-emerald-400 animate-pulse">
-                    ⚠️ <span data-i18n="badgeBigFree">100% FOREVER FREE & NO CREDIT CARD REQUIRED</span>
-                </span>
-                <span class="w-full sm:w-auto text-center bg-slate-800 text-emerald-400 font-extrabold text-base px-6 py-2.5 rounded-xl border border-slate-700 tracking-medium">
-                    ✓ <span data-i18n="badgeNoReg">No Registration, No Catch</span>
-                </span>
+    <main>
+        <section class="hero">
+            <h1 id="heroTitle">Tax &amp; Take-Home Salary Calculator</h1>
+            <p id="heroDesc">Estimate your net pay with 2026 progressive tax brackets. Information only, no sign-up.</p>
+            <div class="badges">
+                <span class="badge" data-i18n="badgeFree">✓ 100% free, no registration</span>
+                <span class="badge plain" data-i18n="badgeYear">2026 tax data</span>
+                <span class="badge plain" data-i18n="badgeLocal">Runs in your browser</span>
             </div>
         </section>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <div class="lg:col-span-5 bg-slate-800/70 border border-slate-700/80 rounded-3xl p-6 md:p-8 shadow-2xl">
-                <form id="taxForm" onsubmit="executeTaxEngine(event)" class="space-y-6">
-                    
-                    <div>
-                        <label class="block text-lg font-black text-slate-200 mb-2" data-i18n="lblGross">Gross Income (Annual)</label>
-                        <div class="relative">
-                            <span class="absolute left-4 top-3.5 text-slate-400 font-black text-xl pointer-events-none" id="currency-symbol">$</span>
-                            <input type="number" id="grossIncome" required min="0" placeholder="0" class="w-full bg-slate-900 border-2 border-slate-700 rounded-2xl pl-12 pr-4 py-3 text-xl text-white font-extrabold focus:outline-none focus:border-emerald-500 transition shadow-inner">
+        <div class="grid">
+            <section class="card" aria-labelledby="formHeading">
+                <h2 id="formHeading" class="visually-hidden">Calculator inputs</h2>
+                <form id="taxForm" novalidate>
+                    <div class="field">
+                        <label class="lbl" for="grossIncome" data-i18n="lblGross">Gross income (annual)</label>
+                        <div class="money-input">
+                            <span class="sym" id="currencySym">$</span>
+                            <input type="number" id="grossIncome" min="0" step="any" inputmode="decimal" placeholder="0">
                         </div>
                     </div>
 
-                    <div>
-                        <label class="block text-lg font-black text-slate-200 mb-2" data-i18n="lblLocation">Country / Region / State</label>
-                        <select id="taxLocation" class="w-full bg-slate-900 border-2 border-slate-700 rounded-2xl px-4 py-3 text-lg text-white font-bold focus:outline-none focus:border-emerald-500 transition">
-                            <optgroup label="United States (US)">
+                    <div class="field">
+                        <label class="lbl" for="taxLocation" data-i18n="lblLocation">Country / region</label>
+                        <select id="taxLocation" class="control">
+                            <optgroup label="United States" data-i18n-label="grpUS">
                                 <option value="US-NY">New York (NY)</option>
                                 <option value="US-CA">California (CA)</option>
-                                <option value="US-TX">Texas (TX - No Income Tax)</option>
+                                <option value="US-TX" data-i18n="optTX">Texas (no state income tax)</option>
                             </optgroup>
-                            <optgroup label="Europe (EU/UK)">
-                                <option value="EU-DE">Germany (Deutschland)</option>
-                                <option value="EU-UK">United Kingdom (UK)</option>
-                                <option value="EU-FR">France</option>
+                            <optgroup label="Europe" data-i18n-label="grpEU">
+                                <option value="EU-DE" data-i18n="optDE">Germany</option>
+                                <option value="EU-UK" data-i18n="optUK">United Kingdom</option>
+                                <option value="EU-FR" data-i18n="optFR">France</option>
                             </optgroup>
-                            <optgroup label="Local Area">
-                                <option value="TR" selected>Turkey (Türkiye)</option>
+                            <optgroup label="Türkiye" data-i18n-label="grpTR">
+                                <option value="TR" selected data-i18n="optTR">Turkey</option>
                             </optgroup>
                         </select>
                     </div>
 
-                    <div>
-                        <label class="block text-lg font-black text-slate-200 mb-2" data-i18n="lblStatus">Filing Status</label>
-                        <select id="filingStatus" class="w-full bg-slate-900 border-2 border-slate-700 rounded-2xl px-4 py-3 text-lg text-white font-bold focus:outline-none focus:border-emerald-500 transition">
-                            <option value="single" data-i18n="optSingle">Single / Unmarried</option>
-                            <option value="married" data-i18n="optMarried">Married Filing Jointly</option>
+                    <div class="field">
+                        <label class="lbl" for="filingStatus" data-i18n="lblStatus">Filing status</label>
+                        <select id="filingStatus" class="control">
+                            <option value="single" data-i18n="optSingle">Single</option>
+                            <option value="married" data-i18n="optMarried">Married (jointly)</option>
                         </select>
                     </div>
 
-                    <div>
-                        <label class="block text-lg font-black text-slate-200 mb-2" data-i18n="lblDependents">Children / Dependents (All families)</label>
-                        <div class="grid grid-cols-4 gap-2">
-                            <button type="button" onclick="setDependents(0)" id="dep-0" class="dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-emerald-600 text-slate-950 border-emerald-400 shadow-md">0</button>
-                            <button type="button" onclick="setDependents(1)" id="dep-1" class="dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500">1</button>
-                            <button type="button" onclick="setDependents(2)" id="dep-2" class="dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500">2</button>
-                            <button type="button" onclick="setDependents(3)" id="dep-3" class="dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500">3+</button>
+                    <div class="field">
+                        <span class="lbl" id="depLabel" data-i18n="lblDependents">Children / dependents</span>
+                        <div class="dep-row" role="group" aria-labelledby="depLabel">
+                            <button type="button" class="dep-btn" data-dep="0" aria-pressed="true">0</button>
+                            <button type="button" class="dep-btn" data-dep="1" aria-pressed="false">1</button>
+                            <button type="button" class="dep-btn" data-dep="2" aria-pressed="false">2</button>
+                            <button type="button" class="dep-btn" data-dep="3" aria-pressed="false">3+</button>
                         </div>
                     </div>
 
-                    <div class="flex gap-3">
-                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black text-xl py-4 rounded-2xl shadow-xl shadow-emerald-900/20 transition-all duration-150">
-                            <span data-i18n="btnCalculateTax">Calculate Net Income</span>
-                        </button>
-                        <button type="button" onclick="clearTaxForm()" class="bg-red-500/20 hover:bg-red-500/40 text-red-400 border border-red-500/50 font-bold px-6 rounded-2xl transition-all duration-150 flex items-center justify-center" title="Clear">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </button>
+                    <div class="actions">
+                        <button type="submit" class="btn-primary" data-i18n="btnCalc">Calculate net income</button>
+                        <button type="button" class="btn-clear" id="clearBtn" data-i18n="btnClear" title="Clear">Clear</button>
                     </div>
                 </form>
-            </div>
+            </section>
 
-            <div class="lg:col-span-7 space-y-6">
-                <div id="taxResults" class="hidden bg-slate-800/90 border-2 border-slate-700 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6 animate-fade-in">
-                    <div class="flex items-center justify-between border-b border-slate-700 pb-4">
-                        <h3 class="text-2xl font-black text-white" data-i18n="resTitle">Your Net Income Matrix</h3>
-                        <span class="px-3 py-1 bg-slate-900 border border-slate-700 rounded-lg text-xs font-bold text-slate-400 shadow-inner" id="resultRegionBadge">TR</span>
+            <div>
+                <section class="card results" id="results" hidden aria-live="polite">
+                    <div class="res-head">
+                        <h2 data-i18n="resTitle">Estimated net income</h2>
+                        <span class="region-badge" id="regionBadge">TR</span>
                     </div>
 
-                    <div class="overflow-x-auto rounded-xl border border-slate-700">
-                        <table class="w-full text-left border-collapse bg-slate-900/60">
+                    <div class="table-wrap">
+                        <table>
+                            <caption data-i18n="tblCaption">Estimated figures for information only.</caption>
                             <thead>
-                                <tr class="bg-slate-900/90 border-b border-slate-700 text-xs font-black text-slate-400 uppercase tracking-wider">
-                                    <th class="p-4" data-i18n="thTimeframe">Timeframe</th>
-                                    <th class="p-4" data-i18n="thGross">Gross Pay</th>
-                                    <th class="p-4 text-red-400" data-i18n="thTax">Est. Taxes</th>
-                                    <th class="p-4 text-emerald-400" data-i18n="thNet">Net Take-Home</th>
+                                <tr>
+                                    <th scope="col" data-i18n="thPeriod">Period</th>
+                                    <th scope="col" data-i18n="thGross">Gross</th>
+                                    <th scope="col" data-i18n="thTax">Est. deductions</th>
+                                    <th scope="col" data-i18n="thNet">Net take-home</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-slate-800 text-base font-bold text-slate-200">
+                            <tbody>
                                 <tr>
-                                    <td class="p-4 font-black text-white" data-i18n="tdAnnual">Yearly</td>
-                                    <td class="p-4" id="rowGrossYear">0</td>
-                                    <td class="p-4 text-red-400" id="rowTaxYear">0</td>
-                                    <td class="p-4 text-xl font-black text-emerald-400 bg-emerald-950/20" id="rowNetYear">0</td>
+                                    <th scope="row" data-i18n="rowYear">Yearly</th>
+                                    <td id="grossYear">0</td>
+                                    <td class="tax" id="taxYear">0</td>
+                                    <td class="net" id="netYear">0</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-4 font-black text-white" data-i18n="tdMonthly">Monthly</td>
-                                    <td class="p-4" id="rowGrossMonth">0</td>
-                                    <td class="p-4 text-red-400" id="rowTaxMonth">0</td>
-                                    <td class="p-4 text-lg font-black text-emerald-400 bg-emerald-950/10" id="rowNetMonth">0</td>
+                                    <th scope="row" data-i18n="rowMonth">Monthly</th>
+                                    <td id="grossMonth">0</td>
+                                    <td class="tax" id="taxMonth">0</td>
+                                    <td class="net" id="netMonth">0</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <div id="dualCurrencyRow" class="hidden text-base bg-slate-900/90 px-5 py-4 rounded-xl border border-slate-700/60 text-slate-300 font-bold flex justify-between items-center shadow-inner">
-                        <span data-i18n="dualCurrencyLabel">Equivalent Estimate in USD ($):</span>
-                        <strong id="dualCurrencyVal" class="text-xl font-black text-white bg-slate-800 px-3 py-1 rounded-lg border border-slate-700"></strong>
+                    <div class="rate-line">
+                        <span data-i18n="effLabel">Effective deduction rate</span>
+                        <strong id="effRate">0%</strong>
                     </div>
-                </div>
 
-                <div class="bg-slate-800/50 border border-slate-700/60 rounded-3xl p-6 md:p-8 shadow-xl mt-6">
-                    <h3 class="text-xl font-bold text-emerald-400 mb-4 flex items-center gap-2">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <span data-i18n="faqTitle">Frequently Asked Questions (FAQ)</span>
-                    </h3>
-                    
-                    <details class="group border-b border-slate-700 pb-4 mb-4">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-200 hover:text-emerald-300 transition-colors">
-                            <span data-i18n="faqQ1">How is net income calculated?</span>
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="text-slate-400 mt-3 text-sm leading-relaxed" data-i18n="faqA1">We apply localized regional tax brackets, standard deductions, and marital status modifiers to estimate your take-home pay instantly. The engine uses progressive estimation algorithms.</p>
+                    <div class="rate-line" id="usdRow" hidden>
+                        <span data-i18n="usdLabel">Approx. USD equivalent (net / year)</span>
+                        <strong id="usdVal">$0</strong>
+                    </div>
+
+                    <p class="assump" id="assumptions"></p>
+                </section>
+
+                <section class="card faq" style="margin-top:24px;" aria-labelledby="faqHeading">
+                    <h2 id="faqHeading" data-i18n="faqTitle">Frequently asked questions</h2>
+                    <details>
+                        <summary><span data-i18n="faqQ1">How is net income estimated?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                        <p data-i18n="faqA1">The tool applies each region's 2026 progressive income-tax brackets plus a simplified social-contribution rate, then subtracts them from gross pay. State/local taxes and some deductions are approximated.</p>
                     </details>
-
-                    <details class="group">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-slate-200 hover:text-emerald-300 transition-colors">
-                            <span data-i18n="faqQ2">Do you save my financial data?</span>
-                            <span class="transition group-open:rotate-180">
-                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                            </span>
-                        </summary>
-                        <p class="text-slate-400 mt-3 text-sm leading-relaxed" data-i18n="faqA2">Never. All calculations run strictly client-side locally in your browser sandbox. No input data is ever sent, stored, or cataloged on our servers.</p>
+                    <details>
+                        <summary><span data-i18n="faqQ2">Is my data stored?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                        <p data-i18n="faqA2">No. All calculations run locally in your browser. Nothing you type is sent to or stored on any server.</p>
                     </details>
-                </div>
-
+                    <details>
+                        <summary><span data-i18n="faqQ3">Can I file taxes with this?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                        <p data-i18n="faqA3">No. The figures are simplified estimates for information only and are not tax advice. For official filings, consult a licensed tax professional.</p>
+                    </details>
+                </section>
             </div>
         </div>
     </main>
 
-    <footer class="border-t border-slate-800 mt-20 bg-slate-950/90 text-slate-500 text-xs py-8">
-        <div class="max-w-5xl mx-auto px-4 text-center space-y-4">
-            <p id="disclaimer-text" class="leading-relaxed max-w-4xl mx-auto">Disclaimer: This web utility yields experimental automated estimates based on localized regional datasets. It doesn't substitute expert fiscal management reporting. For all official state submissions, always correspond with a registered CPA or legal financial advisor.</p>
-            
-            <div class="flex justify-center space-x-6 text-sm font-bold text-slate-400 mb-2">
-                <button onclick="toggleModal('aboutModal', true)" class="hover:text-emerald-400 transition" data-i18n="footAbout">About Us</button>
-                <button onclick="toggleModal('privacyModal', true)" class="hover:text-emerald-400 transition" data-i18n="footPrivacy">Privacy Policy</button>
-            </div>
-            
-            <p class="text-slate-400 text-sm">
-                <span data-i18n="contactUs">Contact & Support:</span> 
-                <strong class="text-emerald-400">ironvisiontools@gmail.com</strong>
-            </p>
-
-            <p class="font-bold text-slate-600 mt-4">&copy; 2026 Iron Vision Tools (ironvisiontools.com). All global rights preserved.</p>
+    <footer>
+        <p class="disc" id="disclaimer">Disclaimer: figures are simplified estimates for information only, based on published 2026 tax data. They are not tax, legal or financial advice. For official filings, consult a licensed professional.</p>
+        <div class="links">
+            <button class="linkbtn" type="button" id="aboutBtn" data-i18n="footAbout">About</button>
+            <button class="linkbtn" type="button" id="privacyBtn" data-i18n="footPrivacy">Privacy</button>
+            <a href="kripto.html" data-i18n="footCrypto">Crypto calculator</a>
         </div>
+        <p><span data-i18n="footContact">Contact:</span> <a href="mailto:ironvisiontools@gmail.com">ironvisiontools@gmail.com</a></p>
+        <p style="margin-top:10px;">© <span id="year"></span> IronVision Tools · ironvisiontools.com</p>
     </footer>
 
-    <div id="aboutModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-slate-800 border border-slate-700 w-full max-w-2xl rounded-2xl p-6 md:p-8 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-slate-700 pb-3">
-                <h3 class="text-xl font-black text-white" data-i18n="footAbout">About Us</h3>
-                <button onclick="toggleModal('aboutModal', false)" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
-            </div>
-            <div class="text-slate-300 space-y-3 text-sm leading-relaxed">
-                <p>Welcome to <strong>Iron Vision Tools</strong>. We are an independent software development laboratory committed to crafting robust, hyper-focused financial utility web tools.</p>
-                <p>Our mission is to bridge the gap between highly convoluted international financial frameworks and daily consumer calculation needs.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="privacyModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div class="bg-slate-800 border border-slate-700 w-full max-w-2xl rounded-2xl p-6 md:p-8 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
-            <div class="flex items-center justify-between border-b border-slate-700 pb-3">
-                <h3 class="text-xl font-black text-white" data-i18n="footPrivacy">Privacy Policy</h3>
-                <button onclick="toggleModal('privacyModal', false)" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
-            </div>
-            <div class="text-slate-300 space-y-4 text-sm leading-relaxed">
-                <div>
-                    <h4 class="font-bold text-white text-base mb-1">1. Privacy Guarantee</h4>
-                    <p>All tax calculations are processed strictly client-side. No financial numbers are transmitted to our servers.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white text-base mb-1">2. Cookie Policy (Google AdSense)</h4>
-                    <p>To keep our systems free, we use Google AdSense to publish ads. They use cookies to track localized anonymous web interaction metrics. No PII is shared.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="cookieBanner" class="fixed bottom-0 left-0 w-full bg-slate-900 border-t border-emerald-500/50 p-4 z-[200] flex flex-col sm:flex-row justify-center items-center gap-4 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-        <span class="text-sm text-slate-300 text-center sm:text-left" data-i18n="cookieText">We use cookies to personalize AdSense ads and improve your experience. By using the site, you consent to this.</span>
-        <button onclick="document.getElementById('cookieBanner').style.display='none'" class="bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-bold py-2 px-6 rounded-lg transition-colors whitespace-nowrap" data-i18n="cookieBtn">Accept</button>
-    </div>
+    <dialog id="aboutModal">
+        <button class="close" data-close aria-label="Close">&times;</button>
+        <h3 data-i18n="footAbout">About</h3>
+        <p data-i18n="aboutBody">IronVision Tools builds focused, privacy-friendly financial calculators. Every tool runs fully in your browser and is provided for information only.</p>
+    </dialog>
+    <dialog id="privacyModal">
+        <button class="close" data-close aria-label="Close">&times;</button>
+        <h3 data-i18n="footPrivacy">Privacy</h3>
+        <p data-i18n="privacyBody">All calculations happen client-side in your browser. We do not collect, transmit or store the financial figures you enter. This site uses no tracking cookies.</p>
+    </dialog>
 
     <script>
-        let dependentCount = 0;
-        let activeLang = 'en';
+    (function(){
+      "use strict";
+      const $ = (id) => document.getElementById(id);
 
-        // Gelişmiş Dil Motoru (SSS, Çerez, Butonlar Eklendi)
-        const localizationEngine = {
-            en: {
-                menuOtherTools: "Try Our Other Tools (Crypto)",
-                heroTitle: "Simple Tax & Take-Home Salary Calculator",
-                heroDesc: "Instant progressional breakdowns. Zero calculation traps.",
-                badgeBigFree: "100% FOREVER FREE & NO CREDIT CARD REQUIRED",
-                badgeNoReg: "No Registration, No Catch",
-                lblGross: "Gross Income (Annual)",
-                lblLocation: "Country / Region / State",
-                lblStatus: "Filing Status",
-                optSingle: "Single / Unmarried",
-                optMarried: "Married Filing Jointly",
-                lblDependents: "Children / Dependents (All families)",
-                btnCalculateTax: "Calculate Net Income",
-                resTitle: "Your Net Income Matrix",
-                thTimeframe: "Timeframe",
-                thGross: "Gross Pay",
-                thTax: "Est. Taxes",
-                thNet: "Net Take-Home",
-                tdAnnual: "Yearly",
-                tdMonthly: "Monthly",
-                dualCurrencyLabel: "Equivalent Estimate in USD ($):",
-                disclaimer: "Disclaimer: This web utility yields experimental automated estimates. For official submissions, consult a CPA.",
-                // Yeni Eklenenler
-                faqTitle: "Frequently Asked Questions (FAQ)",
-                faqQ1: "How is net income calculated?",
-                faqA1: "We apply localized regional tax brackets, standard deductions, and marital status modifiers to estimate your take-home pay instantly.",
-                faqQ2: "Do you save my financial data?",
-                faqA2: "Never. All calculations run strictly client-side locally in your browser. No input data is ever sent to our servers.",
-                footAbout: "About Us",
-                footPrivacy: "Privacy Policy",
-                contactUs: "Contact & Support:",
-                cookieText: "We use cookies to personalize AdSense ads and improve your experience. By using the site, you consent to this.",
-                cookieBtn: "Accept"
-            },
-            tr: {
-                menuOtherTools: "Kripto Araçlarımızı Deneyin",
-                heroTitle: "Sade Vergi ve Net Maaş Hesaplama",
-                heroDesc: "Anlık zaman kırılımları. Hesaplama tuzaklarına son.",
-                badgeBigFree: "%100 ÜCRETSİZ & KREDİ KARTI İSTEMEZ",
-                badgeNoReg: "Kayıt Yok, Gizli Sözleşme Yok",
-                lblGross: "Brüt Gelir (Yıllık)",
-                lblLocation: "Ülke / Bölge / Eyalet",
-                lblStatus: "Medeni Durum",
-                optSingle: "Bekar / Yalnız Ebeveyn",
-                optMarried: "Evli (Ortak Beyanname)",
-                lblDependents: "Çocuk Sayısı",
-                btnCalculateTax: "Net Maaşımı Hesapla",
-                resTitle: "Net Kazanç Matrisiniz",
-                thTimeframe: "Zaman Dilimi",
-                thGross: "Brüt Maaş",
-                thTax: "Tahmini Vergi",
-                thNet: "Elinize Kalan",
-                tdAnnual: "Yıllık",
-                tdMonthly: "Aylık",
-                dualCurrencyLabel: "Tahmini Dolar ($) Karşılığı:",
-                disclaimer: "Yasal Uyarı: Bu site bölgesel verilere dayalı tahminler sunar. Resmi işlemleriniz için bir mali müşavir (CPA) ile görüşün.",
-                // Yeni Eklenenler
-                faqTitle: "Sıkça Sorulan Sorular (SSS)",
-                faqQ1: "Net gelir nasıl hesaplanır?",
-                faqA1: "Maaşınızdan bölgesel vergi dilimleri, standart indirimler ve medeni durum çarpanları düşülerek net kazancınız anında tahmin edilir.",
-                faqQ2: "Finansal verilerim kaydediliyor mu?",
-                faqA2: "Asla. Tüm hesaplamalar yalnızca cihazınızdaki tarayıcıda çalışır. Verileriniz sunucularımıza gönderilmez veya saklanmaz.",
-                footAbout: "Hakkımızda",
-                footPrivacy: "Gizlilik Politikası",
-                contactUs: "İletişim ve Destek:",
-                cookieText: "AdSense reklamlarını kişiselleştirmek ve deneyimi iyileştirmek için çerezleri (cookies) kullanıyoruz. Siteyi kullanarak bunu kabul edersiniz.",
-                cookieBtn: "Kabul Et"
-            },
-            de: {
-                menuOtherTools: "Krypto-Tools testen",
-                heroTitle: "Einfacher Steuer- und Nettogehaltsrechner",
-                heroDesc: "Sofortige Aufschlüsselung. Keine Berechnungfallen.",
-                badgeBigFree: "100% KOSTENLOS & KEINE KREDITKARTE NÖTIG",
-                badgeNoReg: "Keine Registrierung, kein Haken",
-                lblGross: "Bruttoeinkommen (Jährlich)",
-                lblLocation: "Land / Region / Bundesland",
-                lblStatus: "Familienstand",
-                optSingle: "Ledig / Alleinerziehend",
-                optMarried: "Verheiratet (Zusammenveranlagung)",
-                lblDependents: "Kinder / Angehörige",
-                btnCalculateTax: "Netto Berechnen",
-                resTitle: "Ihre Nettoeinkommensmatrix",
-                thTimeframe: "Zeitraum",
-                thGross: "Bruttogehalt",
-                thTax: "Geschätzte Steuern",
-                thNet: "Nettoauszahlung",
-                tdAnnual: "Jährlich",
-                tdMonthly: "Monatlich",
-                dualCurrencyLabel: "Geschätzter Wert in USD ($):",
-                disclaimer: "Haftungsausschluss: Automatisierte Schätzungen. Wenden Sie sich für offizielle Einreichungen an einen Steuerberater.",
-                // Yeni Eklenenler
-                faqTitle: "Häufig gestellte Fragen (FAQ)",
-                faqQ1: "Wie wird das Nettoeinkommen berechnet?",
-                faqA1: "Wir wenden regionale Steuerklassen, Pauschalbeträge und Familienstandsmodifikatoren an, um Ihr Nettogehalt sofort zu schätzen.",
-                faqQ2: "Speichern Sie meine Finanzdaten?",
-                faqA2: "Niemals. Alle Berechnungen werden lokal in Ihrem Browser ausgeführt. Es werden keine Daten an unsere Server gesendet.",
-                footAbout: "Über uns",
-                footPrivacy: "Datenschutzrichtlinie",
-                contactUs: "Kontakt & Support:",
-                cookieText: "Wir verwenden Cookies zur Personalisierung von AdSense-Anzeigen. Durch die Nutzung der Website stimmen Sie dem zu.",
-                cookieBtn: "Akzeptieren"
-            }
+      let activeLang = "en";
+      let dependents = 0;
+
+      /* ---------------- localization ---------------- */
+      const i18n = {
+        en: {
+          navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", langLabel:"Language",
+          heroTitle:"Tax & Take-Home Salary Calculator",
+          heroDesc:"Estimate your net pay with 2026 progressive tax brackets. Information only, no sign-up.",
+          badgeFree:"✓ 100% free, no registration", badgeYear:"2026 tax data", badgeLocal:"Runs in your browser",
+          lblGross:"Gross income (annual)", lblLocation:"Country / region", lblStatus:"Filing status",
+          optSingle:"Single", optMarried:"Married (jointly)", lblDependents:"Children / dependents",
+          grpUS:"United States", grpEU:"Europe", grpTR:"Türkiye",
+          optTX:"Texas (no state income tax)", optDE:"Germany", optUK:"United Kingdom", optFR:"France", optTR:"Turkey",
+          btnCalc:"Calculate net income", btnClear:"Clear",
+          resTitle:"Estimated net income", tblCaption:"Estimated figures for information only.",
+          thPeriod:"Period", thGross:"Gross", thTax:"Est. deductions", thNet:"Net take-home",
+          rowYear:"Yearly", rowMonth:"Monthly",
+          effLabel:"Effective deduction rate", usdLabel:"Approx. USD equivalent (net / year)",
+          faqTitle:"Frequently asked questions",
+          faqQ1:"How is net income estimated?",
+          faqA1:"The tool applies each region's 2026 progressive income-tax brackets plus a simplified social-contribution rate, then subtracts them from gross pay. State/local taxes and some deductions are approximated.",
+          faqQ2:"Is my data stored?",
+          faqA2:"No. All calculations run locally in your browser. Nothing you type is sent to or stored on any server.",
+          faqQ3:"Can I file taxes with this?",
+          faqA3:"No. The figures are simplified estimates for information only and are not tax advice. For official filings, consult a licensed tax professional.",
+          footAbout:"About", footPrivacy:"Privacy", footCrypto:"Crypto calculator", footContact:"Contact:",
+          aboutBody:"IronVision Tools builds focused, privacy-friendly financial calculators. Every tool runs fully in your browser and is provided for information only.",
+          privacyBody:"All calculations happen client-side in your browser. We do not collect, transmit or store the financial figures you enter. This site uses no tracking cookies.",
+          disclaimer:"Disclaimer: figures are simplified estimates for information only, based on published 2026 tax data. They are not tax, legal or financial advice. For official filings, consult a licensed professional.",
+          errGross:"Enter a gross income greater than 0.",
+          incLabel:"income tax", socLabel:"social contributions"
+        },
+        tr: {
+          navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", langLabel:"Dil",
+          heroTitle:"Vergi ve Net Maaş Hesaplayıcı",
+          heroDesc:"2026 kademeli vergi dilimleriyle net maaşınızı tahmin edin. Yalnızca bilgilendirme, üyelik yok.",
+          badgeFree:"✓ %100 ücretsiz, kayıt yok", badgeYear:"2026 vergi verileri", badgeLocal:"Tarayıcınızda çalışır",
+          lblGross:"Brüt gelir (yıllık)", lblLocation:"Ülke / bölge", lblStatus:"Medeni durum",
+          optSingle:"Bekar", optMarried:"Evli (ortak beyan)", lblDependents:"Çocuk / bakmakla yükümlü",
+          grpUS:"Amerika Birleşik Devletleri", grpEU:"Avrupa", grpTR:"Türkiye",
+          optTX:"Teksas (eyalet vergisi yok)", optDE:"Almanya", optUK:"Birleşik Krallık", optFR:"Fransa", optTR:"Türkiye",
+          btnCalc:"Net gelirimi hesapla", btnClear:"Temizle",
+          resTitle:"Tahmini net gelir", tblCaption:"Rakamlar yalnızca bilgilendirme amaçlıdır.",
+          thPeriod:"Dönem", thGross:"Brüt", thTax:"Tahmini kesinti", thNet:"Elinize geçen (net)",
+          rowYear:"Yıllık", rowMonth:"Aylık",
+          effLabel:"Efektif kesinti oranı", usdLabel:"Yaklaşık USD karşılığı (yıllık net)",
+          faqTitle:"Sıkça sorulan sorular",
+          faqQ1:"Net gelir nasıl tahmin edilir?",
+          faqA1:"Araç, her bölgenin 2026 kademeli gelir vergisi dilimlerini ve basitleştirilmiş bir sosyal güvenlik oranını uygular, sonra bunları brüt maaştan düşer. Eyalet/yerel vergiler ve bazı indirimler yaklaşık alınmıştır.",
+          faqQ2:"Verilerim saklanıyor mu?",
+          faqA2:"Hayır. Tüm hesaplamalar tarayıcınızda yerel olarak çalışır. Girdiğiniz hiçbir bilgi sunucuya gönderilmez veya saklanmaz.",
+          faqQ3:"Bununla vergi beyanı yapabilir miyim?",
+          faqA3:"Hayır. Rakamlar yalnızca bilgilendirme amaçlı basitleştirilmiş tahminlerdir, vergi tavsiyesi değildir. Resmi işlemler için yetkili bir mali müşavire danışın.",
+          footAbout:"Hakkımızda", footPrivacy:"Gizlilik", footCrypto:"Kripto hesaplayıcı", footContact:"İletişim:",
+          aboutBody:"IronVision Tools, odaklı ve gizliliğe saygılı finansal hesaplayıcılar geliştirir. Her araç tamamen tarayıcınızda çalışır ve yalnızca bilgilendirme amaçlıdır.",
+          privacyBody:"Tüm hesaplamalar tarayıcınızda istemci tarafında yapılır. Girdiğiniz finansal rakamları toplamaz, iletmez veya saklamayız. Bu sitede takip çerezi kullanılmaz.",
+          disclaimer:"Yasal uyarı: Rakamlar, yayımlanan 2026 vergi verilerine dayalı, yalnızca bilgilendirme amaçlı basitleştirilmiş tahminlerdir. Vergi, hukuk veya yatırım tavsiyesi değildir. Resmi işlemler için yetkili bir uzmana danışın.",
+          errGross:"0'dan büyük bir brüt gelir girin.",
+          incLabel:"gelir vergisi", socLabel:"sosyal güvenlik kesintileri"
+        },
+        de: {
+          navCrypto:"Krypto G/V", navTax:"Steuer / Netto", langLabel:"Sprache",
+          heroTitle:"Steuer- & Nettogehaltsrechner",
+          heroDesc:"Schätzen Sie Ihr Nettogehalt mit den progressiven Steuersätzen 2026. Nur zur Information, ohne Anmeldung.",
+          badgeFree:"✓ 100% kostenlos, keine Anmeldung", badgeYear:"Steuerdaten 2026", badgeLocal:"Läuft im Browser",
+          lblGross:"Bruttoeinkommen (jährlich)", lblLocation:"Land / Region", lblStatus:"Familienstand",
+          optSingle:"Ledig", optMarried:"Verheiratet (zusammen)", lblDependents:"Kinder / Angehörige",
+          grpUS:"Vereinigte Staaten", grpEU:"Europa", grpTR:"Türkei",
+          optTX:"Texas (keine Landessteuer)", optDE:"Deutschland", optUK:"Vereinigtes Königreich", optFR:"Frankreich", optTR:"Türkei",
+          btnCalc:"Netto berechnen", btnClear:"Zurücksetzen",
+          resTitle:"Geschätztes Nettoeinkommen", tblCaption:"Geschätzte Werte, nur zur Information.",
+          thPeriod:"Zeitraum", thGross:"Brutto", thTax:"Gesch. Abzüge", thNet:"Netto",
+          rowYear:"Jährlich", rowMonth:"Monatlich",
+          effLabel:"Effektiver Abzugssatz", usdLabel:"Ungefährer USD-Wert (netto / Jahr)",
+          faqTitle:"Häufige Fragen",
+          faqQ1:"Wie wird das Netto geschätzt?",
+          faqA1:"Das Tool wendet die progressiven Steuersätze 2026 der jeweiligen Region plus einen vereinfachten Sozialversicherungssatz an und zieht sie vom Brutto ab. Landes-/Kommunalsteuern und einige Abzüge sind Näherungen.",
+          faqQ2:"Werden meine Daten gespeichert?",
+          faqA2:"Nein. Alle Berechnungen laufen lokal in Ihrem Browser. Nichts wird an einen Server gesendet oder dort gespeichert.",
+          faqQ3:"Kann ich damit Steuern einreichen?",
+          faqA3:"Nein. Die Werte sind vereinfachte Schätzungen, nur zur Information, und keine Steuerberatung. Für offizielle Einreichungen wenden Sie sich an eine Fachkraft.",
+          footAbout:"Über uns", footPrivacy:"Datenschutz", footCrypto:"Krypto-Rechner", footContact:"Kontakt:",
+          aboutBody:"IronVision Tools entwickelt fokussierte, datenschutzfreundliche Finanzrechner. Jedes Tool läuft vollständig im Browser und dient nur zur Information.",
+          privacyBody:"Alle Berechnungen erfolgen clientseitig im Browser. Wir erfassen, übertragen oder speichern die eingegebenen Finanzdaten nicht. Diese Seite verwendet keine Tracking-Cookies.",
+          disclaimer:"Haftungsausschluss: Die Werte sind vereinfachte Schätzungen, nur zur Information, basierend auf veröffentlichten Steuerdaten 2026. Sie sind keine Steuer-, Rechts- oder Finanzberatung. Für offizielle Einreichungen wenden Sie sich an eine Fachkraft.",
+          errGross:"Geben Sie ein Bruttoeinkommen größer als 0 ein.",
+          incLabel:"Einkommensteuer", socLabel:"Sozialabgaben"
+        }
+      };
+
+      /* ---------------- tax engine ----------------
+         Brackets: array of [upperLimit, marginalRate] on taxable income,
+         last upperLimit = Infinity. Sources: IRS Rev.Proc. 2025-32 (US 2026),
+         GİB 2026 wage tariff (TR), GOV.UK 2025/26 (UK), Grundfreibetrag 2026 (DE),
+         French 2025 barème (FR). Social/state components are simplified.
+      */
+      function progressive(taxable, brackets){
+        if(taxable <= 0) return 0;
+        let tax = 0, prev = 0;
+        for(const [upper, rate] of brackets){
+          const slice = Math.min(taxable, upper) - prev;
+          if(slice > 0) tax += slice * rate;
+          if(taxable <= upper) break;
+          prev = upper;
+        }
+        return tax;
+      }
+
+      const US_BRACKETS = {
+        single: [[12400,0.10],[50400,0.12],[105700,0.22],[201775,0.24],[256225,0.32],[640600,0.35],[Infinity,0.37]],
+        married:[[24800,0.10],[100800,0.12],[211400,0.22],[403550,0.24],[512450,0.32],[768700,0.35],[Infinity,0.37]]
+      };
+      const US_STD = { single:16100, married:32200 };
+
+      // FICA 2026 (approx): Social Security 6.2% up to wage base, Medicare 1.45%.
+      function ficaUS(gross){
+        const ssBase = 184500; // 2026 SS wage base (approx.)
+        return Math.min(gross, ssBase)*0.062 + gross*0.0145;
+      }
+      function usRegion(stateRate, stateName){
+        return {
+          currency:"$", locale:"en-US",
+          compute(gross, status, deps){
+            const std = US_STD[status] || US_STD.single;
+            const taxable = Math.max(0, gross - std);
+            let income = progressive(taxable, US_BRACKETS[status] || US_BRACKETS.single);
+            income = Math.max(0, income - deps*2200); // Child Tax Credit 2026 ($2,200/child, capped at tax)
+            const state = gross * stateRate;
+            const social = ficaUS(gross);
+            return { income: income + state, social,
+              note: {
+                en:`US federal 2026 brackets + <b>${stateName}</b> state tax (approx. ${(stateRate*100).toFixed(0)}%) + FICA (Social Security 6.2% capped, Medicare 1.45%). Standard deduction $${std.toLocaleString('en-US')}; $2,200/child credit. State tax simplified as a flat rate.`,
+                tr:`ABD 2026 federal dilimleri + <b>${stateName}</b> eyalet vergisi (yaklaşık %${(stateRate*100).toFixed(0)}) + FICA (Sosyal Güvenlik %6,2 tavanlı, Medicare %1,45). Standart indirim $${std.toLocaleString('en-US')}; çocuk başına $2.200 kredi. Eyalet vergisi sabit oran olarak basitleştirildi.`,
+                de:`US-Bundessätze 2026 + Landessteuer <b>${stateName}</b> (ca. ${(stateRate*100).toFixed(0)}%) + FICA (Sozialvers. 6,2% gedeckelt, Medicare 1,45%). Grundabzug $${std.toLocaleString('en-US')}; $2.200/Kind. Landessteuer als Pauschalsatz vereinfacht.`
+              }
+            };
+          }
         };
+      }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            evaluateUserLocale();
+      const REGIONS = {
+        "US-NY": usRegion(0.060, "New York"),
+        "US-CA": usRegion(0.065, "California"),
+        "US-TX": usRegion(0.000, "Texas"),
+
+        "TR": {
+          currency:"₺", locale:"tr-TR",
+          compute(gross, status, deps){
+            const brackets = [[190000,0.15],[400000,0.20],[1500000,0.27],[5300000,0.35],[Infinity,0.40]];
+            const income = progressive(gross, brackets);
+            const ssCeiling = 2972700; // 7.5x 2026 brüt asgari ücret (yıllık ~)
+            const social = Math.min(gross, ssCeiling)*0.15; // SGK 14% + işsizlik 1%
+            return { income, social,
+              note:{
+                en:"Türkiye 2026 wage income-tax tariff + SGK employee 15% (up to the SGK ceiling). The minimum-wage income-tax exemption, AGİ and stamp duty are not modelled, so tax may be slightly overstated. Marital status/children have limited direct effect on wage tax.",
+                tr:"Türkiye 2026 ücret gelir vergisi tarifesi + SGK işçi payı %15 (SGK tavanına kadar). Asgari ücret gelir vergisi istisnası, AGİ ve damga vergisi modellenmedi; vergi bir miktar yüksek çıkabilir. Medeni durum/çocuk sayısının ücret vergisine doğrudan etkisi sınırlıdır.",
+                de:"Türkei 2026 Lohnsteuertarif + SGK-Arbeitnehmeranteil 15% (bis zur SGK-Grenze). Mindestlohn-Steuerbefreiung, AGİ und Stempelsteuer sind nicht modelliert; die Steuer kann leicht überschätzt sein."
+              }
+            };
+          }
+        },
+
+        "EU-DE": {
+          currency:"€", locale:"de-DE",
+          compute(gross, status, deps){
+            const gf = 12348; // Grundfreibetrag 2026
+            const factor = status==="married" ? 2 : 1; // Ehegattensplitting (approx.)
+            const perPerson = gross / factor;
+            const taxable = Math.max(0, perPerson - gf);
+            // Simplified bracket approximation of the German tariff (14%->42%->45%)
+            const brackets = [[4657,0.14],[56132,0.30],[265477,0.42],[Infinity,0.45]];
+            let income = progressive(taxable, brackets) * factor;
+            income = Math.max(0, income - deps*1200); // simplified child allowance effect
+            const social = Math.min(gross, 70000)*0.20; // pension+health+care+unemployment (approx., capped)
+            return { income, social,
+              note:{
+                en:"Germany 2026 basic allowance €12,348 with a simplified approximation of the 14–45% tariff; married uses income splitting. Employee social contributions ~20% (capped). This is an approximation of the official polynomial tariff.",
+                tr:"Almanya 2026 temel muafiyet 12.348 € ve %14–45 tarifesinin basitleştirilmiş yaklaşımı; evli için gelir bölüşümü. İşçi sosyal kesintileri ~%20 (tavanlı). Resmi polinom tarifesinin yaklaşık halidir.",
+                de:"Deutschland 2026 Grundfreibetrag 12.348 € mit vereinfachter Näherung des Tarifs 14–45%; Verheiratete mit Ehegattensplitting. Sozialabgaben ~20% (gedeckelt). Näherung des amtlichen Formeltarifs."
+              }
+            };
+          }
+        },
+
+        "EU-UK": {
+          currency:"£", locale:"en-GB",
+          compute(gross, status, deps){
+            // Personal allowance tapers £1 per £2 over £100,000
+            const pa = Math.max(0, 12570 - Math.max(0, (gross - 100000)/2));
+            const taxable = Math.max(0, gross - pa);
+            const brackets = [[37700,0.20],[112570,0.40],[Infinity,0.45]];
+            const income = progressive(taxable, brackets);
+            // National Insurance (employee) 8% between PT and UEL, 2% above
+            const pt = 12570, uel = 50270;
+            let ni = 0;
+            if(gross > pt) ni += (Math.min(gross,uel) - pt)*0.08;
+            if(gross > uel) ni += (gross - uel)*0.02;
+            return { income, social: ni,
+              note:{
+                en:"UK 2025/26: personal allowance £12,570 (tapered above £100k), 20/40/45% bands + employee National Insurance 8%/2%. Marital status/children have no direct effect on this PAYE estimate.",
+                tr:"Birleşik Krallık 2025/26: kişisel muafiyet 12.570 £ (100 bin £ üzeri azalır), %20/40/45 dilimleri + işçi Ulusal Sigorta %8/%2. Medeni durum/çocuğun bu PAYE tahminine doğrudan etkisi yoktur.",
+                de:"UK 2025/26: Grundfreibetrag £12.570 (über £100k abgeschmolzen), Sätze 20/40/45% + National Insurance 8%/2%. Familienstand/Kinder ohne direkten Effekt."
+              }
+            };
+          }
+        },
+
+        "EU-FR": {
+          currency:"€", locale:"fr-FR",
+          compute(gross, status, deps){
+            // 2025 barème (parts). Quotient familial simplified.
+            const parts = (status==="married"?2:1) + deps*0.5;
+            const brackets = [[11497,0],[29315,0.11],[83823,0.30],[180294,0.41],[Infinity,0.45]];
+            const income = progressive(gross/parts, brackets) * parts;
+            const social = gross*0.22; // employee social charges (approx.)
+            return { income, social,
+              note:{
+                en:"France 2025 income-tax barème with a simplified family quotient (parts) + employee social charges ~22%. Data are approximate and provided for information only.",
+                tr:"Fransa 2025 gelir vergisi baremi, basitleştirilmiş aile katsayısı (parts) + işçi sosyal kesintileri ~%22. Veriler yaklaşıktır ve yalnızca bilgilendirme amaçlıdır.",
+                de:"Frankreich 2025 Einkommensteuer-Barème mit vereinfachtem Familienquotienten + Sozialabgaben ~22%. Werte sind Näherungen, nur zur Information."
+              }
+            };
+          }
+        }
+      };
+
+      /* ---------------- currency + FX ---------------- */
+      const SYMBOLS = { "US-NY":"$","US-CA":"$","US-TX":"$","TR":"₺","EU-DE":"€","EU-UK":"£","EU-FR":"€" };
+      // Static reference rates -> USD (approximate, NOT live).
+      const USD_RATE = { "₺":0.024, "€":1.08, "£":1.27, "$":1 };
+
+      function fmt(value, region){
+        const cfg = REGIONS[region];
+        try{
+          return new Intl.NumberFormat(cfg.locale, { style:"currency", currency: currencyCode(cfg.currency), maximumFractionDigits:0 }).format(value);
+        }catch(e){
+          return cfg.currency + Math.round(value).toLocaleString();
+        }
+      }
+      function currencyCode(sym){ return sym==="$"?"USD":sym==="₺"?"TRY":sym==="£"?"GBP":"EUR"; }
+
+      /* ---------------- UI wiring ---------------- */
+      function updateSymbol(){
+        const region = $("taxLocation").value;
+        $("currencySym").textContent = SYMBOLS[region] || "$";
+      }
+
+      function setDependents(n){
+        dependents = n;
+        document.querySelectorAll(".dep-btn").forEach(b=>{
+          b.setAttribute("aria-pressed", String(Number(b.dataset.dep)===n));
         });
+      }
 
-        // Manuel Dil Değiştirici
-        function changeLanguage(langCode) {
-            activeLang = langCode;
-            document.getElementById('taxLocation').value = (langCode === 'tr') ? 'TR' : (langCode === 'de') ? 'EU-DE' : 'US-NY';
-            triggerDOMTranslation();
-            if(document.getElementById('grossIncome').value) {
-                document.getElementById('taxForm').dispatchEvent(new Event('submit'));
-            }
+      function calculate(){
+        const t = i18n[activeLang];
+        const gross = parseFloat($("grossIncome").value);
+        if(!Number.isFinite(gross) || gross <= 0){
+          $("results").hidden = true;
+          $("grossIncome").focus();
+          $("grossIncome").setCustomValidity(t.errGross);
+          $("grossIncome").reportValidity();
+          return;
+        }
+        $("grossIncome").setCustomValidity("");
+
+        const region = $("taxLocation").value;
+        const status = $("filingStatus").value;
+        const cfg = REGIONS[region];
+        const r = cfg.compute(gross, status, dependents);
+
+        const totalDeduct = Math.min(gross, r.income + r.social);
+        const net = gross - totalDeduct;
+
+        $("regionBadge").textContent = region;
+        $("grossYear").textContent  = fmt(gross, region);
+        $("taxYear").textContent    = fmt(totalDeduct, region);
+        $("netYear").textContent    = fmt(net, region);
+        $("grossMonth").textContent = fmt(gross/12, region);
+        $("taxMonth").textContent   = fmt(totalDeduct/12, region);
+        $("netMonth").textContent   = fmt(net/12, region);
+        $("effRate").textContent    = (gross>0 ? (totalDeduct/gross*100).toFixed(1) : "0") + "%";
+
+        // USD equivalent (approx, static rate)
+        const sym = SYMBOLS[region];
+        const usdRow = $("usdRow");
+        if(sym !== "$"){
+          usdRow.hidden = false;
+          const usd = net * (USD_RATE[sym] || 1);
+          $("usdVal").textContent = "≈ $" + Math.round(usd).toLocaleString("en-US");
+        } else {
+          usdRow.hidden = true;
         }
 
-        function toggleModal(modalId, isVisible) {
-            const modal = document.getElementById(modalId);
-            if (isVisible) modal.classList.remove('hidden');
-            else modal.classList.add('hidden');
-        }
+        const breakdown = `${t.incLabel}: ${fmt(r.income, region)} · ${t.socLabel}: ${fmt(r.social, region)}`;
+        $("assumptions").innerHTML = breakdown + "<br>" + (r.note[activeLang] || r.note.en);
 
-        function evaluateUserLocale() {
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('tr')) { activeLang = 'tr'; document.getElementById('taxLocation').value = 'TR'; } 
-            else if (browserLang.startsWith('de')) { activeLang = 'de'; document.getElementById('taxLocation').value = 'EU-DE'; } 
-            else { activeLang = 'en'; document.getElementById('taxLocation').value = 'US-NY'; }
-            
-            document.getElementById('langSelector').value = activeLang;
-            triggerDOMTranslation();
-        }
+        $("results").hidden = false;
+      }
 
-        function triggerDOMTranslation() {
-            const pack = localizationEngine[activeLang] || localizationEngine['en'];
-            
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (pack[key]) el.textContent = pack[key];
-            });
+      function translate(){
+        const pack = i18n[activeLang] || i18n.en;
+        document.querySelectorAll("[data-i18n]").forEach(el=>{
+          const k = el.getAttribute("data-i18n");
+          if(pack[k] != null) el.textContent = pack[k];
+        });
+        document.querySelectorAll("[data-i18n-label]").forEach(el=>{
+          const k = el.getAttribute("data-i18n-label");
+          if(pack[k] != null) el.setAttribute("label", pack[k]);
+        });
+        document.documentElement.lang = activeLang;
+      }
 
-            document.getElementById('hero-title').textContent = pack.heroTitle;
-            document.getElementById('hero-desc').textContent = pack.heroDesc;
-            document.getElementById('disclaimer-text').textContent = pack.disclaimer;
-            
-            adjustInputCurrencySign();
-        }
+      window.changeLanguage = function(code){
+        activeLang = i18n[code] ? code : "en";
+        translate();
+        if($("grossIncome").value && !$("results").hidden) calculate();
+      };
 
-        document.getElementById('taxLocation').addEventListener('change', adjustInputCurrencySign);
+      function initLang(){
+        const b = (navigator.language || "en").toLowerCase();
+        activeLang = b.startsWith("tr") ? "tr" : b.startsWith("de") ? "de" : "en";
+        $("langSelector").value = activeLang;
+        if(activeLang==="tr") $("taxLocation").value = "TR";
+        else if(activeLang==="de") $("taxLocation").value = "EU-DE";
+        else $("taxLocation").value = "US-NY";
+        translate();
+        updateSymbol();
+      }
 
-        function adjustInputCurrencySign() {
-            const loc = document.getElementById('taxLocation').value;
-            const marker = document.getElementById('currency-symbol');
-            
-            if (loc === 'TR') marker.textContent = '₺';
-            else if (loc.startsWith('US') || loc === 'GE') marker.textContent = '$';
-            else if (loc === 'EU-UK') marker.textContent = '£';
-            else marker.textContent = '€';
-        }
+      /* events */
+      $("taxForm").addEventListener("submit", (e)=>{ e.preventDefault(); calculate(); });
+      $("taxLocation").addEventListener("change", ()=>{ updateSymbol(); if($("grossIncome").value) calculate(); });
+      $("filingStatus").addEventListener("change", ()=>{ if($("grossIncome").value) calculate(); });
+      document.querySelectorAll(".dep-btn").forEach(b=>{
+        b.addEventListener("click", ()=>{ setDependents(Number(b.dataset.dep)); if($("grossIncome").value) calculate(); });
+      });
+      $("clearBtn").addEventListener("click", ()=>{
+        $("taxForm").reset();
+        $("grossIncome").setCustomValidity("");
+        setDependents(0);
+        $("results").hidden = true;
+        updateSymbol();
+      });
+      $("aboutBtn").addEventListener("click", ()=> $("aboutModal").showModal());
+      $("privacyBtn").addEventListener("click", ()=> $("privacyModal").showModal());
+      document.querySelectorAll("[data-close]").forEach(b=> b.addEventListener("click", ()=> b.closest("dialog").close()));
+      document.querySelectorAll("dialog").forEach(d=> d.addEventListener("click", (e)=>{ if(e.target===d) d.close(); }));
 
-        function setDependents(count) {
-            dependentCount = count;
-            document.querySelectorAll('.dep-btn').forEach(btn => {
-                btn.className = "dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-slate-900 text-slate-300 border-slate-700 hover:border-slate-500";
-            });
-            document.getElementById(`dep-${count}`).className = "dep-btn py-3 font-extrabold text-lg rounded-xl border-2 bg-emerald-600 text-slate-950 border-emerald-400 shadow-md";
-        }
-
-        // YENİ: Temizle Butonu Mantığı
-        function clearTaxForm() {
-            document.getElementById('taxForm').reset();
-            setDependents(0);
-            document.getElementById('taxResults').classList.add('hidden');
-        }
-
-        function mockTaxDatabaseApi(gross, location, status, dependents) {
-            let baselineBracket = 0.22;
-            const bracketMatrix = {
-                'US-NY': 0.29, 'US-CA': 0.31, 'US-TX': 0.17, 'TR': 0.27, 'EU-DE': 0.38, 'EU-UK': 0.30, 'EU-FR': 0.36
-            };
-
-            if (bracketMatrix[location] !== undefined) baselineBracket = bracketMatrix[location];
-            if (status === 'married') baselineBracket -= 0.05;
-            baselineBracket -= (dependents * 0.02);
-            if (baselineBracket < 0.01) baselineBracket = 0.01;
-
-            return {
-                annualGross: gross,
-                annualTax: gross * baselineBracket,
-                annualNet: gross - (gross * baselineBracket)
-            };
-        }
-
-        function executeTaxEngine(event) {
-            event.preventDefault();
-            const gross = parseFloat(document.getElementById('grossIncome').value) || 0;
-            const location = document.getElementById('taxLocation').value;
-            const status = document.getElementById('filingStatus').value;
-
-            const annualResults = mockTaxDatabaseApi(gross, location, status, dependentCount);
-            document.getElementById('resultRegionBadge').textContent = location;
-            const marker = document.getElementById('currency-symbol').textContent;
-
-            const timelineMatrix = {
-                gross: { year: annualResults.annualGross, month: annualResults.annualGross / 12 },
-                tax: { year: annualResults.annualTax, month: annualResults.annualTax / 12 },
-                net: { year: annualResults.annualNet, month: annualResults.annualNet / 12 }
-            };
-
-            renderTableRow('Year', marker, timelineMatrix.gross.year, timelineMatrix.tax.year, timelineMatrix.net.year);
-            renderTableRow('Month', marker, timelineMatrix.gross.month, timelineMatrix.tax.month, timelineMatrix.net.month);
-
-            const dualRow = document.getElementById('dualCurrencyRow');
-            if (marker !== '$') {
-                dualRow.classList.remove('hidden');
-                let exchangeMockRate = (marker === '₺') ? 0.031 : (marker === '€') ? 1.08 : 1.26;
-                const convertedUsdNet = timelineMatrix.net.year * exchangeMockRate;
-                document.getElementById('dualCurrencyVal').textContent = "$" + convertedUsdNet.toLocaleString(undefined, {maximumFractionDigits: 0}) + " USD";
-            } else {
-                dualRow.classList.add('hidden');
-            }
-
-            document.getElementById('taxResults').classList.remove('hidden');
-            document.getElementById('taxResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-
-        function renderTableRow(rowId, symbol, grossVal, taxVal, netVal) {
-            document.getElementById(`rowGross${rowId}`).textContent = symbol + grossVal.toLocaleString(undefined, {maximumFractionDigits: 0});
-            document.getElementById(`rowTax${rowId}`).textContent = symbol + taxVal.toLocaleString(undefined, {maximumFractionDigits: 0});
-            document.getElementById(`rowNet${rowId}`).textContent = symbol + netVal.toLocaleString(undefined, {maximumFractionDigits: 0});
-        }
+      $("year").textContent = new Date().getFullYear();
+      initLang();
+    })();
     </script>
 </body>
 </html>

@@ -184,6 +184,13 @@ section{position:relative;z-index:1;padding-block:clamp(3.5rem,9vw,7rem)}
 .figure-ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(243,235,221,.6);
   text-align:center;padding:1.5rem;font-size:.85rem;gap:.6rem}
 .figure-ph svg{width:64px;opacity:.7}
+.figure-quote{position:absolute;inset:0;margin:0;display:flex;flex-direction:column;
+  justify-content:center;gap:1rem;padding:clamp(1.6rem,4vw,2.6rem);color:#F3EBDD;text-align:left}
+.figure-quote svg{width:38px;opacity:.5}
+.figure-quote p{font-family:var(--ff-display);font-size:clamp(1.35rem,2.4vw,1.95rem);
+  line-height:1.24;margin:0}
+.figure-quote cite{font-style:normal;font-size:.8rem;letter-spacing:.09em;text-transform:uppercase;
+  color:rgba(243,235,221,.62)}
 
 /* ---- Season wheel + menu (signature) ------------------------------------ */
 .season{background:var(--cream-2);border-block:1px solid var(--line)}

@@ -66,11 +66,11 @@
                   de:"Jeder Besuch richtet sich danach, was in dieser Woche reif ist. Das ist der ganze Gedanke: Der Weinberg ist eine Uhr, und der Tisch nennt nur die Zeit. Kommen Sie im Frühjahr für grüne Mandeln und frische Weißweine; kommen Sie zur Ernte für gegrilltes Lamm und den ersten Rotwein aus dem Fass.",
                   fr:"Chaque visite dépend de ce qui est mûr cette semaine-là. C'est toute l'idée : le vignoble est une horloge, et la table ne fait qu'en donner l'heure. Venez au printemps pour les amandes vertes et les blancs vifs ; venez aux vendanges pour l'agneau grillé et le premier rouge tiré du fût.",
                   it:"Ogni visita è modellata da ciò che è maturo quella settimana. È tutta qui l'idea: il vigneto è un orologio e la tavola ne dà solo l'ora. Venite in primavera per le mandorle verdi e i bianchi vivaci; venite alla vendemmia per l'agnello alla brace e il primo rosso spillato dalla botte." },
-    "story.figCaption": { en:"Winemaker portrait — image to be supplied",
-                          tr:"Üretici portresi — görsel eklenecek",
-                          de:"Porträt des Winzers — Bild folgt",
-                          fr:"Portrait du vigneron — image à fournir",
-                          it:"Ritratto del vignaiolo — immagine da fornire" },
+    "story.figCaption": { en:"We farm by hand and let the hill keep time.",
+                          tr:"Toprağı elle işliyoruz; zamanı tepeye bırakıyoruz.",
+                          de:"Wir bewirtschaften von Hand und überlassen dem Hügel die Zeit.",
+                          fr:"Nous cultivons à la main et laissons la colline donner le tempo.",
+                          it:"Coltiviamo a mano e lasciamo che sia la collina a scandire il tempo." },
 
     /* ---- season ---- */
     "season.eyebrow": { en:"The season circle", tr:"Mevsim çemberi", de:"Der Jahreskreis", fr:"Le cercle des saisons", it:"Il cerchio delle stagioni" },

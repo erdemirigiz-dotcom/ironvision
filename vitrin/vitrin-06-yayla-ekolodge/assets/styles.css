@@ -195,6 +195,7 @@ a:hover {
   --btn-fg: var(--paper);
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
   gap: 0.55rem;
   font-family: var(--font-body);
   font-weight: 600;

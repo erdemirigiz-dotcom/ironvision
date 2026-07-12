@@ -163,6 +163,7 @@
         <nav class="tools-nav" aria-label="Araçlar">
             <a class="tool-link" href="kripto.html" aria-current="page" data-i18n="navCrypto">Kripto K/Z</a>
             <a class="tool-link" href="vergi.html" data-i18n="navTax">Vergi / Net Maaş</a>
+            <a class="tool-link" href="token.html" data-i18n="navToken">Token Maliyet</a>
             <label class="visually-hidden" for="langSelector" data-i18n="langLabel">Dil</label>
             <select id="langSelector" class="lang-select" onchange="changeLanguage(this.value)">
                 <option value="tr">🇹🇷 TR</option>
@@ -260,7 +261,7 @@
 
     <footer>
         <p id="footNote">© <span id="year"></span> IronVision Tools · Yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</p>
-        <p style="margin-top:8px;"><a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · ironvisiontools.com</p>
+        <p style="margin-top:8px;"><a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · <a href="token.html" data-i18n="navToken">Token maliyet hesaplayıcı</a> · ironvisiontools.com</p>
     </footer>
 
     <script>
@@ -272,7 +273,7 @@
 
       const copy = {
         tr:{
-          navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", langLabel:"Dil", footTax:"Vergi / net maaş hesaplayıcı",
+          navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil", footTax:"Vergi / net maaş hesaplayıcı",
           pageTitle:"Kripto Kâr/Zarar Hesaplayıcı",
           heroDesc:"Alış/satış ve komisyonları girin; komisyon ve vergi sonrası net sonucu görün. Yalnızca bilgilendirme amaçlıdır.",
           lblInvest:"Yatırım Miktarı", lblBuy:"Alış Fiyatı", lblSell:"Satış Fiyatı", lblCoins:"Opsiyonel Coin Miktarı",
@@ -293,7 +294,7 @@
           copied:"Kopyalandı ✓", copyFail:"Kopyalama başarısız. Tarayıcı izinlerini kontrol edin."
         },
         en:{
-          navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", langLabel:"Language", footTax:"Tax / net salary calculator",
+          navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language", footTax:"Tax / net salary calculator",
           pageTitle:"Crypto Profit/Loss Calculator",
           heroDesc:"Enter buy/sell prices and fees to see your net result after fees and tax. For information only.",
           lblInvest:"Investment Amount", lblBuy:"Buy Price", lblSell:"Sell Price", lblCoins:"Optional Coin Quantity",

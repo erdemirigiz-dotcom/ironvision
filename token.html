@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronVision Tools — LLM Token Maliyet Hesaplayıcı</title>
+    <meta name="description" content="Claude, GPT ve Gemini API maliyet hesaplayıcı: girdi/çıktı token sayısından dolar ve TL maliyet. Ücretsiz, tarayıcıda çalışır, fiyatlar düzenlenebilir.">
+    <meta name="theme-color" content="#0b0f14">
+    <link rel="canonical" href="https://ironvisiontools.com/token.html">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,3 27,9 27,23 16,29 5,23 5,9' fill='none' stroke='%2312d18e' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%2312d18e'/%3E%3C/svg%3E">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IronVision Tools — LLM Token Maliyet Hesaplayıcı">
+    <meta property="og:description" content="Claude, GPT ve Gemini API maliyetini token bazında hesaplayın. Ücretsiz, bilgilendirme amaçlıdır.">
+    <meta property="og:url" content="https://ironvisiontools.com/token.html">
+    <meta property="og:image" content="https://ironvisiontools.com/assets/og-tools.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+      :root{
+        --bg:#0b0f14;
+        --panel:rgba(20,27,34,0.85);
+        --panel-2:rgba(27,35,44,0.9);
+        --border:rgba(255,255,255,0.09);
+        --border-strong:rgba(255,255,255,0.16);
+        --text:#e6edf3;
+        --muted:#9aa7b4;
+        --accent:#00ff66;
+        --accent-ink:#04130c;
+        --accent-soft:#57ff9e;
+        --danger:#f87171;
+        --blue:#7cb0ff;
+        --radius:18px;
+        --radius-sm:12px;
+        --focus:0 0 0 3px rgba(0,255,102,0.45);
+        --shadow:0 18px 50px rgba(0,0,0,0.45);
+      }
+      *{ box-sizing:border-box; }
+      html{ -webkit-text-size-adjust:100%; }
+      body{
+        margin:0; min-height:100vh;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif;
+        color:var(--text);
+        background:
+          radial-gradient(820px 380px at 12% -5%, rgba(0,255,102,0.12), transparent 60%),
+          radial-gradient(760px 360px at 100% 0%, rgba(124,176,255,0.08), transparent 60%),
+          var(--bg);
+        line-height:1.5;
+      }
+      a{ color:inherit; }
+      h1,h2,h3{ line-height:1.2; }
+
+      /* shared top bar */
+      .topbar{
+        position:sticky; top:0; z-index:50;
+        display:flex; align-items:center; justify-content:space-between;
+        gap:14px; flex-wrap:wrap;
+        padding:12px clamp(14px,3vw,28px);
+        background:rgba(11,15,20,0.86);
+        backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--border);
+      }
+      .brand{
+        display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+        color:var(--text); font-weight:800; letter-spacing:0.14em; font-size:14px;
+        min-height:44px; padding:2px 4px;
+      }
+      .brand b{ color:var(--accent); font-weight:800; }
+      .brand svg{ width:auto; height:56px; flex:none; }
+      .tools-nav{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+      .tool-link{
+        display:inline-flex; align-items:center; justify-content:center;
+        min-height:44px; padding:0 14px; border-radius:999px; text-decoration:none;
+        font-weight:700; font-size:14px; color:var(--muted); border:1px solid transparent;
+      }
+      .tool-link:hover{ color:var(--text); background:rgba(255,255,255,0.05); }
+      .tool-link[aria-current="page"]{ color:var(--accent); border-color:rgba(0,255,102,0.4); background:rgba(0,255,102,0.08); }
+      .lang-select{
+        min-height:44px; padding:0 12px; background:var(--panel-2); color:var(--text);
+        border:1px solid var(--border-strong); border-radius:999px; font-weight:700; font-size:14px; cursor:pointer;
+      }
+      .brand:focus-visible,.tool-link:focus-visible,.lang-select:focus-visible,
+      button:focus-visible,input:focus-visible,select:focus-visible{ outline:none; box-shadow:var(--focus); }
+
+      main{ max-width:1080px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(14px,3vw,28px) 64px; }
+      .hero{ margin-bottom:24px; }
+      .hero h1{ margin:0 0 8px; font-size:clamp(24px,4.4vw,38px); font-weight:800; letter-spacing:-0.02em; }
+      .hero p{ margin:0; max-width:640px; color:var(--muted); font-size:clamp(14px,2.2vw,17px); }
+
+      .card{
+        background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+        box-shadow:var(--shadow); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+        padding:clamp(18px,3vw,26px); margin-bottom:24px;
+      }
+      .grid-inputs{ display:grid; grid-template-columns:1fr; gap:16px; }
+      @media (min-width:560px){ .grid-inputs{ grid-template-columns:1fr 1fr; } }
+      @media (min-width:900px){ .grid-inputs{ grid-template-columns:1fr 1fr 1fr; } }
+      .field{ display:flex; flex-direction:column; gap:8px; }
+      .field.span-all{ grid-column:1 / -1; }
+      label.lbl{ font-weight:700; font-size:14px; color:var(--text); }
+      .input-wrap{ display:flex; align-items:center; gap:8px; min-height:54px;
+        background:rgba(0,0,0,0.28); border:1.5px solid var(--border-strong); border-radius:var(--radius-sm); padding:0 14px; }
+      .input-wrap .unit{ color:var(--muted); font-weight:800; font-size:13px; white-space:nowrap; }
+      .input-wrap input{ width:100%; border:0; background:transparent; color:var(--text); font-size:16px; font-weight:600; padding:12px 0; }
+      .input-wrap input:focus{ outline:none; }
+      .input-wrap:focus-within{ box-shadow:var(--focus); border-color:var(--accent); }
+      input::placeholder{ color:rgba(154,167,180,0.55); }
+
+      .actions{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:4px; }
+      @media (min-width:560px){ .actions{ grid-template-columns:2fr 1fr 1fr; } }
+      .btn{ min-height:54px; border-radius:var(--radius-sm); font-weight:800; font-size:16px; cursor:pointer; border:1px solid transparent; }
+      .btn.primary{ background:var(--accent); color:var(--accent-ink); border:0; }
+      .btn.primary:hover{ filter:brightness(1.06); }
+      .btn.secondary{ background:rgba(255,255,255,0.05); color:var(--text); border-color:var(--border-strong); }
+      .btn.ghost{ background:transparent; color:var(--text); border-color:var(--border-strong); }
+      .btn.secondary:hover,.btn.ghost:hover{ background:rgba(255,255,255,0.08); }
+
+      .error{ margin-top:14px; display:none; color:#fecaca; background:rgba(248,113,113,0.12);
+        border:1px solid rgba(248,113,113,0.35); padding:12px 14px; border-radius:var(--radius-sm); font-weight:600; }
+      .error.show{ display:block; }
+      .hint{ margin-top:12px; color:var(--muted); font-size:13px; line-height:1.6; }
+      .hint .kbd{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:12px; padding:2px 8px; border-radius:6px;
+        border:1px solid var(--border-strong); background:rgba(255,255,255,0.06); }
+
+      /* results */
+      .result-grid{ display:grid; grid-template-columns:1fr; gap:18px; align-items:start; }
+      @media (min-width:760px){ .result-grid{ grid-template-columns:1.1fr 0.9fr; } }
+      .netbox .label{ text-transform:uppercase; letter-spacing:0.06em; font-size:12px; font-weight:800; color:var(--muted); }
+      .netbox .value{ font-size:clamp(30px,5vw,44px); font-weight:800; letter-spacing:-0.02em; color:var(--accent-soft); margin:6px 0; }
+      .netbox .value.neg{ color:var(--danger); }
+      .netbox .explain{ color:var(--muted); font-size:13px; }
+      .metrics{ display:grid; gap:10px; }
+      .metric{ background:rgba(0,0,0,0.22); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; }
+      .metric .k{ font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:800; }
+      .metric .v{ margin-top:4px; font-size:18px; font-weight:800; }
+      .metric .v.pos{ color:var(--accent-soft); } .metric .v.neg{ color:var(--danger); } .metric .v.neu{ color:var(--blue); }
+
+      .history-head{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+      .history-head h2{ margin:0; font-size:17px; font-weight:800; }
+      .history-actions{ display:flex; gap:8px; flex-wrap:wrap; }
+      .btn.mini{ min-height:44px; padding:0 14px; font-size:14px; }
+      .table-wrap{ overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-sm); }
+      table{ width:100%; border-collapse:collapse; min-width:460px; }
+      th,td{ padding:12px 12px; text-align:left; border-bottom:1px solid var(--border); font-size:13px; }
+      thead th{ font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:800; background:rgba(0,0,0,0.25); }
+      tr:last-child td{ border-bottom:0; }
+      td.money{ font-weight:800; } td.good{ color:var(--accent-soft); } td.bad{ color:var(--danger); }
+      .empty-row td{ color:var(--muted); }
+
+      footer{ border-top:1px solid var(--border); margin-top:48px; padding:26px clamp(14px,3vw,28px);
+        text-align:center; color:var(--muted); font-size:13px; }
+      footer a{ color:var(--accent-soft); font-weight:700; display:inline-block; min-height:44px; line-height:44px; padding:0 4px; }
+      .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+      @media (prefers-reduced-motion: reduce){
+        *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+      }
+    </style>
+    <style>
+      select.inp, textarea.inp{
+        width:100%; background:var(--panel-2); color:var(--text);
+        border:1px solid var(--border-strong); border-radius:var(--radius-sm);
+        padding:12px 14px; font-size:15px; font-family:inherit;
+      }
+      select.inp:focus, textarea.inp:focus{ outline:none; box-shadow:var(--focus); }
+      textarea.inp{ min-height:96px; resize:vertical; }
+      .price-note{ font-size:12.5px; color:var(--muted); margin-top:14px; }
+      .info-list{ margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14.5px; }
+      .info-list li{ margin-bottom:6px; }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="IronVision Tools">
+            <svg viewBox="0 0 255 68" width="154" height="41" aria-hidden="true"><polygon points="62,34 48.2,10.8 19.8,10.8 6,34 19.8,57.2 48.2,57.2" fill="#0d1a14" stroke="#00ff66" stroke-width="2.2"/><polygon points="56.5,34 45,14.9 23,14.9 11.5,34 23,53.1 45,53.1" fill="none" stroke="#00ff66" stroke-width="0.55" opacity="0.38"/><path d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="6.8" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="2.9" fill="#00ff66"/><line x1="17.5" y1="34" x2="13" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="50.5" y1="34" x2="55" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><text x="74" y="31" font-family="'Arial Black','Arial Narrow',Impact,sans-serif" font-size="19" font-weight="900" letter-spacing="2.5" fill="#00ff66">IRON</text><text x="74" y="48" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="5.8" fill="#00ff66">VISION</text><text x="76.5" y="59" font-family="Arial,Helvetica,sans-serif" font-size="6.8" font-weight="300" letter-spacing="5.2" fill="#00ff66" opacity="0.33">TOOLS</text></svg>
+        </a>
+        <nav class="tools-nav" aria-label="Araçlar">
+            <a class="tool-link" href="kripto.html" data-i18n="navCrypto">Kripto K/Z</a>
+            <a class="tool-link" href="vergi.html" data-i18n="navTax">Vergi / Net Maaş</a>
+            <a class="tool-link" href="token.html" aria-current="page" data-i18n="navToken">Token Maliyet</a>
+            <label class="visually-hidden" for="langSelector" data-i18n="langLabel">Dil</label>
+            <select id="langSelector" class="lang-select" onchange="changeLanguage(this.value)">
+                <option value="tr">🇹🇷 TR</option>
+                <option value="en">🇬🇧 EN</option>
+            </select>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <h1 id="pageTitle">LLM Token Maliyet Hesaplayıcı</h1>
+            <p id="heroDesc">Model seçin, token sayılarını girin; işin yaklaşık dolar ve TL maliyetini görün. Fiyat alanları düzenlenebilir. Yalnızca bilgilendirme amaçlıdır.</p>
+        </section>
+
+        <section class="card" aria-labelledby="formHeading">
+            <h2 id="formHeading" class="visually-hidden">Hesaplama alanları</h2>
+            <form id="calcForm" novalidate>
+                <div class="grid-inputs">
+                    <div class="field" style="grid-column:1/-1;">
+                        <label class="lbl" for="modelSelect" id="lblModel">Model (fiyatları otomatik doldurur)</label>
+                        <select id="modelSelect" class="inp"></select>
+                    </div>
+                    <div class="field">
+                        <label class="lbl" for="inPrice" id="lblInPrice">Girdi Fiyatı (USD / 1M token)</label>
+                        <div class="input-wrap"><span class="unit">$</span><input id="inPrice" type="number" inputmode="decimal" min="0" step="any" placeholder="Örn: 5"></div>
+                    </div>
+                    <div class="field">
+                        <label class="lbl" for="outPrice" id="lblOutPrice">Çıktı Fiyatı (USD / 1M token)</label>
+                        <div class="input-wrap"><span class="unit">$</span><input id="outPrice" type="number" inputmode="decimal" min="0" step="any" placeholder="Örn: 25"></div>
+                    </div>
+                    <div class="field">
+                        <label class="lbl" for="inTok" id="lblInTok">Girdi Token</label>
+                        <div class="input-wrap"><span class="unit">TOK</span><input id="inTok" type="number" inputmode="numeric" min="0" step="1" placeholder="Örn: 12000"></div>
+                    </div>
+                    <div class="field">
+                        <label class="lbl" for="outTok" id="lblOutTok">Çıktı Token (beklenen cevap)</label>
+                        <div class="input-wrap"><span class="unit">TOK</span><input id="outTok" type="number" inputmode="numeric" min="0" step="1" placeholder="Örn: 2000"></div>
+                    </div>
+                    <div class="field">
+                        <label class="lbl" for="reqCount" id="lblReq">İstek Sayısı</label>
+                        <div class="input-wrap"><span class="unit">ADET</span><input id="reqCount" type="number" inputmode="numeric" min="1" step="1" value="1"></div>
+                    </div>
+                    <div class="field">
+                        <label class="lbl" for="usdTry" id="lblKur">USD/TL Kuru (opsiyonel)</label>
+                        <div class="input-wrap"><span class="unit">₺</span><input id="usdTry" type="number" inputmode="decimal" min="0" step="any" placeholder="Boş = sadece USD"></div>
+                    </div>
+                    <div class="field" style="grid-column:1/-1;">
+                        <label class="lbl" for="sampleText" id="lblSample">Metinden Token Tahmini (opsiyonel: metni yapıştır, girdi tokeni doldurulsun)</label>
+                        <textarea id="sampleText" class="inp" placeholder="Prompt metnini buraya yapıştırın..."></textarea>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn primary" type="submit" id="calcBtn">Hesapla</button>
+                    <button class="btn secondary" type="button" id="estBtn">Metinden Say</button>
+                    <button class="btn secondary" type="button" id="resetBtn">Sıfırla</button>
+                    <button class="btn ghost" type="button" id="saveBtn">Sonucu Kaydet</button>
+                </div>
+
+                <div id="errorBox" class="error" role="alert"></div>
+                <p class="hint"><span id="hintText"><span class="kbd">Enter</span> ile hesaplayabilirsiniz.</span></p>
+            </form>
+        </section>
+
+        <section class="card" aria-live="polite" aria-label="Sonuç">
+            <div class="result-grid">
+                <div class="netbox">
+                    <div class="label" id="resultLabel">Toplam Maliyet</div>
+                    <div class="value neu" id="netReturn">$0.00</div>
+                    <div class="explain" id="resultExplain">Maliyet = (girdi token × girdi fiyatı + çıktı token × çıktı fiyatı) / 1.000.000 × istek sayısı.</div>
+                </div>
+                <div class="metrics">
+                    <div class="metric"><div class="k" id="m1">Girdi Maliyeti</div><div class="v neu" id="metricIn">$0.00</div></div>
+                    <div class="metric"><div class="k" id="m2">Çıktı Maliyeti</div><div class="v neu" id="metricOut">$0.00</div></div>
+                    <div class="metric"><div class="k" id="m3">İstek Başı</div><div class="v neu" id="metricPer">$0.00</div></div>
+                    <div class="metric"><div class="k" id="m4">TL Karşılığı</div><div class="v neu" id="metricTry">—</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" aria-label="Hesap Geçmişi">
+            <div class="history-head">
+                <h2 id="historyTitle">Hesap Geçmişi (Son 10)</h2>
+                <div class="history-actions">
+                    <button class="btn secondary mini" type="button" id="copyHistoryBtn">Geçmişi Kopyala</button>
+                    <button class="btn ghost mini" type="button" id="clearHistoryBtn">Temizle</button>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr>
+                        <th id="hDate">Tarih</th><th id="hModel">Model</th><th id="hTok">Girdi/Çıktı</th><th id="hReq">İstek</th><th id="hNet">Toplam</th>
+                    </tr></thead>
+                    <tbody id="historyTbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card" aria-label="Bilgi">
+            <h2 id="infoTitle" style="margin-top:0;">Token maliyeti nasıl hesaplanır?</h2>
+            <p id="infoP1" style="color:var(--muted); font-size:14.5px;">Büyük dil modeli (LLM) sağlayıcıları ücretlendirmeyi token üzerinden yapar. Token, modelin metni işlediği en küçük parçadır; Türkçe metinde 1 token kabaca 3-4 karaktere, İngilizcede yaklaşık 4 karaktere denk gelir. Her istekte iki kalem ödersiniz: modele gönderdiğiniz girdi (prompt) tokenleri ve modelin ürettiği çıktı (cevap) tokenleri. Çıktı tokeni her sağlayıcıda girdiden pahalıdır.</p>
+            <ul class="info-list">
+                <li id="infoL1">Fiyatlar milyon token başına dolar cinsindendir ve seçtiğiniz modele göre otomatik dolar; elle değiştirebilirsiniz.</li>
+                <li id="infoL2">Metinden Say butonu, yapıştırdığınız metnin token sayısını yaklaşık tahmin eder (kesin sayım sağlayıcının resmi sayacıyla yapılır).</li>
+                <li id="infoL3">Toplu (batch) istekler çoğu sağlayıcıda yüzde 50 indirimlidir; önbellek (cache) okumaları girdi fiyatının yaklaşık onda biridir. Bu hesaplayıcı liste fiyatını kullanır.</li>
+            </ul>
+            <p class="price-note" id="priceNote">Gömülü fiyatlar Temmuz 2026 itibarıyladır (Anthropic fiyatları resmi tablodan, OpenAI ve Google fiyatları birden fazla bağımsız kaynaktan derlenmiştir). Fiyatlar değişebilir; kritik kararlar için sağlayıcının resmi fiyat sayfasını teyit edin.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p id="footNote">© <span id="year"></span> IronVision Tools · Yalnızca bilgilendirme amaçlıdır.</p>
+        <p style="margin-top:8px;"><a href="kripto.html" data-i18n="footCrypto">Kripto kâr/zarar hesaplayıcı</a> · <a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · ironvisiontools.com</p>
+    </footer>
+
+    <script>
+    (function(){
+      "use strict";
+      const $ = (id)=>document.getElementById(id);
+      let activeLang = localStorage.getItem("ivt_lang") || "tr";
+      let lastResult = null;
+
+      // Fiyatlar: USD / 1M token [girdi, cikti] — Temmuz 2026
+      const MODELS = [
+        {g:"Anthropic", items:[
+          ["Claude Fable 5", 10, 50],
+          ["Claude Opus 4.8", 5, 25],
+          ["Claude Sonnet 5", 3, 15],
+          ["Claude Haiku 4.5", 1, 5]]},
+        {g:"OpenAI", items:[
+          ["GPT-5.6 Sol", 5, 30],
+          ["GPT-5.6 Terra", 2.5, 15],
+          ["GPT-5.6 Luna", 1, 6],
+          ["GPT-5.4 Nano", 0.2, 1.25]]},
+        {g:"Google", items:[
+          ["Gemini 3.1 Pro", 2, 12],
+          ["Gemini 3.5 Flash", 1.5, 9],
+          ["Gemini 3.1 Flash-Lite", 0.25, 1.5],
+          ["Gemini 2.5 Flash-Lite", 0.1, 0.4]]}
+      ];
+
+      const copy = {
+        tr:{
+          navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil",
+          footCrypto:"Kripto kâr/zarar hesaplayıcı", footTax:"Vergi / net maaş hesaplayıcı",
+          pageTitle:"LLM Token Maliyet Hesaplayıcı",
+          heroDesc:"Model seçin, token sayılarını girin; işin yaklaşık dolar ve TL maliyetini görün. Fiyat alanları düzenlenebilir. Yalnızca bilgilendirme amaçlıdır.",
+          lblModel:"Model (fiyatları otomatik doldurur)", lblInPrice:"Girdi Fiyatı (USD / 1M token)", lblOutPrice:"Çıktı Fiyatı (USD / 1M token)",
+          lblInTok:"Girdi Token", lblOutTok:"Çıktı Token (beklenen cevap)", lblReq:"İstek Sayısı", lblKur:"USD/TL Kuru (opsiyonel)",
+          lblSample:"Metinden Token Tahmini (opsiyonel: metni yapıştır, girdi tokeni doldurulsun)",
+          calcBtn:"Hesapla", estBtn:"Metinden Say", resetBtn:"Sıfırla", saveBtn:"Sonucu Kaydet",
+          resultLabel:"Toplam Maliyet",
+          resultExplain:"Maliyet = (girdi token × girdi fiyatı + çıktı token × çıktı fiyatı) / 1.000.000 × istek sayısı.",
+          m1:"Girdi Maliyeti", m2:"Çıktı Maliyeti", m3:"İstek Başı", m4:"TL Karşılığı",
+          historyTitle:"Hesap Geçmişi (Son 10)", copyBtn:"Geçmişi Kopyala", clearBtn:"Temizle",
+          hDate:"Tarih", hModel:"Model", hTok:"Girdi/Çıktı", hReq:"İstek", hNet:"Toplam",
+          hintText:'<span class="kbd">Enter</span> ile hesaplayabilirsiniz.',
+          infoTitle:"Token maliyeti nasıl hesaplanır?",
+          infoP1:"Büyük dil modeli (LLM) sağlayıcıları ücretlendirmeyi token üzerinden yapar. Token, modelin metni işlediği en küçük parçadır; Türkçe metinde 1 token kabaca 3-4 karaktere, İngilizcede yaklaşık 4 karaktere denk gelir. Her istekte iki kalem ödersiniz: modele gönderdiğiniz girdi (prompt) tokenleri ve modelin ürettiği çıktı (cevap) tokenleri. Çıktı tokeni her sağlayıcıda girdiden pahalıdır.",
+          infoL1:"Fiyatlar milyon token başına dolar cinsindendir ve seçtiğiniz modele göre otomatik dolar; elle değiştirebilirsiniz.",
+          infoL2:"Metinden Say butonu, yapıştırdığınız metnin token sayısını yaklaşık tahmin eder (kesin sayım sağlayıcının resmi sayacıyla yapılır).",
+          infoL3:"Toplu (batch) istekler çoğu sağlayıcıda yüzde 50 indirimlidir; önbellek (cache) okumaları girdi fiyatının yaklaşık onda biridir. Bu hesaplayıcı liste fiyatını kullanır.",
+          priceNote:"Gömülü fiyatlar Temmuz 2026 itibarıyladır (Anthropic fiyatları resmi tablodan, OpenAI ve Google fiyatları birden fazla bağımsız kaynaktan derlenmiştir). Fiyatlar değişebilir; kritik kararlar için sağlayıcının resmi fiyat sayfasını teyit edin.",
+          footNote:"Yalnızca bilgilendirme amaçlıdır.",
+          customModel:"Özel model (fiyatları elle gir)",
+          empty:"Henüz kayıt yok.",
+          errFill:"Lütfen fiyat ve token alanlarını geçerli sayılarla doldurun.",
+          errText:"Önce metin yapıştırın.",
+          copied:"Kopyalandı ✓", copyFail:"Kopyalama başarısız. Tarayıcı izinlerini kontrol edin."
+        },
+        en:{
+          navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language",
+          footCrypto:"Crypto profit/loss calculator", footTax:"Tax / net salary calculator",
+          pageTitle:"LLM Token Cost Calculator",
+          heroDesc:"Pick a model, enter token counts, and see the approximate USD and TRY cost. Price fields are editable. For information only.",
+          lblModel:"Model (auto-fills prices)", lblInPrice:"Input Price (USD / 1M tokens)", lblOutPrice:"Output Price (USD / 1M tokens)",
+          lblInTok:"Input Tokens", lblOutTok:"Output Tokens (expected reply)", lblReq:"Request Count", lblKur:"USD/TRY Rate (optional)",
+          lblSample:"Estimate From Text (optional: paste text to fill input tokens)",
+          calcBtn:"Calculate", estBtn:"Count From Text", resetBtn:"Reset", saveBtn:"Save Result",
+          resultLabel:"Total Cost",
+          resultExplain:"Cost = (input tokens × input price + output tokens × output price) / 1,000,000 × requests.",
+          m1:"Input Cost", m2:"Output Cost", m3:"Per Request", m4:"TRY Equivalent",
+          historyTitle:"History (Last 10)", copyBtn:"Copy History", clearBtn:"Clear",
+          hDate:"Date", hModel:"Model", hTok:"In/Out", hReq:"Req", hNet:"Total",
+          hintText:'<span class="kbd">Enter</span> to calculate.',
+          infoTitle:"How is token cost calculated?",
+          infoP1:"LLM providers bill per token — the smallest unit of text a model processes. In English one token is roughly 4 characters. Every request has two line items: the input (prompt) tokens you send and the output (reply) tokens the model generates. Output tokens cost more than input tokens with every provider.",
+          infoL1:"Prices are in USD per million tokens and auto-fill from the selected model; you can edit them manually.",
+          infoL2:"The Count From Text button gives an approximate token estimate; exact counts come from the provider's official tokenizer.",
+          infoL3:"Batch requests are typically 50% cheaper and cache reads cost about a tenth of the input price. This calculator uses list prices.",
+          priceNote:"Embedded prices are as of July 2026 (Anthropic from the official table; OpenAI and Google compiled from multiple independent sources). Prices change; verify on the provider's official pricing page for critical decisions.",
+          footNote:"For information only.",
+          customModel:"Custom model (enter prices manually)",
+          empty:"No records yet.",
+          errFill:"Please fill price and token fields with valid numbers.",
+          errText:"Paste some text first.",
+          copied:"Copied ✓", copyFail:"Copy failed. Check browser permissions."
+        }
+      };
+
+      function buildModels(){
+        const sel = $("modelSelect");
+        sel.innerHTML = "";
+        MODELS.forEach(grp=>{
+          const og = document.createElement("optgroup");
+          og.label = grp.g;
+          grp.items.forEach(([ad,g,c])=>{
+            const o = document.createElement("option");
+            o.value = g + "|" + c;
+            o.textContent = ad + "  ($" + g + " / $" + c + ")";
+            o.dataset.name = ad;
+            og.appendChild(o);
+          });
+          sel.appendChild(og);
+        });
+        const oz = document.createElement("option");
+        oz.value = "custom";
+        oz.id = "customOpt";
+        oz.textContent = copy[activeLang].customModel;
+        sel.appendChild(oz);
+        sel.selectedIndex = 1; // Opus 4.8 varsayilan
+        fillPrices();
+      }
+
+      function fillPrices(){
+        const v = $("modelSelect").value;
+        if(v === "custom") return;
+        const [g,c] = v.split("|").map(Number);
+        $("inPrice").value = g;
+        $("outPrice").value = c;
+      }
+
+      function selectedModelName(){
+        const sel = $("modelSelect");
+        const o = sel.options[sel.selectedIndex];
+        return o ? (o.dataset.name || copy[activeLang].customModel) : "?";
+      }
+
+      function estimateTokens(t){
+        const chars = t.length;
+        const words = (t.trim().match(/\S+/g) || []).length;
+        return Math.max(1, Math.round(Math.max(words * 1.35, chars / 4)));
+      }
+
+      const fmtUsd = (x)=> "$" + (x >= 100 ? x.toFixed(2) : x >= 1 ? x.toFixed(3) : x.toFixed(4));
+      const fmtTry = (x)=> x.toLocaleString(activeLang === "tr" ? "tr-TR" : "en-US", {maximumFractionDigits:2}) + " ₺";
+
+      function calc(){
+        const gp = parseFloat($("inPrice").value), cp = parseFloat($("outPrice").value);
+        const gt = parseFloat($("inTok").value), ct = parseFloat($("outTok").value) || 0;
+        const req = Math.max(1, parseInt($("reqCount").value) || 1);
+        const kur = parseFloat($("usdTry").value) || 0;
+        if(!isFinite(gp) || !isFinite(cp) || !isFinite(gt) || gp < 0 || cp < 0 || gt < 0 || ct < 0){
+          $("errorBox").textContent = copy[activeLang].errFill; return null;
+        }
+        $("errorBox").textContent = "";
+        const inC = gt * req * gp / 1e6, outC = ct * req * cp / 1e6;
+        const total = inC + outC;
+        $("netReturn").textContent = fmtUsd(total);
+        $("metricIn").textContent = fmtUsd(inC);
+        $("metricOut").textContent = fmtUsd(outC);
+        $("metricPer").textContent = fmtUsd(total / req);
+        $("metricTry").textContent = kur > 0 ? fmtTry(total * kur) : "—";
+        lastResult = {t:new Date().toLocaleString(activeLang === "tr" ? "tr-TR" : "en-US"),
+                      model:selectedModelName(), gt, ct, req, total};
+        return lastResult;
+      }
+
+      // gecmis
+      const HKEY = "ivt_token_history";
+      const getH = ()=>{ try{ return JSON.parse(localStorage.getItem(HKEY)) || []; }catch(e){ return []; } };
+      const setH = (h)=> localStorage.setItem(HKEY, JSON.stringify(h.slice(0,10)));
+      function renderH(){
+        const h = getH(), tb = $("historyTbody");
+        tb.innerHTML = "";
+        if(!h.length){
+          tb.innerHTML = '<tr><td colspan="5" style="color:var(--muted);">' + copy[activeLang].empty + "</td></tr>";
+          return;
+        }
+        h.forEach(r=>{
+          const tr = document.createElement("tr");
+          [r.t, r.model, r.gt + " / " + r.ct, r.req, fmtUsd(r.total)].forEach(v=>{
+            const td = document.createElement("td"); td.textContent = v; tr.appendChild(td);
+          });
+          tb.appendChild(tr);
+        });
+      }
+
+      function applyLang(){
+        const c = copy[activeLang];
+        document.documentElement.lang = activeLang;
+        document.querySelectorAll("[data-i18n]").forEach(el=>{
+          const k = el.getAttribute("data-i18n");
+          if(c[k]) el.textContent = c[k];
+        });
+        ["pageTitle","heroDesc","lblModel","lblInPrice","lblOutPrice","lblInTok","lblOutTok","lblReq","lblKur","lblSample",
+         "calcBtn","estBtn","resetBtn","saveBtn","resultLabel","resultExplain","m1","m2","m3","m4",
+         "historyTitle","hDate","hModel","hTok","hReq","hNet","infoTitle","infoP1","infoL1","infoL2","infoL3","priceNote"]
+          .forEach(id=>{ if($(id) && c[id]) $(id).textContent = c[id]; });
+        $("hintText").innerHTML = c.hintText;
+        $("copyHistoryBtn").textContent = c.copyBtn;
+        $("clearHistoryBtn").textContent = c.clearBtn;
+        $("footNote").innerHTML = "© " + new Date().getFullYear() + " IronVision Tools · " + c.footNote;
+        const oz = $("customOpt"); if(oz) oz.textContent = c.customModel;
+        const ls = $("langSelector"); if(ls) ls.value = activeLang;
+        renderH();
+      }
+
+      window.changeLanguage = function(v){
+        activeLang = v; localStorage.setItem("ivt_lang", v); applyLang();
+      };
+
+      $("modelSelect").addEventListener("change", fillPrices);
+      $("estBtn").addEventListener("click", ()=>{
+        const t = $("sampleText").value;
+        if(!t.trim()){ $("errorBox").textContent = copy[activeLang].errText; return; }
+        $("errorBox").textContent = "";
+        $("inTok").value = estimateTokens(t);
+      });
+      $("calcForm").addEventListener("submit", (e)=>{ e.preventDefault(); calc(); });
+      $("resetBtn").addEventListener("click", ()=>{
+        $("calcForm").reset(); $("reqCount").value = 1; buildModels();
+        $("errorBox").textContent = ""; $("netReturn").textContent = "$0.00";
+        ["metricIn","metricOut","metricPer"].forEach(id=>$(id).textContent = "$0.00");
+        $("metricTry").textContent = "—"; lastResult = null;
+      });
+      $("saveBtn").addEventListener("click", ()=>{
+        const r = lastResult || calc();
+        if(!r) return;
+        const h = getH(); h.unshift(r); setH(h); renderH();
+      });
+      $("copyHistoryBtn").addEventListener("click", async ()=>{
+        const h = getH();
+        const text = h.map(r=>[r.t, r.model, r.gt + "/" + r.ct, r.req, fmtUsd(r.total)].join("  ")).join("\n");
+        try{ await navigator.clipboard.writeText(text); $("errorBox").textContent = copy[activeLang].copied; }
+        catch(e){ $("errorBox").textContent = copy[activeLang].copyFail; }
+      });
+      $("clearHistoryBtn").addEventListener("click", ()=>{ setH([]); renderH(); });
+
+      $("year").textContent = new Date().getFullYear();
+      buildModels();
+      applyLang();
+    })();
+    </script>
+</body>
+</html>

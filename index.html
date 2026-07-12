@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IronVision Tools — Kripto Kâr/Zarar Hesaplayıcı</title>
-    <meta name="description" content="Kripto alım/satım kâr-zarar hesaplayıcı: komisyon ve vergi dahil net sonuç. Ücretsiz, tarayıcıda çalışır, yalnızca bilgilendirme amaçlıdır.">
+    <title>IronVision Tools — Ücretsiz Finans ve Yapay Zeka Hesaplayıcıları</title>
+    <meta name="description" content="Kripto kâr/zarar, net maaş ve LLM token maliyet hesaplayıcıları. Ücretsiz, üyeliksiz, tarayıcıda çalışır ve veri toplamaz. IronVision Tools araç merkezi.">
     <meta name="theme-color" content="#0b0f14">
     <link rel="canonical" href="https://ironvisiontools.com/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='16,3 27,9 27,23 16,29 5,23 5,9' fill='none' stroke='%2312d18e' stroke-width='2.5'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%2312d18e'/%3E%3C/svg%3E">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="IronVision Tools — Kripto Kâr/Zarar Hesaplayıcı">
-    <meta property="og:description" content="Komisyon ve vergi dahil kripto net kâr/zarar hesaplayıcı. Ücretsiz, bilgilendirme amaçlıdır.">
+    <meta property="og:title" content="IronVision Tools — Ücretsiz Finans ve Yapay Zeka Hesaplayıcıları">
+    <meta property="og:description" content="Kripto kâr/zarar, net maaş ve LLM token maliyet hesaplayıcıları. Ücretsiz, üyeliksiz, tarayıcıda çalışır.">
     <meta property="og:url" content="https://ironvisiontools.com/">
     <meta property="og:image" content="https://ironvisiontools.com/assets/og-tools.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,6 @@
         --accent:#00ff66;
         --accent-ink:#04130c;
         --accent-soft:#57ff9e;
-        --danger:#f87171;
         --blue:#7cb0ff;
         --radius:18px;
         --radius-sm:12px;
@@ -78,75 +77,54 @@
         border:1px solid var(--border-strong); border-radius:999px; font-weight:700; font-size:14px; cursor:pointer;
       }
       .brand:focus-visible,.tool-link:focus-visible,.lang-select:focus-visible,
-      button:focus-visible,input:focus-visible,select:focus-visible{ outline:none; box-shadow:var(--focus); }
+      a:focus-visible,button:focus-visible,select:focus-visible{ outline:none; box-shadow:var(--focus); }
 
-      main{ max-width:1080px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(14px,3vw,28px) 64px; }
-      .hero{ margin-bottom:24px; }
-      .hero h1{ margin:0 0 8px; font-size:clamp(24px,4.4vw,38px); font-weight:800; letter-spacing:-0.02em; }
-      .hero p{ margin:0; max-width:640px; color:var(--muted); font-size:clamp(14px,2.2vw,17px); }
+      main{ max-width:1080px; margin:0 auto; padding:clamp(20px,4vw,44px) clamp(14px,3vw,28px) 64px; }
+      .hero{ margin-bottom:30px; }
+      .hero h1{ margin:0 0 12px; font-size:clamp(26px,4.6vw,42px); font-weight:800; letter-spacing:-0.02em; }
+      .hero p{ margin:0; max-width:680px; color:var(--muted); font-size:clamp(15px,2.2vw,18px); }
+      .badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+      .badge{
+        display:inline-flex; align-items:center; gap:6px;
+        padding:8px 14px; border-radius:999px; font-weight:700; font-size:13px;
+        background:rgba(0,255,102,0.10); color:var(--accent-soft);
+        border:1px solid rgba(0,255,102,0.28);
+      }
+      .badge.plain{ background:rgba(255,255,255,0.04); color:var(--muted); border-color:var(--border); }
 
-      .card{
+      /* tool cards */
+      .tool-grid{ display:grid; grid-template-columns:1fr; gap:18px; margin-bottom:36px; }
+      @media (min-width:720px){ .tool-grid{ grid-template-columns:1fr 1fr; } }
+      @media (min-width:980px){ .tool-grid{ grid-template-columns:1fr 1fr 1fr; } }
+      .tool-card{
+        display:flex; flex-direction:column; gap:12px; text-decoration:none; color:var(--text);
         background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
         box-shadow:var(--shadow); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
-        padding:clamp(18px,3vw,26px); margin-bottom:24px;
+        padding:clamp(18px,3vw,24px); transition:transform .14s ease, border-color .14s ease;
       }
-      .grid-inputs{ display:grid; grid-template-columns:1fr; gap:16px; }
-      @media (min-width:560px){ .grid-inputs{ grid-template-columns:1fr 1fr; } }
-      @media (min-width:900px){ .grid-inputs{ grid-template-columns:1fr 1fr 1fr; } }
-      .field{ display:flex; flex-direction:column; gap:8px; }
-      .field.span-all{ grid-column:1 / -1; }
-      label.lbl{ font-weight:700; font-size:14px; color:var(--text); }
-      .input-wrap{ display:flex; align-items:center; gap:8px; min-height:54px;
-        background:rgba(0,0,0,0.28); border:1.5px solid var(--border-strong); border-radius:var(--radius-sm); padding:0 14px; }
-      .input-wrap .unit{ color:var(--muted); font-weight:800; font-size:13px; white-space:nowrap; }
-      .input-wrap input{ width:100%; border:0; background:transparent; color:var(--text); font-size:16px; font-weight:600; padding:12px 0; }
-      .input-wrap input:focus{ outline:none; }
-      .input-wrap:focus-within{ box-shadow:var(--focus); border-color:var(--accent); }
-      input::placeholder{ color:rgba(154,167,180,0.55); }
+      .tool-card:hover{ transform:translateY(-3px); border-color:rgba(0,255,102,0.4); }
+      .tool-ic{
+        width:46px; height:46px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center;
+        background:rgba(0,255,102,0.10); border:1px solid rgba(0,255,102,0.28); color:var(--accent);
+      }
+      .tool-ic svg{ width:24px; height:24px; }
+      .tool-card h2{ margin:0; font-size:19px; font-weight:800; }
+      .tool-card p{ margin:0; color:var(--muted); font-size:14.5px; flex:1; }
+      .tool-go{ display:inline-flex; align-items:center; gap:6px; font-weight:800; font-size:14px; color:var(--accent-soft); }
 
-      .actions{ display:grid; grid-template-columns:1fr; gap:10px; margin-top:4px; }
-      @media (min-width:560px){ .actions{ grid-template-columns:2fr 1fr 1fr; } }
-      .btn{ min-height:54px; border-radius:var(--radius-sm); font-weight:800; font-size:16px; cursor:pointer; border:1px solid transparent; }
-      .btn.primary{ background:var(--accent); color:var(--accent-ink); border:0; }
-      .btn.primary:hover{ filter:brightness(1.06); }
-      .btn.secondary{ background:rgba(255,255,255,0.05); color:var(--text); border-color:var(--border-strong); }
-      .btn.ghost{ background:transparent; color:var(--text); border-color:var(--border-strong); }
-      .btn.secondary:hover,.btn.ghost:hover{ background:rgba(255,255,255,0.08); }
-
-      .error{ margin-top:14px; display:none; color:#fecaca; background:rgba(248,113,113,0.12);
-        border:1px solid rgba(248,113,113,0.35); padding:12px 14px; border-radius:var(--radius-sm); font-weight:600; }
-      .error.show{ display:block; }
-      .hint{ margin-top:12px; color:var(--muted); font-size:13px; line-height:1.6; }
-      .hint .kbd{ font-family:ui-monospace,Menlo,Consolas,monospace; font-size:12px; padding:2px 8px; border-radius:6px;
-        border:1px solid var(--border-strong); background:rgba(255,255,255,0.06); }
-
-      /* results */
-      .result-grid{ display:grid; grid-template-columns:1fr; gap:18px; align-items:start; }
-      @media (min-width:760px){ .result-grid{ grid-template-columns:1.1fr 0.9fr; } }
-      .netbox .label{ text-transform:uppercase; letter-spacing:0.06em; font-size:12px; font-weight:800; color:var(--muted); }
-      .netbox .value{ font-size:clamp(30px,5vw,44px); font-weight:800; letter-spacing:-0.02em; color:var(--accent-soft); margin:6px 0; }
-      .netbox .value.neg{ color:var(--danger); }
-      .netbox .explain{ color:var(--muted); font-size:13px; }
-      .metrics{ display:grid; gap:10px; }
-      .metric{ background:rgba(0,0,0,0.22); border:1px solid var(--border); border-radius:var(--radius-sm); padding:12px 14px; }
-      .metric .k{ font-size:12px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:800; }
-      .metric .v{ margin-top:4px; font-size:18px; font-weight:800; }
-      .metric .v.pos{ color:var(--accent-soft); } .metric .v.neg{ color:var(--danger); } .metric .v.neu{ color:var(--blue); }
-
-      .history-head{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
-      .history-head h2{ margin:0; font-size:17px; font-weight:800; }
-      .history-actions{ display:flex; gap:8px; flex-wrap:wrap; }
-      .btn.mini{ min-height:44px; padding:0 14px; font-size:14px; }
-      .table-wrap{ overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-sm); }
-      table{ width:100%; border-collapse:collapse; min-width:460px; }
-      th,td{ padding:12px 12px; text-align:left; border-bottom:1px solid var(--border); font-size:13px; }
-      thead th{ font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); font-weight:800; background:rgba(0,0,0,0.25); }
-      tr:last-child td{ border-bottom:0; }
-      td.money{ font-weight:800; } td.good{ color:var(--accent-soft); } td.bad{ color:var(--danger); }
-      .empty-row td{ color:var(--muted); }
+      /* prose section */
+      .prose{
+        background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+        box-shadow:var(--shadow); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+        padding:clamp(20px,3.4vw,32px);
+      }
+      .prose h2{ margin:0 0 14px; font-size:22px; font-weight:800; }
+      .prose p{ margin:0 0 14px; color:var(--muted); font-size:15px; line-height:1.7; max-width:760px; }
+      .prose p:last-child{ margin-bottom:0; }
 
       footer{ border-top:1px solid var(--border); margin-top:48px; padding:26px clamp(14px,3vw,28px);
         text-align:center; color:var(--muted); font-size:13px; }
+      footer .links{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:12px; }
       footer a{ color:var(--accent-soft); font-weight:700; display:inline-block; min-height:44px; line-height:44px; padding:0 4px; }
       .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
@@ -161,7 +139,8 @@
             <svg viewBox="0 0 255 68" width="154" height="41" aria-hidden="true"><polygon points="62,34 48.2,10.8 19.8,10.8 6,34 19.8,57.2 48.2,57.2" fill="#0d1a14" stroke="#00ff66" stroke-width="2.2"/><polygon points="56.5,34 45,14.9 23,14.9 11.5,34 23,53.1 45,53.1" fill="none" stroke="#00ff66" stroke-width="0.55" opacity="0.38"/><path d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="6.8" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="2.9" fill="#00ff66"/><line x1="17.5" y1="34" x2="13" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="50.5" y1="34" x2="55" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><text x="74" y="31" font-family="'Arial Black','Arial Narrow',Impact,sans-serif" font-size="19" font-weight="900" letter-spacing="2.5" fill="#00ff66">IRON</text><text x="74" y="48" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="5.8" fill="#00ff66">VISION</text><text x="76.5" y="59" font-family="Arial,Helvetica,sans-serif" font-size="6.8" font-weight="300" letter-spacing="5.2" fill="#00ff66" opacity="0.33">TOOLS</text></svg>
         </a>
         <nav class="tools-nav" aria-label="Araçlar">
-            <a class="tool-link" href="index.html" aria-current="page" data-i18n="navCrypto">Kripto K/Z</a>
+            <a class="tool-link" href="index.html" aria-current="page" data-i18n="navHome">Ana Sayfa</a>
+            <a class="tool-link" href="kripto.html" data-i18n="navCrypto">Kripto K/Z</a>
             <a class="tool-link" href="vergi.html" data-i18n="navTax">Vergi / Net Maaş</a>
             <a class="tool-link" href="token.html" data-i18n="navToken">Token Maliyet</a>
             <label class="visually-hidden" for="langSelector" data-i18n="langLabel">Dil</label>
@@ -174,276 +153,125 @@
 
     <main>
         <section class="hero">
-            <h1 id="pageTitle">Kripto Kâr/Zarar Hesaplayıcı</h1>
-            <p id="heroDesc">Alış/satış ve komisyonları girin; komisyon ve vergi sonrası net sonucu görün. Yalnızca bilgilendirme amaçlıdır.</p>
-        </section>
-
-        <section class="card" aria-labelledby="formHeading">
-            <h2 id="formHeading" class="visually-hidden">Hesaplama alanları</h2>
-            <form id="calcForm" novalidate>
-                <div class="grid-inputs">
-                    <div class="field">
-                        <label class="lbl" for="investAmount" id="lblInvest">Yatırım Miktarı</label>
-                        <div class="input-wrap"><span class="unit">USD</span><input id="investAmount" type="number" inputmode="decimal" min="0" step="any" placeholder="Örn: 1000"></div>
-                    </div>
-                    <div class="field">
-                        <label class="lbl" for="buyPrice" id="lblBuy">Alış Fiyatı</label>
-                        <div class="input-wrap"><span class="unit">USD</span><input id="buyPrice" type="number" inputmode="decimal" min="0" step="any" placeholder="Örn: 25000"></div>
-                    </div>
-                    <div class="field">
-                        <label class="lbl" for="sellPrice" id="lblSell">Satış Fiyatı</label>
-                        <div class="input-wrap"><span class="unit">USD</span><input id="sellPrice" type="number" inputmode="decimal" min="0" step="any" placeholder="Örn: 27000"></div>
-                    </div>
-                    <div class="field">
-                        <label class="lbl" for="qtyOverride" id="lblCoins">Opsiyonel Coin Miktarı</label>
-                        <div class="input-wrap"><span class="unit">COIN</span><input id="qtyOverride" type="number" inputmode="decimal" min="0" step="any" placeholder="Boş = yatırım / alış"></div>
-                    </div>
-                    <div class="field">
-                        <label class="lbl" for="buyCommission" id="lblBuyFee">Alış Komisyon (%)</label>
-                        <div class="input-wrap"><span class="unit">%</span><input id="buyCommission" type="number" inputmode="decimal" min="0" step="any" placeholder="0.10" value="0"></div>
-                    </div>
-                    <div class="field">
-                        <label class="lbl" for="sellCommission" id="lblSellFee">Satış Komisyon (%)</label>
-                        <div class="input-wrap"><span class="unit">%</span><input id="sellCommission" type="number" inputmode="decimal" min="0" step="any" placeholder="0.10" value="0"></div>
-                    </div>
-                    <div class="field">
-                        <label class="lbl" for="taxRate" id="lblTax">Vergi Oranı (Kâr Üzerinden %)</label>
-                        <div class="input-wrap"><span class="unit">%</span><input id="taxRate" type="number" inputmode="decimal" min="0" step="any" placeholder="Örn: 10" value="0"></div>
-                    </div>
-                </div>
-
-                <div class="actions">
-                    <button class="btn primary" type="submit" id="calcBtn">Hesapla</button>
-                    <button class="btn secondary" type="button" id="resetBtn">Sıfırla</button>
-                    <button class="btn ghost" type="button" id="saveBtn">Sonucu Kaydet</button>
-                </div>
-
-                <div id="errorBox" class="error" role="alert"></div>
-                <p class="hint"><span id="hintText"><span class="kbd">Enter</span> ile hesaplayabilirsiniz.</span></p>
-                <p class="hint" id="formulaHint"></p>
-            </form>
-        </section>
-
-        <section class="card" aria-live="polite" aria-label="Sonuç">
-            <div class="result-grid">
-                <div class="netbox">
-                    <div class="label" id="resultLabel">Net Sonuç</div>
-                    <div class="value neu" id="netReturn">+0.00 $</div>
-                    <div class="explain" id="resultExplain">Vergi oranı 0 ise net = komisyonlar sonrası satış − maliyet.</div>
-                </div>
-                <div class="metrics">
-                    <div class="metric"><div class="k" id="m1">Ham Kâr/Zarar</div><div class="v neu" id="metricGross">+0.00 $</div></div>
-                    <div class="metric"><div class="k" id="m2">Komisyon Toplamı</div><div class="v neu" id="metricFees">0.00 $</div></div>
-                    <div class="metric"><div class="k" id="m3">Vergi (Kâr Pozitifse)</div><div class="v neu" id="metricTax">0.00 $</div></div>
-                    <div class="metric"><div class="k" id="m4">Satış Tutarı (Komisyon Sonrası)</div><div class="v neu" id="metricSellNet">0.00 $</div></div>
-                </div>
+            <h1 data-i18n="heroTitle">Ücretsiz finans ve yapay zeka hesaplayıcıları</h1>
+            <p data-i18n="heroDesc">IronVision Tools, günlük işlerde tekrar tekrar ihtiyaç duyduğumuz küçük ve tek işe odaklı hesaplayıcılardan oluşan bağımsız bir koleksiyondur. Üyelik yok, reklam yok; her araç tamamen tarayıcınızda çalışır ve girdiğiniz hiçbir veri sunucuya gönderilmez.</p>
+            <div class="badges">
+                <span class="badge" data-i18n="badgeFree">✓ %100 ücretsiz</span>
+                <span class="badge plain" data-i18n="badgeNoReg">Üyelik gerektirmez</span>
+                <span class="badge plain" data-i18n="badgeLocal">Tarayıcınızda çalışır</span>
+                <span class="badge plain" data-i18n="badgeNoData">Veri toplamaz</span>
             </div>
         </section>
 
-        <section class="card" aria-label="Hesap Geçmişi">
-            <div class="history-head">
-                <h2 id="historyTitle">Hesap Geçmişi (Son 10)</h2>
-                <div class="history-actions">
-                    <button class="btn secondary mini" type="button" id="copyHistoryBtn">Geçmişi Kopyala</button>
-                    <button class="btn ghost mini" type="button" id="clearHistoryBtn">Temizle</button>
-                </div>
-            </div>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr>
-                        <th id="hDate">Tarih</th><th id="hGross">Ham</th><th id="hFees">Komisyon</th><th id="hTax">Vergi</th><th id="hNet">Net</th>
-                    </tr></thead>
-                    <tbody id="historyTbody"></tbody>
-                </table>
-            </div>
+        <section class="tool-grid" aria-label="Araçlar">
+            <a class="tool-card" href="kripto.html">
+                <span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+                <h2 data-i18n="t1Title">Kripto Kâr/Zarar</h2>
+                <p data-i18n="t1Desc">Alış, satış, komisyon ve vergiyi girin; bir kripto işleminin komisyon ve vergi sonrası net sonucunu anında görün. Al-sat kararlarını duygularla değil rakamlarla tartmak için.</p>
+                <span class="tool-go" data-i18n="openTool">Aracı aç →</span>
+            </a>
+            <a class="tool-card" href="vergi.html">
+                <span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
+                <h2 data-i18n="t2Title">Vergi / Net Maaş</h2>
+                <p data-i18n="t2Desc">Brüt maaşınızdan elinize geçecek net tutarı 2026 kademeli vergi dilimleriyle tahmin edin. Türkiye, ABD, Almanya, İngiltere ve Fransa için ayrı hesaplama.</p>
+                <span class="tool-go" data-i18n="openTool">Aracı aç →</span>
+            </a>
+            <a class="tool-card" href="token.html">
+                <span class="tool-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5h4.5a2 2 0 0 1 0 4H9"/></svg></span>
+                <h2 data-i18n="t3Title">LLM Token Maliyet</h2>
+                <p data-i18n="t3Desc">Claude, GPT ve Gemini API çağrılarının yaklaşık dolar ve TL maliyetini token bazında hesaplayın. Modeller hazır gelir, fiyatlar düzenlenebilir, metinden token tahmini yapılır.</p>
+                <span class="tool-go" data-i18n="openTool">Aracı aç →</span>
+            </a>
+        </section>
+
+        <section class="prose" aria-labelledby="whyHeading">
+            <h2 id="whyHeading" data-i18n="whyTitle">Neden bu araçlar?</h2>
+            <p data-i18n="whyP1">Bu hesaplayıcıları önce kendimiz için yaptık. Bir kripto işleminin komisyon ve vergi düşüldükten sonra gerçekten kâr mı bıraktığını, brüt bir maaşın elimize kaç para olarak geçtiğini ya da bir yapay zeka çağrısının kaç dolara mal olacağını hesaplamak için her seferinde dağınık tablolara ve yarım yamalak sitelere başvurmak yorucuydu. Bir kez düzgün yapıp herkese açmak daha mantıklı geldi.</p>
+            <p data-i18n="whyP2">Her araç tek bir işi olabildiğince iyi yapmaya çalışır; gereksiz menüler, açılır pencereler veya kayıt duvarları yoktur. Girdiğiniz sayılar tarayıcınızdan hiç çıkmaz: hesaplama tamamen cihazınızda yapılır, sunucuya gönderilmez. Yalnızca dil tercihiniz ve isterseniz kaydettiğiniz hesap geçmişi tarayıcınızın kendi hafızasında (localStorage) tutulur; bunları da istediğiniz an temizleyebilirsiniz.</p>
+            <p data-i18n="whyP3">Sonuçlar mümkün olduğunca doğru olmaya çalışır ama basitleştirilmiş modellere dayanır ve yalnızca bilgilendirme amaçlıdır; vergi, hukuk veya yatırım tavsiyesi değildir. Vergi oranları ve API fiyatları zamanla değişir, bu yüzden kritik kararlarda sonucu resmi kaynaktan (örneğin vergi için gib.gov.tr, API için sağlayıcının resmi fiyat sayfasından) ya da bir uzmandan teyit etmenizi öneririz.</p>
         </section>
     </main>
 
     <footer>
-        <p id="footNote">© <span id="year"></span> IronVision Tools · Yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</p>
-        <p style="margin-top:8px;"><a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · <a href="token.html" data-i18n="navToken">Token maliyet hesaplayıcı</a> · ironvisiontools.com</p>
+        <div class="links">
+            <a href="hakkinda.html" data-i18n="footAbout">Hakkında</a>
+            <a href="gizlilik.html" data-i18n="footPrivacy">Gizlilik</a>
+            <a href="iletisim.html" data-i18n="footContact">İletişim</a>
+        </div>
+        <p><span data-i18n="footTools">Araçlar:</span>
+            <a href="kripto.html" data-i18n="navCrypto">Kripto K/Z</a> ·
+            <a href="vergi.html" data-i18n="navTax">Vergi / Net Maaş</a> ·
+            <a href="token.html" data-i18n="navToken">Token Maliyet</a>
+        </p>
+        <p style="margin-top:10px;">© <span id="year"></span> IronVision Tools · ironvisiontools.com</p>
     </footer>
 
     <script>
     (function(){
       "use strict";
       const $ = (id)=>document.getElementById(id);
-      let activeLang = "tr";
-      let lastResult = null;
+      let activeLang = localStorage.getItem("ivt_lang") || "tr";
 
       const copy = {
         tr:{
-          navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil", footTax:"Vergi / net maaş hesaplayıcı",
-          pageTitle:"Kripto Kâr/Zarar Hesaplayıcı",
-          heroDesc:"Alış/satış ve komisyonları girin; komisyon ve vergi sonrası net sonucu görün. Yalnızca bilgilendirme amaçlıdır.",
-          lblInvest:"Yatırım Miktarı", lblBuy:"Alış Fiyatı", lblSell:"Satış Fiyatı", lblCoins:"Opsiyonel Coin Miktarı",
-          lblBuyFee:"Alış Komisyon (%)", lblSellFee:"Satış Komisyon (%)", lblTax:"Vergi Oranı (Kâr Üzerinden %)",
-          calcBtn:"Hesapla", resetBtn:"Sıfırla", saveBtn:"Sonucu Kaydet",
-          resultLabel:"Net Sonuç", resultExplain:"Vergi oranı 0 ise net = komisyonlar sonrası satış − maliyet.",
-          m1:"Ham Kâr/Zarar", m2:"Komisyon Toplamı", m3:"Vergi (Kâr Pozitifse)", m4:"Satış Tutarı (Komisyon Sonrası)",
-          historyTitle:"Hesap Geçmişi (Son 10)", copyBtn:"Geçmişi Kopyala", clearBtn:"Temizle",
-          hDate:"Tarih", hGross:"Ham", hFees:"Komisyon", hTax:"Vergi", hNet:"Net",
-          hintText:'<span class="kbd">Enter</span> ile hesaplayabilirsiniz.',
-          formulaHint:"Model: coin = (opsiyonel coin) ya da yatırım/alış. Maliyet = coin × alış × (1 + alış komisyonu). Satış komisyonu satıştan düşülür. Vergi yalnızca ham kâr pozitifse uygulanır.",
-          footNote:"Yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.",
-          empty:"Henüz kayıt yok.",
-          errFill:"Lütfen tüm alanları geçerli sayılarla doldurun.",
-          errBuy:"Alış fiyatı 0'dan büyük olmalı.",
-          errNeg:"Yatırım ve satış değerleri 0 veya daha büyük olmalı.",
-          errRates:"Oranlar ve opsiyonel coin miktarı negatif olamaz.",
-          copied:"Kopyalandı ✓", copyFail:"Kopyalama başarısız. Tarayıcı izinlerini kontrol edin."
+          navHome:"Ana Sayfa", navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil",
+          heroTitle:"Ücretsiz finans ve yapay zeka hesaplayıcıları",
+          heroDesc:"IronVision Tools, günlük işlerde tekrar tekrar ihtiyaç duyduğumuz küçük ve tek işe odaklı hesaplayıcılardan oluşan bağımsız bir koleksiyondur. Üyelik yok, reklam yok; her araç tamamen tarayıcınızda çalışır ve girdiğiniz hiçbir veri sunucuya gönderilmez.",
+          badgeFree:"✓ %100 ücretsiz", badgeNoReg:"Üyelik gerektirmez", badgeLocal:"Tarayıcınızda çalışır", badgeNoData:"Veri toplamaz",
+          t1Title:"Kripto Kâr/Zarar",
+          t1Desc:"Alış, satış, komisyon ve vergiyi girin; bir kripto işleminin komisyon ve vergi sonrası net sonucunu anında görün. Al-sat kararlarını duygularla değil rakamlarla tartmak için.",
+          t2Title:"Vergi / Net Maaş",
+          t2Desc:"Brüt maaşınızdan elinize geçecek net tutarı 2026 kademeli vergi dilimleriyle tahmin edin. Türkiye, ABD, Almanya, İngiltere ve Fransa için ayrı hesaplama.",
+          t3Title:"LLM Token Maliyet",
+          t3Desc:"Claude, GPT ve Gemini API çağrılarının yaklaşık dolar ve TL maliyetini token bazında hesaplayın. Modeller hazır gelir, fiyatlar düzenlenebilir, metinden token tahmini yapılır.",
+          openTool:"Aracı aç →",
+          whyTitle:"Neden bu araçlar?",
+          whyP1:"Bu hesaplayıcıları önce kendimiz için yaptık. Bir kripto işleminin komisyon ve vergi düşüldükten sonra gerçekten kâr mı bıraktığını, brüt bir maaşın elimize kaç para olarak geçtiğini ya da bir yapay zeka çağrısının kaç dolara mal olacağını hesaplamak için her seferinde dağınık tablolara ve yarım yamalak sitelere başvurmak yorucuydu. Bir kez düzgün yapıp herkese açmak daha mantıklı geldi.",
+          whyP2:"Her araç tek bir işi olabildiğince iyi yapmaya çalışır; gereksiz menüler, açılır pencereler veya kayıt duvarları yoktur. Girdiğiniz sayılar tarayıcınızdan hiç çıkmaz: hesaplama tamamen cihazınızda yapılır, sunucuya gönderilmez. Yalnızca dil tercihiniz ve isterseniz kaydettiğiniz hesap geçmişi tarayıcınızın kendi hafızasında (localStorage) tutulur; bunları da istediğiniz an temizleyebilirsiniz.",
+          whyP3:"Sonuçlar mümkün olduğunca doğru olmaya çalışır ama basitleştirilmiş modellere dayanır ve yalnızca bilgilendirme amaçlıdır; vergi, hukuk veya yatırım tavsiyesi değildir. Vergi oranları ve API fiyatları zamanla değişir, bu yüzden kritik kararlarda sonucu resmi kaynaktan (örneğin vergi için gib.gov.tr, API için sağlayıcının resmi fiyat sayfasından) ya da bir uzmandan teyit etmenizi öneririz.",
+          footAbout:"Hakkında", footPrivacy:"Gizlilik", footContact:"İletişim", footTools:"Araçlar:"
         },
         en:{
-          navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language", footTax:"Tax / net salary calculator",
-          pageTitle:"Crypto Profit/Loss Calculator",
-          heroDesc:"Enter buy/sell prices and fees to see your net result after fees and tax. For information only.",
-          lblInvest:"Investment Amount", lblBuy:"Buy Price", lblSell:"Sell Price", lblCoins:"Optional Coin Quantity",
-          lblBuyFee:"Buy Commission (%)", lblSellFee:"Sell Commission (%)", lblTax:"Tax Rate (on Profit) %",
-          calcBtn:"Calculate", resetBtn:"Reset", saveBtn:"Save Result",
-          resultLabel:"Net Result", resultExplain:"If tax rate is 0, net = proceeds after fees − cost.",
-          m1:"Gross Profit/Loss", m2:"Total Fees", m3:"Tax (Only if Profit > 0)", m4:"Sell Proceeds (After Fee)",
-          historyTitle:"History (Last 10)", copyBtn:"Copy History", clearBtn:"Clear",
-          hDate:"Date", hGross:"Gross", hFees:"Fees", hTax:"Tax", hNet:"Net",
-          hintText:'Press <span class="kbd">Enter</span> to calculate.',
-          formulaHint:"Model: coin = (optional coins) or investment/buy. Cost = coin × buy × (1 + buy fee). Sell fee reduces proceeds. Tax applies only when gross profit is positive.",
-          footNote:"For information only, not investment advice.",
-          empty:"No records yet.",
-          errFill:"Please fill all fields with valid numbers.",
-          errBuy:"Buy price must be greater than 0.",
-          errNeg:"Investment and sell values must be 0 or greater.",
-          errRates:"Rates and optional coin quantity cannot be negative.",
-          copied:"Copied ✓", copyFail:"Copy failed. Check browser permissions."
+          navHome:"Home", navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language",
+          heroTitle:"Free finance and AI calculators",
+          heroDesc:"IronVision Tools is an independent collection of small, single-purpose calculators we kept needing in everyday work. No sign-up, no ads; every tool runs entirely in your browser and none of the data you enter is sent to a server.",
+          badgeFree:"✓ 100% free", badgeNoReg:"No registration", badgeLocal:"Runs in your browser", badgeNoData:"No data collection",
+          t1Title:"Crypto Profit/Loss",
+          t1Desc:"Enter buy, sell, fees and tax to instantly see a crypto trade's net result after fees and tax. For weighing buy/sell decisions with numbers instead of emotion.",
+          t2Title:"Tax / Net Pay",
+          t2Desc:"Estimate your take-home pay from a gross salary using 2026 progressive tax brackets. Separate calculations for Turkey, the US, Germany, the UK and France.",
+          t3Title:"LLM Token Cost",
+          t3Desc:"Calculate the approximate USD and TRY cost of Claude, GPT and Gemini API calls per token. Models are preloaded, prices are editable, and you can estimate tokens from text.",
+          openTool:"Open tool →",
+          whyTitle:"Why these tools?",
+          whyP1:"We built these calculators for ourselves first. Working out whether a crypto trade actually cleared a profit after fees and tax, how much of a gross salary really reaches your pocket, or what an AI call will cost meant reaching for messy spreadsheets and half-finished websites every time. It made more sense to build each one properly, once, and open it up to everyone.",
+          whyP2:"Each tool tries to do a single job as well as possible; there are no needless menus, pop-ups or sign-up walls. The numbers you type never leave your browser: the calculation happens entirely on your device and is never sent to a server. Only your language preference and, if you choose to save it, your calculation history are kept in your browser's own storage (localStorage) — and you can clear those at any time.",
+          whyP3:"Results aim to be as accurate as possible but rely on simplified models and are for information only; they are not tax, legal or investment advice. Tax rates and API prices change over time, so for important decisions we recommend confirming the result with an official source (for example gib.gov.tr for Turkish taxes, or the provider's official pricing page for APIs) or with a professional.",
+          footAbout:"About", footPrivacy:"Privacy", footContact:"Contact", footTools:"Tools:"
         }
       };
 
-      function t(){ return copy[activeLang] || copy.tr; }
-
-      function setLang(lang){
-        activeLang = copy[lang] ? lang : "tr";
-        const c = t();
-        $("pageTitle").textContent = c.pageTitle;
-        $("heroDesc").textContent = c.heroDesc;
-        ["lblInvest","lblBuy","lblSell","lblCoins","lblBuyFee","lblSellFee","lblTax",
-         "calcBtn","resetBtn","saveBtn","resultLabel","resultExplain",
-         "m1","m2","m3","m4","historyTitle","hDate","hGross","hFees","hTax","hNet","formulaHint"
-        ].forEach(k=>{ if($(k)) $(k).textContent = c[k]; });
-        $("copyHistoryBtn").textContent = c.copyBtn;
-        $("clearHistoryBtn").textContent = c.clearBtn;
-        $("hintText").innerHTML = c.hintText;
-        $("navCrypto") && ($("navCrypto").textContent = c.navCrypto);
-        document.querySelector('[data-i18n="navCrypto"]').textContent = c.navCrypto;
-        document.querySelector('[data-i18n="navTax"]').textContent = c.navTax;
-        document.querySelector('[data-i18n="footTax"]').textContent = c.footTax;
-        $("footNote").innerHTML = "© " + new Date().getFullYear() + " IronVision Tools · " + c.footNote;
+      function applyLang(){
+        const c = copy[activeLang] || copy.tr;
         document.documentElement.lang = activeLang;
-        renderHistory();
+        document.querySelectorAll("[data-i18n]").forEach(el=>{
+          const k = el.getAttribute("data-i18n");
+          if(c[k] != null) el.textContent = c[k];
+        });
+        const ls = $("langSelector"); if(ls) ls.value = activeLang;
       }
-      window.changeLanguage = setLang;
+      window.changeLanguage = function(v){
+        activeLang = copy[v] ? v : "tr";
+        localStorage.setItem("ivt_lang", activeLang);
+        applyLang();
+      };
 
-      /* utils */
-      function showError(msg){ const e=$("errorBox"); e.textContent=msg; e.classList.add("show"); }
-      function clearError(){ const e=$("errorBox"); e.textContent=""; e.classList.remove("show"); }
-      function money(n){ if(!Number.isFinite(n)) return "0.00 $"; return (n>0?"+":"") + n.toFixed(2) + " $"; }
-      function num(id){ return Number($(id).value); }
-      function signClass(el, n, base){
-        el.classList.remove("pos","neg","neu");
-        el.classList.add(n>0 ? "pos" : n<0 ? "neg" : "neu");
-      }
-
-      /* core calc — logic preserved; cost basis now consistent with coin quantity */
-      function calculate(){
-        clearError();
-        const invest=num("investAmount"), buy=num("buyPrice"), sell=num("sellPrice"), qty=num("qtyOverride");
-        const buyFee=num("buyCommission"), sellFee=num("sellCommission"), taxRate=num("taxRate");
-        const c = t();
-
-        if([invest,buy,sell,buyFee,sellFee,taxRate,qty].some(v=>!Number.isFinite(v))){ showError(c.errFill); return null; }
-        if(buy<=0){ showError(c.errBuy); return null; }
-        if(invest<0 || sell<0){ showError(c.errNeg); return null; }
-        if(buyFee<0 || sellFee<0 || taxRate<0 || qty<0){ showError(c.errRates); return null; }
-
-        const coins = qty>0 ? qty : invest/buy;
-        const cost = coins*buy*(1 + buyFee/100);
-        const grossProceeds = coins*sell;
-        const sellProceeds = grossProceeds*(1 - sellFee/100);
-        const gross = sellProceeds - cost;
-        const buyFeeAbs = coins*buy*(buyFee/100);
-        const sellFeeAbs = grossProceeds - sellProceeds;
-        const feesTotal = buyFeeAbs + sellFeeAbs;
-        const tax = gross>0 ? gross*(taxRate/100) : 0;
-        const net = gross - tax;
-
-        $("netReturn").textContent = money(net); signClass($("netReturn"), net);
-        $("metricGross").textContent = money(gross); signClass($("metricGross"), gross);
-        $("metricFees").textContent = money(feesTotal); signClass($("metricFees"), 0);
-        $("metricTax").textContent = money(tax); signClass($("metricTax"), 0);
-        $("metricSellNet").textContent = money(sellProceeds); signClass($("metricSellNet"), 0);
-
-        lastResult = { date:new Date().toISOString(), gross, feesTotal, tax, net };
-        return lastResult;
-      }
-
-      function reset(){
-        clearError();
-        $("calcForm").reset();
-        $("buyCommission").value="0"; $("sellCommission").value="0"; $("taxRate").value="0"; $("qtyOverride").value="";
-        ["netReturn","metricGross"].forEach(id=>{ $(id).textContent="+0.00 $"; signClass($(id),0); });
-        ["metricFees","metricTax","metricSellNet"].forEach(id=>{ $(id).textContent="0.00 $"; signClass($(id),0); });
-        lastResult=null; renderHistory();
-      }
-
-      /* history */
-      const LS_KEY = "ironVision_history_v3";
-      function loadHistory(){ try{ const a=JSON.parse(localStorage.getItem(LS_KEY)||"[]"); return Array.isArray(a)?a:[]; }catch{ return []; } }
-      function saveHistory(a){ localStorage.setItem(LS_KEY, JSON.stringify(a)); }
-      function fmtDate(iso){ const d=new Date(iso); return Number.isNaN(d.getTime())?"-":d.toLocaleString(undefined,{year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}); }
-
-      function renderHistory(){
-        const arr=loadHistory(); const tb=$("historyTbody"); tb.innerHTML="";
-        if(arr.length===0){
-          const tr=document.createElement("tr"); tr.className="empty-row";
-          const td=document.createElement("td"); td.colSpan=5; td.style.padding="14px 12px"; td.textContent=t().empty;
-          tr.appendChild(td); tb.appendChild(tr); return;
-        }
-        for(const it of arr){
-          const tr=document.createElement("tr");
-          const cells=[
-            [fmtDate(it.date), ""],
-            [money(it.gross), "money "+(it.gross<0?"bad":"good")],
-            [money(it.feesTotal), ""],
-            [money(it.tax), ""],
-            [money(it.net), "money "+(it.net<0?"bad":"good")]
-          ];
-          for(const [txt,cls] of cells){ const td=document.createElement("td"); td.textContent=txt; if(cls) td.className=cls; tr.appendChild(td); }
-          tb.appendChild(tr);
-        }
-      }
-      function saveLast(res){ const a=loadHistory(); a.unshift({date:res.date,gross:res.gross,feesTotal:res.feesTotal,tax:res.tax,net:res.net}); saveHistory(a.slice(0,10)); renderHistory(); }
-
-      async function copyHistory(){
-        const arr=loadHistory(); if(arr.length===0) return;
-        const lines=["IronVision Tools — History","--------------------------------"];
-        for(const it of arr){ lines.push(`${fmtDate(it.date)} | Gross: ${money(it.gross)} | Fees: ${money(it.feesTotal)} | Tax: ${money(it.tax)} | Net: ${money(it.net)}`); }
-        await navigator.clipboard.writeText(lines.join("\n"));
-      }
-
-      /* events */
-      $("calcForm").addEventListener("submit",(e)=>{ e.preventDefault(); calculate(); });
-      $("resetBtn").addEventListener("click", reset);
-      $("saveBtn").addEventListener("click", ()=>{ const r=lastResult||calculate(); if(r) saveLast(r); });
-      $("clearHistoryBtn").addEventListener("click", ()=>{ localStorage.removeItem(LS_KEY); renderHistory(); });
-      $("copyHistoryBtn").addEventListener("click", async ()=>{
-        try{ await copyHistory(); const b=$("copyHistoryBtn"); b.textContent=t().copied; setTimeout(()=>b.textContent=t().copyBtn,1200); }
-        catch{ alert(t().copyFail); }
-      });
-
-      /* init */
-      const bl=(navigator.language||"tr").toLowerCase();
       $("year").textContent = new Date().getFullYear();
-      const startLang = bl.startsWith("en") ? "en" : "tr";
-      $("langSelector").value = startLang;
-      setLang(startLang);
-      reset();
+      if(!copy[activeLang]){
+        const b = (navigator.language||"tr").toLowerCase();
+        activeLang = b.startsWith("en") ? "en" : "tr";
+      }
+      applyLang();
     })();
     </script>
 </body>

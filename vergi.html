@@ -244,6 +244,7 @@
             <svg viewBox="0 0 255 68" width="154" height="41" aria-hidden="true"><polygon points="62,34 48.2,10.8 19.8,10.8 6,34 19.8,57.2 48.2,57.2" fill="#0d1a14" stroke="#10B981" stroke-width="2.2"/><polygon points="56.5,34 45,14.9 23,14.9 11.5,34 23,53.1 45,53.1" fill="none" stroke="#10B981" stroke-width="0.55" opacity="0.38"/><path d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z" fill="none" stroke="#10B981" stroke-width="1.5"/><circle cx="34" cy="34" r="6.8" fill="none" stroke="#10B981" stroke-width="1.5"/><circle cx="34" cy="34" r="2.9" fill="#10B981"/><line x1="17.5" y1="34" x2="13" y2="34" stroke="#10B981" stroke-width="1.2" opacity="0.55"/><line x1="50.5" y1="34" x2="55" y2="34" stroke="#10B981" stroke-width="1.2" opacity="0.55"/><line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#10B981" stroke-width="0.5" opacity="0.28"/><line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#10B981" stroke-width="0.5" opacity="0.28"/><text x="74" y="31" font-family="'Arial Black','Arial Narrow',Impact,sans-serif" font-size="19" font-weight="900" letter-spacing="2.5" fill="#10B981">IRON</text><text x="74" y="48" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="5.8" fill="#10B981">VISION</text><text x="76.5" y="59" font-family="Arial,Helvetica,sans-serif" font-size="6.8" font-weight="300" letter-spacing="5.2" fill="#10B981" opacity="0.33">TOOLS</text></svg>
         </a>
         <nav class="tools-nav" aria-label="Tools">
+            <a class="tool-link" href="index.html" data-i18n="navHome">Home</a>
             <a class="tool-link" href="kripto.html" data-i18n="navCrypto">Crypto P/L</a>
             <a class="tool-link" href="vergi.html" aria-current="page" data-i18n="navTax">Tax / Net Pay</a>
             <a class="tool-link" href="token.html" data-i18n="navToken">Token Maliyet</a>
@@ -373,6 +374,7 @@
 
                 <section class="card faq" style="margin-top:24px;" aria-labelledby="faqHeading">
                     <h2 id="faqHeading" data-i18n="faqTitle">Frequently asked questions</h2>
+                    <p style="color:var(--muted); font-size:14px; line-height:1.7; margin:0 0 14px;" data-i18n="faqIntro">Gross pay is what your employer reports; net pay is what actually reaches your account after income tax and social contributions. Because tax is progressive, higher slices of income are taxed at higher rates, so your effective (average) rate is lower than your top bracket. This tool takes your annual gross, applies the selected region's 2026 brackets and a simplified contribution rate, and shows the yearly and monthly take-home figures plus the effective deduction rate.</p>
                     <details>
                         <summary><span data-i18n="faqQ1">How is net income estimated?</span><span class="chev" aria-hidden="true">▾</span></summary>
                         <p data-i18n="faqA1">The tool applies each region's 2026 progressive income-tax brackets plus a simplified social-contribution rate, then subtracts them from gross pay. State/local taxes and some deductions are approximated.</p>
@@ -385,6 +387,14 @@
                         <summary><span data-i18n="faqQ3">Can I file taxes with this?</span><span class="chev" aria-hidden="true">▾</span></summary>
                         <p data-i18n="faqA3">No. The figures are simplified estimates for information only and are not tax advice. For official filings, consult a licensed tax professional.</p>
                     </details>
+                    <details>
+                        <summary><span data-i18n="faqQ4">Why doesn't my result match my payslip exactly?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                        <p data-i18n="faqA4">Real payslips include items this model simplifies or omits: allowances, private pension deductions, minimum-wage exemptions, stamp duty, bonuses and employer-specific arrangements. State and local taxes are treated as flat approximations. Treat the result as a close estimate, not an exact figure.</p>
+                    </details>
+                    <details>
+                        <summary><span data-i18n="faqQ5">How current are the tax rates?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                        <p data-i18n="faqA5">The brackets are based on published 2026 data for each region (and the latest available tariff where 2026 was not yet published). Rates and thresholds can be revised during the year, so for anything important, verify against the official source — for Turkey, the Revenue Administration at gib.gov.tr.</p>
+                    </details>
                 </section>
             </div>
         </div>
@@ -393,8 +403,10 @@
     <footer>
         <p class="disc" id="disclaimer">Disclaimer: figures are simplified estimates for information only, based on published 2026 tax data. They are not tax, legal or financial advice. For official filings, consult a licensed professional.</p>
         <div class="links">
-            <button class="linkbtn" type="button" id="aboutBtn" data-i18n="footAbout">About</button>
-            <button class="linkbtn" type="button" id="privacyBtn" data-i18n="footPrivacy">Privacy</button>
+            <a href="index.html" data-i18n="navHome">Home</a>
+            <a href="hakkinda.html" data-i18n="pgAbout">About</a>
+            <a href="gizlilik.html" data-i18n="pgPrivacy">Privacy</a>
+            <a href="iletisim.html" data-i18n="pgContact">Contact</a>
             <a href="kripto.html" data-i18n="footCrypto">Crypto calculator</a>
         </div>
         <p><span data-i18n="footContact">Contact:</span> <a href="mailto:ironvisiontools@gmail.com">ironvisiontools@gmail.com</a></p>
@@ -448,7 +460,13 @@
           privacyBody:"All calculations happen client-side in your browser. We do not collect, transmit or store the financial figures you enter. This site uses no tracking cookies.",
           disclaimer:"Disclaimer: figures are simplified estimates for information only, based on published 2026 tax data. They are not tax, legal or financial advice. For official filings, consult a licensed professional.",
           errGross:"Enter a gross income greater than 0.",
-          incLabel:"income tax", socLabel:"social contributions"
+          incLabel:"income tax", socLabel:"social contributions",
+          navHome:"Home", navToken:"LLM Token Cost", pgAbout:"About", pgPrivacy:"Privacy", pgContact:"Contact",
+          faqIntro:"Gross pay is what your employer reports; net pay is what actually reaches your account after income tax and social contributions. Because tax is progressive, higher slices of income are taxed at higher rates, so your effective (average) rate is lower than your top bracket. This tool takes your annual gross, applies the selected region's 2026 brackets and a simplified contribution rate, and shows the yearly and monthly take-home figures plus the effective deduction rate.",
+          faqQ4:"Why doesn't my result match my payslip exactly?",
+          faqA4:"Real payslips include items this model simplifies or omits: allowances, private pension deductions, minimum-wage exemptions, stamp duty, bonuses and employer-specific arrangements. State and local taxes are treated as flat approximations. Treat the result as a close estimate, not an exact figure.",
+          faqQ5:"How current are the tax rates?",
+          faqA5:"The brackets are based on published 2026 data for each region (and the latest available tariff where 2026 was not yet published). Rates and thresholds can be revised during the year, so for anything important, verify against the official source — for Turkey, the Revenue Administration at gib.gov.tr."
         },
         tr: {
           navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", langLabel:"Dil",
@@ -476,7 +494,13 @@
           privacyBody:"Tüm hesaplamalar tarayıcınızda istemci tarafında yapılır. Girdiğiniz finansal rakamları toplamaz, iletmez veya saklamayız. Bu sitede takip çerezi kullanılmaz.",
           disclaimer:"Yasal uyarı: Rakamlar, yayımlanan 2026 vergi verilerine dayalı, yalnızca bilgilendirme amaçlı basitleştirilmiş tahminlerdir. Vergi, hukuk veya yatırım tavsiyesi değildir. Resmi işlemler için yetkili bir uzmana danışın.",
           errGross:"0'dan büyük bir brüt gelir girin.",
-          incLabel:"gelir vergisi", socLabel:"sosyal güvenlik kesintileri"
+          incLabel:"gelir vergisi", socLabel:"sosyal güvenlik kesintileri",
+          navHome:"Ana Sayfa", navToken:"Token Maliyet", pgAbout:"Hakkında", pgPrivacy:"Gizlilik", pgContact:"İletişim",
+          faqIntro:"Brüt maaş işvereninizin bildirdiği tutardır; net maaş ise gelir vergisi ve sosyal güvenlik kesintilerinden sonra hesabınıza gerçekten geçen tutardır. Vergi kademeli olduğu için gelirin daha üst dilimleri daha yüksek oranla vergilenir; bu yüzden efektif (ortalama) oranınız en üst diliminizden düşüktür. Bu araç yıllık brüt tutarınızı alır, seçtiğiniz bölgenin 2026 dilimlerini ve basitleştirilmiş bir kesinti oranını uygular; yıllık ve aylık ele geçen tutarları ve efektif kesinti oranını gösterir.",
+          faqQ4:"Sonuç neden maaş bordromla birebir tutmuyor?",
+          faqA4:"Gerçek bordrolar bu modelin basitleştirdiği veya dahil etmediği kalemler içerir: çeşitli ödenekler, bireysel emeklilik kesintileri, asgari ücret istisnası, damga vergisi, primler ve işverene özgü düzenlemeler. Eyalet ve yerel vergiler sabit oran olarak yaklaşık alınır. Sonucu birebir rakam değil, yakın bir tahmin olarak görün.",
+          faqQ5:"Vergi oranları ne kadar günceldir?",
+          faqA5:"Dilimler her bölge için yayımlanan 2026 verilerine (2026'nın henüz yayımlanmadığı yerlerde en güncel tarifeye) dayanır. Oranlar ve eşikler yıl içinde revize edilebilir; bu nedenle önemli her konuda sonucu resmi kaynaktan doğrulayın — Türkiye için Gelir İdaresi Başkanlığı, gib.gov.tr."
         },
         de: {
           navCrypto:"Krypto G/V", navTax:"Steuer / Netto", langLabel:"Sprache",
@@ -504,7 +528,13 @@
           privacyBody:"Alle Berechnungen erfolgen clientseitig im Browser. Wir erfassen, übertragen oder speichern die eingegebenen Finanzdaten nicht. Diese Seite verwendet keine Tracking-Cookies.",
           disclaimer:"Haftungsausschluss: Die Werte sind vereinfachte Schätzungen, nur zur Information, basierend auf veröffentlichten Steuerdaten 2026. Sie sind keine Steuer-, Rechts- oder Finanzberatung. Für offizielle Einreichungen wenden Sie sich an eine Fachkraft.",
           errGross:"Geben Sie ein Bruttoeinkommen größer als 0 ein.",
-          incLabel:"Einkommensteuer", socLabel:"Sozialabgaben"
+          incLabel:"Einkommensteuer", socLabel:"Sozialabgaben",
+          navHome:"Startseite", navToken:"Token-Kosten", pgAbout:"Über uns", pgPrivacy:"Datenschutz", pgContact:"Kontakt",
+          faqIntro:"Das Bruttogehalt ist das, was Ihr Arbeitgeber meldet; das Nettogehalt ist das, was nach Einkommensteuer und Sozialabgaben tatsächlich auf Ihrem Konto ankommt. Da die Steuer progressiv ist, werden höhere Einkommensteile höher besteuert, sodass Ihr effektiver (durchschnittlicher) Satz niedriger ist als Ihr Spitzensatz. Dieses Tool nimmt Ihr Jahresbrutto, wendet die Sätze 2026 der gewählten Region und einen vereinfachten Abgabensatz an und zeigt die jährlichen und monatlichen Nettobeträge sowie den effektiven Abzugssatz.",
+          faqQ4:"Warum stimmt mein Ergebnis nicht genau mit der Gehaltsabrechnung überein?",
+          faqA4:"Echte Abrechnungen enthalten Posten, die dieses Modell vereinfacht oder weglässt: Zulagen, private Altersvorsorge, Mindestlohn-Befreiungen, Stempelsteuer, Boni und arbeitgeberspezifische Regelungen. Landes- und Kommunalsteuern werden als pauschale Näherungen behandelt. Betrachten Sie das Ergebnis als nahe Schätzung, nicht als exakten Wert.",
+          faqQ5:"Wie aktuell sind die Steuersätze?",
+          faqA5:"Die Sätze basieren auf veröffentlichten Daten für 2026 je Region (bzw. dem neuesten verfügbaren Tarif, wo 2026 noch nicht veröffentlicht wurde). Sätze und Grenzen können unterjährig geändert werden; prüfen Sie Wichtiges daher an der offiziellen Quelle — für die Türkei die Finanzverwaltung unter gib.gov.tr."
         }
       };
 
@@ -762,8 +792,8 @@
         $("results").hidden = true;
         updateSymbol();
       });
-      $("aboutBtn").addEventListener("click", ()=> $("aboutModal").showModal());
-      $("privacyBtn").addEventListener("click", ()=> $("privacyModal").showModal());
+      if($("aboutBtn")) $("aboutBtn").addEventListener("click", ()=> $("aboutModal").showModal());
+      if($("privacyBtn")) $("privacyBtn").addEventListener("click", ()=> $("privacyModal").showModal());
       document.querySelectorAll("[data-close]").forEach(b=> b.addEventListener("click", ()=> b.closest("dialog").close()));
       document.querySelectorAll("dialog").forEach(d=> d.addEventListener("click", (e)=>{ if(e.target===d) d.close(); }));
 

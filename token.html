@@ -173,6 +173,7 @@
             <svg viewBox="0 0 255 68" width="154" height="41" aria-hidden="true"><polygon points="62,34 48.2,10.8 19.8,10.8 6,34 19.8,57.2 48.2,57.2" fill="#0d1a14" stroke="#00ff66" stroke-width="2.2"/><polygon points="56.5,34 45,14.9 23,14.9 11.5,34 23,53.1 45,53.1" fill="none" stroke="#00ff66" stroke-width="0.55" opacity="0.38"/><path d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="6.8" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="2.9" fill="#00ff66"/><line x1="17.5" y1="34" x2="13" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="50.5" y1="34" x2="55" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><text x="74" y="31" font-family="'Arial Black','Arial Narrow',Impact,sans-serif" font-size="19" font-weight="900" letter-spacing="2.5" fill="#00ff66">IRON</text><text x="74" y="48" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="5.8" fill="#00ff66">VISION</text><text x="76.5" y="59" font-family="Arial,Helvetica,sans-serif" font-size="6.8" font-weight="300" letter-spacing="5.2" fill="#00ff66" opacity="0.33">TOOLS</text></svg>
         </a>
         <nav class="tools-nav" aria-label="Araçlar">
+            <a class="tool-link" href="index.html" data-i18n="navHome">Ana Sayfa</a>
             <a class="tool-link" href="kripto.html" data-i18n="navCrypto">Kripto K/Z</a>
             <a class="tool-link" href="vergi.html" data-i18n="navTax">Vergi / Net Maaş</a>
             <a class="tool-link" href="token.html" aria-current="page" data-i18n="navToken">Token Maliyet</a>
@@ -286,6 +287,11 @@
     </main>
 
     <footer>
+        <p style="margin-bottom:12px;">
+            <a href="hakkinda.html" data-i18n="footAbout">Hakkında</a> ·
+            <a href="gizlilik.html" data-i18n="footPrivacy">Gizlilik</a> ·
+            <a href="iletisim.html" data-i18n="footContact">İletişim</a>
+        </p>
         <p id="footNote">© <span id="year"></span> IronVision Tools · Yalnızca bilgilendirme amaçlıdır.</p>
         <p style="margin-top:8px;"><a href="kripto.html" data-i18n="footCrypto">Kripto kâr/zarar hesaplayıcı</a> · <a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · ironvisiontools.com</p>
     </footer>
@@ -318,7 +324,8 @@
 
       const copy = {
         tr:{
-          navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil",
+          navHome:"Ana Sayfa", navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil",
+          footAbout:"Hakkında", footPrivacy:"Gizlilik", footContact:"İletişim",
           footCrypto:"Kripto kâr/zarar hesaplayıcı", footTax:"Vergi / net maaş hesaplayıcı",
           pageTitle:"LLM Token Maliyet Hesaplayıcı",
           heroDesc:"Model seçin, token sayılarını girin; işin yaklaşık dolar ve TL maliyetini görün. Fiyat alanları düzenlenebilir. Yalnızca bilgilendirme amaçlıdır.",
@@ -346,7 +353,8 @@
           copied:"Kopyalandı ✓", copyFail:"Kopyalama başarısız. Tarayıcı izinlerini kontrol edin."
         },
         en:{
-          navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language",
+          navHome:"Home", navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language",
+          footAbout:"About", footPrivacy:"Privacy", footContact:"Contact",
           footCrypto:"Crypto profit/loss calculator", footTax:"Tax / net salary calculator",
           pageTitle:"LLM Token Cost Calculator",
           heroDesc:"Pick a model, enter token counts, and see the approximate USD and TRY cost. Price fields are editable. For information only.",

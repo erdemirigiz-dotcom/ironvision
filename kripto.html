@@ -153,6 +153,20 @@
       @media (prefers-reduced-motion: reduce){
         *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
       }
+
+      /* info + FAQ */
+      .info-card h2{ margin:0 0 12px; font-size:20px; font-weight:800; }
+      .info-card p{ margin:0 0 12px; color:var(--muted); font-size:14.5px; line-height:1.7; }
+      .info-card p:last-of-type{ margin-bottom:0; }
+      .faq h3{ font-size:16px; margin:4px 0 12px; color:var(--accent-soft); }
+      details{ border-bottom:1px solid var(--border); padding:6px 0; }
+      details:last-of-type{ border-bottom:0; }
+      summary{ cursor:pointer; list-style:none; font-weight:700; padding:10px 0;
+        display:flex; justify-content:space-between; gap:12px; align-items:center; }
+      summary::-webkit-details-marker{ display:none; }
+      summary .chev{ transition:transform .2s ease; flex:none; color:var(--muted); }
+      details[open] summary .chev{ transform:rotate(180deg); }
+      details p{ margin:0 0 12px; color:var(--muted); font-size:14px; line-height:1.65; }
     </style>
 </head>
 <body>
@@ -161,6 +175,7 @@
             <svg viewBox="0 0 255 68" width="154" height="41" aria-hidden="true"><polygon points="62,34 48.2,10.8 19.8,10.8 6,34 19.8,57.2 48.2,57.2" fill="#0d1a14" stroke="#00ff66" stroke-width="2.2"/><polygon points="56.5,34 45,14.9 23,14.9 11.5,34 23,53.1 45,53.1" fill="none" stroke="#00ff66" stroke-width="0.55" opacity="0.38"/><path d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="6.8" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="2.9" fill="#00ff66"/><line x1="17.5" y1="34" x2="13" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="50.5" y1="34" x2="55" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><text x="74" y="31" font-family="'Arial Black','Arial Narrow',Impact,sans-serif" font-size="19" font-weight="900" letter-spacing="2.5" fill="#00ff66">IRON</text><text x="74" y="48" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="5.8" fill="#00ff66">VISION</text><text x="76.5" y="59" font-family="Arial,Helvetica,sans-serif" font-size="6.8" font-weight="300" letter-spacing="5.2" fill="#00ff66" opacity="0.33">TOOLS</text></svg>
         </a>
         <nav class="tools-nav" aria-label="Araçlar">
+            <a class="tool-link" href="index.html" data-i18n="navHome">Ana Sayfa</a>
             <a class="tool-link" href="kripto.html" aria-current="page" data-i18n="navCrypto">Kripto K/Z</a>
             <a class="tool-link" href="vergi.html" data-i18n="navTax">Vergi / Net Maaş</a>
             <a class="tool-link" href="token.html" data-i18n="navToken">Token Maliyet</a>
@@ -257,9 +272,43 @@
                 </table>
             </div>
         </section>
+
+        <section class="card info-card" aria-labelledby="infoHeading">
+            <h2 id="infoHeading" data-i18n="infoTitle">Kripto kâr/zarar nasıl hesaplanır?</h2>
+            <p data-i18n="infoP1">Bir alım-satımın gerçek sonucu, sadece alış ve satış fiyatı arasındaki fark değildir; işlem komisyonları ve varsa kazanç vergisi de sonucu doğrudan etkiler. Bu araç önce coin miktarını bulur: opsiyonel coin alanını doldurmadıysanız coin miktarı, yatırım tutarının alış fiyatına bölünmesiyle hesaplanır. Maliyet, coin miktarı × alış fiyatı × (1 + alış komisyonu) olarak alınır; yani alış komisyonu maliyetin üzerine eklenir.</p>
+            <p data-i18n="infoP2">Satış tarafında ise satıştan elde edilen tutardan satış komisyonu düşülür. Ham kâr/zarar, komisyon sonrası satış tutarından toplam maliyetin çıkarılmasıdır. Vergi yalnızca ham kâr pozitifse ve girdiğiniz vergi oranı üzerinden uygulanır; zararlı işlemde vergi hesaplanmaz. Net sonuç, ham kârdan bu verginin düşülmüş halidir. Tüm hesap tarayıcınızda yapılır ve girdiğiniz hiçbir değer sunucuya gönderilmez.</p>
+            <div class="faq" style="margin-top:8px;">
+                <h3 data-i18n="faqTitle">Sıkça sorulan sorular</h3>
+                <details>
+                    <summary><span data-i18n="q1">Vergi oranı alanına ne yazmalıyım?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                    <p data-i18n="a1">Sabit bir oran yoktur; kripto kazancının nasıl vergilendirileceği ülkenize ve kişisel durumunuza göre değişir. Türkiye için güncel durumu Gelir İdaresi Başkanlığı (gib.gov.tr) üzerinden doğrulamanızı öneririz. Vergiyi hesaba katmak istemiyorsanız bu alanı 0 bırakabilirsiniz.</p>
+                </details>
+                <details>
+                    <summary><span data-i18n="q2">Komisyon oranını nereden öğrenirim?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                    <p data-i18n="a2">Kullandığınız borsanın işlem ücretleri sayfasında yer alır; çoğu borsa maker ve taker için yüzde olarak bir oran belirtir. Alış ve satış komisyonlarını ayrı ayrı girebilirsiniz. Emin değilseniz tipik bir başlangıç değeri olarak yüzde 0,10 deneyebilir, sonra kendi oranınızla güncelleyebilirsiniz.</p>
+                </details>
+                <details>
+                    <summary><span data-i18n="q3">Opsiyonel coin miktarı ne işe yarar?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                    <p data-i18n="a3">Bu alanı boş bırakırsanız coin miktarı otomatik olarak yatırım tutarı ÷ alış fiyatı şeklinde hesaplanır. Elinizde belirli bir coin adedi varsa, örneğin farklı fiyatlardan biriktirdiğiniz bir miktar, bu alana doğrudan adedi yazarak hesabı onun üzerinden yaptırabilirsiniz.</p>
+                </details>
+                <details>
+                    <summary><span data-i18n="q4">Sonuç neden borsadaki bakiyemle birebir tutmuyor?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                    <p data-i18n="a4">Bu araç basitleştirilmiş bir modeldir. Alış-satış sırasındaki fiyat farkı (spread), emrin kısmi dolması, ağ/çekim ücretleri, vadeli işlemlerdeki fonlama gibi kalemler hesaba dahil değildir. Sonucu gerçek bir işlemin yaklaşık bir tahmini olarak görün, kesin bir muhasebe kaydı olarak değil.</p>
+                </details>
+                <details>
+                    <summary><span data-i18n="q5">Bu bir yatırım tavsiyesi mi?</span><span class="chev" aria-hidden="true">▾</span></summary>
+                    <p data-i18n="a5">Hayır. Araç yalnızca sizin girdiğiniz sayılarla aritmetik yapar; hangi coini ne zaman alıp satmanız gerektiğine dair bir görüş bildirmez. İçeriğin tamamı bilgilendirme amaçlıdır ve yatırım tavsiyesi değildir.</p>
+                </details>
+            </div>
+        </section>
     </main>
 
     <footer>
+        <p style="margin-bottom:12px;">
+            <a href="hakkinda.html" data-i18n="footAbout">Hakkında</a> ·
+            <a href="gizlilik.html" data-i18n="footPrivacy">Gizlilik</a> ·
+            <a href="iletisim.html" data-i18n="footContact">İletişim</a>
+        </p>
         <p id="footNote">© <span id="year"></span> IronVision Tools · Yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</p>
         <p style="margin-top:8px;"><a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · <a href="token.html" data-i18n="navToken">Token maliyet hesaplayıcı</a> · ironvisiontools.com</p>
     </footer>
@@ -291,7 +340,22 @@
           errBuy:"Alış fiyatı 0'dan büyük olmalı.",
           errNeg:"Yatırım ve satış değerleri 0 veya daha büyük olmalı.",
           errRates:"Oranlar ve opsiyonel coin miktarı negatif olamaz.",
-          copied:"Kopyalandı ✓", copyFail:"Kopyalama başarısız. Tarayıcı izinlerini kontrol edin."
+          copied:"Kopyalandı ✓", copyFail:"Kopyalama başarısız. Tarayıcı izinlerini kontrol edin.",
+          navHome:"Ana Sayfa", footAbout:"Hakkında", footPrivacy:"Gizlilik", footContact:"İletişim",
+          infoTitle:"Kripto kâr/zarar nasıl hesaplanır?",
+          infoP1:"Bir alım-satımın gerçek sonucu, sadece alış ve satış fiyatı arasındaki fark değildir; işlem komisyonları ve varsa kazanç vergisi de sonucu doğrudan etkiler. Bu araç önce coin miktarını bulur: opsiyonel coin alanını doldurmadıysanız coin miktarı, yatırım tutarının alış fiyatına bölünmesiyle hesaplanır. Maliyet, coin miktarı × alış fiyatı × (1 + alış komisyonu) olarak alınır; yani alış komisyonu maliyetin üzerine eklenir.",
+          infoP2:"Satış tarafında ise satıştan elde edilen tutardan satış komisyonu düşülür. Ham kâr/zarar, komisyon sonrası satış tutarından toplam maliyetin çıkarılmasıdır. Vergi yalnızca ham kâr pozitifse ve girdiğiniz vergi oranı üzerinden uygulanır; zararlı işlemde vergi hesaplanmaz. Net sonuç, ham kârdan bu verginin düşülmüş halidir. Tüm hesap tarayıcınızda yapılır ve girdiğiniz hiçbir değer sunucuya gönderilmez.",
+          faqTitle:"Sıkça sorulan sorular",
+          q1:"Vergi oranı alanına ne yazmalıyım?",
+          a1:"Sabit bir oran yoktur; kripto kazancının nasıl vergilendirileceği ülkenize ve kişisel durumunuza göre değişir. Türkiye için güncel durumu Gelir İdaresi Başkanlığı (gib.gov.tr) üzerinden doğrulamanızı öneririz. Vergiyi hesaba katmak istemiyorsanız bu alanı 0 bırakabilirsiniz.",
+          q2:"Komisyon oranını nereden öğrenirim?",
+          a2:"Kullandığınız borsanın işlem ücretleri sayfasında yer alır; çoğu borsa maker ve taker için yüzde olarak bir oran belirtir. Alış ve satış komisyonlarını ayrı ayrı girebilirsiniz. Emin değilseniz tipik bir başlangıç değeri olarak yüzde 0,10 deneyebilir, sonra kendi oranınızla güncelleyebilirsiniz.",
+          q3:"Opsiyonel coin miktarı ne işe yarar?",
+          a3:"Bu alanı boş bırakırsanız coin miktarı otomatik olarak yatırım tutarı ÷ alış fiyatı şeklinde hesaplanır. Elinizde belirli bir coin adedi varsa, örneğin farklı fiyatlardan biriktirdiğiniz bir miktar, bu alana doğrudan adedi yazarak hesabı onun üzerinden yaptırabilirsiniz.",
+          q4:"Sonuç neden borsadaki bakiyemle birebir tutmuyor?",
+          a4:"Bu araç basitleştirilmiş bir modeldir. Alış-satış sırasındaki fiyat farkı (spread), emrin kısmi dolması, ağ/çekim ücretleri, vadeli işlemlerdeki fonlama gibi kalemler hesaba dahil değildir. Sonucu gerçek bir işlemin yaklaşık bir tahmini olarak görün, kesin bir muhasebe kaydı olarak değil.",
+          q5:"Bu bir yatırım tavsiyesi mi?",
+          a5:"Hayır. Araç yalnızca sizin girdiğiniz sayılarla aritmetik yapar; hangi coini ne zaman alıp satmanız gerektiğine dair bir görüş bildirmez. İçeriğin tamamı bilgilendirme amaçlıdır ve yatırım tavsiyesi değildir."
         },
         en:{
           navCrypto:"Crypto P/L", navTax:"Tax / Net Pay", navToken:"LLM Token Cost", langLabel:"Language", footTax:"Tax / net salary calculator",
@@ -312,7 +376,22 @@
           errBuy:"Buy price must be greater than 0.",
           errNeg:"Investment and sell values must be 0 or greater.",
           errRates:"Rates and optional coin quantity cannot be negative.",
-          copied:"Copied ✓", copyFail:"Copy failed. Check browser permissions."
+          copied:"Copied ✓", copyFail:"Copy failed. Check browser permissions.",
+          navHome:"Home", footAbout:"About", footPrivacy:"Privacy", footContact:"Contact",
+          infoTitle:"How is crypto profit/loss calculated?",
+          infoP1:"A trade's real result is not just the difference between buy and sell price; trading fees and any capital-gains tax also affect the outcome directly. This tool first works out the coin quantity: if you leave the optional coin field empty, the quantity is your investment amount divided by the buy price. Cost is taken as coin quantity × buy price × (1 + buy fee); in other words the buy fee is added on top of the cost.",
+          infoP2:"On the sell side, the sell fee is deducted from the proceeds. Gross profit/loss is the proceeds after fees minus the total cost. Tax is applied only when gross profit is positive, using the tax rate you enter; no tax is computed on a losing trade. The net result is the gross profit with that tax subtracted. Everything is calculated in your browser and none of the values you enter are sent to a server.",
+          faqTitle:"Frequently asked questions",
+          q1:"What should I put in the tax rate field?",
+          a1:"There is no fixed rate; how crypto gains are taxed depends on your country and personal situation. For Turkey we recommend confirming the current rules via the Revenue Administration (gib.gov.tr). If you don't want to factor in tax, you can leave this field at 0.",
+          q2:"Where do I find the commission rate?",
+          a2:"It's on your exchange's trading-fees page; most exchanges quote a percentage rate for maker and taker orders. You can enter buy and sell commissions separately. If unsure, you can start with a typical 0.10% and then update it with your own rate.",
+          q3:"What is the optional coin quantity for?",
+          a3:"If you leave this field empty, the coin quantity is computed automatically as investment amount ÷ buy price. If you hold a specific number of coins — for example an amount accumulated at different prices — you can type that quantity directly and base the calculation on it.",
+          q4:"Why doesn't the result match my exchange balance exactly?",
+          a4:"This tool is a simplified model. Items such as the price gap (spread) at execution, partial fills, network/withdrawal fees and funding on futures are not included. Treat the result as an approximate estimate of a real trade, not an exact accounting record.",
+          q5:"Is this investment advice?",
+          a5:"No. The tool only does arithmetic with the numbers you enter; it does not give an opinion on which coin to buy or sell or when. All content is for information only and is not investment advice."
         }
       };
 
@@ -334,6 +413,10 @@
         document.querySelector('[data-i18n="navCrypto"]').textContent = c.navCrypto;
         document.querySelector('[data-i18n="navTax"]').textContent = c.navTax;
         document.querySelector('[data-i18n="footTax"]').textContent = c.footTax;
+        document.querySelectorAll("[data-i18n]").forEach(el=>{
+          const k = el.getAttribute("data-i18n");
+          if(c[k] != null) el.textContent = c[k];
+        });
         $("footNote").innerHTML = "© " + new Date().getFullYear() + " IronVision Tools · " + c.footNote;
         document.documentElement.lang = activeLang;
         renderHistory();

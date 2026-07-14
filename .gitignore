@@ -2,3 +2,6 @@
 .env.*
 !.env.example
 *.log
+
+# SAST tarama raporlari (yayina push edilmez)
+sast/

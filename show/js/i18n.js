@@ -4,21 +4,22 @@
    Sürü motoruna (surumotoru.js) ve orkestrasyona (site.js) DOKUNMADAN çalışır.
    Metin taşıyan öğeler data-i18n / data-i18n-html / data-i18n-ph ile işaretli.
    Varsayılan dil TR; seçim localStorage("shows_lang") ile hatırlanır.
-   Çeviri tonu: pazarlama İngilizcesi (yurt dışı turizm işletmecileri),
-   demircilik/usta metaforu korunur (forge / smith / anvil).
+   Ton: atölye ustası — iddiasız ama özgüvenli, abartısız, düz Türkçe;
+   atölye/usta metaforu ölçülü. EN: pazarlama İngilizcesi (yurt dışı turizm
+   işletmecileri), yumuşak zanaat dili (craft / shape / workshop).
    ========================================================================== */
 (function () {
   var DEPO = "shows_lang";
 
   var SOZLUK = {
     tr: {
-      _title: "IRON VISION — Hayalinizi anlatın, gerisini biz döveriz",
+      _title: "IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin",
       _lang: "tr",
 
       sr_h1: "IRON VISION — size özel web siteleri, bakım ustalığı ve dijital ürünler",
 
       // HERO
-      slogan: "Hayalinizi anlatın.<br>Gerisini biz döveriz.",
+      slogan: "Hayalinizi anlatın.<br>Atölyemizde şekillensin.",
       video_daveti: "<b>Videolarınız mı var?</b> İsterseniz tasarımınızda kullanırız.",
       scroll_ipucu: "Aşağı kaydırın",
 
@@ -26,7 +27,7 @@
       hizmet_kicker: "Ne yapıyoruz",
       hizmet_baslik: "Üç işte ustayız.",
       hizmet1_h: "Size özel web sitesi",
-      hizmet1_p: "Hayalinizdeki site, size özel dövülür. Şablon değil; markanıza, hikâyenize ve müşterinize göre tek tek işlenir.",
+      hizmet1_p: "Hayalinizdeki site, atölyemizde size özel işlenir. Şablon değil; markanıza, hikâyenize ve müşterinize göre tek tek şekillendirilir.",
       hizmet2_h: "Aylık bakım ustalığı",
       hizmet2_p: "Siteniz hep bakımlı, hep güncel. Kilit değil, abonelik: güncelleme, iyileştirme ve gözetim bizden.",
       hizmet3_h: "Kişiye özel dijital ürünler",
@@ -43,9 +44,9 @@
       yol2_p: "Kendi alan adınız zaten varsa siz getirin; biz sitenizi kurar, canlıya alır ve bakımını sürdürürüz. Sahiplik baştan sona sizde kalır.",
 
       // TOOLS
-      tools_sr: "Araçlar ve ürünler",
+      tools_sr: "Kendi ürünlerimiz.",
       tools_kicker: "Araçlar",
-      tools_alt: "Dağınık demir tozu gibi başlayan fikirler, mıknatısın altında çalışan ürünlere dizilir. İşte rafımızdakiler.",
+      tools_alt: "Bir fikir olarak başlayan işler, sabırla çalışan ürünlere dönüşür. İşte rafımızdakiler.",
       urun1_rozet: "Canlı ürün",
       urun1_h: "Aile Arşivi",
       urun1_p: "3B anı duvarı, film şeridi ve akıllı albüm tarifi. Ailenin fotoğrafları, özenle dizilmiş yaşayan bir arşive dönüşür.",
@@ -55,7 +56,7 @@
       urun2_p: "Düğün, nişan, doğum günü… Türk törenlerine özel, isme ve ana yazılmış kutlama şarkıları. Atölye hazırlanıyor.",
       urun3_rozet: "Sırada ne var?",
       urun3_h: "Boş yuva",
-      urun3_p: "Bir sonraki ürün burada dövülecek. Fikriniz varsa yeri hazır.",
+      urun3_p: "Bir sonraki ürün burada şekillenecek. Fikriniz varsa yeri hazır.",
 
       // VIDEO DUVARI
       duvar_kicker: "İşte kanıt",
@@ -80,13 +81,13 @@
     },
 
     en: {
-      _title: "IRON VISION — Tell us your dream, we forge the rest",
+      _title: "IRON VISION — Tell us your dream, we shape the rest",
       _lang: "en",
 
       sr_h1: "IRON VISION — bespoke websites, master-grade maintenance and custom digital products",
 
       // HERO
-      slogan: "Tell us your dream.<br>We'll forge the rest.",
+      slogan: "Tell us your dream.<br>We shape it in our workshop.",
       video_daveti: "<b>Got footage?</b> We'll weave it into your design.",
       scroll_ipucu: "Scroll down",
 
@@ -94,7 +95,7 @@
       hizmet_kicker: "What we do",
       hizmet_baslik: "Masters of three crafts.",
       hizmet1_h: "Bespoke websites",
-      hizmet1_p: "The site you imagine, forged just for you. No templates — shaped one by one around your brand, your story and your guests.",
+      hizmet1_p: "The site you imagine, shaped for you in our workshop. No templates — crafted one by one around your brand, your story and your guests.",
       hizmet2_h: "Monthly maintenance",
       hizmet2_p: "Your site always cared for, always current. Not a lock-in — a subscription: updates, refinements and watchful care, all on us.",
       hizmet3_h: "Custom digital products",
@@ -105,15 +106,15 @@
       kurulum_ust: "There are two ways we bring your site to life:",
       yol1_no: "Path 1",
       yol1_h: "The full turnkey package",
-      yol1_p: "Domain, hosting and maintenance bundled into a single yearly subscription — none of the technical weight ever lands on you. The domain is always registered in your name: the deed is yours, the key is yours — we are simply your maintenance smiths.",
+      yol1_p: "Domain, hosting and maintenance bundled into a single yearly subscription — none of the technical weight ever lands on you. The domain is always registered in your name: the deed is yours, the key is yours — we are simply your maintenance crew.",
       yol2_no: "Path 2",
       yol2_h: "Bring your own domain",
       yol2_p: "Already own a domain? Bring it along; we build your site, take it live and keep it maintained. Ownership stays fully yours, start to finish.",
 
       // TOOLS
-      tools_sr: "Tools and products",
+      tools_sr: "Our own products.",
       tools_kicker: "Tools",
-      tools_alt: "Ideas that start as scattered iron filings line up under the magnet into products that actually work. Here's what's on our shelf.",
+      tools_alt: "Work that starts as a single idea grows, patiently, into products that actually run. Here's what's on our shelf.",
       urun1_rozet: "Live product",
       urun1_h: "Family Archive",
       urun1_p: "A 3D memory wall, a film reel and a smart album recipe. Your family photos become a living, lovingly arranged archive.",
@@ -123,11 +124,11 @@
       urun2_p: "Weddings, engagements, birthdays… celebration songs written for the name and the moment, tuned to Turkish traditions. The studio is in the works.",
       urun3_rozet: "What's next?",
       urun3_h: "Open slot",
-      urun3_p: "The next product will be forged right here. If you have an idea, the spot is ready.",
+      urun3_p: "The next product will take shape right here. If you have an idea, the spot is ready.",
 
       // VIDEO DUVARI
       duvar_kicker: "The proof",
-      duvar_baslik: "Work straight from the forge.",
+      duvar_baslik: "Work straight from the workshop.",
       duvar_alt: "Not concepts — real, live work. Hover over a card and let the scene play.",
 
       // FORM

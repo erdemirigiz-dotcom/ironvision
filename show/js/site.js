@@ -139,17 +139,9 @@
     }
   }
 
-  // ---- 2) Demir tozu — TOOLS sahnesi (tek sefer tetiklenir) -----------------
-  const tozCanvas = document.getElementById("toz-canvas");
-  if (!reduceMotion && tozCanvas && window.TozMiknatis) {
-    TozMiknatis.init(tozCanvas);
-    const tozObs = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) { TozMiknatis.tetikle(); tozObs.disconnect(); }
-      });
-    }, { threshold: 0.45 });
-    tozObs.observe(tozCanvas);
-  }
+  // ---- 2) Hero "TOOLS" ibaresi -------------------------------------------
+  // (Logo bütünlüğü: IRON VISION'ın altındaki ince "TOOLS" satırı artık saf
+  //  CSS akışıyla sloganın üstünde durur — JS konumlandırma gerekmez.)
 
   // ---- 3) Video duvarı: tembel yükleme + hover/tap oynatma ------------------
   const kartlar = document.querySelectorAll(".kart[data-src]");

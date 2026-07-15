@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>IRON VISION — Hayalinizi anlatın, gerisini biz döveriz</title>
+<meta name="description" content="Size özel web sitesi, aylık bakım ustalığı ve kişiye özel dijital ürünler. IRON VISION: yaşayan bir sahne, çalışan işler, dürüst iki-yol danışmanlığı.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="canonical" href="https://ironvisiontools.com/show/">
+<meta property="og:url" content="https://ironvisiontools.com/show/">
+
+<!-- Open Graph / paylaşım -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="IRON VISION">
+<meta property="og:title" content="IRON VISION — Hayalinizi anlatın, gerisini biz döveriz">
+<meta property="og:description" content="Size özel web sitesi, aylık bakım ustalığı, kişiye özel dijital ürünler. Yaşayan bir sahne, çalışan işler.">
+<meta property="og:image" content="assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="assets/og-cover.png">
+
+<!-- Favicon: kor kıvılcımı (inline, dış istek yok) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0b'/%3E%3Cpath d='M50 20 L58 44 L82 50 L58 56 L50 80 L42 56 L18 50 L42 44 Z' fill='%23ff6b2b'/%3E%3C/svg%3E">
+
+<!-- Fontları erken getir (lokal, render bloklamaz) -->
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="stylesheet" href="css/stil.css">
+
+<!-- Yapısal veri (JSON-LD): arama motoru için hizmet tanımı.
+     Adres/telefon/e-posta YAZILMAZ (sızıntı yasağı). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Iron Vision Tools",
+  "description": "Size özel web sitesi, aylık bakım ustalığı ve kişiye özel dijital ürünler — yaşayan bir sahne, çalışan işler, dürüst iki-yol danışmanlığı.",
+  "url": "https://ironvisiontools.com",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Size özel web sitesi" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aylık bakım ustalığı" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kişiye özel dijital ürünler" } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- Dil anahtarı: sağ üst, sabit — sürünün üstünde (z-index) ama sahneyi bozmaz -->
+<div class="dil-anahtar" role="group" aria-label="Dil / Language">
+  <button type="button" class="dil-btn" data-lang="tr" aria-pressed="true">TR</button>
+  <span class="dil-ayrac" aria-hidden="true">|</span>
+  <button type="button" class="dil-btn" data-lang="en" aria-pressed="false">EN</button>
+</div>
+
+<!-- Ekran okuyucu için gerçek başlık (görsel sahne canvas'ta kuruluyor) -->
+<h1 class="sr-only" data-i18n="sr_h1">IRON VISION — size özel web siteleri, bakım ustalığı ve dijital ürünler</h1>
+
+<!-- Sürü canvas'ı: sabit viewport, sayfaya eşlik eder -->
+<canvas id="suru" aria-hidden="true"></canvas>
+
+<main>
+
+  <!-- ==================== 1) HERO ==================== -->
+  <section class="hero" id="hero">
+    <!-- Hareket azaltma modunda gösterilen sabit yazı -->
+    <div class="hero-static" aria-hidden="true">IRON&nbsp;VISION</div>
+
+    <div class="hero-alt">
+      <!-- SLOGAN — mühürlü karar: hero'da video ŞART KOŞULMAZ, genel güç cümlesi.
+           Seçilen: forge/demir kimliğiyle örtüşen güç cümlesi.
+           Alternatifler (Demir dilerse değiştirilir):
+             - "Hayal edin. Gerisini izleyin."
+             - "Siz anlatın, sahne kurulsun."
+             - "Hayalinizdeki siteyi dövüyoruz." -->
+      <p class="slogan" data-i18n-html="slogan">Hayalinizi anlatın.<br>Gerisini biz döveriz.</p>
+
+      <!-- Video daveti: hero'nun bir tık altında ayrı ince satır -->
+      <p class="video-daveti" data-i18n-html="video_daveti"><b>Videolarınız mı var?</b> İsterseniz tasarımınızda kullanırız.</p>
+
+      <span class="scroll-ipucu"><span data-i18n="scroll_ipucu">Aşağı kaydırın</span><span class="ok" aria-hidden="true"></span></span>
+    </div>
+  </section>
+
+  <!-- ==================== 2) NE YAPIYORUZ ==================== -->
+  <section class="bolum" id="hizmet">
+    <p class="kicker" data-i18n="hizmet_kicker">Ne yapıyoruz</p>
+    <h2 class="bolum-baslik nabiz" data-i18n="hizmet_baslik">Üç işte ustayız.</h2>
+
+    <div class="kartlar-3">
+      <article class="hizmet-kart">
+        <span class="hizmet-no">01</span>
+        <h3 data-i18n="hizmet1_h">Size özel web sitesi</h3>
+        <p data-i18n="hizmet1_p">Hayalinizdeki site, size özel dövülür. Şablon değil; markanıza,
+        hikâyenize ve müşterinize göre tek tek işlenir.</p>
+      </article>
+      <article class="hizmet-kart">
+        <span class="hizmet-no">02</span>
+        <h3 data-i18n="hizmet2_h">Aylık bakım ustalığı</h3>
+        <p data-i18n="hizmet2_p">Siteniz hep bakımlı, hep güncel. Kilit değil, abonelik: güncelleme,
+        iyileştirme ve gözetim bizden.</p>
+      </article>
+      <article class="hizmet-kart">
+        <span class="hizmet-no">03</span>
+        <h3 data-i18n="hizmet3_h">Kişiye özel dijital ürünler</h3>
+        <p data-i18n="hizmet3_p">Aile arşivinden kutlama şarkısına: size ait, sizden başkasında
+        olmayan dijital işler.</p>
+      </article>
+    </div>
+
+    <p class="iki-yol" data-i18n-html="iki_yol">Size hep <span>iki yol</span> sunarız, artısını eksisini dürüstçe
+    anlatırız; karar sizin, tavsiyemiz kayda geçer.</p>
+
+    <!-- Kurulum yolları: mühürlü satış felsefesi (fiyat RAKAMI yazılmaz) -->
+    <div class="kurulum-yollari">
+      <p class="kurulum-ust" data-i18n="kurulum_ust">Sitenizi iki şekilde ayağa kaldırırız:</p>
+      <div class="yol-kartlar">
+        <article class="yol-kart">
+          <span class="yol-no" data-i18n="yol1_no">Yol 1</span>
+          <h3 data-i18n="yol1_h">Tam hazır paket</h3>
+          <p data-i18n="yol1_p">Alan adı, sunucu ve bakım tek bir yıllık abonelikte toplanır;
+          hiçbir teknik yükü siz taşımazsınız. Alan adı her zaman sizin adınıza alınır:
+          tapu sizde, anahtar sizde — biz yalnızca bakım ustanızız.</p>
+        </article>
+        <article class="yol-kart">
+          <span class="yol-no" data-i18n="yol2_no">Yol 2</span>
+          <h3 data-i18n="yol2_h">Kendi alan adınızla</h3>
+          <p data-i18n="yol2_p">Kendi alan adınız zaten varsa siz getirin; biz sitenizi kurar,
+          canlıya alır ve bakımını sürdürürüz. Sahiplik baştan sona sizde kalır.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3) TOOLS SAHNESI ==================== -->
+  <section class="bolum tools" id="tools">
+    <div class="toz-wrap">
+      <canvas id="toz-canvas" aria-hidden="true"></canvas>
+      <div class="tools-static" aria-hidden="true">TOOLS</div>
+    </div>
+    <h2 class="sr-only nabiz" data-i18n="tools_sr">Araçlar ve ürünler</h2>
+    <p class="kicker" data-i18n="tools_kicker">Araçlar</p>
+    <p class="tools-alt" data-i18n="tools_alt">Dağınık demir tozu gibi başlayan fikirler, mıknatısın altında
+    çalışan ürünlere dizilir. İşte rafımızdakiler.</p>
+
+    <div class="urun-vitrin">
+      <article class="urun-kart canli">
+        <span class="rozet canli" data-i18n="urun1_rozet">Canlı ürün</span>
+        <h3 data-i18n="urun1_h">Aile Arşivi</h3>
+        <p data-i18n="urun1_p">3B anı duvarı, film şeridi ve akıllı albüm tarifi. Ailenin fotoğrafları,
+        özenle dizilmiş yaşayan bir arşive dönüşür.</p>
+        <span class="urun-link" data-i18n="urun1_link" style="text-decoration:none;pointer-events:none;color:var(--metin-soluk)">Ailelere özel erişim</span>
+      </article>
+      <article class="urun-kart">
+        <span class="rozet yakinda" data-i18n="urun2_rozet">Yakında</span>
+        <h3 data-i18n="urun2_h">Kutlama Şarkısı Atölyesi</h3>
+        <p data-i18n="urun2_p">Düğün, nişan, doğum günü… Türk törenlerine özel, isme ve ana yazılmış
+        kutlama şarkıları. Atölye hazırlanıyor.</p>
+      </article>
+      <article class="urun-kart bos">
+        <span class="rozet bos" data-i18n="urun3_rozet">Sırada ne var?</span>
+        <h3 data-i18n="urun3_h">Boş yuva</h3>
+        <p data-i18n="urun3_p">Bir sonraki ürün burada dövülecek. Fikriniz varsa yeri hazır.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== 4) VIDEO DUVARI ==================== -->
+  <section class="bolum" id="duvar">
+    <p class="kicker" data-i18n="duvar_kicker">İşte kanıt</p>
+    <h2 class="bolum-baslik nabiz" data-i18n="duvar_baslik">Atölyeden çıkan işler.</h2>
+    <p class="bolum-alt" data-i18n="duvar_alt">Konsept değil; çalışan, canlı işler. Kartın üzerine gelin,
+    sahne oynasın.</p>
+
+    <div class="duvar-sahne" id="duvar-sahne">
+      <div class="duvar-ic">
+
+        <!-- 1 · IGLU -->
+        <figure class="kart" data-src="assets/isler/iglu.mp4" tabindex="0" aria-label="IGLU Alpine Lodge — kayak lodgu tanıtım sitesi">
+          <video muted loop playsinline preload="none" poster="assets/isler/iglu-poster.svg" aria-hidden="true"></video>
+          <span class="kart-ad">IGLU<small>Alpine Lodge</small></span>
+        </figure>
+
+        <!-- 2 · HALLEY (poster) -->
+        <figure class="kart koyu-poster" tabindex="0" aria-label="HALLEY Desert Camp — çöl glamping sitesi">
+          <img class="poster oynuk-yok" src="assets/isler/halley-poster.jpg" alt="HALLEY Desert Camp gece çölü" loading="lazy" width="640" height="400" style="opacity:1">
+          <span class="kart-ad">HALLEY<small>Desert Camp</small></span>
+        </figure>
+
+        <!-- 3 · SALKIM (tipografik) -->
+        <figure class="kart tipo" tabindex="0" aria-label="SALKIM Bağ Evi — Ege bağ evi sitesi" style="background:linear-gradient(150deg,#3a1526,#6d2740 55%,#c98a3a)">
+          <span class="tipo-ad">SALKIM</span>
+          <span class="tipo-en">From the vine, to your glass</span>
+        </figure>
+
+        <!-- 4 · DALGA -->
+        <figure class="kart" data-src="assets/isler/dalga.mp4" tabindex="0" aria-label="DALGA Outdoor — rafting ve macera sitesi">
+          <video muted loop playsinline preload="none" poster="assets/isler/dalga-poster.jpg" aria-hidden="true"></video>
+          <span class="kart-ad">DALGA<small>Outdoor</small></span>
+        </figure>
+
+        <!-- 5 · KALEHAN (tipografik) -->
+        <figure class="kart tipo" tabindex="0" aria-label="KALEHAN Konak — restore taş konak butik otel sitesi" style="background:linear-gradient(150deg,#2a2320,#4a3b2e 55%,#b98a52)">
+          <span class="tipo-ad">KALEHAN</span>
+          <span class="tipo-en">The light is the amenity</span>
+        </figure>
+
+        <!-- 6 · RAKIM -->
+        <figure class="kart" data-src="assets/isler/rakim.mp4" tabindex="0" aria-label="RAKIM — yayla eko-lodge sitesi">
+          <video muted loop playsinline preload="none" poster="assets/isler/rakim-poster.jpg" aria-hidden="true"></video>
+          <span class="kart-ad">RAKIM<small>Highland Eco-Lodge</small></span>
+        </figure>
+
+        <!-- 7 · KERVAN -->
+        <figure class="kart koyu-poster" data-src="assets/isler/kervan.mp4" tabindex="0" aria-label="KERVAN Walks — rehberli şehir yürüyüşleri sitesi">
+          <video muted loop playsinline preload="none" poster="assets/isler/kervan-poster.jpg" aria-hidden="true"></video>
+          <span class="kart-ad">KERVAN<small>City Walks</small></span>
+        </figure>
+
+        <!-- 8 · ATÖLYE VYRON (ödül · tipografik) -->
+        <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — ödül seviyesinde site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#3a2016 55%,#ff6b2b)">
+          <span class="tipo-ad">ATÖLYE VYRON</span>
+          <span class="tipo-en">You film the place. We frame the site.</span>
+        </figure>
+
+        <!-- 9 · MERIDYEN (ödül · tipografik) -->
+        <figure class="kart tipo" tabindex="0" aria-label="MERIDYEN — gece konaklamaları arşivi sitesi" style="background:linear-gradient(150deg,#10131f,#1c2340 55%,#47507e)">
+          <span class="tipo-ad">MERIDYEN</span>
+          <span class="tipo-en">The archive of nocturnal stays</span>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5) KAPANIS + FORM ==================== -->
+  <!-- Kapanış sözü (SIRA SİZDE) yalnız üstteki boş banda kurulur; forma
+       inince band viewport'tan çıkar ve sürü dağılır → yazı forma binmez. -->
+  <section class="kapanis" id="kapanis">
+    <div class="kapanis-hero" id="kapanis-hero" aria-hidden="true">
+      <div class="kapanis-static">SIRA&nbsp;SİZDE</div>
+    </div>
+
+    <div class="form-sar">
+      <p class="kicker" data-i18n="form_kicker">Sıra sizde</p>
+      <h2 class="form-baslik" data-i18n="form_baslik">Bir fikir anlatın, gerisini konuşalım.</h2>
+      <p class="form-giris" data-i18n="form_giris">Adınızı, e-postanızı ve aklınızdaki işi yazın. Size iki yol
+      sunalım, kararı birlikte verelim.</p>
+
+      <form id="iletisim-form" novalidate>
+        <!-- Bal küpü (bot tuzağı) -->
+        <div class="tuzak" aria-hidden="true">
+          <label for="website">Web siteniz</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="alan">
+          <label for="ad" data-i18n="form_ad">Adınız</label>
+          <input type="text" id="ad" name="name" placeholder="Adınız" data-i18n-ph="form_ad_ph" autocomplete="name" required>
+        </div>
+        <div class="alan">
+          <label for="eposta" data-i18n="form_eposta">E-posta</label>
+          <input type="email" id="eposta" name="email" placeholder="ornek@eposta.com" data-i18n-ph="form_eposta_ph" autocomplete="email" required>
+        </div>
+        <div class="alan">
+          <label for="mesaj" data-i18n="form_mesaj">Mesajınız</label>
+          <textarea id="mesaj" name="message" rows="4" placeholder="Aklınızdaki işi birkaç cümleyle anlatın." data-i18n-ph="form_mesaj_ph" required></textarea>
+        </div>
+
+        <button type="submit" class="gonder" data-i18n="form_gonder">Gönder</button>
+        <p id="form-durum" class="form-durum" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Güven satırı: form gizliliği (sade, abartısız) -->
+      <p class="form-guven" data-i18n="form_guven">Mesajınız yalnızca e-postamıza düşer; hiçbir yerde
+      saklanmaz, üçüncü kişilerle paylaşılmaz. 24 saat içinde size döneriz.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer data-i18n-html="footer">
+  <b>IRON VISION</b> · Yapay zekâ atölyesi · Size özel siteler, bakım, dijital ürünler
+</footer>
+
+<script src="js/config.js" defer></script>
+<script src="js/surumotoru.js" defer></script>
+<script src="js/tozmiknatis.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/i18n.js" defer></script>
+</body>
+</html>

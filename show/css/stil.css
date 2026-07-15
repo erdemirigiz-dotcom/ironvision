@@ -1,6 +1,7 @@
 /* ============================================================================
-   IRON VISION show-site — stil (DEMİR VE KOR paleti, mühürlü)
+   IRON VISION show-site — stil (ESKİTİLMİŞ METALİK GRİ paleti)
    Tek CSS dosyası, dış istek yok. Fontlar lokal woff2.
+   Vurgu #9aa3ad · parlak/ışıltı #c8ccd2 · koyu gölge #5c636b · nötr beyaz #e8eaed
    ========================================================================== */
 
 /* ---- Lokal fontlar -------------------------------------------------------- */
@@ -25,9 +26,10 @@
 /* ---- Palet + temel değişkenler ------------------------------------------- */
 :root {
   --zemin-1: #232326; --zemin-2: #141416; --zemin-3: #0a0a0b;
-  --kor-a: #ff6b2b; --kor-b: #ff3d2e; --kor-isik: #ff8a4d;
-  --yarasa: #ffb088; --isilti: #ff5a28;
-  --yazi: #ffe9dc;
+  /* Eskitilmiş metalik gri: dolgu düğme gradyanı parlak→vurgu (koyu yazı okunur) */
+  --kor-a: #c8ccd2; --kor-b: #9aa3ad; --kor-isik: #c8ccd2;
+  --yarasa: #aeb4bc; --isilti: #b7bcc4;
+  --yazi: #e8eaed;
   --metin: rgba(255,255,255,0.72);
   --metin-soluk: rgba(255,255,255,0.5);
   --cizgi: rgba(255,255,255,0.1);
@@ -109,7 +111,7 @@ main, footer { position: relative; z-index: 2; }
   font-family: var(--font-d);
   font-size: clamp(1.9rem, 5vw, 3.2rem); line-height: 1.08;
   color: var(--yazi); font-weight: 700; letter-spacing: -0.01em;
-  text-shadow: 0 0 28px rgba(255,90,40,0.18);
+  text-shadow: 0 0 28px rgba(154,163,173,0.18);
 }
 .bolum-alt { margin-top: 14px; max-width: 44ch; color: var(--metin); }
 
@@ -129,9 +131,21 @@ main, footer { position: relative; z-index: 2; }
   position: absolute; top: 42%; left: 50%; transform: translate(-50%, -50%);
   font-weight: 800; letter-spacing: 0.1em; line-height: 1;
   font-size: clamp(2.8rem, 12vw, 7rem); color: var(--yazi);
-  text-shadow: 0 0 22px rgba(255,90,40,0.6), 0 0 66px rgba(255,61,46,0.35);
+  text-shadow: 0 0 22px rgba(154,163,173,0.6), 0 0 66px rgba(92,99,107,0.35);
 }
 html.rm .hero-static { display: block; }
+
+/* Logo bütünlüğü (Iron Vision Tools): IRON VISION'ın hemen altında, sloganın
+   üstünde ince, harf aralığı geniş "TOOLS" ibaresi. Akış içinde (absolute yok)
+   → sürü boyutu ne olursa olsun çakışma/taşma olmaz. */
+.hero-tools {
+  margin: 0 0 clamp(14px, 2.4vh, 26px); white-space: nowrap;
+  font-family: var(--font); font-weight: 700;
+  font-size: clamp(0.72rem, 2vw, 1.05rem);
+  letter-spacing: 0.62em; text-indent: 0.62em;
+  color: var(--kor-isik);
+  text-shadow: 0 0 18px rgba(154,163,173,0.35);
+}
 
 .hero-alt { position: relative; z-index: 3; max-width: 640px; }
 .slogan {
@@ -178,8 +192,8 @@ html.rm .hero-static { display: block; }
 }
 .hizmet-kart:hover, .hizmet-kart:focus-within {
   transform: translateY(-5px);
-  border-color: rgba(255,107,43,0.5);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.4), 0 0 28px rgba(255,107,43,0.16);
+  border-color: rgba(154,163,173,0.5);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.4), 0 0 28px rgba(154,163,173,0.16);
 }
 .hizmet-no {
   font-family: var(--font-d); font-size: 0.95rem; color: var(--kor-isik);
@@ -221,24 +235,11 @@ html.rm .hero-static { display: block; }
 .yol-kart p { color: var(--metin); font-size: 0.95rem; }
 
 /* ============================================================================
-   3) TOOLS SAHNESI — demir tozu + ürün vitrini
+   3) TOOLS — ürün vitrini (dev "TOOLS" başlığı hero'ya taşındı: logo bütünlüğü)
    ========================================================================== */
 .tools { text-align: center; }
-.toz-wrap {
-  position: relative; width: 100%; height: clamp(160px, 26vw, 300px);
-  margin: 0 auto clamp(8px, 2vh, 20px); max-width: 900px;
-}
-#toz-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-/* Reduced-motion: statik ışıyan TOOLS başlığı */
-.tools-static {
-  display: none;
-  font-size: clamp(2.4rem, 11vw, 5.5rem); font-weight: 800; letter-spacing: 0.42em;
-  text-indent: 0.42em; color: var(--kor-isik);
-  text-shadow: 0 0 20px rgba(255,107,43,0.5);
-}
-html.rm #toz-canvas { display: none; }
-html.rm .tools-static { display: block; }
-.tools-alt { color: var(--metin); max-width: 46ch; margin: 0 auto; }
+.tools .bolum-baslik { margin-top: 6px; text-shadow: none; }
+.tools-alt { color: var(--metin); max-width: 46ch; margin: 14px auto 0; }
 
 .urun-vitrin {
   margin-top: clamp(38px, 6vh, 60px);
@@ -254,15 +255,15 @@ html.rm .tools-static { display: block; }
 }
 .urun-kart.canli:hover {
   transform: translateY(-5px);
-  border-color: rgba(255,107,43,0.5);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.4), 0 0 28px rgba(255,107,43,0.16);
+  border-color: rgba(154,163,173,0.5);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.4), 0 0 28px rgba(154,163,173,0.16);
 }
 .rozet {
   align-self: flex-start; font-size: 0.66rem; letter-spacing: 0.14em;
   text-transform: uppercase; padding: 4px 11px; border-radius: 999px; font-weight: 600;
 }
 .rozet.canli { color: #0a0a0b; background: linear-gradient(120deg, var(--kor-a), var(--kor-b)); }
-.rozet.yakinda { color: var(--kor-isik); background: rgba(255,107,43,0.12); border: 1px solid rgba(255,107,43,0.35); }
+.rozet.yakinda { color: var(--kor-isik); background: rgba(154,163,173,0.12); border: 1px solid rgba(154,163,173,0.35); }
 .rozet.bos { color: var(--metin-soluk); background: rgba(255,255,255,0.05); border: 1px dashed var(--cizgi); }
 .urun-kart h3 { margin: 16px 0 8px; font-size: 1.24rem; color: var(--yazi); font-weight: 700; }
 .urun-kart p { font-size: 0.94rem; color: var(--metin); }
@@ -301,8 +302,8 @@ html.rm .tools-static { display: block; }
 .duvar-ic .kart:nth-child(3n+3) { transform: translateZ(24px); }
 .kart:hover, .kart:focus-visible {
   transform: translateZ(70px) scale(1.015);
-  border-color: rgba(255,107,43,0.6);
-  box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 34px rgba(255,107,43,0.32);
+  border-color: rgba(154,163,173,0.6);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 34px rgba(154,163,173,0.32);
   z-index: 5;
 }
 .kart video, .kart .poster {
@@ -317,7 +318,7 @@ html.rm .tools-static { display: block; }
   font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: var(--yazi);
   text-shadow: 0 2px 12px rgba(0,0,0,0.9);
 }
-.kart-ad small { display: block; font-weight: 400; font-size: 0.66rem; color: rgba(255,233,220,0.7); letter-spacing: 0.02em; }
+.kart-ad small { display: block; font-weight: 400; font-size: 0.66rem; color: rgba(232,234,237,0.7); letter-spacing: 0.02em; }
 .kart::after {
   content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background: linear-gradient(to top, rgba(10,10,11,0.6) 0%, rgba(10,10,11,0) 42%);
@@ -328,14 +329,14 @@ html.rm .tools-static { display: block; }
 .kart.koyu-poster::before {
   content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background:
-    radial-gradient(120% 82% at 50% 14%, rgba(255,176,116,0.16), transparent 62%),
+    radial-gradient(120% 82% at 50% 14%, rgba(200,206,214,0.16), transparent 62%),
     linear-gradient(0deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05));
   mix-blend-mode: screen;
 }
 .kart.koyu-poster .kart-ad {
   text-shadow: 0 2px 14px rgba(0,0,0,0.95), 0 0 5px rgba(0,0,0,0.85);
 }
-.kart.koyu-poster .kart-ad small { color: rgba(255,233,220,0.9); }
+.kart.koyu-poster .kart-ad small { color: rgba(232,234,237,0.9); }
 
 /* Tipografik kartlar (görseli olmayan işler) */
 .kart.tipo { display: flex; flex-direction: column; justify-content: center; padding: 22px; text-align: center; }
@@ -363,7 +364,7 @@ html.rm .tools-static { display: block; }
 .kapanis-static {
   display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
   font-weight: 800; letter-spacing: 0.1em; font-size: clamp(2.2rem, 10vw, 5.5rem);
-  color: var(--yazi); text-shadow: 0 0 22px rgba(255,90,40,0.6), 0 0 66px rgba(255,61,46,0.35);
+  color: var(--yazi); text-shadow: 0 0 22px rgba(154,163,173,0.6), 0 0 66px rgba(92,99,107,0.35);
 }
 html.rm .kapanis-static { display: block; }
 
@@ -395,7 +396,7 @@ html.rm .kapanis-static { display: block; }
 }
 .alan input::placeholder, .alan textarea::placeholder { color: rgba(255,255,255,0.35); }
 .alan input:focus, .alan textarea:focus {
-  outline: none; border-color: rgba(255,107,43,0.6); background: rgba(255,255,255,0.06);
+  outline: none; border-color: rgba(154,163,173,0.6); background: rgba(255,255,255,0.06);
 }
 .tuzak { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .gonder {
@@ -403,15 +404,15 @@ html.rm .kapanis-static { display: block; }
   font-family: var(--font); font-size: 1rem; font-weight: 700; letter-spacing: 0.04em;
   color: #0a0a0b; cursor: pointer; justify-self: center;
   background: linear-gradient(120deg, var(--kor-a), var(--kor-b));
-  box-shadow: 0 0 30px rgba(255,90,40,0.4);
+  box-shadow: 0 0 30px rgba(154,163,173,0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
-.gonder:hover { transform: translateY(-2px); box-shadow: 0 6px 34px rgba(255,90,40,0.55); }
+.gonder:hover { transform: translateY(-2px); box-shadow: 0 6px 34px rgba(154,163,173,0.55); }
 .gonder:active { transform: translateY(0); }
 .gonder:disabled { opacity: 0.6; cursor: default; transform: none; }
 .form-durum { min-height: 1.4em; text-align: center; font-size: 0.92rem; margin-top: 4px; }
 .form-durum.ok { color: var(--kor-isik); }
-.form-durum.hata { color: #ff8a7a; }
+.form-durum.hata { color: #e07b70; }
 
 /* Güven satırı: form gizliliği — sade, soluk, ayırıcı çizgiyle */
 .form-guven {

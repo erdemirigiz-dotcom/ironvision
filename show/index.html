@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>IRON VISION — Hayalinizi anlatın, gerisini biz döveriz</title>
+<title>IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin</title>
 <meta name="description" content="Size özel web sitesi, aylık bakım ustalığı ve kişiye özel dijital ürünler. IRON VISION: yaşayan bir sahne, çalışan işler, dürüst iki-yol danışmanlığı.">
 <meta name="theme-color" content="#0a0a0b">
 <link rel="canonical" href="https://ironvisiontools.com/show/">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="IRON VISION">
-<meta property="og:title" content="IRON VISION — Hayalinizi anlatın, gerisini biz döveriz">
+<meta property="og:title" content="IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin">
 <meta property="og:description" content="Size özel web sitesi, aylık bakım ustalığı, kişiye özel dijital ürünler. Yaşayan bir sahne, çalışan işler.">
 <meta property="og:image" content="assets/og-cover.png">
 <meta property="og:image:width" content="1200">
@@ -23,8 +23,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="assets/og-cover.png">
 
-<!-- Favicon: kor kıvılcımı (inline, dış istek yok) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0b'/%3E%3Cpath d='M50 20 L58 44 L82 50 L58 56 L50 80 L42 56 L18 50 L42 44 Z' fill='%23ff6b2b'/%3E%3C/svg%3E">
+<!-- Favicon: eskitilmiş çelik kıvılcımı (inline, dış istek yok) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0b'/%3E%3Cpath d='M50 20 L58 44 L82 50 L58 56 L50 80 L42 56 L18 50 L42 44 Z' fill='%23c8ccd2'/%3E%3C/svg%3E">
 
 <!-- Fontları erken getir (lokal, render bloklamaz) -->
 <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -71,13 +71,19 @@
     <div class="hero-static" aria-hidden="true">IRON&nbsp;VISION</div>
 
     <div class="hero-alt">
-      <!-- SLOGAN — mühürlü karar: hero'da video ŞART KOŞULMAZ, genel güç cümlesi.
-           Seçilen: forge/demir kimliğiyle örtüşen güç cümlesi.
+      <!-- Logo bütünlüğü (Iron Vision Tools): sürünün kurduğu IRON VISION'ın
+           hemen altına, sloganın üstüne ince, harf aralığı geniş "TOOLS"
+           ibaresi. Statik ve akış içinde (absolute/JS yok) → sürü boyutu ne
+           olursa olsun sloganla çakışmaz, mobilde taşmaz. Sürü motoruna yeni
+           kelime ÖĞRETİLMEZ. Normal ve hareket-azaltma modunda tutarlı. -->
+      <p class="hero-tools" aria-hidden="true">TOOLS</p>
+
+      <!-- SLOGAN — mühürlü karar: hero'da video ŞART KOŞULMAZ, genel cümle.
+           Seçilen ton: atölye ustası (iddiasız ama özgüvenli).
            Alternatifler (Demir dilerse değiştirilir):
              - "Hayal edin. Gerisini izleyin."
-             - "Siz anlatın, sahne kurulsun."
-             - "Hayalinizdeki siteyi dövüyoruz." -->
-      <p class="slogan" data-i18n-html="slogan">Hayalinizi anlatın.<br>Gerisini biz döveriz.</p>
+             - "Siz anlatın, sahne kurulsun." -->
+      <p class="slogan" data-i18n-html="slogan">Hayalinizi anlatın.<br>Atölyemizde şekillensin.</p>
 
       <!-- Video daveti: hero'nun bir tık altında ayrı ince satır -->
       <p class="video-daveti" data-i18n-html="video_daveti"><b>Videolarınız mı var?</b> İsterseniz tasarımınızda kullanırız.</p>
@@ -95,8 +101,8 @@
       <article class="hizmet-kart">
         <span class="hizmet-no">01</span>
         <h3 data-i18n="hizmet1_h">Size özel web sitesi</h3>
-        <p data-i18n="hizmet1_p">Hayalinizdeki site, size özel dövülür. Şablon değil; markanıza,
-        hikâyenize ve müşterinize göre tek tek işlenir.</p>
+        <p data-i18n="hizmet1_p">Hayalinizdeki site, atölyemizde size özel işlenir. Şablon değil;
+        markanıza, hikâyenize ve müşterinize göre tek tek şekillendirilir.</p>
       </article>
       <article class="hizmet-kart">
         <span class="hizmet-no">02</span>
@@ -138,14 +144,10 @@
 
   <!-- ==================== 3) TOOLS SAHNESI ==================== -->
   <section class="bolum tools" id="tools">
-    <div class="toz-wrap">
-      <canvas id="toz-canvas" aria-hidden="true"></canvas>
-      <div class="tools-static" aria-hidden="true">TOOLS</div>
-    </div>
-    <h2 class="sr-only nabiz" data-i18n="tools_sr">Araçlar ve ürünler</h2>
     <p class="kicker" data-i18n="tools_kicker">Araçlar</p>
-    <p class="tools-alt" data-i18n="tools_alt">Dağınık demir tozu gibi başlayan fikirler, mıknatısın altında
-    çalışan ürünlere dizilir. İşte rafımızdakiler.</p>
+    <h2 class="bolum-baslik nabiz" data-i18n="tools_sr">Kendi ürünlerimiz.</h2>
+    <p class="tools-alt" data-i18n="tools_alt">Bir fikir olarak başlayan işler, sabırla çalışan
+    ürünlere dönüşür. İşte rafımızdakiler.</p>
 
     <div class="urun-vitrin">
       <article class="urun-kart canli">
@@ -164,7 +166,7 @@
       <article class="urun-kart bos">
         <span class="rozet bos" data-i18n="urun3_rozet">Sırada ne var?</span>
         <h3 data-i18n="urun3_h">Boş yuva</h3>
-        <p data-i18n="urun3_p">Bir sonraki ürün burada dövülecek. Fikriniz varsa yeri hazır.</p>
+        <p data-i18n="urun3_p">Bir sonraki ürün burada şekillenecek. Fikriniz varsa yeri hazır.</p>
       </article>
     </div>
   </section>
@@ -222,7 +224,7 @@
         </figure>
 
         <!-- 8 · ATÖLYE VYRON (ödül · tipografik) -->
-        <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — ödül seviyesinde site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#3a2016 55%,#ff6b2b)">
+        <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — ödül seviyesinde site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#31353b 55%,#9aa3ad)">
           <span class="tipo-ad">ATÖLYE VYRON</span>
           <span class="tipo-en">You film the place. We frame the site.</span>
         </figure>
@@ -289,7 +291,6 @@
 
 <script src="js/config.js" defer></script>
 <script src="js/surumotoru.js" defer></script>
-<script src="js/tozmiknatis.js" defer></script>
 <script src="js/site.js" defer></script>
 <script src="js/i18n.js" defer></script>
 </body>

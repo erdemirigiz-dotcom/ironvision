@@ -1,7 +1,8 @@
 /* ============================================================================
    IRON VISION show-site — stil (ESKİTİLMİŞ METALİK GRİ paleti)
    Tek CSS dosyası, dış istek yok. Fontlar lokal woff2.
-   Vurgu #9aa3ad · parlak/ışıltı #c8ccd2 · koyu gölge #5c636b · nötr beyaz #e8eaed
+   Vurgu #9aa3ad · parlak/ışıltı #c8ccd2 · koyu gölge #5c636b (yalnız çizgi/dekor)
+   Okunurluk turu 15.07: gövde #c9ced6 · başlık #f2f4f7 · soluk #aab1ba (opak, net)
    ========================================================================== */
 
 /* ---- Lokal fontlar -------------------------------------------------------- */
@@ -29,9 +30,9 @@
   /* Eskitilmiş metalik gri: dolgu düğme gradyanı parlak→vurgu (koyu yazı okunur) */
   --kor-a: #c8ccd2; --kor-b: #9aa3ad; --kor-isik: #c8ccd2;
   --yarasa: #aeb4bc; --isilti: #b7bcc4;
-  --yazi: #e8eaed;
-  --metin: rgba(255,255,255,0.72);
-  --metin-soluk: rgba(255,255,255,0.5);
+  --yazi: #f2f4f7;
+  --metin: #c9ced6;
+  --metin-soluk: #aab1ba;
   --cizgi: rgba(255,255,255,0.1);
   --cam: rgba(20,20,22,0.55);
   --font: "Space Grotesk", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -394,7 +395,7 @@ html.rm .kapanis-static { display: block; }
   color: var(--yazi); font-family: var(--font); font-size: 1rem; resize: vertical;
   transition: border-color 0.2s ease, background 0.2s ease;
 }
-.alan input::placeholder, .alan textarea::placeholder { color: rgba(255,255,255,0.35); }
+.alan input::placeholder, .alan textarea::placeholder { color: rgba(255,255,255,0.48); }
 .alan input:focus, .alan textarea:focus {
   outline: none; border-color: rgba(154,163,173,0.6); background: rgba(255,255,255,0.06);
 }

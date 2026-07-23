@@ -303,13 +303,20 @@
                 </details>
             </div>
         </section>
+
+        <section class="card" style="text-align:center" aria-label="StonkLab">
+            <p data-i18n="crossPromo" style="opacity:.85;margin:0 0 10px;">Bu aracı faydalı bulduysan: kripto, hisse ve forex için illüstrasyonlu grafik-okuma rehberlerimize ve Notion işlem günlüğümüze göz at.</p>
+            <p style="margin:0 0 8px;"><a href="https://www.etsy.com/shop/IronVisionTools" target="_blank" rel="noopener" data-i18n="crossLink" style="font-weight:700">IronVisionTools Etsy mağazası →</a></p>
+            <p data-i18n="crossDisc" style="font-size:.8em;opacity:.6;margin:0;">Yalnızca eğitim amaçlıdır, yatırım tavsiyesi değildir.</p>
+        </section>
     </main>
 
     <footer>
         <p style="margin-bottom:12px;">
             <a href="hakkinda.html" data-i18n="footAbout">Hakkında</a> ·
             <a href="gizlilik.html" data-i18n="footPrivacy">Gizlilik</a> ·
-            <a href="iletisim.html" data-i18n="footContact">İletişim</a>
+            <a href="iletisim.html" data-i18n="footContact">İletişim</a> ·
+            <a href="https://www.etsy.com/shop/IronVisionTools" target="_blank" rel="noopener" data-i18n="footShop">Trading Rehberleri (Etsy)</a>
         </p>
         <p id="footNote">© <span id="year"></span> IronVision Tools · Yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi değildir.</p>
         <p style="margin-top:8px;"><a href="vergi.html" data-i18n="footTax">Vergi / net maaş hesaplayıcı</a> · <a href="token.html" data-i18n="navToken">Token maliyet hesaplayıcı</a> · ironvisiontools.com</p>
@@ -325,6 +332,10 @@
       const copy = {
         tr:{
           navCrypto:"Kripto K/Z", navTax:"Vergi / Net Maaş", navToken:"Token Maliyet", langLabel:"Dil", footTax:"Vergi / net maaş hesaplayıcı",
+          footShop:"Trading Rehberleri (Etsy)",
+          crossPromo:"Bu aracı faydalı bulduysan: kripto, hisse ve forex için illüstrasyonlu grafik-okuma rehberlerimize ve Notion işlem günlüğümüze göz at.",
+          crossLink:"IronVisionTools Etsy mağazası →",
+          crossDisc:"Yalnızca eğitim amaçlıdır, yatırım tavsiyesi değildir.",
           pageTitle:"Kripto Kâr/Zarar Hesaplayıcı",
           heroDesc:"Alış/satış ve komisyonları girin; komisyon ve vergi sonrası net sonucu görün. Yalnızca bilgilendirme amaçlıdır.",
           lblInvest:"Yatırım Miktarı", lblBuy:"Alış Fiyatı", lblSell:"Satış Fiyatı", lblCoins:"Opsiyonel Coin Miktarı",
@@ -380,6 +391,10 @@
           errRates:"Rates and optional coin quantity cannot be negative.",
           copied:"Copied ✓", copyFail:"Copy failed. Check browser permissions.",
           navHome:"Home", footAbout:"About", footPrivacy:"Privacy", footContact:"Contact",
+          footShop:"Trading Guides (Etsy)",
+          crossPromo:"Found this tool useful? Check out our illustrated chart-reading guides and Notion trading journal for crypto, stocks and forex.",
+          crossLink:"IronVisionTools Etsy shop →",
+          crossDisc:"Educational only, not financial advice.",
           infoTitle:"How is crypto profit/loss calculated?",
           infoP1:"A trade's real result is not just the difference between buy and sell price; trading fees and any capital-gains tax also affect the outcome directly. This tool first works out the coin quantity: if you leave the optional coin field empty, the quantity is your investment amount divided by the buy price. Cost is taken as coin quantity × buy price × (1 + buy fee); in other words the buy fee is added on top of the cost.",
           infoP2:"On the sell side, the sell fee is deducted from the proceeds. Gross profit/loss is the proceeds after fees minus the total cost. Tax is applied only when gross profit is positive, using the tax rate you enter; no tax is computed on a losing trade. The net result is the gross profit with that tax subtracted. Everything is calculated in your browser and none of the values you enter are sent to a server.",

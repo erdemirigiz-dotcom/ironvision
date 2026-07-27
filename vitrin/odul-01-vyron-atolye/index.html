@@ -21,6 +21,7 @@
   <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fleet.css">
 
   <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
 
@@ -54,6 +55,7 @@
         </button>
         <ul class="nav-list" id="nav-list">
           <li><a href="#work">Work</a></li>
+          <li><a href="#fleet">Fleet</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#craft">Craft</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -170,6 +172,21 @@
       </div>
     </section>
 
+    <!-- ============ FLEET RING (signature #2 — halka geçidi) ============ -->
+    <section class="fleet" id="fleet" aria-labelledby="fleet-h">
+      <div class="fleet-intro">
+        <p class="eyebrow" data-reveal>The fleet <span class="dot">—</span> 12 live builds</p>
+        <h2 id="fleet-h" class="section-h" data-reveal>Step through the ring into any site we run</h2>
+        <p class="section-lede" data-reveal>Every card is a real, living site from our showcase fleet. Hover to flip one open; click and the ring carries you straight into it.</p>
+      </div>
+      <div class="fleet-container">
+        <div class="fleet-ring"></div>
+      </div>
+      <div class="fleet-title" aria-live="polite"></div>
+      <p class="fleet-esc" aria-hidden="true">ESC — stay in the atelier</p>
+      <div class="fleet-veil" aria-hidden="true"></div>
+    </section>
+
     <!-- ============ PROCESS ============ -->
     <section class="section-pad" id="process" aria-labelledby="proc-h">
       <div class="wrap">
@@ -276,5 +293,6 @@
   <script src="js/vendor/gsap.min.js" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/fleet.js" defer></script>
 </body>
 </html>

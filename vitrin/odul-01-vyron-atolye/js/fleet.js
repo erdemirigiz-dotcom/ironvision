@@ -26,6 +26,7 @@
   var ring = section && section.querySelector(".fleet-ring");
   var titleBox = section && section.querySelector(".fleet-title");
   var veil = section && section.querySelector(".fleet-veil");
+  var intro = section && section.querySelector(".fleet-intro");
   if (!section || !container || !ring || !titleBox || !veil) return;
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -93,6 +94,8 @@
   function openPreview(index) {
     previewActive = true;
     transitioning = true;
+    /* zoom sırasında tanıtım yazısı kartla üst üste binmesin */
+    if (intro) gsap.to(intro, { autoAlpha: 0, duration: 0.4, ease: "power2.out" });
     var angle = state[index].angle;
     var target = (Math.PI * 3) / 2;
     var rot = target - angle;
@@ -183,6 +186,7 @@
         onComplete: function () { el.remove(); },
       });
     }
+    if (intro) gsap.to(intro, { autoAlpha: 1, duration: 0.6, delay: 0.9, ease: "power2.out" });
     gsap.to(ring, {
       scale: ringScale(), y: 0, x: 0, rotation: 0, duration: 2.2, ease: "power4.inOut",
       onComplete: function () {
@@ -266,6 +270,7 @@
     gsap.killTweensOf(ring);
     cards.forEach(function (c) { gsap.killTweensOf(c); });
     gsap.set(veil, { autoAlpha: 0 });
+    if (intro) { gsap.killTweensOf(intro); gsap.set(intro, { autoAlpha: 1 }); }
     titleBox.innerHTML = "";
     currentTitle = null;
     var hint = section.querySelector(".fleet-esc");

@@ -1,0 +1,127 @@
+/* FLEET RING — filo geçidi bölümü */
+.fleet {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 38%, #14161d 0%, #0B0C10 68%);
+}
+.fleet .fleet-intro {
+  position: absolute;
+  top: clamp(2.5rem, 6vh, 4.5rem);
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+  padding: 0 1.5rem;
+}
+.fleet .fleet-intro .section-h {
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  margin: 0.4rem auto 0.5rem;
+  max-width: 28ch;
+}
+.fleet .fleet-intro .section-lede {
+  font-size: 0.92rem;
+  max-width: 52ch;
+  margin: 0 auto;
+  opacity: 0.75;
+}
+.fleet-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  will-change: transform;
+}
+.fleet-ring {
+  position: relative;
+  margin-top: 12vh;
+  width: 640px;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center;
+  will-change: transform;
+}
+.fleet-card {
+  position: absolute;
+  width: 72px;
+  height: 96px;
+  border-radius: 5px;
+  transform-origin: center;
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+.fleet-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  backface-visibility: hidden;
+  display: block;
+}
+.fleet-title {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 52px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 3;
+  pointer-events: none;
+}
+.fleet-title p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: "Zodiak", Georgia, serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  letter-spacing: -0.03rem;
+  color: var(--paper, #F2EFE9);
+  margin: 0;
+}
+.fleet-word {
+  position: relative;
+  display: inline-block;
+  will-change: transform;
+}
+.fleet-esc {
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 239, 233, 0.55);
+}
+.fleet-veil {
+  position: fixed;
+  inset: 0;
+  background: #0B0C10;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 80;
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .fleet-card { width: 58px; height: 78px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fleet-card { transition: none; }
+}

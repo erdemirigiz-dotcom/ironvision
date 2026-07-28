@@ -210,14 +210,19 @@ window.SahneMotoru = (function () {
         ang: a,
         mode: "free",
         tx: 0, ty: 0, delay: 0, lock: 0,
-        amp: 1.2 + Math.random() * 2.2,   // kuş başına salınım genliği (canlı kilit)
+        // Mobilde salınım DAR: harf tanesi yerinde durur, yazı parça parça görünmez
+        amp: (1.2 + Math.random() * 2.2) * (mobile ? 0.55 : 1),
         oscF: 0.30 + Math.random() * 0.55, // kuş başına salınım frekansı (ağır kanlı)
-        esc: 0                            // >0: hedeften kopmuş kısa serbest tur (ms kalan)
+        esc: 0,                           // >0: hedeften kopmuş kısa serbest tur (ms kalan)
+        fade: 0                           // 0..1 görünürlük — ani belirme/patlama yok
       };
     }
     perfCap = n;
     activeCount = n;
     desiredActive = Math.round(n * densityFrac);
+    // Yoğunluk kotasına girenler görünür başlar; kalanlar görünmez bekler.
+    // (Tam yeniden kurulumda bile sürü "tam kadro patlamaz".)
+    for (let i = 0; i < n; i++) bats[i].fade = i < desiredActive ? 1 : 0;
     assignedCount = Math.floor(n * 0.7);
     gridNext = new Int32Array(n);
   }
@@ -240,8 +245,37 @@ window.SahneMotoru = (function () {
     buildGridDims();
     if (state === S.FORMING || state === S.LOCKED) buildTargets(), assignTargets();
   }
+  // Mobilde scroll sırasında adres çubuğu gizlenip çıkınca innerHeight değişir.
+  // Bu "sahte" resize'da sürüyü SIFIRLAMAK her kaydırışta nokta patlamasına yol
+  // açıyordu (Demir 28.07). Yükseklik-ağırlıklı küçük değişimde kuşlara dokunma:
+  // sadece tuvali ve hedef bulutunu yeni boya uydur, sürü kaldığı yerden süzülsün.
+  function softResize(nh) {
+    const dy = (nh - H) * formYFrac;   // harf bloğu sadece dikeyde kayar
+    H = nh;
+    cw = canvas.width = Math.round(W * DPR);
+    ch = canvas.height = Math.round(H * DPR);
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+    buildGridDims();
+    // Hedefleri YENİDEN KURMA (rastgele yeniden atama = yazı bulut gibi karışır);
+    // mevcut hedefleri kaydır — her kuş kendi harf noktasında kalır.
+    if (state === S.FORMING || state === S.LOCKED) {
+      for (let i = 0; i < targets.length; i++) targets[i].y += dy;
+      for (let i = 0; i < bats.length; i++) if (bats[i].mode === "form") bats[i].ty += dy;
+    }
+    // Kaydırılan noktalar önbellekteki dizilerle paylaşımlı: eski anahtarlar
+    // artık yanlış konum taşır — hepsini at, gerekince taze örneklenir.
+    targetCache.clear();
+  }
   let resizeTimer = null;
-  function onResize() { clearTimeout(resizeTimer); resizeTimer = setTimeout(resize, 200); }
+  function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      const nw = window.innerWidth, nh = window.innerHeight;
+      if (nw === W && Math.abs(nh - H) < 180) { if (nh !== H) softResize(nh); }
+      else resize();
+    }, 200);
+  }
 
   function assignTargets() {
     assignedCount = Math.min(bats.length, targets.length);
@@ -258,13 +292,30 @@ window.SahneMotoru = (function () {
   }
 
   function kick() {
+    // Eski itme (2-4) harfleri BOMBA gibi patlatıyordu; şimdi hafif dışa akış +
+    // ufak rastgelelik: yazı erir gibi dağılır (Demir 28.07: "hafiften dağılsın").
     const cx = W / 2, cy = H / 2;
     for (let i = 0; i < bats.length; i++) {
       const b = bats[i]; b.mode = "free";
       const dx = b.x - cx, dy = b.y - cy, d = Math.hypot(dx, dy) || 1;
-      b.vx += dx / d * (2 + Math.random() * 2);
-      b.vy += dy / d * (1.5 + Math.random() * 2);
+      const k = 0.5 + Math.random() * 0.6;
+      b.vx += dx / d * k + (Math.random() - 0.5) * 0.5;
+      b.vy += dy / d * k * 0.8 + (Math.random() - 0.5) * 0.5;
     }
+  }
+
+  // Sonradan katılan kuş eski (donmuş) yerinde AniDEN belirmesin: kenardan
+  // süzülerek girer, solarak görünür olur.
+  function respawnAtEdge(b) {
+    const side = Math.random();
+    if (side < 0.25) { b.x = -W * 0.06; b.y = Math.random() * H; }
+    else if (side < 0.5) { b.x = W * 1.06; b.y = Math.random() * H; }
+    else if (side < 0.75) { b.x = Math.random() * W; b.y = -H * 0.06; }
+    else { b.x = Math.random() * W; b.y = H * 1.06; }
+    const a = Math.atan2(H / 2 - b.y, W / 2 - b.x) + (Math.random() - 0.5) * 0.9;
+    const sp = (0.5 + Math.random() * 0.5) * CRUISE;
+    b.vx = Math.cos(a) * sp; b.vy = Math.sin(a) * sp;
+    b.esc = 0;
   }
 
   // ---- Etkileşim ------------------------------------------------------------
@@ -277,9 +328,9 @@ window.SahneMotoru = (function () {
   // ---- Uzamsal ızgara: serbest yarasaları hücrelere bağla (komşu araması) ---
   function buildGrid() {
     gridHeads.fill(-1);
-    for (let i = 0; i < activeCount; i++) {
+    for (let i = 0; i < bats.length; i++) {
       const b = bats[i];
-      if (b.mode === "form") continue;
+      if (b.mode === "form" || b.fade <= 0) continue;
       let gx = (b.x / GCELL) | 0, gy = (b.y / GCELL) | 0;
       gx = gx < 0 ? 0 : gx >= gcw ? gcw - 1 : gx;
       gy = gy < 0 ? 0 : gy >= gch ? gch - 1 : gy;
@@ -307,8 +358,6 @@ window.SahneMotoru = (function () {
 
     desiredActive = Math.min(Math.round(bats.length * densityFrac), perfCap);
     if (state === S.FORMING || state === S.LOCKED) desiredActive = Math.max(desiredActive, assignedCount);
-    if (activeCount < desiredActive) activeCount = Math.min(desiredActive, activeCount + Math.ceil(24 * dtf));
-    else if (activeCount > desiredActive) activeCount = Math.max(desiredActive, activeCount - Math.ceil(24 * dtf));
 
     buildGrid();
 
@@ -316,10 +365,21 @@ window.SahneMotoru = (function () {
     ctx.clearRect(0, 0, cw, ch);
 
     const t = now;
-    const FORM_GRAIN = mobile ? 5.2 : 6.6;   // yazı tanesi bir tık küçüldü (mobil netlik korunur)
+    // Mobil tane BÜYÜDÜ (5.2 → 6.0): harf gövdesi dolu, "parça parça" okunmaz.
+    const FORM_GRAIN = mobile ? 6.0 : 6.6;
 
-    for (let i = 0; i < activeCount; i++) {
+    for (let i = 0; i < bats.length; i++) {
       const b = bats[i];
+
+      // Yumuşak katılım/ayrılış: kota içindekiler solarak görünür olur (kenardan
+      // girer), kota dışındakiler solarak kaybolur. ANİ belirme/patlama yok.
+      if (i < desiredActive) {
+        if (b.fade <= 0) respawnAtEdge(b);
+        b.fade = Math.min(1, b.fade + dtRaw / 600);
+      } else {
+        b.fade = Math.max(0, b.fade - dtRaw / 450);
+        if (b.fade <= 0) continue;
+      }
 
       if (b.mode === "form" && (now - formStart) > b.delay) {
         if (b.esc > 0) {
@@ -465,6 +525,7 @@ window.SahneMotoru = (function () {
         // KESKİN küçük tane — harf formu net (mobilde daha da küçük)
         const spr = crisp[frame];
         let alpha = 0.5 + b.lock * 0.48 + pulse * 0.12; if (alpha > 1) alpha = 1;
+        alpha *= b.fade;
         const drawSize = FORM_GRAIN * (0.82 + b.depth * 0.32);
         const sc = drawSize / CRISP_SIZE;
         ctx.globalAlpha = alpha;
@@ -476,6 +537,7 @@ window.SahneMotoru = (function () {
         // ufak boyut farkıyla verilir; saydamlıktan gelen "pamuk küme" bitti.
         const spr = crisp[frame];
         let alpha = 0.88 + b.depth * 0.12 + pulse * 0.1; if (alpha > 1) alpha = 1;
+        alpha *= b.fade;
         const drawSize = 3.6 + b.depth * 3.8;
         const sc = drawSize / CRISP_SIZE;
         ctx.globalAlpha = alpha;

@@ -26,6 +26,12 @@
   const formSar = document.querySelector(".form-sar");
 
   const MAJOR = 0.55;       // "çoğunluğu kaplıyor" eşiği
+  // Mobilde serbest sürü SEYREK gezer (Demir 28.07: telefonda içerik üstünde
+  // çok fazla nokta). Yazı kurulumu (hero/kapanış) dokunulmadı — harf dolu kalır.
+  function roamYogunlugu() {
+    const m = window.innerWidth < 600;
+    return duvarGorunur ? (m ? 0.22 : 0.50) : (m ? 0.30 : 0.65);
+  }
   let sahne = null;
   let heroRatio = 0, kapanisRatio = 0, duvarGorunur = false;
   let formOdakta = false;
@@ -58,12 +64,12 @@
       // Form odaktayken: sürü seyrelir AMA sayfada uçmaya devam eder; form
       // panelinin üstüne binmesin diye panel çevresine itme kutusu bağlanır.
       SahneMotoru.dagit();
-      SahneMotoru.yogunluk(0.35);
+      SahneMotoru.yogunluk(window.innerWidth < 600 ? 0.22 : 0.35);
       formKutusuGuncelle();
     } else { // roam — MURMUR gibi ÖN yüzde küme küme dolaşır (seyrelme büyük oranda kalktı)
       SahneMotoru.korumaKutusu(null);
       SahneMotoru.dagit();
-      SahneMotoru.yogunluk(duvarGorunur ? 0.50 : 0.65);
+      SahneMotoru.yogunluk(roamYogunlugu());
     }
   }
 
@@ -106,7 +112,7 @@
     if (duvar) {
       new IntersectionObserver(function (es) {
         es.forEach(function (e) { duvarGorunur = e.isIntersecting; });
-        if (sahne === "roam") SahneMotoru.yogunluk(duvarGorunur ? 0.50 : 0.65);
+        if (sahne === "roam") SahneMotoru.yogunluk(roamYogunlugu());
       }, { threshold: 0.3 }).observe(duvar);
     }
 

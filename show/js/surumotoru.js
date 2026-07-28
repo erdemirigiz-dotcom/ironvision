@@ -49,7 +49,7 @@ window.SahneMotoru = (function () {
   const PERCEPT2 = GCELL * GCELL;
   const SEPR = 18, SEPR2 = SEPR * SEPR; // ayrışma yarıçapı (MURMUR ~16/46 ≈ 18/52 oranı)
   const MAXN = 5;                       // topolojik komşu sayısı (3-5'li gruplar hissi)
-  const CRUISE = 0.95;                  // seyir hızı — kuş gibi süzülme (Demir: bir tık hızlı iyi)
+  let CRUISE = 0.95;                    // seyir hızı — masaüstü; mobilde buildBats düşürür (Demir 28.07: telefonda fazla hızlı)
   // MURMUR reçetesi (rehber): ayrışma 1.8 : hizalanma 0.7 : yaklaşma 0.55.
   // İvme şemamıza 0.1 ölçek → ayrışma AÇIK ARA baskın; kütle yapışmaz, aralıklı
   // akan dereler gibi süzülür (eski değerlerde hizalanma baskındı → tek tip bulut).
@@ -195,6 +195,7 @@ window.SahneMotoru = (function () {
 
   function buildBats() {
     mobile = W < 600;
+    CRUISE = mobile ? 0.68 : 0.95;
     const n = computeCount();
     bats = new Array(n);
     for (let i = 0; i < n; i++) {
@@ -413,8 +414,9 @@ window.SahneMotoru = (function () {
           }
         }
         b.vx += ax * dtf; b.vy += ay * dtf;
-        // Hız tabanı + tavan: titremesin, süzülsün
-        const sp = Math.hypot(b.vx, b.vy), mx = 1.15 + b.depth * 0.9, mn = 0.36 + b.depth * 0.24;
+        // Hız tabanı + tavan: titremesin, süzülsün (mobilde tavan/taban düşük)
+        const spdK = mobile ? 0.7 : 1;
+        const sp = Math.hypot(b.vx, b.vy), mx = (1.15 + b.depth * 0.9) * spdK, mn = (0.36 + b.depth * 0.24) * spdK;
         if (sp > mx) { b.vx = b.vx / sp * mx; b.vy = b.vy / sp * mx; }
         else if (sp < mn && sp > 0.001) { b.vx = b.vx / sp * mn; b.vy = b.vy / sp * mn; }
       }

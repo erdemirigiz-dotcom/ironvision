@@ -25,12 +25,13 @@
   const heroAlt = document.querySelector(".hero-alt");
   const formSar = document.querySelector(".form-sar");
 
-  const MAJOR = 0.55;       // "çoğunluğu kaplıyor" eşiği
+  const MAJOR = 0.62;       // "çoğunluğu kaplıyor" eşiği — yazı, bölümden çıkarken
+                            // daha ERKEN dağılmaya başlar (Demir 28.07: geç kalıyordu)
   // Mobilde serbest sürü SEYREK gezer (Demir 28.07: telefonda içerik üstünde
   // çok fazla nokta). Yazı kurulumu (hero/kapanış) dokunulmadı — harf dolu kalır.
   function roamYogunlugu() {
     const m = window.innerWidth < 600;
-    return duvarGorunur ? (m ? 0.22 : 0.50) : (m ? 0.30 : 0.65);
+    return duvarGorunur ? (m ? 0.20 : 0.50) : (m ? 0.26 : 0.65);
   }
   let sahne = null;
   let heroRatio = 0, kapanisRatio = 0, duvarGorunur = false;

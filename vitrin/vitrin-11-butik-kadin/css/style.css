@@ -713,3 +713,32 @@ td { color: var(--gri); }
   .adet-kutu button { min-width: 44px; min-height: 44px; }
   .alt a { padding-block: .15rem; min-width: 44px; }
 }
+
+/* ---------------------------------------------- (örnek) ibaresi 01.08 ----
+   Vitrin demosundaki telefon / WhatsApp / e-posta bilgileri yer tutucudur.
+   Bu ince ibare, ziyaretçiye bunu dürüstçe söyler; tasarımı bozmaz.        */
+.ornek-ibare {
+  font-family: var(--f-govde, inherit);
+  font-size: .68em; font-style: italic; font-weight: 400;
+  letter-spacing: .02em; text-transform: none;
+  color: var(--gri); opacity: .8; white-space: nowrap;
+  margin-left: .35ch;
+}
+
+/* --------------------------------------- ödeme yöntemi seçimi 01.08 ----- */
+.yontemler {
+  display: grid; gap: .9rem; margin: 0 0 1.8rem;
+}
+@media (min-width: 700px) { .yontemler { grid-template-columns: 1fr 1fr; } }
+.yontem {
+  border: 1px solid var(--cizgi); border-radius: 10px;
+  padding: 1.1rem 1.2rem; background: var(--fildisi);
+}
+.yontem--secili { border-color: var(--altin); box-shadow: inset 0 0 0 1px var(--altin); }
+.yontem h3 { font-size: 1.02rem; margin: 0 0 .35rem; }
+.yontem p { font-size: .86rem; color: var(--gri); margin: 0 0 .9rem; }
+.yontem .btn { width: 100%; }
+.yontem__etiket {
+  display: inline-block; font-size: .68rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--altin-yazi); margin-bottom: .5rem;
+}

@@ -75,7 +75,7 @@
             '<a class="btn" href="odeme.html">Kartla Öde</a>' +
           '</div>' +
 
-          '<p class="ozet__not">WhatsApp yolunda sepetiniz hazır bir mesaja dönüşür; gönder tuşuna basmadan önce mesajı düzenleyebilirsiniz.</p>' +
+          '<p class="ozet__not">WhatsApp yolunda sepetiniz hazır bir mesaja dönüşür; gönder tuşuna basmadan önce mesajı düzenleyebilirsiniz. Bu vitrinde numara yer tutucudur <span class="ornek-ibare">(örnek)</span>.</p>' +
         '</aside>' +
 
       '</div>';

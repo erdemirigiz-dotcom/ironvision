@@ -28,6 +28,24 @@
           '<p class="demo-rozet">Demo ödeme — tahsilat yapılmaz, kart bilgisi hiçbir yere gönderilmez.</p>' +
 
           '<div class="form-bolum">' +
+            '<h2>Ödeme yöntemi</h2>' +
+            '<div class="yontemler">' +
+              '<div class="yontem yontem--secili">' +
+                '<span class="yontem__etiket">Seçili</span>' +
+                '<h3>Kartla öde</h3>' +
+                '<p>Teslimat ve kart bilgilerini aşağıdaki formdan doldurun.</p>' +
+              '</div>' +
+              '<div class="yontem">' +
+                '<span class="yontem__etiket">Diğer yol</span>' +
+                '<h3>WhatsApp ile sipariş</h3>' +
+                '<p>Sepetiniz hazır bir mesaja dönüşür; ödemeyi yazışırken belirleriz. ' +
+                  '<span class="ornek-ibare">(örnek numara)</span></p>' +
+                '<a class="btn btn--wa" data-wa href="' + E(window.AB.whatsappBaglantisi(h)) + '" target="_blank" rel="noopener">WhatsApp\'tan devam et</a>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="form-bolum">' +
             '<h2>Teslimat bilgileri</h2>' +
             '<div class="form-izgara">' +
               '<div class="alan"><label for="ad">Ad</label><input id="ad" name="ad" type="text" autocomplete="given-name" required></div>' +

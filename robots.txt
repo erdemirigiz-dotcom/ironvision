@@ -1,1 +1,4 @@
-ironvisiontools.com/robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://ironvisiontools.com/sitemap.xml

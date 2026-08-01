@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin</title>
 <meta name="description" content="Size özel web sitesi, aylık bakım ustalığı ve kişiye özel dijital ürünler. IRON VISION: yaşayan bir sahne, çalışan işler, dürüst iki-yol danışmanlığı.">
@@ -49,10 +49,39 @@
 </script>
 <style>
 /* Kok sayfa ekleri: kart linkleri + atolye/araclar bolumu (stil.css'e dokunulmadi) */
-.kart-link{color:inherit;text-decoration:none;display:contents}
-#atolye-araclar a.hizmet-kart{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:transform .25s ease}
-#atolye-araclar a.hizmet-kart:hover{transform:translateY(-4px)}
-#atolye-araclar .arac-git{display:inline-block;margin-top:.6rem;color:var(--blue,#7cb0ff);font-size:.9em}
+/* Video duvarı kartları: link kartın TAMAMINI kaplar (yazı kutusu değil) */
+.kart-link{position:absolute;inset:0;z-index:4;display:block;border-radius:inherit;text-decoration:none}
+.kart-link:focus-visible{outline:2px solid var(--kor-isik);outline-offset:-4px}
+.kart:focus-within{border-color:rgba(154,163,173,0.6)}
+/* Atölye + araçlar: kartın TAMAMI hedef sayfanın canlı önizlemesi (video
+   duvarı diliyle aynı: .kart kabuğu + üstüne binen .kart-ad şeridi).
+   Önizleme aynı-origin iframe; ölçekli, tıklamayı kartın <a>'sı alır. */
+#atolye-araclar .onizleme-izgara{
+  margin-top:clamp(36px,6vh,64px); display:grid; gap:22px;
+  grid-template-columns:repeat(3,1fr);
+}
+#atolye-araclar .genis{grid-column:span 2; aspect-ratio:auto}
+#atolye-araclar .onizleme{
+  position:absolute; top:0; left:0; z-index:0; border:0;
+  width:400%; height:400%; transform:scale(.25); transform-origin:0 0;
+  pointer-events:none; background:#0f0f11;
+}
+#atolye-araclar .genis .onizleme{width:200%;height:200%;transform:scale(.5)}
+/* İsim şeridi: önizleme açık renkli olsa da okunur kalsın diye kenardan
+   kenara inen karartma bandı (video duvarındaki kart-ad dilinin devamı) */
+#atolye-araclar .kart-ad{
+  left:0; right:0; bottom:0; padding:14px 16px 13px; font-size:0.86rem;
+  background:linear-gradient(to top,rgba(10,10,11,0.95),rgba(10,10,11,0.78) 55%,rgba(10,10,11,0));
+}
+#atolye-araclar .kart-ad small{margin-top:2px;color:rgba(232,234,237,0.85)}
+@media (max-width:860px){
+  #atolye-araclar .onizleme-izgara{grid-template-columns:1fr}
+  #atolye-araclar .genis{grid-column:auto; aspect-ratio:16/10}
+}
+/* Vitrin hub bağlantısı */
+.duvar-tum{margin-top:26px;text-align:center}
+.duvar-tum a{color:var(--kor-isik);text-decoration:none;font-size:.95rem;border-bottom:1px solid rgba(200,204,210,.35);padding-bottom:2px}
+.duvar-tum a:hover{color:var(--yazi)}
 </style>
 </head>
 <body>
@@ -149,39 +178,54 @@
     </div>
   </section>
 
-  <!-- ==================== 3.5) ATOLYE + ARACLAR ==================== -->
+  <!-- ==================== 3) ATOLYE + ARACLAR ==================== -->
   <section class="bolum" id="atolye-araclar">
-    <p class="kicker">Atölye bölümümüz</p>
-    <h2 class="bolum-baslik nabiz">Gezin, deneyin.</h2>
-    <p class="bolum-alt">Ödül seviyesindeki örnek atölyemizi ziyaret edin; araçlarımız ücretsiz,
-    üyeliksiz, tarayıcınızda çalışır.</p>
+    <p class="kicker" data-i18n="atolye_kicker">Atölye bölümümüz</p>
+    <h2 class="bolum-baslik nabiz" data-i18n="atolye_baslik">Gezin, deneyin.</h2>
+    <p class="bolum-alt" data-i18n="atolye_alt">Kartlardaki görüntü canlı önizlemedir; tıklayın, sayfanın
+    kendisi açılsın. Araçlarımız ücretsiz, üyeliksiz, tarayıcınızda çalışır.</p>
 
-    <div class="kartlar-3">
-      <a class="hizmet-kart" href="vitrin/odul-01-vyron-atolye/">
-        <span class="hizmet-no">★</span>
-        <h3>Atölye bölümümüz</h3>
-        <p>ATÖLYE VYRON — ödül seviyesinde örnek atölye sitemiz. Siz yerinizi çekin,
-        biz sahneye koyalım.</p>
-        <span class="arac-git">Atölyeyi gez →</span>
-      </a>
-      <a class="hizmet-kart" href="kripto.html">
-        <span class="hizmet-no">01</span>
-        <h3>Kripto Kâr/Zarar Hesaplayıcı</h3>
-        <p>Alış-satış fiyatı ve komisyonla net kâr/zarar. Veri toplamaz, tarayıcıda çalışır.</p>
-        <span class="arac-git">Aracı aç →</span>
-      </a>
-      <a class="hizmet-kart" href="vergi.html">
-        <span class="hizmet-no">02</span>
-        <h3>Vergi &amp; Net Maaş Hesaplayıcı</h3>
-        <p>Brütten nete maaş ve vergi dilimi hesabı, 2026 oranlarıyla.</p>
-        <span class="arac-git">Aracı aç →</span>
-      </a>
-      <a class="hizmet-kart" href="token.html">
-        <span class="hizmet-no">03</span>
-        <h3>LLM Token Maliyet Hesaplayıcı</h3>
-        <p>Yapay zekâ modellerinde istek başına token maliyetini kıyaslayın.</p>
-        <span class="arac-git">Aracı aç →</span>
-      </a>
+    <!-- Her kart hedef sayfanın CANLI önizlemesidir: aynı-origin iframe kartı
+         kenardan kenara doldurur (tembel yüklenir, tıklamayı almaz), isim
+         şeridi önizlemenin üstüne biner, kartın tamamı linktir. -->
+    <div class="onizleme-izgara">
+
+      <!-- Öne çıkan: esnaf paketi (Atölye Butik vitrini) -->
+      <figure class="kart genis">
+        <iframe class="onizleme" src="vitrin/vitrin-11-butik-kadin/" loading="lazy"
+                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
+        <span class="kart-ad" data-i18n-html="butik_ad">Atölye Butik<small>Esnaf paketi — küçük işletmeye özel butik site vitrini</small></span>
+        <a class="kart-link" href="vitrin/vitrin-11-butik-kadin/" aria-label="Atölye Butik vitrin sitesini açın"></a>
+      </figure>
+
+      <figure class="kart">
+        <iframe class="onizleme" src="vitrin/odul-01-vyron-atolye/" loading="lazy"
+                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
+        <span class="kart-ad" data-i18n-html="atolye_ad">ATÖLYE VYRON<small>Örnek atölye sitemiz</small></span>
+        <a class="kart-link" href="vitrin/odul-01-vyron-atolye/" aria-label="ATÖLYE VYRON örnek atölye sitesini açın"></a>
+      </figure>
+
+      <figure class="kart">
+        <iframe class="onizleme" src="kripto.html" loading="lazy"
+                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
+        <span class="kart-ad" data-i18n-html="arac1_ad">Kripto Kâr/Zarar<small>Komisyon dahil net hesap</small></span>
+        <a class="kart-link" href="kripto.html" aria-label="Kripto kâr/zarar hesaplayıcıyı açın"></a>
+      </figure>
+
+      <figure class="kart">
+        <iframe class="onizleme" src="vergi.html" loading="lazy"
+                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
+        <span class="kart-ad" data-i18n-html="arac2_ad">Vergi &amp; Net Maaş<small>Brütten nete, 2026 oranları</small></span>
+        <a class="kart-link" href="vergi.html" aria-label="Vergi ve net maaş hesaplayıcıyı açın"></a>
+      </figure>
+
+      <figure class="kart">
+        <iframe class="onizleme" src="token.html" loading="lazy"
+                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
+        <span class="kart-ad" data-i18n-html="arac3_ad">LLM Token Maliyeti<small>Model başına istek maliyeti</small></span>
+        <a class="kart-link" href="token.html" aria-label="LLM token maliyet hesaplayıcıyı açın"></a>
+      </figure>
+
     </div>
   </section>
 
@@ -189,8 +233,8 @@
   <section class="bolum" id="duvar">
     <p class="kicker" data-i18n="duvar_kicker">İşte kanıt</p>
     <h2 class="bolum-baslik nabiz" data-i18n="duvar_baslik">Atölyeden çıkan işler.</h2>
-    <p class="bolum-alt" data-i18n="duvar_alt">Konsept değil; çalışan, canlı işler. Kartın üzerine gelin,
-    sahne oynasın.</p>
+    <p class="bolum-alt" data-i18n="duvar_alt">Konsept değil; çalışan, canlı işler. Kartın üzerine gelin
+    sahne oynasın, tıklayın işin kendisine gidin.</p>
 
     <div class="duvar-sahne" id="duvar-sahne">
       <div class="duvar-ic">
@@ -198,59 +242,70 @@
         <!-- 1 · IGLU -->
         <figure class="kart" data-src="assets/isler/iglu.mp4" tabindex="0" aria-label="IGLU Alpine Lodge — kayak lodgu tanıtım sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/iglu-poster.svg" aria-hidden="true"></video>
-          <a class="kart-link" href="vitrin/vitrin-01-alp-kayak/"><span class="kart-ad">IGLU<small>Alpine Lodge</small></span></a>
+          <span class="kart-ad">IGLU<small>Alpine Lodge</small></span>
+          <a class="kart-link" href="vitrin/vitrin-01-alp-kayak/" aria-label="IGLU Alpine Lodge sitesini açın"></a>
         </figure>
 
         <!-- 2 · HALLEY (poster) -->
         <figure class="kart koyu-poster" tabindex="0" aria-label="HALLEY Desert Camp — çöl glamping sitesi">
           <img class="poster oynuk-yok" src="assets/isler/halley-poster.jpg" alt="HALLEY Desert Camp gece çölü" loading="lazy" width="640" height="400" style="opacity:1">
-          <a class="kart-link" href="vitrin/vitrin-02-col-glamping/"><span class="kart-ad">HALLEY<small>Desert Camp</small></span></a>
+          <span class="kart-ad">HALLEY<small>Desert Camp</small></span>
+          <a class="kart-link" href="vitrin/vitrin-02-col-glamping/" aria-label="HALLEY Desert Camp sitesini açın"></a>
         </figure>
 
         <!-- 3 · SALKIM (tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="SALKIM Bağ Evi — Ege bağ evi sitesi" style="background:linear-gradient(150deg,#3a1526,#6d2740 55%,#c98a3a)">
-          <a class="kart-link" href="vitrin/vitrin-03-bag-sarap/"><span class="tipo-ad">SALKIM</span></a>
+          <span class="tipo-ad">SALKIM</span>
           <span class="tipo-en">From the vine, to your glass</span>
+          <a class="kart-link" href="vitrin/vitrin-03-bag-sarap/" aria-label="SALKIM Bağ Evi sitesini açın"></a>
         </figure>
 
         <!-- 4 · DALGA -->
         <figure class="kart" data-src="assets/isler/dalga.mp4" tabindex="0" aria-label="DALGA Outdoor — rafting ve macera sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/dalga-poster.jpg" aria-hidden="true"></video>
-          <a class="kart-link" href="vitrin/vitrin-04-rafting/"><span class="kart-ad">DALGA<small>Outdoor</small></span></a>
+          <span class="kart-ad">DALGA<small>Outdoor</small></span>
+          <a class="kart-link" href="vitrin/vitrin-04-rafting/" aria-label="DALGA Outdoor sitesini açın"></a>
         </figure>
 
         <!-- 5 · KALEHAN (tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="KALEHAN Konak — restore taş konak butik otel sitesi" style="background:linear-gradient(150deg,#2a2320,#4a3b2e 55%,#b98a52)">
-          <a class="kart-link" href="vitrin/vitrin-05-tas-konak/"><span class="tipo-ad">KALEHAN</span></a>
+          <span class="tipo-ad">KALEHAN</span>
           <span class="tipo-en">The light is the amenity</span>
+          <a class="kart-link" href="vitrin/vitrin-05-tas-konak/" aria-label="KALEHAN Konak sitesini açın"></a>
         </figure>
 
         <!-- 6 · RAKIM -->
         <figure class="kart" data-src="assets/isler/rakim.mp4" tabindex="0" aria-label="RAKIM — yayla eko-lodge sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/rakim-poster.jpg" aria-hidden="true"></video>
-          <a class="kart-link" href="vitrin/vitrin-06-yayla-ekolodge/"><span class="kart-ad">RAKIM<small>Highland Eco-Lodge</small></span></a>
+          <span class="kart-ad">RAKIM<small>Highland Eco-Lodge</small></span>
+          <a class="kart-link" href="vitrin/vitrin-06-yayla-ekolodge/" aria-label="RAKIM yayla eko-lodge sitesini açın"></a>
         </figure>
 
         <!-- 7 · KERVAN -->
         <figure class="kart koyu-poster" data-src="assets/isler/kervan.mp4" tabindex="0" aria-label="KERVAN Walks — rehberli şehir yürüyüşleri sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/kervan-poster.jpg" aria-hidden="true"></video>
-          <a class="kart-link" href="vitrin/vitrin-07-sehir-yuruyus/"><span class="kart-ad">KERVAN<small>City Walks</small></span></a>
+          <span class="kart-ad">KERVAN<small>City Walks</small></span>
+          <a class="kart-link" href="vitrin/vitrin-07-sehir-yuruyus/" aria-label="KERVAN City Walks sitesini açın"></a>
         </figure>
 
         <!-- 8 · ATÖLYE VYRON (ödül · tipografik) -->
-        <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — ödül seviyesinde site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#31353b 55%,#9aa3ad)">
-          <a class="kart-link" href="vitrin/odul-01-vyron-atolye/"><span class="tipo-ad">ATÖLYE VYRON</span></a>
+        <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — örnek site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#31353b 55%,#9aa3ad)">
+          <span class="tipo-ad">ATÖLYE VYRON</span>
           <span class="tipo-en">You film the place. We frame the site.</span>
+          <a class="kart-link" href="vitrin/odul-01-vyron-atolye/" aria-label="ATÖLYE VYRON sitesini açın"></a>
         </figure>
 
         <!-- 9 · MERIDYEN (ödül · tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="MERIDYEN — gece konaklamaları arşivi sitesi" style="background:linear-gradient(150deg,#10131f,#1c2340 55%,#47507e)">
-          <a class="kart-link" href="vitrin/odul-02-meridyen-orbit/"><span class="tipo-ad">MERIDYEN</span></a>
+          <span class="tipo-ad">MERIDYEN</span>
           <span class="tipo-en">The archive of nocturnal stays</span>
+          <a class="kart-link" href="vitrin/odul-02-meridyen-orbit/" aria-label="MERIDYEN sitesini açın"></a>
         </figure>
 
       </div>
     </div>
+
+    <p class="duvar-tum"><a href="vitrin/vitrin-hub/" data-i18n="duvar_tum">Tüm vitrin sitelerini görün →</a></p>
   </section>
 
   <!-- ==================== 5) KAPANIS + FORM ==================== -->

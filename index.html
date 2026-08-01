@@ -82,6 +82,19 @@
 .duvar-tum{margin-top:26px;text-align:center}
 .duvar-tum a{color:var(--kor-isik);text-decoration:none;font-size:.95rem;border-bottom:1px solid rgba(200,204,210,.35);padding-bottom:2px}
 .duvar-tum a:hover{color:var(--yazi)}
+/* --- 01.08: dokunmatik cihazlarda video duvarı okunurluğu -----------------
+   Telefonda kart isimleri açık renkli poster/video karesi üzerinde kayboluyordu.
+   Atölye+araçlar kartlarında onaylanan dil burada da kullanılır: kenardan
+   kenara inen ince karartma bandı. Masaüstü görünümü değişmez. */
+@media (hover: none) {
+  .duvar-ic .kart-ad{
+    left:0; right:0; bottom:0; padding:14px 16px 13px; font-size:0.86rem;
+    background:linear-gradient(to top,rgba(10,10,11,0.94),rgba(10,10,11,0.74) 58%,rgba(10,10,11,0));
+    text-shadow:0 1px 10px rgba(0,0,0,0.9);
+  }
+  .duvar-ic .kart-ad small{margin-top:2px;color:rgba(232,234,237,0.88)}
+  .duvar-ic .kart.tipo .tipo-ad,.duvar-ic .kart.tipo .tipo-en{text-shadow:0 2px 14px rgba(0,0,0,0.75)}
+}
 </style>
 </head>
 <body>
@@ -361,6 +374,7 @@
 <script src="js/config.js" defer></script>
 <script src="js/surumotoru.js" defer></script>
 <script src="js/site.js" defer></script>
+<script src="js/duvar-mobil.js" defer></script>
 <script src="js/i18n.js" defer></script>
 </body>
 </html>

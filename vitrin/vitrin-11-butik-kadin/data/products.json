@@ -1,0 +1,214 @@
+{
+  "guncelleme": "2026-07-31",
+  "paraBirimi": "TL",
+  "kategoriler": [
+    { "kod": "elbise",   "ad": "Elbise" },
+    { "kod": "ust",      "ad": "Üst" },
+    { "kod": "alt",      "ad": "Alt" },
+    { "kod": "aksesuar", "ad": "Aksesuar" }
+  ],
+  "urunler": [
+    {
+      "id": "sena-ipek-elbise",
+      "ad": "Sena İpek Elbise",
+      "kategori": "elbise",
+      "fiyat": 3450,
+      "bedenler": ["S", "M", "L"],
+      "kumas": "%100 ipek",
+      "bedenTablosu": "S: göğüs 86-90 cm, bel 68-72 cm · M: göğüs 90-94 cm, bel 72-76 cm · L: göğüs 94-99 cm, bel 76-81 cm. Boy: 128 cm (M).",
+      "bollukNotu": "Kendi bedeninizi alın; kalıp bedene uygundur, ipek dökümlü durur.",
+      "aciklama": "Zümrüt tonundaki akıcı ipek, omuzdan etek ucuna kesintisiz düşer. İnce askıları ayarlanabilir, astarı aynı kumaştan dikilmiştir. Sıcak günlerde tende hafif kalır.",
+      "gorseller": [
+        { "src": "img/elbise-01.jpg", "alt": "Zümrüt yeşili ipek elbise, ahşap askıda beyaz zemin önünde" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran krem tonlu parçalar" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış açık renk parçalar" }
+      ]
+    },
+    {
+      "id": "defne-dantel-elbise",
+      "ad": "Defne Dantel Elbise",
+      "kategori": "elbise",
+      "fiyat": 3980,
+      "bedenler": ["S", "M", "L"],
+      "kumas": "Pamuk karışımlı dantel",
+      "aciklama": "Balon kollu, uzun boy dantel elbise. Bel dikişi hafif vurgulu, etek kısmı serbest kalıplıdır. Astarı pamukludur ve ayrı olarak yıkanabilir.",
+      "gorseller": [
+        { "src": "img/elbise-02.jpg", "alt": "Beyaz dantel elbise, oymalı krem renkli antika gardırobun önünde askıda" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış açık renk parçalar" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran krem tonlu parçalar" }
+      ]
+    },
+    {
+      "id": "ada-katmanli-keten-elbise",
+      "ad": "Ada Katmanlı Keten Elbise",
+      "kategori": "elbise",
+      "fiyat": 2690,
+      "bedenler": ["S", "M", "L", "XL"],
+      "kumas": "%70 keten, %30 viskon",
+      "aciklama": "Etek ucu iki katmanlı, kolsuz keten elbise. Yaka ve kol oyuntuları biye ile temizlenmiştir. Keten doğası gereği gün içinde hafif kırışır.",
+      "gorseller": [
+        { "src": "img/elbise-03.jpg", "alt": "Krem rengi katmanlı keten elbise, ince metal askılıkta" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran krem tonlu parçalar" },
+        { "src": "img/hikaye-keten.jpg", "alt": "Atölyede ipe asılan keten parçalar" }
+      ]
+    },
+    {
+      "id": "nil-sifon-bluz",
+      "ad": "Nil Şifon Bluz",
+      "kategori": "ust",
+      "fiyat": 1290,
+      "bedenler": ["S", "M", "L"],
+      "kumas": "Şifon",
+      "aciklama": "Siyah şifon bluz, bel hizasında bağlamalı. Kol uçları büzgülüdür, iç astarı yoktur. Altına ince bir iç bluzla giyilmek üzere tasarlanmıştır.",
+      "gorseller": [
+        { "src": "img/ust-01.jpg", "alt": "Siyah şifon bluz, pudra rengi duvarda askıda" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran parçalar" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış parçalar" }
+      ]
+    },
+    {
+      "id": "roza-poplin-gomlek",
+      "ad": "Roza Poplin Gömlek",
+      "kategori": "ust",
+      "fiyat": 1180,
+      "bedenler": ["S", "M", "L", "XL"],
+      "kumas": "%100 pamuk poplin",
+      "bedenTablosu": "S: göğüs 96 cm, omuz 42 cm, kol 60 cm · M: göğüs 102 cm, omuz 44 cm, kol 61 cm · L: göğüs 108 cm, omuz 46 cm, kol 62 cm · XL: göğüs 114 cm, omuz 48 cm, kol 63 cm.",
+      "bollukNotu": "Oversize kalıp: normal bedeninden 2-3 beden büyük durur, omuz düşük ve kollar uzun kalır. Vücuda oturmasını isteyen bir beden küçük alsın.",
+      "aciklama": "Klasik yakalı beyaz poplin gömlek, hafif bol kalıplıdır. Manşetler tek düğmeli, arka yaka bantlıdır. 40 derecede yıkanabilir.",
+      "gorseller": [
+        { "src": "img/ust-02.jpg", "alt": "Beyaz poplin gömlekler, ahşap askılarda sıralı" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış açık renk parçalar" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran parçalar" }
+      ]
+    },
+    {
+      "id": "mira-orgu-bluz",
+      "ad": "Mira Örgü Bluz",
+      "kategori": "ust",
+      "fiyat": 1640,
+      "bedenler": ["S", "M", "L"],
+      "kumas": "Pamuk örgü",
+      "aciklama": "Kısa kollu, ince örgü bluz. Yaka ve kol kenarları ribana, gövdesi düz örgüdür. Elde ya da hassas programda yıkanması önerilir.",
+      "gorseller": [
+        { "src": "img/ust-03.jpg", "alt": "Krem rengi örgü bluz, altın yaldızlı antika çerçevenin içinde askıda" },
+        { "src": "img/detay-orgu-01.jpg", "alt": "Krem örgü kumaşın yakın çekimi" },
+        { "src": "img/detay-orgu-02.jpg", "alt": "Bej örgü kumaş dokusunun yakın çekimi" }
+      ]
+    },
+    {
+      "id": "elif-keten-gomlek-ceket",
+      "ad": "Elif Keten Gömlek Ceket",
+      "kategori": "ust",
+      "fiyat": 2180,
+      "bedenler": ["S", "M", "L", "XL"],
+      "kumas": "%100 keten",
+      "aciklama": "Bej keten gömlek ceket, göğüs cebi ve sedef düğmelidir. Omuz düşük kesim, boy kalçayı örter. Serin akşamlarda ince bir katman olarak kullanılabilir.",
+      "gorseller": [
+        { "src": "img/ust-04.jpg", "alt": "Bej keten gömlek ceket, açık gri duvarda askıda" },
+        { "src": "img/hikaye-keten.jpg", "alt": "Atölyede ipe asılan keten parçalar" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran parçalar" }
+      ]
+    },
+    {
+      "id": "lara-pileli-etek",
+      "ad": "Lara Pileli Etek",
+      "kategori": "alt",
+      "fiyat": 1560,
+      "bedenler": ["S", "M", "L"],
+      "kumas": "Viskon karışımı",
+      "aciklama": "Bel lastikli, ince pileli midi etek. Bej ve taş tonlarında sunulur, astarlıdır. Yürürken pileler açılıp kapanır.",
+      "gorseller": [
+        { "src": "img/alt-01.jpg", "alt": "Bej tonlarında pileli etekler, ahşap bir askılıkta pencere ışığında" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış açık renk parçalar" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran parçalar" }
+      ]
+    },
+    {
+      "id": "ayla-tul-etek",
+      "ad": "Ayla Tül Etek",
+      "kategori": "alt",
+      "fiyat": 1890,
+      "bedenler": ["S", "M", "L"],
+      "kumas": "Tül ve saten şerit",
+      "aciklama": "Katmanlı siyah tül etek, üzerinde saten şeritler dolanır. İç astarı diz üstü boydadır. Akşam davetlerinde sade bir üstle dengelenir.",
+      "gorseller": [
+        { "src": "img/alt-02.jpg", "alt": "Siyah tül etek, beyaz zemin üzerinde şerit detaylarıyla" },
+        { "src": "img/detay-askida.jpg", "alt": "Pencere ışığında askıda duran parçalar" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış parçalar" }
+      ]
+    },
+    {
+      "id": "yasemin-keten-pantolon",
+      "ad": "Yasemin Keten Pantolon",
+      "kategori": "alt",
+      "fiyat": 1740,
+      "bedenler": ["S", "M", "L", "XL"],
+      "kumas": "%55 keten, %45 viskon",
+      "bedenTablosu": "S: bel 66-70 cm, kalça 92-96 cm · M: bel 70-74 cm, kalça 96-100 cm · L: bel 74-79 cm, kalça 100-105 cm · XL: bel 79-84 cm, kalça 105-110 cm. İç paça: 78 cm.",
+      "bollukNotu": "Paça bol ve uzun kesilir; 165 cm'nin altındaki boylarda yerde toplanır, kısaltma önerilir.",
+      "aciklama": "Yüksek bel, bol paça keten pantolon. Yan cepleri derindir, arkası lastiklidir. Aynı kumaştan ceketiyle takım olarak da giyilebilir.",
+      "gorseller": [
+        { "src": "img/alt-03.jpg", "alt": "Açık bej keten takımın yakın çekimi, ceket ve pantolon" },
+        { "src": "img/hikaye-keten.jpg", "alt": "Atölyede ipe asılan keten parçalar" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış açık renk parçalar" }
+      ]
+    },
+    {
+      "id": "hilal-kolye",
+      "ad": "Hilal Altın Kaplama Kolye",
+      "kategori": "aksesuar",
+      "fiyat": 1240,
+      "bedenler": ["Tek beden"],
+      "kumas": "Pirinç üzeri altın kaplama",
+      "aciklama": "İki madalyonlu ince zincir kolye, 42 cm boyundadır ve 5 cm uzatma zinciri vardır. Kaplama kalınlığı 1 mikrondur. Parfüm ve suyla temasından kaçınılmalıdır.",
+      "gorseller": [
+        { "src": "img/aksesuar-01.jpg", "alt": "Altın kaplama madalyonlu kolye ve yüzük, beyaz zeminde" },
+        { "src": "img/detay-flatlay.jpg", "alt": "Krem kumaş üzerinde aksesuar düzenlemesi" },
+        { "src": "img/aksesuar-02.jpg", "alt": "Altın kaplama küpe, beyaz ipek kumaş üzerinde" }
+      ]
+    },
+    {
+      "id": "damla-kupe",
+      "ad": "Damla Altın Kaplama Küpe",
+      "kategori": "aksesuar",
+      "fiyat": 890,
+      "bedenler": ["Tek beden"],
+      "kumas": "Pirinç üzeri altın kaplama",
+      "aciklama": "Geometrik hatlı, hafif damla küpe. Klips değil, çengellidir; çengel kısmı gümüştür. Günlük kullanıma uygun ağırlıktadır.",
+      "gorseller": [
+        { "src": "img/aksesuar-02.jpg", "alt": "Altın kaplama damla küpe, beyaz ipek kumaş üzerinde" },
+        { "src": "img/detay-flatlay.jpg", "alt": "Krem kumaş üzerinde aksesuar düzenlemesi" },
+        { "src": "img/aksesuar-01.jpg", "alt": "Altın kaplama kolye ve yüzük, beyaz zeminde" }
+      ]
+    },
+    {
+      "id": "zeytin-bileklik",
+      "ad": "Zeytin Yaprağı Bileklik",
+      "kategori": "aksesuar",
+      "fiyat": 1060,
+      "bedenler": ["Tek beden"],
+      "kumas": "Pirinç üzeri altın kaplama",
+      "aciklama": "Yaprak formundaki plakalar zincire tek tek tutturulmuştur. Kilit kısmı ıstakoz kapamalıdır, boyu 18 cm'dir. Yüzeyi mat fırçalanmıştır.",
+      "gorseller": [
+        { "src": "img/aksesuar-03.jpg", "alt": "Yaprak formlu altın kaplama bileklik, beyaz yapraklar üzerinde" },
+        { "src": "img/detay-flatlay.jpg", "alt": "Krem kumaş üzerinde aksesuar düzenlemesi" },
+        { "src": "img/aksesuar-02.jpg", "alt": "Altın kaplama küpe, beyaz ipek kumaş üzerinde" }
+      ]
+    },
+    {
+      "id": "derin-deri-canta",
+      "ad": "Derin Deri Omuz Çantası",
+      "kategori": "aksesuar",
+      "fiyat": 2980,
+      "bedenler": ["Tek beden"],
+      "kumas": "Doğal dana derisi",
+      "aciklama": "Yumuşak dokulu, taba rengi omuz çantası. İçinde bir fermuarlı ve iki açık bölme bulunur. Deri kullanıldıkça koyulaşır ve yüzeyinde doğal iz bırakır.",
+      "gorseller": [
+        { "src": "img/aksesuar-04.jpg", "alt": "Taba rengi deri omuz çantası, beyaz kaide üzerinde yeşil bitkinin yanında" },
+        { "src": "img/detay-flatlay.jpg", "alt": "Krem kumaş üzerinde aksesuar düzenlemesi" },
+        { "src": "img/detay-rafta.jpg", "alt": "Mağaza rafında sıralanmış parçalar" }
+      ]
+    }
+  ]
+}

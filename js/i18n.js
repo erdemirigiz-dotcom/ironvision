@@ -58,10 +58,21 @@
       urun3_h: "Boş yuva",
       urun3_p: "Bir sonraki ürün burada şekillenecek. Fikriniz varsa yeri hazır.",
 
+      // ATÖLYE + ARAÇLAR
+      atolye_kicker: "Atölye bölümümüz",
+      atolye_baslik: "Gezin, deneyin.",
+      atolye_alt: "Kartlardaki görüntü canlı önizlemedir; tıklayın, sayfanın kendisi açılsın. Araçlarımız ücretsiz, üyeliksiz, tarayıcınızda çalışır.",
+      butik_ad: "Atölye Butik<small>Esnaf paketi — küçük işletmeye özel butik site vitrini</small>",
+      atolye_ad: "ATÖLYE VYRON<small>Örnek atölye sitemiz</small>",
+      arac1_ad: "Kripto Kâr/Zarar<small>Komisyon dahil net hesap</small>",
+      arac2_ad: "Vergi &amp; Net Maaş<small>Brütten nete, 2026 oranları</small>",
+      arac3_ad: "LLM Token Maliyeti<small>Model başına istek maliyeti</small>",
+
       // VIDEO DUVARI
       duvar_kicker: "İşte kanıt",
       duvar_baslik: "Atölyeden çıkan işler.",
-      duvar_alt: "Konsept değil; çalışan, canlı işler. Kartın üzerine gelin, sahne oynasın.",
+      duvar_alt: "Konsept değil; çalışan, canlı işler. Kartın üzerine gelin sahne oynasın, tıklayın işin kendisine gidin.",
+      duvar_tum: "Tüm vitrin sitelerini görün →",
 
       // FORM
       form_kicker: "Sıra sizde",
@@ -126,10 +137,21 @@
       urun3_h: "Open slot",
       urun3_p: "The next product will take shape right here. If you have an idea, the spot is ready.",
 
+      // ATÖLYE + ARAÇLAR
+      atolye_kicker: "Our workshop floor",
+      atolye_baslik: "Wander in, try things.",
+      atolye_alt: "Every card is a live preview — click one and the page itself opens. Our tools are free, need no sign-up and run right in your browser.",
+      butik_ad: "Atölye Butik<small>Small-business package — a boutique site showcase</small>",
+      atolye_ad: "ATÖLYE VYRON<small>Our showcase workshop site</small>",
+      arac1_ad: "Crypto Profit/Loss<small>Net result, fees included</small>",
+      arac2_ad: "Tax &amp; Net Salary<small>Gross to net, 2026 rates</small>",
+      arac3_ad: "LLM Token Cost<small>Per-request cost by model</small>",
+
       // VIDEO DUVARI
       duvar_kicker: "The proof",
       duvar_baslik: "Work straight from the workshop.",
-      duvar_alt: "Not concepts — real, live work. Hover over a card and let the scene play.",
+      duvar_alt: "Not concepts — real, live work. Hover a card to let the scene play, click it to open the site itself.",
+      duvar_tum: "See every showcase site →",
 
       // FORM
       form_kicker: "Your move",

@@ -264,3 +264,36 @@ textarea { resize: vertical; min-height: 92px; }
   .orbit.is-live .orbit-fallback { display: block; }
   .btn, .btn .arw { transition: none; }
 }
+
+/* =========================================================================
+   YAMA 2026-08-01 — sayfa içi tıklanabilirlik
+   Kartlar ve koleksiyon satırları artık gerçek bağlantı: tamamı #enquire'a
+   götürür ve seçilen konağı forma taşır. Tasarım dili değişmedi.
+   ========================================================================= */
+html { scroll-padding-top: 6rem; }
+
+.card-cover { position: absolute; inset: 0; z-index: 3; border-radius: inherit; }
+.card-cover:focus-visible { outline: 2px solid var(--terra); outline-offset: -3px; }
+
+.rail-card { cursor: pointer; }
+.rail-card .rc-go {
+  position: absolute; top: 1rem; right: 1.2rem; z-index: 2;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.7; transition: opacity .3s;
+}
+.rail-card:hover .rc-go, .rail-card:focus-within .rc-go { opacity: 1; }
+.rail-card .rc-go .arw { display: inline-block; }
+.rail-card:hover .rc-go .arw { transform: translate(2px, -2px); }
+
+.coll { position: relative; cursor: pointer; padding-right: 1.7rem; }
+.coll::after {
+  content: '↗'; position: absolute; right: 0; top: 1.35rem;
+  color: var(--terra); opacity: 0; transform: translate(-6px, 4px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.coll:hover::after, .coll:focus-within::after { opacity: 1; transform: none; }
+.coll:focus-within { background: var(--bg-2); }
+.coll:hover .c-name, .coll:focus-within .c-name { color: var(--terra); }
+
+/* 3B halkadaki plakalar da fare ile tıklanabilir (klavye yolu: koleksiyon listesi) */
+.orbit.is-live .plate { cursor: pointer; }

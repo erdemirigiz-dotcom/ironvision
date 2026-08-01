@@ -189,3 +189,40 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', baglan);
   else baglan();
 })();
+
+
+/* Yama 2026-08-01 — sayfa içi tıklanabilirlik
+   1) Kart/satır tıklaması enquire formundaki "Which stay?" seçimini doldurur.
+   2) 3B halkadaki plakalar (dekoratif, aria-hidden) fareyle tıklanınca
+      okunabilir koleksiyon listesine götürür. Klavye yolu değişmedi. */
+(function () {
+  'use strict';
+
+  function secimiDoldur(ad) {
+    var sel = document.getElementById('f-stay');
+    if (!sel || !ad) return;
+    var hedef = ad.trim().toLowerCase();
+    for (var i = 0; i < sel.options.length; i++) {
+      var o = sel.options[i];
+      if (o.disabled) continue;
+      if (o.textContent.trim().toLowerCase().indexOf(hedef) === 0) { sel.selectedIndex = i; return; }
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('[data-stay]') : null;
+    if (a) secimiDoldur(a.getAttribute('data-stay'));
+  });
+
+  var ring = document.getElementById('ring');
+  if (ring) {
+    ring.addEventListener('click', function (e) {
+      var pl = e.target.closest ? e.target.closest('.plate') : null;
+      if (!pl) return;
+      var etiket = pl.querySelector('.pl-label');
+      if (etiket) secimiDoldur(etiket.textContent);
+      var hedef = document.getElementById('collection');
+      if (hedef) hedef.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+})();

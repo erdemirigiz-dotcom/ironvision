@@ -332,3 +332,15 @@ textarea { resize: vertical; min-height: 96px; }
   .stage.is-live .stage-fallback { display: grid; }
   .btn, .btn .arw { transition: none; }
 }
+
+/* =========================================================================
+   YAMA 2026-08-01 — sayfa içi tıklanabilirlik
+   İş kartlarının tamamı artık brief formuna (#contact) götüren gerçek bağlantı.
+   Tasarım dili değişmedi; sadece tıklama alanı ve ipucu eklendi.
+   ========================================================================= */
+html { scroll-padding-top: 6rem; }
+
+.card { cursor: pointer; }
+.card-cover { position: absolute; inset: 0; z-index: 4; border-radius: inherit; }
+.card-cover:focus-visible { outline: 2px solid var(--accent, #E7502E); outline-offset: -4px; }
+.card:hover .card-title, .card:focus-within .card-title { text-decoration: underline; text-underline-offset: 0.16em; text-decoration-thickness: 1px; }

@@ -232,3 +232,20 @@
     });
   }
 })();
+
+
+/* Yama 2026-08-01 — 3B destede klonlanan kartlar aria-hidden bir kabın içinde;
+   içlerindeki bağlantı klavye sırasına girmesin diye odak dışı bırakılır.
+   Fare ile tıklanabilirlikleri korunur, klavye yolu kaynak listede zaten var. */
+(function () {
+  'use strict';
+  function duzelt() {
+    var deck = document.getElementById('deck');
+    if (!deck) return;
+    [].slice.call(deck.querySelectorAll('a')).forEach(function (a) {
+      a.setAttribute('tabindex', '-1');
+    });
+  }
+  duzelt();
+  window.addEventListener('load', duzelt);
+})();

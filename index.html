@@ -17,19 +17,19 @@
 <meta property="og:site_name" content="IRON VISION">
 <meta property="og:title" content="IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin">
 <meta property="og:description" content="Size özel web sitesi, aylık bakım ustalığı, kişiye özel dijital ürünler. Yaşayan bir sahne, çalışan işler.">
-<meta property="og:image" content="https://ironvisiontools.com/show/assets/og-cover.png">
+<meta property="og:image" content="https://ironvisiontools.com/assets/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ironvisiontools.com/show/assets/og-cover.png">
+<meta name="twitter:image" content="https://ironvisiontools.com/assets/og-cover.png">
 
 <!-- Favicon: eskitilmiş çelik kıvılcımı (inline, dış istek yok) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0b'/%3E%3Cpath d='M50 20 L58 44 L82 50 L58 56 L50 80 L42 56 L18 50 L42 44 Z' fill='%23c8ccd2'/%3E%3C/svg%3E">
 
 <!-- Fontları erken getir (lokal, render bloklamaz) -->
-<link rel="preload" href="show/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-<link rel="stylesheet" href="show/css/stil.css">
+<link rel="stylesheet" href="css/stil.css">
 
 <!-- Yapısal veri (JSON-LD): arama motoru için hizmet tanımı.
      Adres/telefon/e-posta YAZILMAZ (sızıntı yasağı). -->
@@ -47,6 +47,13 @@
   ]
 }
 </script>
+<style>
+/* Kok sayfa ekleri: kart linkleri + atolye/araclar bolumu (stil.css'e dokunulmadi) */
+.kart-link{color:inherit;text-decoration:none;display:contents}
+#atolye-araclar a.hizmet-kart{display:block;color:inherit;text-decoration:none;cursor:pointer;transition:transform .25s ease}
+#atolye-araclar a.hizmet-kart:hover{transform:translateY(-4px)}
+#atolye-araclar .arac-git{display:inline-block;margin-top:.6rem;color:var(--blue,#7cb0ff);font-size:.9em}
+</style>
 </head>
 <body>
 
@@ -171,6 +178,43 @@
     </div>
   </section>
 
+
+  <!-- ==================== 3.5) ATOLYE + ARACLAR ==================== -->
+  <section class="bolum" id="atolye-araclar">
+    <p class="kicker">Atölye bölümümüz</p>
+    <h2 class="bolum-baslik nabiz">Gezin, deneyin.</h2>
+    <p class="bolum-alt">Ödül seviyesindeki örnek atölyemizi ziyaret edin; araçlarımız ücretsiz,
+    üyeliksiz, tarayıcınızda çalışır.</p>
+
+    <div class="kartlar-3">
+      <a class="hizmet-kart" href="vitrin/odul-01-vyron-atolye/">
+        <span class="hizmet-no">★</span>
+        <h3>Atölye bölümümüz</h3>
+        <p>ATÖLYE VYRON — ödül seviyesinde örnek atölye sitemiz. Siz yerinizi çekin,
+        biz sahneye koyalım.</p>
+        <span class="arac-git">Atölyeyi gez →</span>
+      </a>
+      <a class="hizmet-kart" href="kripto.html">
+        <span class="hizmet-no">01</span>
+        <h3>Kripto Kâr/Zarar Hesaplayıcı</h3>
+        <p>Alış-satış fiyatı ve komisyonla net kâr/zarar. Veri toplamaz, tarayıcıda çalışır.</p>
+        <span class="arac-git">Aracı aç →</span>
+      </a>
+      <a class="hizmet-kart" href="vergi.html">
+        <span class="hizmet-no">02</span>
+        <h3>Vergi &amp; Net Maaş Hesaplayıcı</h3>
+        <p>Brütten nete maaş ve vergi dilimi hesabı, 2026 oranlarıyla.</p>
+        <span class="arac-git">Aracı aç →</span>
+      </a>
+      <a class="hizmet-kart" href="token.html">
+        <span class="hizmet-no">03</span>
+        <h3>LLM Token Maliyet Hesaplayıcı</h3>
+        <p>Yapay zekâ modellerinde istek başına token maliyetini kıyaslayın.</p>
+        <span class="arac-git">Aracı aç →</span>
+      </a>
+    </div>
+  </section>
+
   <!-- ==================== 4) VIDEO DUVARI ==================== -->
   <section class="bolum" id="duvar">
     <p class="kicker" data-i18n="duvar_kicker">İşte kanıt</p>
@@ -182,56 +226,56 @@
       <div class="duvar-ic">
 
         <!-- 1 · IGLU -->
-        <figure class="kart" data-src="show/assets/isler/iglu.mp4" tabindex="0" aria-label="IGLU Alpine Lodge — kayak lodgu tanıtım sitesi">
+        <figure class="kart" data-src="assets/isler/iglu.mp4" tabindex="0" aria-label="IGLU Alpine Lodge — kayak lodgu tanıtım sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/iglu-poster.svg" aria-hidden="true"></video>
-          <span class="kart-ad">IGLU<small>Alpine Lodge</small></span>
+          <a class="kart-link" href="vitrin/vitrin-01-alp-kayak/"><span class="kart-ad">IGLU<small>Alpine Lodge</small></span></a>
         </figure>
 
         <!-- 2 · HALLEY (poster) -->
         <figure class="kart koyu-poster" tabindex="0" aria-label="HALLEY Desert Camp — çöl glamping sitesi">
-          <img class="poster oynuk-yok" src="show/assets/isler/halley-poster.jpg" alt="HALLEY Desert Camp gece çölü" loading="lazy" width="640" height="400" style="opacity:1">
-          <span class="kart-ad">HALLEY<small>Desert Camp</small></span>
+          <img class="poster oynuk-yok" src="assets/isler/halley-poster.jpg" alt="HALLEY Desert Camp gece çölü" loading="lazy" width="640" height="400" style="opacity:1">
+          <a class="kart-link" href="vitrin/vitrin-02-col-glamping/"><span class="kart-ad">HALLEY<small>Desert Camp</small></span></a>
         </figure>
 
         <!-- 3 · SALKIM (tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="SALKIM Bağ Evi — Ege bağ evi sitesi" style="background:linear-gradient(150deg,#3a1526,#6d2740 55%,#c98a3a)">
-          <span class="tipo-ad">SALKIM</span>
+          <a class="kart-link" href="vitrin/vitrin-03-bag-sarap/"><span class="tipo-ad">SALKIM</span></a>
           <span class="tipo-en">From the vine, to your glass</span>
         </figure>
 
         <!-- 4 · DALGA -->
-        <figure class="kart" data-src="show/assets/isler/dalga.mp4" tabindex="0" aria-label="DALGA Outdoor — rafting ve macera sitesi">
+        <figure class="kart" data-src="assets/isler/dalga.mp4" tabindex="0" aria-label="DALGA Outdoor — rafting ve macera sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/dalga-poster.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">DALGA<small>Outdoor</small></span>
+          <a class="kart-link" href="vitrin/vitrin-04-rafting/"><span class="kart-ad">DALGA<small>Outdoor</small></span></a>
         </figure>
 
         <!-- 5 · KALEHAN (tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="KALEHAN Konak — restore taş konak butik otel sitesi" style="background:linear-gradient(150deg,#2a2320,#4a3b2e 55%,#b98a52)">
-          <span class="tipo-ad">KALEHAN</span>
+          <a class="kart-link" href="vitrin/vitrin-05-tas-konak/"><span class="tipo-ad">KALEHAN</span></a>
           <span class="tipo-en">The light is the amenity</span>
         </figure>
 
         <!-- 6 · RAKIM -->
-        <figure class="kart" data-src="show/assets/isler/rakim.mp4" tabindex="0" aria-label="RAKIM — yayla eko-lodge sitesi">
+        <figure class="kart" data-src="assets/isler/rakim.mp4" tabindex="0" aria-label="RAKIM — yayla eko-lodge sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/rakim-poster.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">RAKIM<small>Highland Eco-Lodge</small></span>
+          <a class="kart-link" href="vitrin/vitrin-06-yayla-ekolodge/"><span class="kart-ad">RAKIM<small>Highland Eco-Lodge</small></span></a>
         </figure>
 
         <!-- 7 · KERVAN -->
-        <figure class="kart koyu-poster" data-src="show/assets/isler/kervan.mp4" tabindex="0" aria-label="KERVAN Walks — rehberli şehir yürüyüşleri sitesi">
+        <figure class="kart koyu-poster" data-src="assets/isler/kervan.mp4" tabindex="0" aria-label="KERVAN Walks — rehberli şehir yürüyüşleri sitesi">
           <video muted loop playsinline preload="none" poster="assets/isler/kervan-poster.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">KERVAN<small>City Walks</small></span>
+          <a class="kart-link" href="vitrin/vitrin-07-sehir-yuruyus/"><span class="kart-ad">KERVAN<small>City Walks</small></span></a>
         </figure>
 
         <!-- 8 · ATÖLYE VYRON (ödül · tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — ödül seviyesinde site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#31353b 55%,#9aa3ad)">
-          <span class="tipo-ad">ATÖLYE VYRON</span>
+          <a class="kart-link" href="vitrin/odul-01-vyron-atolye/"><span class="tipo-ad">ATÖLYE VYRON</span></a>
           <span class="tipo-en">You film the place. We frame the site.</span>
         </figure>
 
         <!-- 9 · MERIDYEN (ödül · tipografik) -->
         <figure class="kart tipo" tabindex="0" aria-label="MERIDYEN — gece konaklamaları arşivi sitesi" style="background:linear-gradient(150deg,#10131f,#1c2340 55%,#47507e)">
-          <span class="tipo-ad">MERIDYEN</span>
+          <a class="kart-link" href="vitrin/odul-02-meridyen-orbit/"><span class="tipo-ad">MERIDYEN</span></a>
           <span class="tipo-en">The archive of nocturnal stays</span>
         </figure>
 
@@ -289,9 +333,9 @@
   <b>IRON VISION</b> · Yapay zekâ atölyesi · Size özel siteler, bakım, dijital ürünler
 </footer>
 
-<script src="show/js/config.js" defer></script>
-<script src="show/js/surumotoru.js" defer></script>
-<script src="show/js/site.js" defer></script>
-<script src="show/js/i18n.js" defer></script>
+<script src="js/config.js" defer></script>
+<script src="js/surumotoru.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/i18n.js" defer></script>
 </body>
 </html>

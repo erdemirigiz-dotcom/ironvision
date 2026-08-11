@@ -187,6 +187,9 @@ a:hover { color: var(--altin-koyu); }
   letter-spacing: .24em; text-transform: uppercase;
   color: var(--murekkep); text-decoration: none;
   white-space: nowrap;
+  /* Harf aralığı geniş olduğu için kelime arası boşluk ayrıca açılır;
+     yoksa dar ekranlarda "ATÖLYEBUTİK" diye tek kelime okunuyor. */
+  word-spacing: .45em;
 }
 .marka span { color: var(--altin-yazi); }
 
@@ -384,6 +387,24 @@ a:hover { color: var(--altin-koyu); }
   font-size: .95rem; font-weight: 500; letter-spacing: .02em; color: var(--murekkep); margin: 0;
 }
 
+/* ------------------------------------------------------------- fiyatlar --
+   Sitedeki TÜM fiyat alanları tek tiptir: gövde yazı tipi + düz (lining) ve
+   sabit genişlikli (tabular) rakam. Cormorant'ın eski usul rakamları
+   "3.450 ₺"yi gözle "3.45o ₺" gibi gösteriyordu; ayrıca ₺ glifi zaten
+   Source Sans'tan geldiği için serif rakam + sans ₺ karışımı sırıtıyordu.
+   Sepet özetinde "Ara toplam" ile "Toplam" alt alta durduğundan fark en çok
+   orada görünüyordu. */
+.urun-kart__fiyat,
+.urun-fiyat,
+.ozet__satir strong,
+.ozet__toplam,
+.satir__tutar,
+.satir__meta {
+  font-family: var(--f-govde);
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+}
+
 /* --------------------------------------------------------- hikâye ------- */
 .hikaye {
   display: grid; gap: clamp(2rem, 5vw, 4.5rem);
@@ -441,6 +462,8 @@ a:hover { color: var(--altin-koyu); }
 }
 .bilgi-liste dd { margin: 0; color: var(--gri); }
 .bilgi-liste dd strong { color: var(--murekkep); font-weight: 500; }
+/* İletişim kartındaki bağlantılar parmakla rahat basılsın: 40px dokunma hedefi. */
+.bilgi-liste dd a { display: inline-block; padding-block: .62rem; margin-block: -.62rem; }
 
 .kart-kutu {
   background: var(--fildisi); border: 1px solid var(--cizgi);
@@ -492,8 +515,9 @@ a:hover { color: var(--altin-koyu); }
 
 .urun-yan h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: .2em; }
 .urun-fiyat {
-  font-family: var(--f-display); font-size: 1.9rem; color: var(--murekkep);
-  margin: .2rem 0 1.4rem;
+  /* yazı tipi ve rakam biçimi ortak "fiyatlar" kuralından gelir */
+  font-size: 1.55rem; font-weight: 500; letter-spacing: .02em; color: var(--murekkep);
+  margin: .35rem 0 1.4rem;
 }
 .urun-aciklama { color: var(--gri); font-size: 1.02rem; }
 
@@ -577,7 +601,8 @@ a:hover { color: var(--altin-koyu); }
 .ozet__toplam {
   display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
   margin-top: .9rem; padding-top: 1.1rem; border-top: 1px solid var(--cizgi);
-  font-family: var(--f-display); font-size: 1.5rem;
+  /* yazı tipi ve rakam biçimi ortak "fiyatlar" kuralından gelir */
+  font-size: 1.18rem; font-weight: 600; letter-spacing: .02em; color: var(--murekkep);
 }
 .ozet__dugmeler { display: grid; gap: .8rem; margin-top: 1.7rem; }
 @media (min-width: 480px) { .ozet__dugmeler { grid-template-columns: 1fr 1fr; } }
@@ -594,6 +619,18 @@ a:hover { color: var(--altin-koyu); }
 .alan label {
   font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gri);
 }
+/* Mesafeli satış onay kutusu — ödeme adımında zorunludur. */
+.onay-kutu {
+  display: flex; align-items: flex-start; gap: .8rem;
+  font-size: .95rem; line-height: 1.6; color: var(--gri); cursor: pointer;
+}
+.onay-kutu input {
+  width: 1.15rem; height: 1.15rem; margin: .28rem 0 0; flex: none;
+  accent-color: var(--altin-yazi); cursor: pointer;
+}
+.onay-kutu a { color: var(--murekkep); text-underline-offset: .22em; }
+.onay-kutu a:hover { color: var(--altin-yazi); }
+
 .alan input, .alan select, .alan textarea {
   font-family: var(--f-govde); font-size: 1rem; color: var(--murekkep);
   padding: .85rem 1rem; background: var(--fildisi);
@@ -709,6 +746,10 @@ td { color: var(--gri); }
     display: inline-flex;
     align-items: center;
   }
+  /* .marka burada inline-flex'e döndüğü için "Atölye" ile "Butik" arasındaki
+     boşluk metin değil, flex boşluğu olur; word-spacing işlemez ve marka
+     "ATÖLYEBUTİK" diye tek kelime okunur. Boşluğu gap ile geri veriyoruz. */
+  .marka { gap: .42em; }
   .filtre button, .bedenler button { min-height: 44px; }
   .adet-kutu button { min-width: 44px; min-height: 44px; }
   .alt a { padding-block: .15rem; min-width: 44px; }

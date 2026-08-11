@@ -54,8 +54,23 @@
     if (ogBaslik) { ogBaslik.setAttribute('content', u.ad + ' — Atölye Butik'); }
     var ogAcik = document.querySelector('meta[property="og:description"]');
     if (ogAcik) { ogAcik.setAttribute('content', u.aciklama || ''); }
+    /* Canonical ve og:url ürün kimliğini taşımalı: aksi halde 14 ürün sayfası
+       Google'a "aynı sayfa" görünür ve yalnız biri indekslenir.
+       og:image de MUTLAK adres olmalı; göreli yol WhatsApp/Facebook
+       önizlemesinde görsel getirmez. Alan adı sayfadaki mevcut canonical
+       etiketinden okunur, koda gömülmez. */
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var temelAdres = (canonical && canonical.href) || window.location.href;
+    var urunAdresi = temelAdres.split('?')[0].split('#')[0] +
+      '?id=' + encodeURIComponent(u.id);
+    if (canonical) { canonical.setAttribute('href', urunAdresi); }
+    var ogAdres = document.querySelector('meta[property="og:url"]');
+    if (ogAdres) { ogAdres.setAttribute('content', urunAdresi); }
+
     var ogGorsel = document.querySelector('meta[property="og:image"]');
-    if (ogGorsel) { ogGorsel.setAttribute('content', gorseller[0].src); }
+    if (ogGorsel) {
+      ogGorsel.setAttribute('content', new URL(gorseller[0].src, temelAdres).href);
+    }
 
     kap.innerHTML = '' +
       '<nav class="iz-yolu" aria-label="Neredesiniz">' +

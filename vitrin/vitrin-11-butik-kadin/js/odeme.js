@@ -70,6 +70,17 @@
             '<p class="uyari" data-uyari role="alert"></p>' +
           '</div>' +
 
+          '<div class="form-bolum">' +
+            '<h2>Sözleşme onayı</h2>' +
+            '<label class="onay-kutu" for="sozlesmeOnay">' +
+              '<input id="sozlesmeOnay" name="sozlesmeOnay" type="checkbox" required data-sozlesme-onay>' +
+              '<span><a href="on-bilgilendirme.html" target="_blank" rel="noopener">Ön Bilgilendirme Formu</a>nu ve ' +
+                '<a href="mesafeli-satis.html" target="_blank" rel="noopener">Mesafeli Satış Sözleşmesi</a>ni ' +
+                'okudum, onaylıyorum.</span>' +
+            '</label>' +
+            '<p class="uyari" data-onay-uyari role="alert"></p>' +
+          '</div>' +
+
           '<button class="btn btn--tam" type="submit">Ödemeyi Tamamla — ' + F(h.toplam) + '</button>' +
           '<p class="ozet__not">Bu düğme gerçek bir ödeme başlatmaz. Siparişiniz yalnızca bu tarayıcıda kaydedilir; hiçbir bilgi gönderilmez.</p>' +
         '</form>' +
@@ -124,7 +135,8 @@
       e.preventDefault();
 
       var eksik = [];
-      var alanlar = form.querySelectorAll('[required]');
+      /* onay kutusu ayrı denetlenir: değeri her zaman dolu görünür */
+      var alanlar = form.querySelectorAll('[required]:not([type="checkbox"])');
       for (var i = 0; i < alanlar.length; i++) {
         if (!alanlar[i].value.trim()) {
           eksik.push(alanlar[i]);
@@ -145,6 +157,19 @@
       }
 
       uyari.textContent = '';
+
+      /* Mesafeli satışta sözleşme onayı zorunludur: işaretlenmeden sipariş
+         tamamlanamaz. */
+      var onay = form.querySelector('[data-sozlesme-onay]');
+      var onayUyari = form.querySelector('[data-onay-uyari]');
+      if (onay && !onay.checked) {
+        if (onayUyari) {
+          onayUyari.textContent = 'Devam etmek için Ön Bilgilendirme Formu ve Mesafeli Satış Sözleşmesi\'ni onaylayın.';
+        }
+        onay.focus();
+        return;
+      }
+      if (onayUyari) { onayUyari.textContent = ''; }
 
       var d = new FormData(form);
       var siparis = {

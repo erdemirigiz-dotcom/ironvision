@@ -19,6 +19,24 @@
 <link rel="preload" href="fonts/cormorant-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<script>
+// Kanonik URL düzeltmesi: /index.html vs / URL'lerine göre canonical'ı ayarla
+// .htaccess'te RedirectMatch 301 ile /index.html → / yönlendirmesi kurulu
+const canonicalLink = document.querySelector('link[rel="canonical"]');
+if (canonicalLink) {
+  const isIndexHtml = window.location.pathname.endsWith('/index.html');
+  let href = canonicalLink.href;
+  if (isIndexHtml && !href.endsWith('/index.html')) {
+    // /index.html URL'si: canonical'ı /index.html ile bitir
+    href = href.replace(/\/$/, '') + '/index.html';
+    canonicalLink.href = href;
+  } else if (!isIndexHtml && href.endsWith('/index.html')) {
+    // / URL'si: canonical'ı / ile bitir
+    href = href.replace(/\/index\.html$/, '/');
+    canonicalLink.href = href;
+  }
+}
+</script>
 </head>
 <body>
 

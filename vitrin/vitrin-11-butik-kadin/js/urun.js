@@ -74,7 +74,7 @@
 
     kap.innerHTML = '' +
       '<nav class="iz-yolu" aria-label="Neredesiniz">' +
-        '<a href="index.html">Ana Sayfa</a><span aria-hidden="true">/</span>' +
+        '<a href="./">Ana Sayfa</a><span aria-hidden="true">/</span>' +
         '<a href="koleksiyon.html?k=' + encodeURIComponent(u.kategori) + '">' + E(katAd) + '</a>' +
         '<span aria-hidden="true">/</span>' + E(u.ad) +
       '</nav>' +

@@ -263,7 +263,11 @@
 
   /* Geçerli sayfayı menüde işaretler. */
   function menuIsaretle() {
+    /* Ana sayfa iki biçimde gelebilir ("/" ya da "/index.html" — nav
+       bağlantıları artık kök biçim "./"yi kullanıyor), ikisi de "./"ye
+       eşitlenir ki "Ana Sayfa" öğesi işaretlensin. */
     var dosya = window.location.pathname.split('/').pop() || 'index.html';
+    if (dosya === 'index.html') { dosya = './'; }
     var baglar = document.querySelectorAll('#ana-menu a');
     for (var i = 0; i < baglar.length; i++) {
       var hedef = baglar[i].getAttribute('href');
@@ -377,6 +381,15 @@
     return 'https://wa.me/' + no + '?text=' + encodeURIComponent(satirlar.join('\n'));
   }
 
+  /* Altbilgideki genel iletişim bağlantısı — sepetten bağımsız, tek satır
+     karşılama mesajıyla. Numara AYNI kaynaktan (config.js whatsapp) gelir,
+     sepetteki/ödemedeki WhatsApp düğmesiyle tutarlı kalır. */
+  function whatsappGenelBaglanti() {
+    var no = String(AYAR.whatsapp || '').replace(/[^0-9]/g, '');
+    var mesaj = 'Merhaba, ' + (AYAR.isletmeAdi || 'butik') + ' hakkında bilgi almak istiyorum.';
+    return 'https://wa.me/' + no + '?text=' + encodeURIComponent(mesaj);
+  }
+
   /* --------------------------------------------------------------- hata */
   function hataGoster(kap, mesaj) {
     if (!kap) { return; }
@@ -384,7 +397,7 @@
       '<div class="bos-durum">' +
         '<h2>Bir şeyler ters gitti</h2>' +
         '<p>' + kacis(mesaj) + '</p>' +
-        '<a class="btn btn--hat" href="index.html">Ana sayfaya dön</a>' +
+        '<a class="btn btn--hat" href="./">Ana sayfaya dön</a>' +
       '</div>';
   }
 
@@ -412,6 +425,13 @@
     var yil = document.querySelectorAll('[data-yil]');
     for (var i = 0; i < yil.length; i++) {
       yil[i].textContent = new Date().getFullYear();
+    }
+
+    /* Altbilgi WhatsApp bağlantısı — sayfa yüklenince tek sefer yazılır. */
+    var waGenel = document.querySelectorAll('[data-wa-genel]');
+    if (waGenel.length) {
+      var waHref = whatsappGenelBaglanti();
+      for (var w = 0; w < waGenel.length; w++) { waGenel[w].setAttribute('href', waHref); }
     }
   }
 
@@ -442,6 +462,7 @@
     siparisleriOku: siparisleriOku, siparisleriYaz: siparisleriYaz,
     siparisNo: siparisNo, siparisKaydet: siparisKaydet,
     whatsappBaglantisi: whatsappBaglantisi,
+    whatsappGenelBaglanti: whatsappGenelBaglanti,
     hataGoster: hataGoster
   };
 })();

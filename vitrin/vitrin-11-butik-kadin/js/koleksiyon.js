@@ -6,6 +6,23 @@
   var listeKap = document.querySelector('[data-liste]');
   if (!filtreKap || !listeKap) { return; }
 
+  /* Kategori süzgeci ?k=... ile URL'i değiştirir (history.replaceState) ama
+     bu SUNUCU sayfası değil, aynı belgenin görünüm durumudur. canonical/og:url
+     bilerek SÜZGEÇSİZ koleksiyon.html'i göstermeye devam eder — filtre
+     varyantlarının hepsi tek sayfada birleşir, Google'a "14 ayrı sayfa"
+     yerine "1 koleksiyon sayfası" sinyali gider. Etiketler burada SORGUSUZ
+     adrese sabitlenir; ileride başka bir kod parçası yanlışlıkla
+     window.location.href'i canonical'a yazarsa bile bu satır düzeltir. */
+  (function sabitleCanonical() {
+    var link = document.querySelector('link[rel="canonical"]');
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (link && link.href) {
+      var temiz = link.href.split('?')[0].split('#')[0];
+      link.setAttribute('href', temiz);
+      if (ogUrl) { ogUrl.setAttribute('content', temiz); }
+    }
+  })();
+
   var VERI = null;
   var secili = 'hepsi';
 

@@ -1,0 +1,56 @@
+{
+  "arac": "denetci",
+  "surum": "1.0",
+  "olusturma": "2026-08-15T12:19:18",
+  "hedef": "http://127.0.0.1:8931/index-huni-taslak.html",
+  "mod": "mobil",
+  "gezilen_sayfa": 1,
+  "maks_sayfa": 1,
+  "ozet": {
+    "kritik": 1,
+    "orta": 0,
+    "dusuk": 3
+  },
+  "sayfalar": [
+    {
+      "url": "http://127.0.0.1:8931/index-huni-taslak.html",
+      "nav_status": 200,
+      "dcl_ms": 183,
+      "idle_ms": 735,
+      "agirlik_mb": 0.22,
+      "bodyFont": "\"Space Grotesk\", -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+    }
+  ],
+  "bulgular": [
+    {
+      "sayfa": "http://127.0.0.1:8931/vitrin/vitrin-04-rafting/",
+      "tur": "birincil-eylem-rengi-dağınık",
+      "agirlik": "dusuk",
+      "detay": "Aynı görsel ağırlıktaki dolgulu düğmelerde 3 farklı arka plan rengi var: rgb(12, 38, 33) (5×), rgb(255, 94, 58) (4×), rgb(234, 242, 60) (1×) — birincil eylem tek renk olmalı."
+    },
+    {
+      "sayfa": "http://127.0.0.1:8931/vitrin/vitrin-06-yayla-ekolodge/",
+      "tur": "kelimeler-bitişik-okunuyor",
+      "agirlik": "dusuk",
+      "detay": "1 başlık/logo harf aralığı 0.20em ile basılmış ama kelime aralığı artırılmamış — ör. \"HIGHLAND LODGE\" (span.brand__sub) ekranda tek kelime gibi okunuyor. Çözüm: word-spacing ekleyin (en az harf aralığı kadar)."
+    },
+    {
+      "sayfa": "GENEL",
+      "tur": "og:image-göreli-yol",
+      "agirlik": "kritik",
+      "detay": "1 sayfada og:image göreli yol (\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%230a0b0d'/%3E%3Ctext x='80' y='330' fill='%23f2f0ea' font-family='monospace' font-size='90' font-weight='700'%3EVYRON FİLO%3C/text%3E%3C/svg%3E\") — WhatsApp/Facebook/LinkedIn göreli yolu çözemez, paylaşım önizlemesi görselsiz çıkar. Mutlak URL şart."
+    },
+    {
+      "sayfa": "GENEL",
+      "tur": "sosyal-hesap-az",
+      "agirlik": "dusuk",
+      "detay": "Yalnız 1 sosyal hesap bağlantısı var (www.instagram.com); ölçülen ticari sitelerde taban 3, ortalama 4,7."
+    }
+  ],
+  "dis_baglantilar": [
+    "https://www.etsy.com/listing/4540159328/chart-reading-dictionary-71-trading",
+    "https://www.etsy.com/listing/4540507694/trading-journal-notion-template-trade",
+    "https://www.etsy.com/listing/4542376286/trading-starter-bundle-chart-pattern",
+    "https://www.etsy.com/shop/IronVisionTools"
+  ]
+}

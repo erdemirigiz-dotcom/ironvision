@@ -1,380 +1,138 @@
 <!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; media-src 'self'; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<title>IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin</title>
-<meta name="description" content="Size özel web sitesi, aylık bakım ustalığı ve kişiye özel dijital ürünler. IRON VISION: yaşayan bir sahne, çalışan işler, dürüst iki-yol danışmanlığı.">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="canonical" href="https://ironvisiontools.com/">
-<meta property="og:url" content="https://ironvisiontools.com/">
-
-<!-- Open Graph / paylaşım -->
-<meta property="og:type" content="website">
-<meta property="og:locale" content="tr_TR">
+<html class="dark" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IRON VISION — Kendi ürünlerimizi üretiyoruz</title>
+<meta name="description" content="IRON VISION: AgentOS, Sesli Şef, WhatsApp Randevu Botu ve Try-On — kendi kullandığımız yazılım ürünlerini üretiyoruz. İhtiyaç çıkar, aynı gün uygulamasını yaparız.">
+<link rel="canonical" href="https://ironvisiontools.com/"/>
 <meta property="og:site_name" content="IRON VISION">
-<meta property="og:title" content="IRON VISION — Hayalinizi anlatın, atölyemizde şekillensin">
-<meta property="og:description" content="Size özel web sitesi, aylık bakım ustalığı, kişiye özel dijital ürünler. Yaşayan bir sahne, çalışan işler.">
-<meta property="og:image" content="https://ironvisiontools.com/assets/og-cover.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://ironvisiontools.com/assets/og-cover.png">
-
-<!-- Favicon: eskitilmiş çelik kıvılcımı (inline, dış istek yok) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0a0b'/%3E%3Cpath d='M50 20 L58 44 L82 50 L58 56 L50 80 L42 56 L18 50 L42 44 Z' fill='%23c8ccd2'/%3E%3C/svg%3E">
-
-<!-- Fontları erken getir (lokal, render bloklamaz) -->
-<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-
-<link rel="stylesheet" href="css/stil.css">
-
-<!-- Yapısal veri (JSON-LD): arama motoru için hizmet tanımı.
-     Adres/telefon/e-posta YAZILMAZ (sızıntı yasağı). -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Iron Vision Tools",
-  "description": "Size özel web sitesi, aylık bakım ustalığı ve kişiye özel dijital ürünler — yaşayan bir sahne, çalışan işler, dürüst iki-yol danışmanlığı.",
-  "url": "https://ironvisiontools.com",
-  "makesOffer": [
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Size özel web sitesi" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aylık bakım ustalığı" } },
-    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kişiye özel dijital ürünler" } }
-  ]
-}
-</script>
-<style>
-/* Kok sayfa ekleri: kart linkleri + atolye/araclar bolumu (stil.css'e dokunulmadi) */
-/* Video duvarı kartları: link kartın TAMAMINI kaplar (yazı kutusu değil) */
-.kart-link{position:absolute;inset:0;z-index:4;display:block;border-radius:inherit;text-decoration:none}
-.kart-link:focus-visible{outline:2px solid var(--kor-isik);outline-offset:-4px}
-.kart:focus-within{border-color:rgba(154,163,173,0.6)}
-/* Atölye + araçlar: kartın TAMAMI hedef sayfanın canlı önizlemesi (video
-   duvarı diliyle aynı: .kart kabuğu + üstüne binen .kart-ad şeridi).
-   Önizleme aynı-origin iframe; ölçekli, tıklamayı kartın <a>'sı alır. */
-#atolye-araclar .onizleme-izgara{
-  margin-top:clamp(36px,6vh,64px); display:grid; gap:22px;
-  grid-template-columns:repeat(3,1fr);
-}
-#atolye-araclar .genis{grid-column:span 2; aspect-ratio:auto}
-#atolye-araclar .onizleme{
-  position:absolute; top:0; left:0; z-index:0; border:0;
-  width:400%; height:400%; transform:scale(.25); transform-origin:0 0;
-  pointer-events:none; background:#0f0f11;
-}
-#atolye-araclar .genis .onizleme{width:200%;height:200%;transform:scale(.5)}
-/* İsim şeridi: önizleme açık renkli olsa da okunur kalsın diye kenardan
-   kenara inen karartma bandı (video duvarındaki kart-ad dilinin devamı) */
-#atolye-araclar .kart-ad{
-  left:0; right:0; bottom:0; padding:14px 16px 13px; font-size:0.86rem;
-  background:linear-gradient(to top,rgba(10,10,11,0.95),rgba(10,10,11,0.78) 55%,rgba(10,10,11,0));
-}
-#atolye-araclar .kart-ad small{margin-top:2px;color:rgba(232,234,237,0.85)}
-@media (max-width:860px){
-  #atolye-araclar .onizleme-izgara{grid-template-columns:1fr}
-  #atolye-araclar .genis{grid-column:auto; aspect-ratio:16/10}
-}
-/* Vitrin hub bağlantısı */
-.duvar-tum{margin-top:26px;text-align:center}
-.duvar-tum a{color:var(--kor-isik);text-decoration:none;font-size:.95rem;border-bottom:1px solid rgba(200,204,210,.35);padding-bottom:2px}
-.duvar-tum a:hover{color:var(--yazi)}
-/* --- 01.08: dokunmatik cihazlarda video duvarı okunurluğu -----------------
-   Telefonda kart isimleri açık renkli poster/video karesi üzerinde kayboluyordu.
-   Atölye+araçlar kartlarında onaylanan dil burada da kullanılır: kenardan
-   kenara inen ince karartma bandı. Masaüstü görünümü değişmez. */
-@media (hover: none) {
-  .duvar-ic .kart-ad{
-    left:0; right:0; bottom:0; padding:14px 16px 13px; font-size:0.86rem;
-    background:linear-gradient(to top,rgba(10,10,11,0.94),rgba(10,10,11,0.74) 58%,rgba(10,10,11,0));
-    text-shadow:0 1px 10px rgba(0,0,0,0.9);
-  }
-  .duvar-ic .kart-ad small{margin-top:2px;color:rgba(232,234,237,0.88)}
-  .duvar-ic .kart.tipo .tipo-ad,.duvar-ic .kart.tipo .tipo-en{text-shadow:0 2px 14px rgba(0,0,0,0.75)}
-}
-</style>
+<meta property="og:title" content="IRON VISION — Kendi ürünlerimizi üretiyoruz">
+<meta property="og:description" content="AgentOS, Sesli Şef, WhatsApp Randevu Botu, Try-On. İhtiyaç çıkar, aynı gün uygulamasını yaparız.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ironvisiontools.com/">
+<link rel="icon" type="image/png" href="assets/goz-logo.png">
+<link rel="apple-touch-icon" href="assets/goz-logo.png">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body>
-
-<!-- Dil anahtarı: sağ üst, sabit — sürünün üstünde (z-index) ama sahneyi bozmaz -->
-<div class="dil-anahtar" role="group" aria-label="Dil / Language">
-  <button type="button" class="dil-btn" data-lang="tr" aria-pressed="true">TR</button>
-  <span class="dil-ayrac" aria-hidden="true">|</span>
-  <button type="button" class="dil-btn" data-lang="en" aria-pressed="false">EN</button>
+<body class="font-body-md text-text-primary antialiased relative min-h-screen flex flex-col bg-background">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border-subtle flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto left-0 right-0"><div class="flex items-center gap-3">
+<img alt="IRON VISION — çelik göz logosu" class="w-8 h-8 rounded-full object-cover border border-border-subtle" src="assets/goz-logo.png"/>
+<a class="font-brand text-headline-md text-lg text-text-primary tracking-tighter uppercase" href="#">IRON VISION</a>
 </div>
-
-<!-- Ekran okuyucu için gerçek başlık (görsel sahne canvas'ta kuruluyor) -->
-<h1 class="sr-only" data-i18n="sr_h1">IRON VISION — size özel web siteleri, bakım ustalığı ve dijital ürünler</h1>
-
-<!-- Sürü canvas'ı: sabit viewport, sayfaya eşlik eder -->
-<canvas id="suru" aria-hidden="true"></canvas>
-
-<main>
-
-  <!-- ==================== 1) HERO ==================== -->
-  <section class="hero" id="hero">
-    <!-- Hareket azaltma modunda gösterilen sabit yazı -->
-    <div class="hero-static" aria-hidden="true">IRON&nbsp;VISION</div>
-
-    <div class="hero-alt">
-      <!-- Logo bütünlüğü (Iron Vision Tools): sürünün kurduğu IRON VISION'ın
-           hemen altına, sloganın üstüne ince, harf aralığı geniş "TOOLS"
-           ibaresi. Statik ve akış içinde (absolute/JS yok) → sürü boyutu ne
-           olursa olsun sloganla çakışmaz, mobilde taşmaz. Sürü motoruna yeni
-           kelime ÖĞRETİLMEZ. Normal ve hareket-azaltma modunda tutarlı. -->
-      <p class="hero-tools" aria-hidden="true">TOOLS</p>
-
-      <!-- SLOGAN — mühürlü karar: hero'da video ŞART KOŞULMAZ, genel cümle.
-           Seçilen ton: atölye ustası (iddiasız ama özgüvenli).
-           Alternatifler (Demir dilerse değiştirilir):
-             - "Hayal edin. Gerisini izleyin."
-             - "Siz anlatın, sahne kurulsun." -->
-      <p class="slogan" data-i18n-html="slogan">Hayalinizi anlatın.<br>Atölyemizde şekillensin.</p>
-
-      <!-- Video daveti: hero'nun bir tık altında ayrı ince satır -->
-      <p class="video-daveti" data-i18n-html="video_daveti"><b>Videolarınız mı var?</b> İsterseniz tasarımınızda kullanırız.</p>
-
-      <span class="scroll-ipucu"><span data-i18n="scroll_ipucu">Aşağı kaydırın</span><span class="ok" aria-hidden="true"></span></span>
-    </div>
-  </section>
-
-  <!-- ==================== 2) NE YAPIYORUZ ==================== -->
-  <section class="bolum" id="hizmet">
-    <p class="kicker" data-i18n="hizmet_kicker">Ne yapıyoruz</p>
-    <h2 class="bolum-baslik nabiz" data-i18n="hizmet_baslik">Üç işte ustayız.</h2>
-
-    <div class="kartlar-3">
-      <article class="hizmet-kart">
-        <span class="hizmet-no">01</span>
-        <h3 data-i18n="hizmet1_h">Size özel web sitesi</h3>
-        <p data-i18n="hizmet1_p">Hayalinizdeki site, atölyemizde size özel işlenir. Şablon değil;
-        markanıza, hikâyenize ve müşterinize göre tek tek şekillendirilir.</p>
-      </article>
-      <article class="hizmet-kart">
-        <span class="hizmet-no">02</span>
-        <h3 data-i18n="hizmet2_h">Aylık bakım ustalığı</h3>
-        <p data-i18n="hizmet2_p">Siteniz hep bakımlı, hep güncel. Kilit değil, abonelik: güncelleme,
-        iyileştirme ve gözetim bizden.</p>
-      </article>
-      <article class="hizmet-kart">
-        <span class="hizmet-no">03</span>
-        <h3 data-i18n="hizmet3_h">Kişiye özel dijital ürünler</h3>
-        <p data-i18n="hizmet3_p">Aile arşivinden kutlama şarkısına: size ait, sizden başkasında
-        olmayan dijital işler.</p>
-      </article>
-    </div>
-
-    <p class="iki-yol" data-i18n-html="iki_yol">Size hep <span>iki yol</span> sunarız, artısını eksisini dürüstçe
-    anlatırız; karar sizin, tavsiyemiz kayda geçer.</p>
-
-    <!-- Kurulum yolları: mühürlü satış felsefesi (fiyat RAKAMI yazılmaz) -->
-    <div class="kurulum-yollari">
-      <p class="kurulum-ust" data-i18n="kurulum_ust">Sitenizi iki şekilde ayağa kaldırırız:</p>
-      <div class="yol-kartlar">
-        <article class="yol-kart">
-          <span class="yol-no" data-i18n="yol1_no">Yol 1</span>
-          <h3 data-i18n="yol1_h">Tam hazır paket</h3>
-          <p data-i18n="yol1_p">Alan adı, sunucu ve bakım tek bir yıllık abonelikte toplanır;
-          hiçbir teknik yükü siz taşımazsınız. Alan adı her zaman sizin adınıza alınır:
-          tapu sizde, anahtar sizde — biz yalnızca bakım ustanızız.</p>
-        </article>
-        <article class="yol-kart">
-          <span class="yol-no" data-i18n="yol2_no">Yol 2</span>
-          <h3 data-i18n="yol2_h">Kendi alan adınızla</h3>
-          <p data-i18n="yol2_p">Kendi alan adınız zaten varsa siz getirin; biz sitenizi kurar,
-          canlıya alır ve bakımını sürdürürüz. Sahiplik baştan sona sizde kalır.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== 3) ATOLYE + ARACLAR ==================== -->
-  <section class="bolum" id="atolye-araclar">
-    <p class="kicker" data-i18n="atolye_kicker">Atölye bölümümüz</p>
-    <h2 class="bolum-baslik nabiz" data-i18n="atolye_baslik">Gezin, deneyin.</h2>
-    <p class="bolum-alt" data-i18n="atolye_alt">Kartlardaki görüntü canlı önizlemedir; tıklayın, sayfanın
-    kendisi açılsın. Araçlarımız ücretsiz, üyeliksiz, tarayıcınızda çalışır.</p>
-
-    <!-- Her kart hedef sayfanın CANLI önizlemesidir: aynı-origin iframe kartı
-         kenardan kenara doldurur (tembel yüklenir, tıklamayı almaz), isim
-         şeridi önizlemenin üstüne biner, kartın tamamı linktir. -->
-    <div class="onizleme-izgara">
-
-      <!-- Öne çıkan: esnaf paketi (Atölye Butik vitrini) -->
-      <figure class="kart genis">
-        <iframe class="onizleme" src="vitrin/vitrin-11-butik-kadin/" loading="lazy"
-                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
-        <span class="kart-ad" data-i18n-html="butik_ad">Atölye Butik<small>Esnaf paketi — küçük işletmeye özel butik site vitrini</small></span>
-        <a class="kart-link" href="vitrin/vitrin-11-butik-kadin/" aria-label="Atölye Butik vitrin sitesini açın"></a>
-      </figure>
-
-      <figure class="kart">
-        <iframe class="onizleme" src="vitrin/odul-01-vyron-atolye/" loading="lazy"
-                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
-        <span class="kart-ad" data-i18n-html="atolye_ad">ATÖLYE VYRON<small>Örnek atölye sitemiz</small></span>
-        <a class="kart-link" href="vitrin/odul-01-vyron-atolye/" aria-label="ATÖLYE VYRON örnek atölye sitesini açın"></a>
-      </figure>
-
-      <figure class="kart">
-        <iframe class="onizleme" src="kripto.html" loading="lazy"
-                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
-        <span class="kart-ad" data-i18n-html="arac1_ad">Kripto Kâr/Zarar<small>Komisyon dahil net hesap</small></span>
-        <a class="kart-link" href="kripto.html" aria-label="Kripto kâr/zarar hesaplayıcıyı açın"></a>
-      </figure>
-
-      <figure class="kart">
-        <iframe class="onizleme" src="vergi.html" loading="lazy"
-                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
-        <span class="kart-ad" data-i18n-html="arac2_ad">Vergi &amp; Net Maaş<small>Brütten nete, 2026 oranları</small></span>
-        <a class="kart-link" href="vergi.html" aria-label="Vergi ve net maaş hesaplayıcıyı açın"></a>
-      </figure>
-
-      <figure class="kart">
-        <iframe class="onizleme" src="token.html" loading="lazy"
-                scrolling="no" tabindex="-1" aria-hidden="true" title=""></iframe>
-        <span class="kart-ad" data-i18n-html="arac3_ad">LLM Token Maliyeti<small>Model başına istek maliyeti</small></span>
-        <a class="kart-link" href="token.html" aria-label="LLM token maliyet hesaplayıcıyı açın"></a>
-      </figure>
-
-    </div>
-  </section>
-
-  <!-- ==================== 4) VIDEO DUVARI ==================== -->
-  <section class="bolum" id="duvar">
-    <p class="kicker" data-i18n="duvar_kicker">İşte kanıt</p>
-    <h2 class="bolum-baslik nabiz" data-i18n="duvar_baslik">Atölyeden çıkan işler.</h2>
-    <p class="bolum-alt" data-i18n="duvar_alt">Konsept değil; çalışan, canlı işler. Kartın üzerine gelin
-    sahne oynasın, tıklayın işin kendisine gidin.</p>
-
-    <div class="duvar-sahne" id="duvar-sahne">
-      <div class="duvar-ic">
-
-        <!-- 1 · IGLU -->
-        <figure class="kart" data-src="assets/isler/iglu.mp4" tabindex="0" aria-label="IGLU Alpine Lodge — kayak lodgu tanıtım sitesi">
-          <video muted loop playsinline preload="none" poster="assets/isler/iglu-ekran.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">IGLU<small>Alpine Lodge</small></span>
-          <a class="kart-link" href="vitrin/vitrin-01-alp-kayak/" aria-label="IGLU Alpine Lodge sitesini açın"></a>
-        </figure>
-
-        <!-- 2 · HALLEY (poster) -->
-        <figure class="kart koyu-poster" tabindex="0" aria-label="HALLEY Desert Camp — çöl glamping sitesi">
-          <img class="poster oynuk-yok" src="assets/isler/halley-ekran.jpg" alt="HALLEY Desert Camp gece çölü" loading="lazy" width="640" height="400" style="opacity:1">
-          <span class="kart-ad">HALLEY<small>Desert Camp</small></span>
-          <a class="kart-link" href="vitrin/vitrin-02-col-glamping/" aria-label="HALLEY Desert Camp sitesini açın"></a>
-        </figure>
-
-        <!-- 3 · SALKIM (tipografik) -->
-        <figure class="kart tipo" tabindex="0" aria-label="SALKIM Bağ Evi — Ege bağ evi sitesi" style="background:linear-gradient(150deg,#3a1526,#6d2740 55%,#c98a3a)">
-          <span class="tipo-ad">SALKIM</span>
-          <span class="tipo-en">From the vine, to your glass</span>
-          <a class="kart-link" href="vitrin/vitrin-03-bag-sarap/" aria-label="SALKIM Bağ Evi sitesini açın"></a>
-        </figure>
-
-        <!-- 4 · DALGA -->
-        <figure class="kart" data-src="assets/isler/dalga.mp4" tabindex="0" aria-label="DALGA Outdoor — rafting ve macera sitesi">
-          <video muted loop playsinline preload="none" poster="assets/isler/dalga-ekran.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">DALGA<small>Outdoor</small></span>
-          <a class="kart-link" href="vitrin/vitrin-04-rafting/" aria-label="DALGA Outdoor sitesini açın"></a>
-        </figure>
-
-        <!-- 5 · KALEHAN (tipografik) -->
-        <figure class="kart tipo" tabindex="0" aria-label="KALEHAN Konak — restore taş konak butik otel sitesi" style="background:linear-gradient(150deg,#2a2320,#4a3b2e 55%,#b98a52)">
-          <span class="tipo-ad">KALEHAN</span>
-          <span class="tipo-en">The light is the amenity</span>
-          <a class="kart-link" href="vitrin/vitrin-05-tas-konak/" aria-label="KALEHAN Konak sitesini açın"></a>
-        </figure>
-
-        <!-- 6 · RAKIM -->
-        <figure class="kart" data-src="assets/isler/rakim.mp4" tabindex="0" aria-label="RAKIM — yayla eko-lodge sitesi">
-          <video muted loop playsinline preload="none" poster="assets/isler/rakim-ekran.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">RAKIM<small>Highland Eco-Lodge</small></span>
-          <a class="kart-link" href="vitrin/vitrin-06-yayla-ekolodge/" aria-label="RAKIM yayla eko-lodge sitesini açın"></a>
-        </figure>
-
-        <!-- 7 · KERVAN -->
-        <figure class="kart koyu-poster" data-src="assets/isler/kervan.mp4" tabindex="0" aria-label="KERVAN Walks — rehberli şehir yürüyüşleri sitesi">
-          <video muted loop playsinline preload="none" poster="assets/isler/kervan-ekran.jpg" aria-hidden="true"></video>
-          <span class="kart-ad">KERVAN<small>City Walks</small></span>
-          <a class="kart-link" href="vitrin/vitrin-07-sehir-yuruyus/" aria-label="KERVAN City Walks sitesini açın"></a>
-        </figure>
-
-        <!-- 8 · ATÖLYE VYRON (ödül · tipografik) -->
-        <figure class="kart tipo" tabindex="0" aria-label="ATÖLYE VYRON — örnek site atölyesi" style="background:linear-gradient(150deg,#1a1a1e,#31353b 55%,#9aa3ad)">
-          <span class="tipo-ad">ATÖLYE VYRON</span>
-          <span class="tipo-en">You film the place. We frame the site.</span>
-          <a class="kart-link" href="vitrin/odul-01-vyron-atolye/" aria-label="ATÖLYE VYRON sitesini açın"></a>
-        </figure>
-
-        <!-- 9 · MERIDYEN (ödül · tipografik) -->
-        <figure class="kart tipo" tabindex="0" aria-label="MERIDYEN — gece konaklamaları arşivi sitesi" style="background:linear-gradient(150deg,#10131f,#1c2340 55%,#47507e)">
-          <span class="tipo-ad">MERIDYEN</span>
-          <span class="tipo-en">The archive of nocturnal stays</span>
-          <a class="kart-link" href="vitrin/odul-02-meridyen-orbit/" aria-label="MERIDYEN sitesini açın"></a>
-        </figure>
-
-      </div>
-    </div>
-
-    <p class="duvar-tum"><a href="vitrin/vitrin-hub/" data-i18n="duvar_tum">Tüm vitrin sitelerini görün →</a></p>
-  </section>
-
-  <!-- ==================== 5) KAPANIS + FORM ==================== -->
-  <!-- Kapanış sözü (SIRA SİZDE) yalnız üstteki boş banda kurulur; forma
-       inince band viewport'tan çıkar ve sürü dağılır → yazı forma binmez. -->
-  <section class="kapanis" id="kapanis">
-    <div class="kapanis-hero" id="kapanis-hero" aria-hidden="true">
-      <div class="kapanis-static">SIRA&nbsp;SİZDE</div>
-    </div>
-
-    <div class="form-sar">
-      <p class="kicker" data-i18n="form_kicker">Sıra sizde</p>
-      <h2 class="form-baslik" data-i18n="form_baslik">Bir fikir anlatın, gerisini konuşalım.</h2>
-      <p class="form-giris" data-i18n="form_giris">Adınızı, e-postanızı ve aklınızdaki işi yazın. Size iki yol
-      sunalım, kararı birlikte verelim.</p>
-
-      <form id="iletisim-form" novalidate>
-        <!-- Bal küpü (bot tuzağı) -->
-        <div class="tuzak" aria-hidden="true">
-          <label for="website">Web siteniz</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-
-        <div class="alan">
-          <label for="ad" data-i18n="form_ad">Adınız</label>
-          <input type="text" id="ad" name="name" placeholder="Adınız" data-i18n-ph="form_ad_ph" autocomplete="name" required>
-        </div>
-        <div class="alan">
-          <label for="eposta" data-i18n="form_eposta">E-posta</label>
-          <input type="email" id="eposta" name="email" placeholder="ornek@eposta.com" data-i18n-ph="form_eposta_ph" autocomplete="email" required>
-        </div>
-        <div class="alan">
-          <label for="mesaj" data-i18n="form_mesaj">Mesajınız</label>
-          <textarea id="mesaj" name="message" rows="4" placeholder="Aklınızdaki işi birkaç cümleyle anlatın." data-i18n-ph="form_mesaj_ph" required></textarea>
-        </div>
-
-        <button type="submit" class="gonder" data-i18n="form_gonder">Gönder</button>
-        <p id="form-durum" class="form-durum" role="status" aria-live="polite"></p>
-      </form>
-
-      <!-- Güven satırı: form gizliliği (sade, abartısız) -->
-      <p class="form-guven" data-i18n="form_guven">Mesajınız yalnızca e-postamıza düşer; hiçbir yerde
-      saklanmaz, üçüncü kişilerle paylaşılmaz. 24 saat içinde size döneriz.</p>
-    </div>
-  </section>
-
-</main>
-
-<footer data-i18n-html="footer">
-  <b>IRON VISION</b> · Yapay zekâ atölyesi · Size özel siteler, bakım, dijital ürünler
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#products">Ürünler</a>
+<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#about">Hakkında</a>
+</div>
+<a class="inline-flex px-6 py-2 bg-text-primary text-background rounded-full font-label-caps hover:bg-primary-container hover:text-text-primary transition-colors uppercase" href="#contact">Demo İste</a></nav>
+<!-- Hero Section -->
+<section class="pt-48 pb-section-gap-max relative z-10 px-gutter flex flex-col items-center text-center">
+<div class="max-w-4xl mx-auto">
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-8 uppercase leading-tight">İHTİYAÇ ÇIKAR, AYNI GÜN UYGULAMASINI YAPARIZ</h1>
+<p class="font-body-lg text-body-lg text-text-muted mb-10 max-w-2xl mx-auto">Kendi kullandığımız yazılım ürünlerini üretiyoruz — deneyin, görün.</p>
+<a class="inline-flex px-8 py-4 bg-primary-container text-text-primary rounded-full font-label-caps hover:scale-105 active:scale-95 transition-transform uppercase tracking-wider glow-effect" href="#contact">Demo İste</a>
+</div>
+</section>
+<section class="py-section-gap-max relative z-10 px-gutter" id="products">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-12 text-center uppercase">ÜRÜNLER</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- AgentOS -->
+<div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors">
+<div class="w-full aspect-video bg-surface-variant rounded-lg mb-6 overflow-hidden">
+<img alt="AgentOS görev paneli ekran görüntüsü" class="w-full h-full object-cover object-top" src="assets/screenshots/agentos-gorevler.png"/>
+</div>
+<h3 class="font-headline-md text-xl mb-2 uppercase">AgentOS</h3>
+<p class="font-body-md text-text-muted mb-6 flex-grow">Kendi otomasyon işletim sistemimiz, ajanlar mail ve raporlama gibi işleri kendi başına yürütür.</p>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+</div>
+<!-- Sesli Şef -->
+<div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors">
+<div class="w-full aspect-video bg-surface-variant rounded-lg mb-6 overflow-hidden">
+<img alt="Sesli Şef arayüzü ekran görüntüsü" class="w-full h-full object-cover object-top" src="assets/screenshots/sesli-sef-ui.png"/>
+</div>
+<h3 class="font-headline-md text-xl mb-2 uppercase">Sesli Şef</h3>
+<p class="font-body-md text-text-muted mb-6 flex-grow">Sesle konuşup iş yaptıran, dosya okuyan sesli asistan.</p>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+</div>
+<!-- WhatsApp Randevu Botu -->
+<div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors">
+<div class="w-full aspect-video bg-surface-variant rounded-lg mb-6 flex items-center justify-center">
+<span class="font-label-caps text-text-muted uppercase">Ekran görüntüsü</span>
+</div>
+<h3 class="font-headline-md text-xl mb-2 uppercase">WhatsApp Randevu Botu</h3>
+<p class="font-body-md text-text-muted mb-6 flex-grow">İşletmeler için 7/24 otomatik randevu ve müşteri yanıtlama.</p>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+</div>
+<!-- Try-On -->
+<div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors relative">
+<div class="absolute top-4 right-4 px-2 py-1 bg-primary-container/20 border border-primary-container rounded text-[10px] font-label-caps text-primary-container uppercase">Geliştiriliyor</div>
+<div class="w-full aspect-video bg-surface-variant rounded-lg mb-6 flex items-center justify-center">
+<span class="font-label-caps text-text-muted uppercase">Ekran görüntüsü</span>
+</div>
+<h3 class="font-headline-md text-xl mb-2 uppercase">Try-On</h3>
+<p class="font-body-md text-text-muted mb-6 flex-grow">Kombini görüntü üzerinde deneme, geliştirme aşamasında.</p>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-section-gap-max relative z-10 px-gutter" id="how-it-works"><div class="max-w-container-max mx-auto"><h2 class="font-headline-lg text-headline-lg mb-12 text-center uppercase">NASIL ÇALIŞIYORUZ</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">01</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">İHTİYACI DİNLERİZ</h3></div><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">02</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">AYNI GÜN İÇİNDE ÇALIŞAN BİR ÖRNEK ÇIKARIRIZ</h3></div><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">03</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">BEĞENİRSENİZ BİRLİKTE BÜYÜTÜRÜZ</h3></div></div></div></section><section class="py-section-gap-max relative z-10 px-gutter bg-surface-dim border-y border-border-subtle" id="about"><div class="max-w-3xl mx-auto text-center"><h2 class="font-headline-lg text-headline-lg mb-12 uppercase">HAKKINDA</h2><p class="font-body-lg text-text-muted leading-relaxed">IRON VISION, Edirne merkezli erken aşama bir yazılım girişimi. Kurucu tam zamanlı bu işte çalışıyor, ürünler kendi ihtiyaçlarından doğuyor.</p></div></section>
+<!-- Final CTA & Form -->
+<section class="py-section-gap-max relative z-10 px-gutter bg-surface-dim border-t border-border-subtle" id="contact">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="font-headline-lg text-headline-lg mb-12 uppercase">DEMO İSTE</h2>
+<form class="flex flex-col gap-6 text-left" id="demo-form">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-text-muted uppercase" for="f-isim">Adınız Soyadınız</label>
+<input class="w-full bg-surface-card border border-border-subtle rounded-lg p-4 text-text-primary focus:outline-none focus:border-primary-container transition-colors font-body-md" id="f-isim" name="isim" placeholder="İsim Soyisim" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-text-muted uppercase" for="f-sirket">Şirketiniz / Projeniz</label>
+<input class="w-full bg-surface-card border border-border-subtle rounded-lg p-4 text-text-primary focus:outline-none focus:border-primary-container transition-colors font-body-md" id="f-sirket" name="sirket" placeholder="Kısaca bahsedin" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-text-muted uppercase" for="f-mesaj">Mesajınız</label>
+<textarea class="w-full bg-surface-card border border-border-subtle rounded-lg p-4 text-text-primary focus:outline-none focus:border-primary-container transition-colors font-body-md resize-none" id="f-mesaj" name="mesaj" placeholder="Nasıl yardımcı olabiliriz?" rows="4"></textarea>
+</div>
+<button class="mt-8 px-8 py-4 bg-primary-container text-text-primary rounded-full font-label-caps hover:scale-105 active:scale-95 transition-transform uppercase tracking-wider self-center glow-effect" type="submit">
+                    DEMO İSTE
+                </button>
+<p class="font-label-caps text-[11px] text-text-muted text-center normal-case">Gönder'e basınca e-posta uygulamanız açılır, mesaj founder@ironvisiontools.com adresine gider.</p>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap-min border-t border-border-subtle bg-surface-dim mt-auto z-10 relative">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-8 max-w-container-max mx-auto">
+<div class="font-brand text-lg text-text-primary uppercase tracking-tighter">IRON VISION</div>
+<div class="font-label-caps text-label-caps text-text-muted uppercase">© 2026 IRON VISION.</div>
+<div class="flex gap-6 font-label-caps text-label-caps uppercase">
+<a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="gizlilik.html">Gizlilik Politikası</a>
+<a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="iletisim.html">İletişim</a>
+</div>
+</div>
 </footer>
-
-<script src="js/config.js" defer></script>
-<script src="js/surumotoru.js" defer></script>
-<script src="js/site.js" defer></script>
-<!-- js/duvar-mobil.js: gradyan videolar gercek ekran posterlerini ortmesin diye devre disi; gercek video cekimleri gelince geri ac -->
-<script src="js/i18n.js" defer></script>
-</body>
-</html>
+<script>
+(function () {
+  var form = document.getElementById('demo-form');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var isim = (document.getElementById('f-isim').value || '').trim();
+    var sirket = (document.getElementById('f-sirket').value || '').trim();
+    var mesaj = (document.getElementById('f-mesaj').value || '').trim();
+    var subject = 'Demo İste' + (sirket ? ' — ' + sirket : '');
+    var bodyLines = [];
+    if (isim) bodyLines.push('İsim: ' + isim);
+    if (sirket) bodyLines.push('Şirket/Proje: ' + sirket);
+    bodyLines.push('');
+    bodyLines.push(mesaj || '(mesaj yazılmadı)');
+    var mailto = 'mailto:founder@ironvisiontools.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+    window.location.href = mailto;
+  });
+})();
+</script>
+</body></html>

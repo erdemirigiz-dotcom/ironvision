@@ -2,8 +2,8 @@
 <html class="dark" lang="tr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IRON VISION — Kendi ürünlerimizi üretiyoruz</title>
-<meta name="description" content="IRON VISION: AgentOS, Sesli Şef, WhatsApp Randevu Botu ve Try-On — kendi kullandığımız yazılım ürünlerini üretiyoruz. İhtiyaç çıkar, aynı gün uygulamasını yaparız.">
+<title>IRON VISION — İşiniz için yapay zekâ araçları</title>
+<meta name="description" content="IRON VISION: AgentOS, Sesli Şef, WhatsApp Randevu Botu ve Try-On — işinizi kolaylaştırmayı ve hızlandırmayı amaçlayan yapay zekâ araçları. Demo isteyin, deneyin.">
 <link rel="canonical" href="https://ironvisiontools.com/"/>
 <meta property="og:site_name" content="IRON VISION">
 <meta property="og:title" content="IRON VISION — Kendi ürünlerimizi üretiyoruz">
@@ -13,6 +13,15 @@
 <link rel="icon" type="image/png" href="assets/goz-logo.png">
 <link rel="apple-touch-icon" href="assets/goz-logo.png">
 <link rel="stylesheet" href="assets/css/site.css">
+<style>
+.card-more{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid hsla(0,0%,100%,.18);font-size:14px;line-height:1.6;color:rgb(195 201 209)}
+.card-more.open{display:block}
+.card-more p{margin-bottom:.75rem}
+.card-more p:last-child{margin-bottom:0}
+.card-actions{display:flex;flex-direction:column;align-items:flex-start}
+.card-toggle{margin-top:.5rem;background:none;border:none;padding:0;font-family:'Space Grotesk',Arial,sans-serif;font-size:12px;letter-spacing:.1em;font-weight:600;text-transform:uppercase;color:rgb(10 83 211);cursor:pointer}
+.card-toggle:hover{color:rgb(242 244 246)}
+</style>
 </head>
 <body class="font-body-md text-text-primary antialiased relative min-h-screen flex flex-col bg-background">
 <!-- TopNavBar -->
@@ -28,8 +37,8 @@
 <!-- Hero Section -->
 <section class="pt-48 pb-section-gap-max relative z-10 px-gutter flex flex-col items-center text-center">
 <div class="max-w-4xl mx-auto">
-<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-8 uppercase leading-tight">İHTİYAÇ ÇIKAR, AYNI GÜN UYGULAMASINI YAPARIZ</h1>
-<p class="font-body-lg text-body-lg text-text-muted mb-10 max-w-2xl mx-auto">Kendi kullandığımız yazılım ürünlerini üretiyoruz — deneyin, görün.</p>
+<h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero mb-8 uppercase leading-tight">İŞİNİZ İÇİN YAPAY ZEKÂ ARAÇLARI</h1>
+<p class="font-body-lg text-body-lg text-text-muted mb-10 max-w-2xl mx-auto">Ürünlerimiz aşağıda. Demo isteyin, deneyin; beğenirseniz üzerine konuşuruz.</p>
 <a class="inline-flex px-8 py-4 bg-primary-container text-text-primary rounded-full font-label-caps hover:scale-105 active:scale-95 transition-transform uppercase tracking-wider glow-effect" href="#contact">Demo İste</a>
 </div>
 </section>
@@ -42,9 +51,20 @@
 <div class="w-full aspect-video bg-surface-variant rounded-lg mb-6 overflow-hidden">
 <img alt="AgentOS görev paneli ekran görüntüsü" class="w-full h-full object-cover object-top" src="assets/screenshots/agentos-gorevler.png"/>
 </div>
-<h3 class="font-headline-md text-xl mb-2 uppercase">AgentOS</h3>
-<p class="font-body-md text-text-muted mb-6 flex-grow">Kendi otomasyon işletim sistemimiz, ajanlar mail ve raporlama gibi işleri kendi başına yürütür.</p>
-<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+<h3 class="font-headline-md text-xl mb-2 uppercase">VYRON AgentOS</h3>
+<div class="flex-grow mb-2">
+<p class="font-body-md text-text-muted">Kendi ihtiyaçlarımızdan doğan otomasyon sistemi. Ajanlarımız mail kontrolü, raporlama ve yedekleme gibi işleri arka planda kendi başlarına yürütür, biz tek bir panelden izleriz.</p>
+<p class="font-label-caps text-[11px] text-text-muted normal-case mt-3">İşletmenize özel kurulur — kurulum 2-4 hafta.</p>
+</div>
+<div class="card-more" id="agentos-more">
+<p>AgentOS, gün içindeki tekrarlayan işleri devretmek için kendi ihtiyaçlarımızdan doğan bir otomasyon sistemi. Tek bir panelde projelerin durumu, ajanların ne yaptığı ve sistemin sağlığı görünür; komut Telegram'dan da verilebilir. Arka planda çalışan ajanlar mail kutusunu kontrol eder, günlük özet çıkarır, maliyet/abonelik takibini yapar ve her gece kısa bir öz-değerlendirme yazar.</p>
+<p>Bu bir kutu ürün değil, işletmenize özel kurulan bir hizmettir: sistem sizin kendi sunucunuza/hesabınıza kurulur, kurulum 2-4 hafta sürer, veriniz bizde kalmaz. Mesajlaşma ve izin akışları İYS ve KVKK kurallarına uygun tasarlanır.</p>
+<p>Şu an durumu: canlı ve her gün kullandığımız bir sistem — demo değil, gerçek iş akışımızın bir parçası; aynı yapıyı işletmenize özel kurulum hizmeti olarak sunuyoruz.</p>
+</div>
+<div class="card-actions">
+<button aria-controls="agentos-more" aria-expanded="false" class="card-toggle" type="button">Devamını oku</button>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start mt-3" href="mailto:founder@ironvisiontools.com?subject=AgentOS%20tan%C4%B1t%C4%B1m%20g%C3%B6r%C3%BC%C5%9Fmesi">Tanıtım Görüşmesi</a>
+</div>
 </div>
 <!-- Sesli Şef -->
 <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors">
@@ -52,8 +72,18 @@
 <img alt="Sesli Şef arayüzü ekran görüntüsü" class="w-full h-full object-cover object-top" src="assets/screenshots/sesli-sef-ui.png"/>
 </div>
 <h3 class="font-headline-md text-xl mb-2 uppercase">Sesli Şef</h3>
-<p class="font-body-md text-text-muted mb-6 flex-grow">Sesle konuşup iş yaptıran, dosya okuyan sesli asistan.</p>
-<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+<div class="flex-grow mb-2">
+<p class="font-body-md text-text-muted">Claude Code'un terminal oturumuna ses kazandıran uygulama. Komutunuzu dikte edin, cevabı okumak yerine dinleyin. Uzun çalışmalarda gözünüzü dinlendirir, ekran başında olmadan da işi sürdürmenizi sağlar.</p>
+</div>
+<div class="card-more" id="sesli-sef-more">
+<p>Çoğu "sesli yazma" aracı sadece dikteyi çözer; Sesli Şef'in farkı cevabın da sesli gelmesi. Tarayıcıdan tek bir sayfa açılır, mikrofona konuşursunuz, konuşmanız yazıya çevrilip terminaldeki Claude Code oturumuna gönderilir; Claude'un yazdığı cevap ise otomatik olarak Türkçe sesli okunur — uzun bir cevabı ekrandan okumak yerine dinlersiniz. İsterseniz mikrofon yerine yazarak da gönderebilirsiniz.</p>
+<p>Kimin için: uzun süre ekrana bakmadan bir Claude Code oturumunu takip etmek isteyen, işini sesle sürdürmek isteyen herkes — elleri/gözleri başka işte olan, ama oturumun ne yaptığını kaçırmak istemeyen kullanıcı.</p>
+<p>Şu an durumu: Claude Code ile çalışır; diğer terminal ajanları için geliştiriliyor.</p>
+</div>
+<div class="card-actions">
+<button aria-controls="sesli-sef-more" aria-expanded="false" class="card-toggle" type="button">Devamını oku</button>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start mt-3" href="#contact">Demo İste</a>
+</div>
 </div>
 <!-- WhatsApp Randevu Botu -->
 <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors">
@@ -61,8 +91,19 @@
 <span class="font-label-caps text-text-muted uppercase">Ekran görüntüsü</span>
 </div>
 <h3 class="font-headline-md text-xl mb-2 uppercase">WhatsApp Randevu Botu</h3>
-<p class="font-body-md text-text-muted mb-6 flex-grow">İşletmeler için 7/24 otomatik randevu ve müşteri yanıtlama.</p>
-<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+<div class="flex-grow mb-2">
+<p class="font-body-md text-text-muted">Berber ve kuaförler için WhatsApp üzerinden randevu almayı kolaylaştıran bot. Müşteri size yazar gibi WhatsApp'tan yazar, randevusunu alır — siz sürekli telefona bakmak zorunda kalmazsınız. 10 gün ücretsiz deneyin.</p>
+</div>
+<div class="card-more" id="randevu-more">
+<p>İlk sürüm berber ve kuaförler için. Müşteri herhangi bir uygulama indirmeden, herhangi bir siteye girmeden, zaten kullandığı WhatsApp'tan işletmenin numarasına size yazar gibi yazar. Bot, işletmenin panelden eklediği hizmetler ve sorduğu sorularla konuşmayı otomatik ilerletir: uygun saatleri gösterir, müşteri seçer, gerekiyorsa hizmet türünü sorar, randevu kayda geçer. Amaç işletmenin gün boyu telefona cevap vermek zorunda kalmasını azaltmak.</p>
+<p>Mesai dışında veya gece gelen istekler de kaybolmaz; randevu kayda geçer, işletmeye sabah tek bir özet mesajı gider. Randevular esnafın ajandasına, kendi belirlediği şekilde kaydedilir; işletme panelden istediği saati kapatabilir veya "bu saate sadece sakal" gibi kurallar koyabilir; isterse sohbete kendi girip devralabilir.</p>
+<p>Kimin için: ilk sürüm berber/kuaför gibi randevu bazlı çalışan küçük işletmeler için tasarlandı; pilot bölge Edirne.</p>
+<p>Şu an durumu: yazılım tarafı hazır ve otomatik testten geçti (29 testin tamamı yeşil); WhatsApp'ın resmi bağlantısı (Meta) şu an kuruluyor, ilk canlı pilot henüz başlamadı.</p>
+</div>
+<div class="card-actions">
+<button aria-controls="randevu-more" aria-expanded="false" class="card-toggle" type="button">Devamını oku</button>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start mt-3" href="#contact">Demo İste</a>
+</div>
 </div>
 <!-- Try-On -->
 <div class="bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col hover-lift hover:bg-surface-hover transition-colors relative">
@@ -71,13 +112,23 @@
 <span class="font-label-caps text-text-muted uppercase">Ekran görüntüsü</span>
 </div>
 <h3 class="font-headline-md text-xl mb-2 uppercase">Try-On</h3>
-<p class="font-body-md text-text-muted mb-6 flex-grow">Kombini görüntü üzerinde deneme, geliştirme aşamasında.</p>
-<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start" href="#contact">Demo İste</a>
+<div class="flex-grow mb-2">
+<p class="font-body-md text-text-muted">Kıyafeti satın almadan önce kendi fotoğrafınızın üzerinde görme fikri. Şu an geliştirme aşamasında.</p>
+</div>
+<div class="card-more" id="tryon-more">
+<p>Try-On, bir ürün fotoğrafını müşterinin kendi fotoğrafıyla birleştirip "üzerinde nasıl durur" görselini üretmeyi hedefliyor — önce butik/e-ticaret siteleri için "üzerinde dene" düğmesi olarak, ileride kendi dolabınızdaki kıyafetleri tarayıp günlük kombin önerecek bir uygulamaya doğru büyüyecek şekilde tasarlandı.</p>
+<p>Kimin için: ilk hedef küçük butik/e-ticaret siteleri (müşteri iade oranını düşürmek); uzun vadeli hedef bireysel kullanıcılar.</p>
+<p>Şu an durumu: dürüst olmak gerekirse henüz bir müşteri sitesinde canlı çalışmıyor. Teknolojinin çalıştığını kendi testlerimizle gösterdik, altyapının iskeleti kuruldu. Şu anki hali bir geliştirme aşaması, satışa hazır bir ürün değil.</p>
+</div>
+<div class="card-actions">
+<button aria-controls="tryon-more" aria-expanded="false" class="card-toggle" type="button">Devamını oku</button>
+<a class="px-6 py-2 bg-primary-container text-text-primary rounded-full font-label-caps text-xs hover:scale-105 transition-transform uppercase self-start mt-3" href="#contact">Demo İste</a>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section class="py-section-gap-max relative z-10 px-gutter" id="how-it-works"><div class="max-w-container-max mx-auto"><h2 class="font-headline-lg text-headline-lg mb-12 text-center uppercase">NASIL ÇALIŞIYORUZ</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">01</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">İHTİYACI DİNLERİZ</h3></div><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">02</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">AYNI GÜN İÇİNDE ÇALIŞAN BİR ÖRNEK ÇIKARIRIZ</h3></div><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">03</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">BEĞENİRSENİZ BİRLİKTE BÜYÜTÜRÜZ</h3></div></div></div></section><section class="py-section-gap-max relative z-10 px-gutter bg-surface-dim border-y border-border-subtle" id="about"><div class="max-w-3xl mx-auto text-center"><h2 class="font-headline-lg text-headline-lg mb-12 uppercase">HAKKINDA</h2><p class="font-body-lg text-text-muted leading-relaxed">IRON VISION, Edirne merkezli erken aşama bir yazılım girişimi. Kurucu tam zamanlı bu işte çalışıyor, ürünler kendi ihtiyaçlarından doğuyor.</p></div></section>
+<section class="py-section-gap-max relative z-10 px-gutter" id="how-it-works"><div class="max-w-container-max mx-auto"><h2 class="font-headline-lg text-headline-lg mb-12 text-center uppercase">NASIL İLERLİYORUZ</h2><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">01</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">DEMO İSTEYİN</h3></div><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">02</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">KENDİ İŞİNİZDE DENEYİN</h3></div><div class="bg-surface-card border border-border-subtle rounded-2xl p-8 hover-lift hover:bg-surface-hover transition-colors"><div class="font-headline-lg text-primary-container mb-4 opacity-50">03</div><h3 class="font-label-caps text-label-caps text-text-primary tracking-widest uppercase">BEĞENİRSENİZ DETAYLARI KONUŞURUZ</h3></div></div></div></section><section class="py-section-gap-max relative z-10 px-gutter bg-surface-dim border-y border-border-subtle" id="about"><div class="max-w-3xl mx-auto text-center"><h2 class="font-headline-lg text-headline-lg mb-12 uppercase">HAKKINDA</h2><p class="font-body-lg text-text-muted leading-relaxed">IRON VISION, Edirne merkezli erken aşama bir yazılım girişimi. İşinizi kolaylaştırmayı, hızlandırmayı ve daha verimli hâle getirmeyi amaçlayan araçlar ve uygulamalar üretiyoruz. Üretiminden sunumuna kadar her aşamada yapay zekâ teknolojisinden destek alarak çalışıyoruz.</p></div></section>
 <!-- Final CTA & Form -->
 <section class="py-section-gap-max relative z-10 px-gutter bg-surface-dim border-t border-border-subtle" id="contact">
 <div class="max-w-3xl mx-auto text-center">
@@ -132,6 +183,19 @@
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(bodyLines.join('\n'));
     window.location.href = mailto;
+  });
+})();
+</script>
+<script>
+(function () {
+  document.querySelectorAll('.card-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      if (!panel) return;
+      var isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.textContent = isOpen ? 'Daralt' : 'Devamını oku';
+    });
   });
 })();
 </script>

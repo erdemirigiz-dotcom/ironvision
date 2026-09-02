@@ -1,0 +1,186 @@
+/* IRON VISION — 2026-09-02 yenileme katmanı.
+   site.css (derlenmiş Tailwind) üzerine biner; yeni bölüm/şerit yerleşimi burada. */
+
+:root{
+  --bg:#0a0a0b; --card:#141416; --card2:#1a1a1d; --line:rgba(255,255,255,.14);
+  --line2:rgba(255,255,255,.22); --txt:#f2f4f6; --dim:#c3c9d1; --dim2:#8b929c;
+  --acc:#0a53d3; --acc-soft:rgba(10,83,211,.16);
+  --wrap:1200px; --gut:24px;
+}
+html{scroll-behavior:smooth}
+body.hareketli{scroll-behavior:auto}
+body{overflow-x:hidden}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- üst çubuk ---------- */
+.nav-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;
+  border:1px solid var(--line);border-radius:12px;background:transparent;color:var(--txt)}
+.nav-toggle span{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.nav-toggle span::before,.nav-toggle span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
+.nav-toggle span::before{top:-6px}.nav-toggle span::after{top:6px}
+.nav-mobil{display:none;position:fixed;inset:64px 0 auto 0;z-index:49;background:rgba(10,10,11,.97);
+  border-bottom:1px solid var(--line);padding:8px var(--gut) 20px}
+.nav-mobil.acik{display:block}
+.nav-mobil a{display:block;padding:14px 4px;font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border-bottom:1px solid var(--line)}
+.nav-mobil a:last-child{border-bottom:0}
+@media (min-width:768px){.nav-toggle{display:none}.nav-mobil{display:none !important}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:150px 0 84px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:900px;height:900px;right:-280px;top:-360px;border-radius:50%;
+  background:radial-gradient(circle,rgba(10,83,211,.34),rgba(10,83,211,0) 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;width:620px;height:620px;left:-260px;bottom:-320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(10,83,211,.18),rgba(10,83,211,0) 66%);pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:1000px}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(34px,7.2vw,76px);line-height:1.05;letter-spacing:-.02em;margin:0 0 24px}
+.hero h1 .vurgu{color:var(--acc);
+  background:linear-gradient(180deg,rgba(10,83,211,0) 62%,rgba(10,83,211,.28) 62%);}
+.hero p.alt{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(16px,2.1vw,20px);line-height:1.6;
+  color:var(--dim);max-width:680px;margin:0 0 34px}
+.cta-satir{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;
+  font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid transparent;transition:transform .18s ease,background-color .18s ease,border-color .18s ease}
+.btn-1{background:var(--acc);color:#fff;box-shadow:0 0 26px rgba(10,83,211,.38)}
+.btn-1:hover{transform:translateY(-2px)}
+.btn-2{background:transparent;color:var(--txt);border-color:var(--line2)}
+.btn-2:hover{border-color:var(--txt);transform:translateY(-2px)}
+.hero-not{margin-top:26px;font-family:'Space Grotesk',Arial,sans-serif;font-size:12.5px;color:var(--dim2)}
+.hero-serit{position:relative;z-index:2;display:flex;gap:10px;flex-wrap:wrap;margin-top:44px}
+.hero-serit b{font-weight:600;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim2);
+  border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-family:'Space Grotesk',Arial,sans-serif}
+
+/* ---------- bölüm başlığı ---------- */
+.bolum{padding:96px 0}
+.bolum-bas{max-width:760px;margin:0 0 56px}
+.etiket{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--acc);display:block;margin-bottom:14px}
+.bolum-bas h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(28px,4.6vw,48px);line-height:1.1;margin:0 0 16px}
+.bolum-bas p{font-family:'Space Grotesk',Arial,sans-serif;font-size:17px;line-height:1.65;color:var(--dim);margin:0}
+
+/* ---------- ürün şeritleri ---------- */
+.serit{padding:78px 0;border-top:1px solid var(--line)}
+.serit-in{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media (min-width:960px){
+  .serit-in{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:64px}
+  .serit.ters .serit-gorsel{order:2}
+  .serit.ters .serit-metin{order:1}
+}
+.serit-metin h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(26px,4vw,42px);line-height:1.12;margin:0 0 18px}
+.serit-metin p{font-family:'Space Grotesk',Arial,sans-serif;font-size:16.5px;line-height:1.72;color:var(--dim);margin:0 0 18px}
+.rozet{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;
+  font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#8fb4ff;background:var(--acc-soft);
+  border:1px solid rgba(10,83,211,.5);border-radius:999px;padding:8px 14px;margin-bottom:22px}
+.rozet .nokta{width:7px;height:7px;border-radius:50%;background:#4ade80}
+.rozet.bekleme .nokta{background:#fbbf24}
+.liste{list-style:none;margin:0 0 26px;padding:0}
+.liste li{position:relative;padding-left:26px;margin-bottom:11px;font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:15.5px;line-height:1.6;color:var(--dim)}
+.liste li::before{content:"";position:absolute;left:2px;top:8px;width:8px;height:8px;border-radius:2px;
+  background:var(--acc);transform:rotate(45deg)}
+
+/* görsel bloklar */
+.telefonlar{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.telefonlar img{width:100%;border-radius:16px;border:1px solid var(--line);background:#111;display:block}
+@media (max-width:640px){.telefonlar{grid-template-columns:repeat(3,1fr);gap:7px}.telefonlar img{border-radius:10px}}
+.gorsel-kutu{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--card);
+  box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.gorsel-kutu img,.gorsel-kutu video{display:block;width:100%;height:auto}
+.gorsel-alt{font-family:'Space Grotesk',Arial,sans-serif;font-size:12px;color:var(--dim2);
+  padding:11px 14px;border-top:1px solid var(--line);background:var(--card2)}
+.gorsel-yigin{display:flex;flex-direction:column;gap:16px}
+.video-kutu{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#000}
+.video-kutu video{display:block;width:100%;height:auto}
+.video-etiket{position:absolute;top:12px;left:12px;z-index:2;font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  background:rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:6px 12px}
+.ikili{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:560px){.ikili{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}}
+.sema{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:18px 14px}
+.sema svg{width:100%;height:auto;display:block}
+@media (max-width:760px){.sema{overflow-x:auto}.sema svg{min-width:720px}}
+
+/* ---------- yakında / try-on ---------- */
+.yakinda{position:relative;padding:92px 0;border-top:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(122,32,72,.34) 0%,rgba(198,107,126,.18) 46%,rgba(10,10,11,0) 78%)}
+.yakinda .rozet{color:#ffd0dd;background:rgba(198,107,126,.16);border-color:rgba(255,208,221,.42)}
+.yakinda .rozet .nokta{background:#f9a8c8}
+.yakinda h3{color:#ffe6ee}
+.yakinda .liste li::before{background:#e58aa4}
+.yakinda .btn-2{border-color:rgba(255,208,221,.5);color:#ffe6ee}
+.yakinda .btn-2:hover{border-color:#ffd0dd}
+.yakinda .gorsel-kutu{border-color:rgba(255,208,221,.28)}
+
+/* ---------- yaptığımız işler ---------- */
+.is-izgara{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:640px){.is-izgara{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.is-izgara{grid-template-columns:repeat(3,1fr)}}
+.is-kart{display:block;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--card);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.is-kart:hover{transform:translateY(-5px);border-color:rgba(10,83,211,.6);box-shadow:0 16px 40px rgba(10,83,211,.16)}
+.is-kart img{display:block;width:100%;height:auto;aspect-ratio:8/5;object-fit:cover;object-position:top}
+.is-govde{padding:15px 16px 17px}
+.is-govde h4{font-family:'Space Grotesk',Arial,sans-serif;font-size:15.5px;font-weight:600;margin:0 0 5px;color:var(--txt)}
+.is-govde p{font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;color:var(--dim2);margin:0}
+.is-govde .git{display:inline-block;margin-top:11px;font-family:'Space Grotesk',Arial,sans-serif;font-size:11px;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8fb4ff}
+.is-alt{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* kayan şerit */
+.kayan{margin-top:56px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.kayan-ic{display:flex;gap:44px;width:max-content;animation:kay 34s linear infinite}
+.kayan-ic span{font-family:'Space Grotesk',Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--dim2);white-space:nowrap}
+@keyframes kay{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- adımlar ---------- */
+.adimlar{display:grid;grid-template-columns:1fr;gap:20px}
+@media (min-width:820px){.adimlar{grid-template-columns:repeat(3,1fr)}}
+.adim{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:30px 26px 32px;
+  transition:border-color .25s ease,background-color .25s ease}
+.adim:hover{border-color:var(--line2);background:var(--card2)}
+.adim .no{font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:700;color:var(--acc);opacity:.55;
+  line-height:1;margin-bottom:16px}
+.adim h3{font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;margin:0 0 12px}
+.adim p{font-family:'Space Grotesk',Arial,sans-serif;font-size:15px;line-height:1.65;color:var(--dim);margin:0}
+
+/* ---------- hakkında ---------- */
+.hakkinda{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#131314}
+.hakkinda-in{display:grid;grid-template-columns:1fr;gap:36px}
+@media (min-width:900px){.hakkinda-in{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:64px}}
+.hakkinda p{font-family:'Space Grotesk',Arial,sans-serif;font-size:16.5px;line-height:1.75;color:var(--dim);margin:0 0 16px}
+.kutucuk{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:22px 24px;margin-bottom:14px}
+.kutucuk dt{font-family:'Space Grotesk',Arial,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--dim2);margin-bottom:7px}
+.kutucuk dd{font-family:'Space Grotesk',Arial,sans-serif;font-size:16px;color:var(--txt);margin:0}
+
+/* ---------- form ---------- */
+.form-kutu{max-width:720px;margin:0 auto}
+.form-kutu .satir{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.form-kutu label{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim2)}
+.form-kutu input,.form-kutu textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:15px 16px;color:var(--txt);font-family:'Space Grotesk',Arial,sans-serif;font-size:15.5px;min-height:52px}
+.form-kutu textarea{resize:vertical;min-height:130px}
+.form-kutu input:focus,.form-kutu textarea:focus{outline:none;border-color:var(--acc)}
+.form-not{font-family:'Space Grotesk',Arial,sans-serif;font-size:12.5px;color:var(--dim2);text-align:center;margin-top:16px}
+
+/* ---------- hareket ---------- */
+.gir{opacity:1;transform:none}
+/* gizleme SADECE gsap yuklendikten sonra JS ile acilir; boylece
+   betik yuklenmezse ya da tetikleyici calismazsa icerik hep gorunur kalir */
+body.hareketli .gir{opacity:0;transform:translateY(28px)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .gir{opacity:1 !important;transform:none !important}
+  .kayan-ic{animation:none}
+  .btn:hover,.is-kart:hover{transform:none}
+}

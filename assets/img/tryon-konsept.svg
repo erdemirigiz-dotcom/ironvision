@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Try-On konsept görseli: mağaza vitrininde kıyafetin silüet üzerinde denenmesi">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a1430"/><stop offset=".55" stop-color="#6d2444"/><stop offset="1" stop-color="#c66b7e"/></linearGradient>
+<radialGradient id="warm" cx=".72" cy=".28" r=".7"><stop offset="0" stop-color="#ffc9d6" stop-opacity=".55"/><stop offset="1" stop-color="#ffc9d6" stop-opacity="0"/></radialGradient>
+<linearGradient id="dress" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd9e2"/><stop offset="1" stop-color="#e58aa4"/></linearGradient>
+<linearGradient id="sil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7dfe6" stop-opacity=".9"/><stop offset="1" stop-color="#f7dfe6" stop-opacity=".55"/></linearGradient>
+<style>.ui{font-family:'Space Grotesk',system-ui,sans-serif}</style>
+</defs>
+<rect width="900" height="560" fill="url(#bg)"/><rect width="900" height="560" fill="url(#warm)"/>
+<!-- vitrin cizgileri -->
+<g stroke="#ffffff" stroke-opacity=".10" stroke-width="1.5">
+<path d="M60 0 V560"/><path d="M840 0 V560"/><path d="M0 470 H900"/>
+</g>
+<!-- silüet + elbise -->
+<g transform="translate(600,120)">
+  <ellipse cx="0" cy="0" rx="34" ry="40" fill="url(#sil)"/>
+  <path d="M-14 38 h28 v22 h-28 z" fill="url(#sil)"/>
+  <path d="M-62 62 C-38 50 38 50 62 62 L86 168 L52 182 L44 352 L-44 352 L-52 182 L-86 168 Z" fill="url(#dress)"/>
+  <path d="M-52 182 L-44 352 L44 352 L52 182 Z" fill="#ffffff" fill-opacity=".10"/>
+</g>
+<!-- isik parcaciklari -->
+<g fill="#ffe8ef">
+<circle cx="470" cy="150" r="3" opacity=".8"/><circle cx="512" cy="96" r="2.2" opacity=".6"/>
+<circle cx="700" cy="86" r="2.6" opacity=".7"/><circle cx="760" cy="200" r="3.4" opacity=".5"/>
+<circle cx="452" cy="300" r="2.4" opacity=".55"/><circle cx="742" cy="366" r="2.8" opacity=".45"/>
+</g>
+<!-- telefon paneli -->
+<g transform="translate(120,86)">
+<rect x="0" y="0" width="250" height="400" rx="30" fill="#1a0d16" fill-opacity=".72" stroke="#ffd0dd" stroke-opacity=".45" stroke-width="1.6"/>
+<rect x="18" y="26" width="214" height="248" rx="18" fill="#ffffff" fill-opacity=".10"/>
+<g transform="translate(125,150) scale(.52)">
+  <ellipse cx="0" cy="-70" rx="34" ry="40" fill="url(#sil)"/>
+  <path d="M-62 -8 C-38 -20 38 -20 62 -8 L86 98 L52 112 L44 226 L-44 226 L-52 112 L-86 98 Z" fill="url(#dress)"/>
+</g>
+<g stroke="#ffd0dd" stroke-opacity=".5" stroke-width="1.4" fill="none" stroke-dasharray="6 6">
+<rect x="60" y="60" width="130" height="180" rx="12"/>
+</g>
+<rect x="18" y="292" width="214" height="44" rx="22" fill="#ffd9e2"/>
+<text class="ui" x="125" y="320" text-anchor="middle" font-size="15" font-weight="700" fill="#5a1f34">ÜZERİNDE DENE</text>
+<rect x="18" y="348" width="100" height="30" rx="15" fill="#ffffff" fill-opacity=".14"/>
+<rect x="132" y="348" width="100" height="30" rx="15" fill="#ffffff" fill-opacity=".14"/>
+</g>
+<text class="ui" x="60" y="522" font-size="12.5" fill="#ffd9e2" fill-opacity=".8" letter-spacing="1.4">KONSEPT GÖRSELİ — ÜRÜN EKRANI DEĞİLDİR</text>
+</svg>

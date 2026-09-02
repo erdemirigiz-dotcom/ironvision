@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" role="img" aria-label="AgentOS akış şeması: tetikleyiciler, ajan, işler ve panel">
+<defs>
+<linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a53d3" stop-opacity=".22"/><stop offset="1" stop-color="#0a53d3" stop-opacity=".04"/></linearGradient>
+<marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5b7fb8"/></marker>
+<style>
+.k{fill:#14161b;stroke:#2a3140;stroke-width:1.4;rx:14}
+.t{fill:#f2f4f6;font-family:'Space Grotesk',system-ui,sans-serif;font-size:16px;font-weight:600}
+.s{fill:#9aa3b2;font-family:'Space Grotesk',system-ui,sans-serif;font-size:12.5px}
+.l{fill:#6f7a8c;font-family:'Space Grotesk',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.c{stroke:#3a4considered;}
+</style>
+</defs>
+<rect x="0" y="0" width="980" height="420" fill="none"/>
+<!-- 1 tetikleyiciler -->
+<text class="l" x="24" y="34">1 · TETİKLEYİCİ</text>
+<rect class="k" x="24" y="48" width="200" height="72" rx="14"/><text class="t" x="44" y="80">Saat / cron</text><text class="s" x="44" y="102">her sabah 07:00</text>
+<rect class="k" x="24" y="136" width="200" height="72" rx="14"/><text class="t" x="44" y="168">Telegram komutu</text><text class="s" x="44" y="190">"bugünün özetini çıkar"</text>
+<rect class="k" x="24" y="224" width="200" height="72" rx="14"/><text class="t" x="44" y="256">Gelen e-posta</text><text class="s" x="44" y="278">kutu her 15 dk taranır</text>
+<rect class="k" x="24" y="312" width="200" height="72" rx="14"/><text class="t" x="44" y="344">Bekçi uyarısı</text><text class="s" x="44" y="366">disk, hata, gecikme</text>
+<!-- 2 ajan -->
+<text class="l" x="300" y="34">2 · AJAN</text>
+<rect x="300" y="48" width="200" height="336" rx="18" fill="url(#g1)" stroke="#0a53d3" stroke-opacity=".55" stroke-width="1.6"/>
+<text class="t" x="320" y="196" font-size="19">Ajan çalışır</text>
+<text class="s" x="320" y="222">kuralları okur,</text><text class="s" x="320" y="242">işi yapar, kaydeder</text>
+<text class="s" x="320" y="272">gerekirse durur ve</text><text class="s" x="320" y="292">onay ister</text>
+<!-- 3 isler -->
+<text class="l" x="576" y="34">3 · YAPILAN İŞ</text>
+<rect class="k" x="576" y="48" width="200" height="72" rx="14"/><text class="t" x="596" y="80">Tarayıcı işi</text><text class="s" x="596" y="102">form doldurur, veri çeker</text>
+<rect class="k" x="576" y="136" width="200" height="72" rx="14"/><text class="t" x="596" y="168">Rapor / özet</text><text class="s" x="596" y="190">gün sonu tek sayfa</text>
+<rect class="k" x="576" y="224" width="200" height="72" rx="14"/><text class="t" x="596" y="256">Yedek</text><text class="s" x="596" y="278">alınır ve doğrulanır</text>
+<rect class="k" x="576" y="312" width="200" height="72" rx="14"/><text class="t" x="596" y="344">Maliyet takibi</text><text class="s" x="596" y="366">abonelik, kullanım</text>
+<!-- 4 panel -->
+<text class="l" x="852" y="34">4 · SİZ</text>
+<rect x="852" y="48" width="104" height="336" rx="18" fill="#14161b" stroke="#2a3140" stroke-width="1.4"/>
+<text class="t" x="874" y="196" transform="rotate(90 874 196)">Panel · Telegram</text>
+<!-- oklar -->
+<g fill="none" stroke="#3d4a60" stroke-width="1.6" marker-end="url(#ok)">
+<path d="M224 84 C262 84 262 150 296 180"/>
+<path d="M224 172 C262 172 262 180 296 196"/>
+<path d="M224 260 C262 260 262 230 296 212"/>
+<path d="M224 348 C262 348 262 260 296 228"/>
+<path d="M500 180 C540 180 540 84 572 84"/>
+<path d="M500 196 C540 196 540 172 572 172"/>
+<path d="M500 212 C540 212 540 260 572 260"/>
+<path d="M500 228 C540 228 540 348 572 348"/>
+<path d="M776 84 C812 84 812 170 848 196"/>
+<path d="M776 172 C812 172 812 186 848 202"/>
+<path d="M776 260 C812 260 812 226 848 212"/>
+<path d="M776 348 C812 348 812 250 848 220"/>
+</g>
+</svg>

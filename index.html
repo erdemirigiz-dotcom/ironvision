@@ -380,33 +380,14 @@
 })();
 </script>
 
-<!-- Hareket: GSAP + Lenis. Yüklenmezse içerik CSS ile zaten görünür kalır. -->
+<!-- Hareket: GSAP. Yüklenmezse içerik CSS ile zaten görünür kalır. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js" defer></script>
 <script>
 window.addEventListener('load', function () {
   var az = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (az || !window.gsap) return;                 /* içerik CSS'te zaten görünür */
   document.body.classList.add('hareketli');       /* gizleme ancak burada başlar */
-
-  /* yumuşak kaydırma (Lenis) + çapa bağlantıları onun üzerinden */
-  var lenis = null;
-  if (window.Lenis) {
-    lenis = new Lenis({ duration: 1.05, smoothWheel: true });
-    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
-    gsap.ticker.lagSmoothing(0);
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var h = a.getAttribute('href');
-        if (h.length < 2) return;
-        var t = document.querySelector(h);
-        if (!t) return;
-        e.preventDefault();
-        lenis.scrollTo(t, { offset: -80 });
-      });
-    });
-  }
 
   /* giriş animasyonu: tetikleyici IntersectionObserver — kaydırma sürücüsünden bağımsız */
   gsap.to('.hero .gir', { opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: .09 });

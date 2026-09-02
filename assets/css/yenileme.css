@@ -184,3 +184,10 @@ body.hareketli .gir{opacity:0;transform:translateY(28px)}
   .kayan-ic{animation:none}
   .btn:hover,.is-kart:hover{transform:none}
 }
+
+/* AgentOS akış şeması — tam genişlik şerit (küçük kolonda okunmuyordu) */
+.sema-genis{margin-top:56px}
+.sema-bas{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--acc);margin:0 0 14px}
+.sema-genis .sema{padding:26px 22px}
+.sema-alt{font-family:'Space Grotesk',Arial,sans-serif;font-size:13.5px;color:var(--dim2);margin:14px 0 0}

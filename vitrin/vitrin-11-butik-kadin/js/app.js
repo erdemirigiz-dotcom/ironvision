@@ -316,15 +316,29 @@
     return yerelGorsel(src) ? src.slice(0, -4) + '-480.jpg' : src;
   }
 
+  /* 03.09.2026: aynı görselin yanına konmuş .webp türevlerini <picture><source>
+     olarak sunar — JPG hiçbir yerden silinmez/değişmez, yalnızca EK olarak
+     destekleyen tarayıcıya daha küçük dosya iner (ağırlık düzeltmesi, S-8). */
+  function srcsetWebp(src) {
+    if (!yerelGorsel(src)) { return ''; }
+    var t = src.slice(0, -4);
+    return kacis(t) + '-480.webp 480w, ' + kacis(t) + '-960.webp 960w, ' + kacis(t) + '.webp 1400w';
+  }
+
   /* ------------------------------------------------------ ürün kartı HTML */
   function kartHtml(u, veri) {
     var g = (u.gorseller && u.gorseller[0]) || { src: 'img/detay-rafta.jpg', alt: u.ad };
+    var boyutlar = '(min-width: 1240px) 285px, (min-width: 900px) 24vw, (min-width: 620px) 32vw, 46vw';
+    var webpSet = srcsetWebp(g.src);
     return '' +
       '<a class="urun-kart" href="urun.html?id=' + encodeURIComponent(u.id) + '">' +
         '<div class="urun-kart__gorsel">' +
-          '<img src="' + kacis(g.src) + '"' + srcset(g.src) +
-            ' sizes="(min-width: 1240px) 285px, (min-width: 900px) 24vw, (min-width: 620px) 32vw, 46vw"' +
-            ' alt="' + kacis(g.alt) + '" loading="lazy" decoding="async" width="1067" height="1422">' +
+          '<picture>' +
+            (webpSet ? '<source type="image/webp" srcset="' + webpSet + '" sizes="' + boyutlar + '">' : '') +
+            '<img src="' + kacis(g.src) + '"' + srcset(g.src) +
+              ' sizes="' + boyutlar + '"' +
+              ' alt="' + kacis(g.alt) + '" loading="lazy" decoding="async" width="1067" height="1422">' +
+          '</picture>' +
           '<span class="cerceve" aria-hidden="true"><i></i><i></i><i></i><i></i></span>' +
         '</div>' +
         '<div class="urun-kart__bilgi">' +
@@ -361,9 +375,15 @@
     return siparis;
   }
 
-  /* --------------------------------------------------------- WhatsApp */
-  function whatsappBaglantisi(hesap) {
-    var no = String(AYAR.whatsapp || '').replace(/[^0-9]/g, '');
+  /* --------------------------------------------------------- e-posta ile sipariş
+     03.09.2026: WhatsApp yolu kaldırıldı — config.js'teki numara yer tutucuydu
+     (905000000000) ve denetimde "sahte iletişim" olarak işaretlendi. Gerçek,
+     çalışan tek kanal e-posta olduğu için sepet/ödemedeki "diğer yol" artık
+     mailto: bağlantısı üretir; kullanıcının e-posta istemcisi sipariş
+     dökümüyle önceden doldurulmuş halde açılır. */
+  function mailtoSiparisBaglantisi(hesap) {
+    var eposta = AYAR.eposta || 'founder@ironvisiontools.com';
+    var konu = (AYAR.isletmeAdi || 'butik') + ' — sipariş talebi';
     var satirlar = [];
     satirlar.push('Merhaba, ' + (AYAR.isletmeAdi || 'butik') + ' sitesinden sipariş vermek istiyorum.');
     satirlar.push('');
@@ -378,16 +398,26 @@
     satirlar.push('Ad Soyad:');
     satirlar.push('Telefon:');
     satirlar.push('Teslimat adresi:');
-    return 'https://wa.me/' + no + '?text=' + encodeURIComponent(satirlar.join('\n'));
+    return 'mailto:' + encodeURIComponent(eposta) + '?subject=' + encodeURIComponent(konu) +
+      '&body=' + encodeURIComponent(satirlar.join('\n'));
   }
 
-  /* Altbilgideki genel iletişim bağlantısı — sepetten bağımsız, tek satır
-     karşılama mesajıyla. Numara AYNI kaynaktan (config.js whatsapp) gelir,
-     sepetteki/ödemedeki WhatsApp düğmesiyle tutarlı kalır. */
-  function whatsappGenelBaglanti() {
-    var no = String(AYAR.whatsapp || '').replace(/[^0-9]/g, '');
-    var mesaj = 'Merhaba, ' + (AYAR.isletmeAdi || 'butik') + ' hakkında bilgi almak istiyorum.';
-    return 'https://wa.me/' + no + '?text=' + encodeURIComponent(mesaj);
+  /* ---------------------------------------------------------------- harita
+     Tıklanmadan hiçbir istek Google'a gitmez (KVKK + ağırlık). config.js'teki
+     `harita` alanı yoksa buton sessizce hiçbir şey yapmaz. */
+  function haritaKur() {
+    var dugme = document.getElementById('harita-ac');
+    if (!dugme) { return; }
+    var h = AYAR.harita;
+    if (!h || typeof h.enlem !== 'number' || typeof h.boylam !== 'number') { return; }
+    dugme.addEventListener('click', function () {
+      var cerceve = document.createElement('iframe');
+      cerceve.src = 'https://www.google.com/maps?q=' + h.enlem + ',' + h.boylam + '&z=15&output=embed';
+      cerceve.title = 'Atölye Butik — konum';
+      cerceve.loading = 'lazy';
+      cerceve.referrerPolicy = 'no-referrer-when-downgrade';
+      dugme.replaceWith(cerceve);
+    });
   }
 
   /* --------------------------------------------------------------- hata */

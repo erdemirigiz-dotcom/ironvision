@@ -6,20 +6,21 @@
 
 window.SITE_AYAR = {
 
-  /* DÜZENLE: İşletme adı. Sayfa başlıklarında ve WhatsApp mesajında kullanılır. */
+  /* DÜZENLE: İşletme adı. Sayfa başlıklarında kullanılır. */
   isletmeAdi: 'Atölye Butik',
 
-  /* DÜZENLE: WhatsApp sipariş numarası.
-     Biçim: ülke kodu + numara, başında "+" veya boşluk OLMADAN.
-     Türkiye örneği: 905321234567
-     Aşağıdaki 905000000000 bir YER TUTUCUDUR, gerçek numara değildir. */
-  whatsapp: '905000000000',
-
-  /* DÜZENLE: Vitrinde gösterilen iletişim bilgileri (hepsi yer tutucudur). */
-  telefonGorunen: '0500 000 00 00',
-  eposta: 'siparis@ornek-butik.example',
-  adres: 'Örnek Mahallesi, Numune Caddesi No: 00, İlçe / Şehir',
+  /* 03.09.2026 düzeltmesi: sahte telefon/WhatsApp numarası (905000000000) ve
+     .example e-posta alanı KALDIRILDI (denetim bulgusu — sahte iletişim bilgisi
+     yayında duruyordu). Bu demo için gerçek, çalışan tek iletişim kanalı
+     e-postadır. Gerçek bir müşteriye teslimde bu alanlar kendi bilgileriyle
+     değiştirilir; uydurma bir telefon/WhatsApp numarası KOYULMAZ. */
+  eposta: 'founder@ironvisiontools.com',
+  adres: 'Serdar-ı Ekrem Sokak No: 14, Galata, Beyoğlu / İstanbul',
   calismaSaati: 'Pazartesi – Cumartesi, 10.00 – 19.00',
+
+  /* Harita (yalnızca tıklanınca yüklenir — bkz. js/app.js haritaKur). Kurgu
+     marka için Galata bölgesinde makul bir koordinat; gerçek işletme değil. */
+  harita: { enlem: 41.0256, boylam: 28.9744 },
 
   /* DÜZENLE: Kargo kuralları. */
   kargoUcreti: 89,          // TL

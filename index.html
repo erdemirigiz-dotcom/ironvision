@@ -27,14 +27,16 @@
 
 <!-- ÜST ÇUBUK -->
 <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border-subtle flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto left-0 right-0">
-<div class="flex items-center gap-3">
-<img alt="IRON VISION — çelik göz logosu" class="w-8 h-8 rounded-full object-cover border border-border-subtle" src="assets/goz-logo.png" width="32" height="32"/>
-<a class="font-brand text-lg text-text-primary tracking-tighter uppercase" href="/">IRON VISION</a>
-</div>
+<a class="marka" href="/" aria-label="IRON VISION tools — ana sayfa">
+<img alt="IRON VISION — çelik göz logosu" class="marka-logo" src="assets/goz-logo.png" width="52" height="52"/>
+<span class="marka-yazi">
+<span class="marka-ad"><span class="iron">IRON</span> <span class="vision">VISION</span></span>
+<span class="marka-tools">tools</span>
+</span>
+</a>
 <div class="hidden md:flex items-center gap-8">
 <a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#urunler">Ürünler</a>
-<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#isler">Yaptığımız İşler</a>
-<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="vitrin/">Vitrin</a>
+<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#yakinda">Yakında</a>
 <a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#hakkinda">Hakkında</a>
 </div>
 <div class="flex items-center gap-3">
@@ -44,9 +46,7 @@
 </nav>
 <div class="nav-mobil" id="nav-mobil">
 <a href="#urunler">Ürünler</a>
-<a href="#isler">Yaptığımız İşler</a>
 <a href="#yakinda">Yakında</a>
-<a href="vitrin/">Vitrin</a>
 <a href="#hakkinda">Hakkında</a>
 <a href="#contact">Demo İste</a>
 </div>
@@ -54,15 +54,15 @@
 <!-- HERO -->
 <header class="hero">
 <div class="wrap hero-in">
-<h1 class="gir">Küçük işletmeler için<br><span class="vurgu">gerçekten çalışan</span><br>yapay zekâ araçları</h1>
-<p class="alt gir">Randevuyu WhatsApp'tan alan bot, tekrar eden işleri kendi yapan panel, sesle çalışan asistan. Üçü de bugün canlı çalışıyor — anlatmakla kalmıyoruz, ekranını gösteriyoruz.</p>
+<h1 class="gir"><span class="vurgu">Gerçekten çalışan</span><br>yapay zekâ araçları</h1>
+<p class="alt gir">Dükkândan büyük şirkete, serbest çalışandan ekiplere — kurulumu biz yaparız, ürün sizde çalışır.</p>
 <div class="cta-satir gir">
 <a class="btn btn-1" href="#contact">Demo İste</a>
-<a class="btn btn-2" href="#isler">Canlı örnekleri gör</a>
+<a class="btn btn-2" href="#urunler">Ürünleri gör</a>
 </div>
-<p class="hero-not gir">Edirne merkezli · kurulumu biz yaparız · verileriniz sizde kalır</p>
+<p class="hero-not gir">Edirne merkezli · Nisan 2026'dan beri · verileriniz sizde kalır</p>
 <div class="hero-serit gir">
-<b>WhatsApp randevu botu</b><b>VYRON AgentOS</b><b>Sesli Şef</b><b>işletme siteleri</b>
+<b>WhatsApp randevu botu</b><b>VYRON AgentOS</b><b>Sesli Şef</b><b>Try-On</b>
 </div>
 </div>
 </header>
@@ -74,19 +74,19 @@
 <div class="wrap bolum" style="padding-bottom:24px">
 <div class="bolum-bas gir">
 <span class="etiket">Ürünler</span>
-<h2>Üç araç, üçü de çalışır durumda</h2>
-<p>Aşağıdaki ekranların hepsi kendi sistemlerimizden alındı. Her biri için demo isteyebilir, kendi işinizde deneyebilirsiniz.</p>
+<h2>Öne çıkan ürünler</h2>
+<p>Aşağıdaki ekranlar kendi sistemlerimizden alındı. Her biri için demo isteyebilir, kendi işinizde deneyebilirsiniz.</p>
 </div>
 </div>
 
 <!-- 1) WhatsApp Randevu Botu -->
-<article class="serit">
+<article class="serit gorsel-genis">
 <div class="wrap serit-in">
 <div class="serit-gorsel gir">
 <div class="telefonlar">
-<img src="assets/img/randevu-1-saatler.webp" width="520" height="1118" loading="lazy" decoding="async" alt="WhatsApp ekranı: bot müşteriye bugünün ve yarının boş saatlerini listeliyor">
-<img src="assets/img/randevu-2-hizmet.webp" width="520" height="1118" loading="lazy" decoding="async" alt="WhatsApp ekranı: bot hizmet türünü ve fiyatını soruyor">
-<img src="assets/img/randevu-3-onay.webp" width="520" height="1118" loading="lazy" decoding="async" alt="WhatsApp ekranı: randevu onaylandı, saat ve ücret yazıyor">
+<img class="buyu" src="assets/img/randevu-1-saatler.webp" width="520" height="1118" loading="lazy" decoding="async" alt="WhatsApp ekranı: bot müşteriye bugünün ve yarının boş saatlerini listeliyor">
+<img class="buyu" src="assets/img/randevu-2-hizmet.webp" width="520" height="1118" loading="lazy" decoding="async" alt="WhatsApp ekranı: bot hizmet türünü ve fiyatını soruyor">
+<img class="buyu" src="assets/img/randevu-3-onay.webp" width="520" height="1118" loading="lazy" decoding="async" alt="WhatsApp ekranı: randevu onaylandı, saat ve ücret yazıyor">
 </div>
 <div class="video-kutu" style="margin-top:16px">
 <span class="video-etiket">Canlı akış — sesi yok</span>
@@ -104,11 +104,14 @@
 <li>İstediğiniz an sohbete kendiniz girip devralabilirsiniz.</li>
 <li>İlk 10 gün ücretsiz; pilot bölge Edirne.</li>
 </ul>
-<div class="gorsel-kutu" style="margin-bottom:26px">
-<img src="assets/img/randevu-panel.webp" width="1280" height="860" loading="lazy" decoding="async" alt="Esnaf paneli: günün randevuları, boş saatler ve hizmet listesi">
-<p class="gorsel-alt">Esnaf paneli — günün randevuları, boş saatler, hizmet ve fiyat listesi</p>
-</div>
 <a class="btn btn-1" href="#contact">Bu ürün için demo iste</a>
+</div>
+</div>
+<div class="wrap panel-genis">
+<p class="panel-bas">Uygulama tarafı — esnaf paneli</p>
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/randevu-panel.webp" width="1280" height="860" loading="lazy" decoding="async" alt="Esnaf paneli: günün randevuları, boş saatler ve hizmet listesi">
+<p class="gorsel-alt">Esnaf paneli — günün randevuları, boş saatler, hizmet ve fiyat listesi. Büyütmek için tıklayın.</p>
 </div>
 </div>
 </article>
@@ -118,9 +121,12 @@
 <div class="wrap serit-in">
 <div class="serit-gorsel gir">
 <div class="gorsel-yigin">
-<div class="gorsel-kutu">
-<img src="assets/img/agentos-panel.webp" width="1000" height="900" loading="lazy" decoding="async" alt="AgentOS görev paneli: sizi bekleyen işler ve ajanların bitirdiği işler listesi">
-<p class="gorsel-alt">Görev paneli — kendi sistemimizin ekranı, kayıtlar temsilî veriyle gösterildi</p>
+<div class="uzay-serit">
+<img src="assets/img/agentos-uzay.webp" width="1600" height="560" loading="lazy" decoding="async" alt="VYRON AgentOS açılış ekranının derin uzay görüntüsü, üzerine ızgara dokusu ve marka yazısı bindirilmiş">
+</div>
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/agentos-panel.webp" width="1000" height="900" loading="lazy" decoding="async" alt="AgentOS görev paneli: sizi bekleyen işler ve ajanların bitirdiği işler listesi">
+<p class="gorsel-alt">Görev paneli — kendi sistemimizin ekranı, kayıtlar temsilî veriyle gösterildi. Büyütmek için tıklayın.</p>
 </div>
 <div class="video-kutu">
 <span class="video-etiket">Panel kullanımı — sesi yok</span>
@@ -156,18 +162,22 @@
 <div class="wrap serit-in">
 <div class="serit-gorsel gir">
 <div class="ikili">
-<div class="gorsel-kutu">
-<img src="assets/img/sesli-sef-arayuz.webp" width="460" height="620" loading="lazy" decoding="async" alt="Sesli Şef mobil arayüzü: tek büyük mikrofon düğmesi ve 'Hazır — dokun ve konuş' yazısı">
-<p class="gorsel-alt">Telefonda: dokun ve konuş</p>
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/sesli-sef-gercek.webp" width="640" height="978" loading="lazy" decoding="async" alt="Sesli Şef telefon arayüzü: oturum sekmeleri, konuşma akışı ve büyük mikrofon düğmesi">
+<p class="gorsel-alt">Gerçek kayıt — çalışan sistemin telefon ekranı</p>
 </div>
-<div class="gorsel-kutu">
-<img src="assets/img/sesli-sef-kontrol.webp" width="900" height="201" loading="lazy" decoding="async" alt="Sesli Şef kontrol çubuğu: yazarak gönder alanı, durdur, tekrar oku ve otomatik oku düğmeleri">
-<p class="gorsel-alt">Masaüstünde: yazarak da gönderilir; "otomatik oku" açıkken cevaplar sesli gelir</p>
+<div class="video-kutu">
+<span class="video-etiket">Gerçek kayıt — sesi yok</span>
+<video src="assets/video/sesli-sef-demo.webm" width="460" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Sesli Şef arayüzünde bir komutun verilip cevabın gelmesinin kaydı"></video>
 </div>
+</div>
+<div class="gorsel-kutu zoomlu" style="margin-top:16px">
+<img class="buyu" src="assets/img/sesli-sef-kontrol-gercek.webp" width="1280" height="185" loading="lazy" decoding="async" alt="Sesli Şef kontrol çubuğu: yazarak gönder alanı, durdur, tekrar oku ve otomatik oku düğmeleri">
+<p class="gorsel-alt">Gerçek kayıt — masaüstü kontrol çubuğu; yazarak da gönderilir, "otomatik oku" açıkken cevaplar sesli gelir</p>
 </div>
 </div>
 <div class="serit-metin gir">
-<span class="rozet bekleme"><span class="nokta"></span>Claude Code ile çalışıyor · demo kaydı yakında</span>
+<span class="rozet"><span class="nokta"></span>Canlı — her gün kendimiz kullanıyoruz</span>
 <h3>Sesli Şef</h3>
 <p>Terminaldeki yapay zekâ oturumunuza ses kazandırır. Komutunuzu dikte edersiniz, cevabı okumak yerine dinlersiniz — ekran başında olmadan işi sürdürürsünüz.</p>
 <ul class="liste">
@@ -176,7 +186,7 @@
 <li>Mikrofon yerine yazarak da gönderebilirsiniz.</li>
 <li>Uzun çalışmalarda gözünüzü dinlendirir, oturumu kaçırmazsınız.</li>
 </ul>
-<p style="font-size:14px;color:var(--dim2)">Bu ürünün ekran kaydını sahte bir canlandırmayla üretmiyoruz; gerçek kayıt hazırlanınca buraya konacak.</p>
+<p style="font-size:14px;color:var(--dim2)">Yukarıdaki görüntü ve kayıt, çalışan sistemin kendi ekranından alındı; yalnızca konuşma metni temsilî bir iş diyaloguyla değiştirildi.</p>
 <a class="btn btn-1" href="#contact">Demo İste</a>
 </div>
 </div>
@@ -201,56 +211,6 @@
 <div class="gorsel-kutu">
 <img src="assets/img/tryon-konsept.svg" width="900" height="560" loading="lazy" decoding="async" alt="Try-On konsept görseli: mağaza vitrini önünde yüzsüz bir silüet ve üzerine kıyafeti yerleştiren telefon arayüzü">
 <p class="gorsel-alt">Konsept görseli — ürün ekranı değildir</p>
-</div>
-</div>
-</div>
-</section>
-
-<!-- YAPTIĞIMIZ İŞLER -->
-<section id="isler" style="border-top:1px solid var(--line)">
-<div class="wrap bolum">
-<div class="bolum-bas gir">
-<span class="etiket">Yaptığımız İşler</span>
-<h2>Hepsi canlı, hepsi tıklanabilir</h2>
-<p>Aynı üretim hattından çıkan işletme siteleri. Aşağıdaki her karenin altındaki bağlantı gerçek siteye gider — açın, gezin, mobilde de deneyin.</p>
-</div>
-<div class="is-izgara">
-<a class="is-kart gir" href="https://cappadocia-demo.vercel.app/" target="_blank" rel="noopener">
-<img src="assets/img/isler/is-cappadocia.webp" width="720" height="450" loading="lazy" decoding="async" alt="Cappadocia turizm demo sitesinin ana sayfası">
-<div class="is-govde"><h4>Cappadocia</h4><p>Turizm / balon turu — sektör demosu</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-01-alp-kayak/" >
-<img src="assets/img/isler/is-alp-kayak.webp" width="720" height="450" loading="lazy" decoding="async" alt="Alp Kayak otel sitesinin ana sayfası">
-<div class="is-govde"><h4>Alp Kayak</h4><p>Kayak oteli</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-02-col-glamping/">
-<img src="assets/img/isler/is-col-glamping.webp" width="720" height="450" loading="lazy" decoding="async" alt="Çöl Glamping sitesinin ana sayfası">
-<div class="is-govde"><h4>Çöl Glamping</h4><p>Çadır/glamping konaklama</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-03-bag-sarap/">
-<img src="assets/img/isler/is-bag-sarap.webp" width="720" height="450" loading="lazy" decoding="async" alt="Bağ ve şarap evi sitesinin ana sayfası">
-<div class="is-govde"><h4>Bağ &amp; Şarap</h4><p>Bağ evi, tadım turu</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-04-rafting/">
-<img src="assets/img/isler/is-rafting.webp" width="720" height="450" loading="lazy" decoding="async" alt="Rafting turu sitesinin ana sayfası">
-<div class="is-govde"><h4>Rafting</h4><p>Doğa sporu / tur satışı</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-05-tas-konak/">
-<img src="assets/img/isler/is-tas-konak.webp" width="720" height="450" loading="lazy" decoding="async" alt="Taş Konak butik otel sitesinin ana sayfası">
-<div class="is-govde"><h4>Taş Konak</h4><p>Butik otel</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-08-hamam/">
-<img src="assets/img/isler/is-hamam.webp" width="720" height="450" loading="lazy" decoding="async" alt="Tarihi hamam sitesinin ana sayfası">
-<div class="is-govde"><h4>Hamam</h4><p>Hamam / spa — randevu odaklı</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-11-butik-kadin/">
-<img src="assets/img/isler/is-butik-kadin.webp" width="720" height="450" loading="lazy" decoding="async" alt="Butik kadın giyim mağazası sitesinin ana sayfası">
-<div class="is-govde"><h4>Butik — Kadın Giyim</h4><p>Küçük mağaza vitrini</p><span class="git">Siteyi aç →</span></div></a>
-<a class="is-kart gir" href="vitrin/vitrin-09-fotografci/">
-<img src="assets/img/isler/is-fotografci.webp" width="720" height="450" loading="lazy" decoding="async" alt="Fotoğrafçı portfolyo sitesinin ana sayfası">
-<div class="is-govde"><h4>Fotoğrafçı</h4><p>Portfolyo + rezervasyon</p><span class="git">Siteyi aç →</span></div></a>
-</div>
-<div class="is-alt gir">
-<a class="btn btn-2" href="vitrin/">Vitrinin tamamını gör</a>
-<span style="font-family:'Space Grotesk',Arial,sans-serif;font-size:13.5px;color:var(--dim2)">Zeytinyağı, yayla eko-lodge ve şehir yürüyüşü siteleri de aynı listede.</span>
-</div>
-<div class="kayan" aria-hidden="true">
-<div class="kayan-ic">
-<span>Kayak oteli</span><span>Glamping</span><span>Bağ &amp; şarap</span><span>Rafting</span><span>Butik otel</span><span>Yayla eko-lodge</span><span>Şehir yürüyüşü</span><span>Hamam</span><span>Fotoğrafçı</span><span>Zeytinyağı</span><span>Kadın giyim butiği</span><span>Balon turu</span>
-<span>Kayak oteli</span><span>Glamping</span><span>Bağ &amp; şarap</span><span>Rafting</span><span>Butik otel</span><span>Yayla eko-lodge</span><span>Şehir yürüyüşü</span><span>Hamam</span><span>Fotoğrafçı</span><span>Zeytinyağı</span><span>Kadın giyim butiği</span><span>Balon turu</span>
 </div>
 </div>
 </div>
@@ -284,16 +244,17 @@
 </div>
 <div class="hakkinda-in">
 <div class="gir">
-<p>IRON VISION, Edirne merkezli erken aşama bir yazılım girişimi. İşinizi kolaylaştıran, hızlandıran ve tekrar eden yükü üstünüzden alan araçlar üretiyoruz.</p>
-<p>Ürünlerimizi önce kendimiz kullanıyoruz: bu sitedeki panel ekranı da, sesli asistan da bizim günlük iş akışımızın parçası. Bir araç bizde çalışmadıysa müşteriye önermiyoruz.</p>
-<p>Üretiminden sunumuna kadar her aşamada yapay zekâ teknolojisinden destek alarak çalışıyoruz — bu sayede küçük bir ekiple, büyük ajans fiyatları olmadan iş çıkarabiliyoruz.</p>
-<p>Bir şeyin ne kadar hazır olduğunu olduğu gibi yazarız: bu sayfada "canlı", "hazır ama pilot başlamadı" ve "yakında" ayrımını bilerek yaptık.</p>
+<p>IRON VISION, Edirne merkezli erken aşama bir yazılım girişimi. Nisan-Mayıs 2026'dan beri, işi kolaylaştıran ve tekrar eden yükü üstünüzden alan araçlar üretiyoruz. İşin çoğunu bir telefon ve bir tabletten, Windows'a hiç dokunmadan, kiralık bir Linux sunucusunda çıkarıyoruz — Google ve AWS'nin başlangıç programlarının desteğiyle.</p>
+<p>Ürünlerimizi önce kendimiz kullanıyoruz. AgentOS'un içinde bugün 10'dan fazla mikro uygulama çalışıyor: bekçiler, yedek doğrulayıcı, ses köprüsü, e-posta ve randevu hatları, site üretim hattı, anlam arama motoru. Bizde çalışmayan bir aracı müşteriye önermiyoruz.</p>
+<p>Gittiğimiz yer belli: kendi kendine çalışan bir işletme asistanı. Bu mikro uygulamaların her biri zamanla ayrı bir ürüne dönüşüyor. AWS'nin başlangıç programından destek aldık, bir üst kademeye başvuruyoruz. İş birliği ve destek için kapımız açık.</p>
+<p style="margin-top:26px"><a class="btn btn-2" href="hakkinda.html">Uzun hikâye ve mikro uygulama listesi</a></p>
 </div>
 <div class="gir">
 <dl class="kutucuk"><dt>Merkez</dt><dd>Edirne, Türkiye</dd></dl>
 <dl class="kutucuk"><dt>Çalışma şekli</dt><dd>Kurulum bizde, veri sizde</dd></dl>
 <dl class="kutucuk"><dt>İletişim</dt><dd><a href="mailto:founder@ironvisiontools.com" style="color:#8fb4ff">founder@ironvisiontools.com</a></dd></dl>
-<dl class="kutucuk" style="margin-bottom:0"><dt>Canlı ürün sayısı</dt><dd>3 araç · 12 işletme sitesi</dd></dl>
+<dl class="kutucuk"><dt>Ürün ve uygulama</dt><dd>4 ürün · AgentOS içinde 10+ çalışan mikro uygulama</dd></dl>
+<dl class="kutucuk" style="margin-bottom:0"><dt>Geliştirmede</dt><dd>Try-On · yönetim kadrosu · hukuk nöbeti</dd></dl>
 </div>
 </div>
 </div>
@@ -333,16 +294,28 @@
 <!-- FOOTER -->
 <footer class="w-full py-section-gap-min border-t border-border-subtle bg-surface-dim mt-auto z-10 relative">
 <div class="flex flex-col md:flex-row justify-between items-center px-gutter gap-8 max-w-container-max mx-auto">
-<div class="font-brand text-lg text-text-primary uppercase tracking-tighter">IRON VISION</div>
+<div class="marka">
+<img alt="" aria-hidden="true" class="marka-logo" src="assets/goz-logo.png" width="52" height="52"/>
+<span class="marka-yazi">
+<span class="marka-ad"><span class="iron">IRON</span> <span class="vision">VISION</span></span>
+<span class="marka-tools">tools</span>
+</span>
+</div>
 <div class="font-label-caps text-label-caps text-text-muted uppercase">© 2026 IRON VISION · Edirne</div>
 <div class="flex gap-6 font-label-caps text-label-caps uppercase">
-<a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="vitrin/">Vitrin</a>
 <a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="hakkinda.html">Hakkında</a>
 <a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="gizlilik.html">Gizlilik Politikası</a>
 <a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="iletisim.html">İletişim</a>
 </div>
 </div>
 </footer>
+
+<!-- buyutec: gorsele tiklayinca tam ekran acilir (kutuphane yok) -->
+<div class="buyutec" id="buyutec" role="dialog" aria-modal="true" aria-label="Büyütülmüş görsel">
+<button class="buyutec-kapat" type="button" id="buyutec-kapat" aria-label="Kapat">&times;</button>
+<img id="buyutec-img" src="" alt="">
+<p class="buyutec-alt" id="buyutec-alt"></p>
+</div>
 
 <script>
 /* form -> mailto (hedef adres DEĞİŞMEDİ) */
@@ -362,6 +335,44 @@
     window.location.href = 'mailto:founder@ironvisiontools.com'
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(lines.join('\n'));
+  });
+})();
+
+/* büyüteç: .buyu görsellerine tıklayınca tam ekran */
+(function () {
+  var kutu = document.getElementById('buyutec'),
+      img  = document.getElementById('buyutec-img'),
+      alt  = document.getElementById('buyutec-alt'),
+      kap  = document.getElementById('buyutec-kapat'),
+      son  = null;
+  if (!kutu || !img) return;
+  function ac(kaynak) {
+    son = kaynak;
+    img.src = kaynak.currentSrc || kaynak.src;
+    img.alt = kaynak.alt || '';
+    alt.textContent = kaynak.alt || '';
+    kutu.classList.add('acik');
+    document.body.style.overflow = 'hidden';
+    kap.focus();
+  }
+  function kapat() {
+    kutu.classList.remove('acik');
+    document.body.style.overflow = '';
+    img.src = '';
+    if (son) { son.focus && son.focus(); son = null; }
+  }
+  [].slice.call(document.querySelectorAll('img.buyu')).forEach(function (n) {
+    n.tabIndex = 0;
+    n.setAttribute('role', 'button');
+    n.addEventListener('click', function () { ac(n); });
+    n.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ac(n); }
+    });
+  });
+  kap.addEventListener('click', kapat);
+  kutu.addEventListener('click', function (e) { if (e.target !== img) kapat(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && kutu.classList.contains('acik')) kapat();
   });
 })();
 

@@ -5,6 +5,13 @@
   --bg:#0a0a0b; --card:#141416; --card2:#1a1a1d; --line:rgba(255,255,255,.14);
   --line2:rgba(255,255,255,.22); --txt:#f2f4f6; --dim:#c3c9d1; --dim2:#8b929c;
   --acc:#0a53d3; --acc-soft:rgba(10,83,211,.16);
+  /* Kimlik mavisi iki role ayrildi: --acc DOLGU (dugme zemini, isaret),
+     --acc-yazi KOYU ZEMINDE YAZI. Ayni hue (218) ve doygunluk (%91), yalniz
+     lightness %43 -> %59. Sebep: #0a53d3 koyu zeminde 3.01:1 kaliyordu
+     (WCAG AA 4.5:1 alti); --acc-yazi #0a0a0b uzerinde 5.14:1, #131314
+     uzerinde 4.83:1. Dolgu tonu DEGISMEDI, cunku uzerindeki beyaz yazinin
+     6.58:1'i korunmali - ton acilirsa o dusuyor. */
+  --acc-yazi:#397df6;
   --wrap:1200px; --gut:24px;
 }
 html{scroll-behavior:smooth}
@@ -36,7 +43,7 @@ body{overflow-x:hidden}
 .hero-in{position:relative;z-index:2;max-width:1000px}
 .hero h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
   font-size:clamp(34px,7.2vw,76px);line-height:1.05;letter-spacing:-.02em;margin:0 0 24px}
-.hero h1 .vurgu{color:var(--acc);
+.hero h1 .vurgu{color:var(--acc-yazi);
   background:linear-gradient(180deg,rgba(10,83,211,0) 62%,rgba(10,83,211,.28) 62%);}
 .hero p.alt{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(16px,2.1vw,20px);line-height:1.6;
   color:var(--dim);max-width:680px;margin:0 0 34px}
@@ -57,7 +64,7 @@ body{overflow-x:hidden}
 .bolum{padding:96px 0}
 .bolum-bas{max-width:760px;margin:0 0 56px}
 .etiket{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--acc);display:block;margin-bottom:14px}
+  color:var(--acc-yazi);display:block;margin-bottom:14px}
 .bolum-bas h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
   font-size:clamp(28px,4.6vw,48px);line-height:1.1;margin:0 0 16px}
 .bolum-bas p{font-family:'Space Grotesk',Arial,sans-serif;font-size:17px;line-height:1.65;color:var(--dim);margin:0}
@@ -99,8 +106,8 @@ body{overflow-x:hidden}
 .video-etiket{position:absolute;top:12px;left:12px;z-index:2;font-family:'Space Grotesk',Arial,sans-serif;
   font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;
   background:rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:6px 12px}
-.ikili{display:grid;grid-template-columns:1fr;gap:16px}
-@media (min-width:560px){.ikili{grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr)}}
+.ikili{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+@media (min-width:560px){.ikili{grid-template-columns:1fr 1fr}}
 .sema{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:18px 14px}
 .sema svg{width:100%;height:auto;display:block}
 @media (max-width:760px){.sema{overflow-x:auto}.sema svg{min-width:720px}}
@@ -146,7 +153,7 @@ body{overflow-x:hidden}
 .adim{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:30px 26px 32px;
   transition:border-color .25s ease,background-color .25s ease}
 .adim:hover{border-color:var(--line2);background:var(--card2)}
-.adim .no{font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:700;color:var(--acc);opacity:.55;
+.adim .no{font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:700;color:var(--acc-yazi);opacity:.85;
   line-height:1;margin-bottom:16px}
 .adim h3{font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;
   text-transform:uppercase;margin:0 0 12px}
@@ -188,6 +195,81 @@ body.hareketli .gir{opacity:0;transform:translateY(28px)}
 /* AgentOS akış şeması — tam genişlik şerit (küçük kolonda okunmuyordu) */
 .sema-genis{margin-top:56px}
 .sema-bas{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--acc);margin:0 0 14px}
+  text-transform:uppercase;color:var(--acc-yazi);margin:0 0 14px}
 .sema-genis .sema{padding:26px 22px}
 .sema-alt{font-family:'Space Grotesk',Arial,sans-serif;font-size:13.5px;color:var(--dim2);margin:14px 0 0}
+
+/* ================= 03.09 duzeltmeleri (Demir sesli emri) ================= */
+
+/* ---------- marka (ust cubuk + footer) ----------
+   Logo 32 -> 52px (1.63x), marka yazisi 18 -> 25px (1.39x).
+   "IRON" beyaz, "VISION" kimlik mavisi (yazi rolu), "tools" ince/kucuk harf.
+   Yerlesim ALT ALTA secildi: yan yana dizilince 390px'te menu dugmesine
+   binip tasiyordu; alt alta hem 52px logo yuksekligini dolduruyor hem de
+   marka bloklarinin genisligi ~150px'te kaliyor. */
+.marka{display:flex;align-items:center;gap:12px;min-width:0}
+.marka-logo{width:52px;height:52px;border-radius:50%;object-fit:cover;
+  border:1px solid var(--line2);flex:0 0 auto;display:block}
+.marka-yazi{display:flex;flex-direction:column;justify-content:center;gap:3px;min-width:0}
+.marka-ad{font-family:'Black Ops One','Playfair Display',Georgia,serif;font-size:25px;
+  line-height:1;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
+.marka-ad .iron{color:var(--txt)}
+.marka-ad .vision{color:var(--acc-yazi)}
+.marka-tools{font-family:'Space Grotesk',Arial,sans-serif;font-weight:300;font-size:12.5px;
+  line-height:1;letter-spacing:.34em;text-transform:lowercase;color:var(--dim2);white-space:nowrap}
+@media (max-width:767px){
+  .marka{gap:10px}
+  .marka-logo{width:42px;height:42px}
+  .marka-ad{font-size:20px}
+  .marka-tools{font-size:10.5px;letter-spacing:.26em}
+}
+@media (max-width:380px){
+  .marka-logo{width:38px;height:38px}
+  .marka-ad{font-size:17.5px}
+  .marka-tools{font-size:9.5px;letter-spacing:.2em}
+}
+/* logo buyudu -> ust cubuk yukseldi; capa ve mobil menu ofseti guncellendi */
+html{scroll-padding-top:104px}
+.nav-mobil{inset:86px 0 auto 0}
+@media (max-width:767px){.nav-mobil{inset:74px 0 auto 0}}
+footer .marka-ad{font-size:22px}
+footer .marka-tools{font-size:11px}
+
+/* ---------- buyuten gorsel (lightbox) — kutuphane yok, saf CSS+JS ---------- */
+.zoomlu{cursor:zoom-in;position:relative}
+.zoomlu::after{content:"BÜYÜT";position:absolute;right:12px;bottom:12px;
+  font-family:'Space Grotesk',Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.14em;
+  color:#fff;background:rgba(0,0,0,.66);border:1px solid rgba(255,255,255,.28);
+  border-radius:999px;padding:6px 11px;opacity:0;transition:opacity .2s ease;pointer-events:none}
+.zoomlu:hover::after,.zoomlu:focus-visible::after{opacity:1}
+.buyutec{position:fixed;inset:0;z-index:120;background:rgba(6,6,8,.95);
+  display:none;align-items:center;justify-content:center;padding:28px}
+.buyutec.acik{display:flex}
+.buyutec img{max-width:min(1500px,96vw);max-height:90vh;width:auto;height:auto;
+  border-radius:14px;border:1px solid var(--line2);box-shadow:0 30px 90px rgba(0,0,0,.7)}
+.buyutec-kapat{position:absolute;top:16px;right:18px;width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.1);border:1px solid var(--line2);color:var(--txt);
+  font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center}
+.buyutec-kapat:hover{background:rgba(255,255,255,.2)}
+.buyutec-alt{position:absolute;left:0;right:0;bottom:18px;text-align:center;
+  font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;color:var(--dim);padding:0 24px}
+
+/* ---------- tam genislik panel seridi (esnaf paneli) ---------- */
+.panel-genis{margin-top:52px}
+.panel-genis .gorsel-kutu{box-shadow:0 28px 70px rgba(0,0,0,.55)}
+.panel-bas{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--acc-yazi);margin:0 0 14px}
+
+/* ---------- telefon kareleri bir tik buyuk ---------- */
+@media (min-width:960px){
+  .serit.gorsel-genis .serit-in{grid-template-columns:minmax(0,1.22fr) minmax(0,.88fr);gap:56px}
+}
+.telefonlar{gap:14px}
+@media (max-width:640px){.telefonlar{gap:8px}}
+
+/* ---------- AgentOS uzay seridi ---------- */
+.uzay-serit{border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  background:#06070c;margin-bottom:16px}
+.uzay-serit img{display:block;width:100%;height:auto}
+img.buyu{cursor:zoom-in}
+img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}

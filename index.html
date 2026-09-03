@@ -109,9 +109,15 @@
 </div>
 <div class="wrap panel-genis">
 <p class="panel-bas">Uygulama tarafı — esnaf paneli</p>
+<div class="panel-ikili">
 <div class="gorsel-kutu zoomlu">
-<img class="buyu" src="assets/img/randevu-panel.webp" width="1280" height="860" loading="lazy" decoding="async" alt="Esnaf paneli: günün randevuları, boş saatler ve hizmet listesi">
-<p class="gorsel-alt">Esnaf paneli — günün randevuları, boş saatler, hizmet ve fiyat listesi. Büyütmek için tıklayın.</p>
+<img class="buyu" src="assets/img/randevu-panel.webp" width="1400" height="712" loading="lazy" decoding="async" alt="Esnaf paneli: günün randevuları, boş saatler ve elle randevu ekleme formu">
+<p class="gorsel-alt">Esnaf paneli — günün randevuları, boş saatler, elle randevu ekleme</p>
+</div>
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/randevu-panel-liste.webp" width="1100" height="691" loading="lazy" decoding="async" alt="Randevu listesi yakın çekim: saat, müşteri, hizmet ve randevunun bottan mı elle mi geldiğini gösteren etiketler">
+<p class="gorsel-alt">Yakın çekim — her randevunun bottan mı elle mi geldiği etiketle görünür</p>
+</div>
 </div>
 </div>
 </article>
@@ -121,12 +127,13 @@
 <div class="wrap serit-in">
 <div class="serit-gorsel gir">
 <div class="gorsel-yigin">
-<div class="uzay-serit">
-<img src="assets/img/agentos-uzay.webp" width="1600" height="560" loading="lazy" decoding="async" alt="VYRON AgentOS açılış ekranının derin uzay görüntüsü, üzerine ızgara dokusu ve marka yazısı bindirilmiş">
+<div class="gorsel-kutu zoomlu uzun">
+<img class="buyu" src="assets/img/agentos-ana.webp" width="1400" height="2472" loading="lazy" decoding="async" alt="VYRON AgentOS ana sayfası baştan sona: derin uzay açılış ekranı, proje kartları, kullanım sayaçları, günlük ve gece analizi">
+<p class="gorsel-alt">AgentOS ana sayfası — baştan aşağı kendi sistemimizin ekranı, kayıtlar temsilî veriyle</p>
 </div>
 <div class="gorsel-kutu zoomlu">
-<img class="buyu" src="assets/img/agentos-panel.webp" width="1000" height="900" loading="lazy" decoding="async" alt="AgentOS görev paneli: sizi bekleyen işler ve ajanların bitirdiği işler listesi">
-<p class="gorsel-alt">Görev paneli — kendi sistemimizin ekranı, kayıtlar temsilî veriyle gösterildi. Büyütmek için tıklayın.</p>
+<img class="buyu" src="assets/img/agentos-gorev.webp" width="1400" height="972" loading="lazy" decoding="async" alt="AgentOS görev paneli: sizi bekleyen işler ve ajanların bitirdiği işler listesi, durum etiketleriyle">
+<p class="gorsel-alt">Görev paneli — sizi bekleyenler ve ajanların bitirdiği işler</p>
 </div>
 <div class="video-kutu">
 <span class="video-etiket">Panel kullanımı — sesi yok</span>
@@ -361,6 +368,18 @@
     img.src = '';
     if (son) { son.focus && son.focus(); son = null; }
   }
+  /* altyazıya tıklayınca da açılsın (Demir 03.09: etiket tıklanmıyordu) */
+  [].slice.call(document.querySelectorAll('.zoomlu .gorsel-alt')).forEach(function (alt) {
+    var kutu = alt.closest('.zoomlu');
+    var im = kutu && kutu.querySelector('img.buyu');
+    if (!im) return;
+    alt.tabIndex = 0;
+    alt.setAttribute('role', 'button');
+    alt.addEventListener('click', function () { ac(im); });
+    alt.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ac(im); }
+    });
+  });
   [].slice.call(document.querySelectorAll('img.buyu')).forEach(function (n) {
     n.tabIndex = 0;
     n.setAttribute('role', 'button');

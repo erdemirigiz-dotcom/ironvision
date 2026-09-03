@@ -237,16 +237,22 @@ footer .marka-tools{font-size:11px}
 
 /* ---------- buyuten gorsel (lightbox) — kutuphane yok, saf CSS+JS ---------- */
 .zoomlu{cursor:zoom-in;position:relative}
+.zoomlu .gorsel-alt{cursor:pointer}
+.zoomlu .gorsel-alt::after{content:" · büyüt";color:var(--acc-yazi);font-weight:600}
 .zoomlu::after{content:"BÜYÜT";position:absolute;right:12px;bottom:12px;
   font-family:'Space Grotesk',Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:.14em;
   color:#fff;background:rgba(0,0,0,.66);border:1px solid rgba(255,255,255,.28);
   border-radius:999px;padding:6px 11px;opacity:0;transition:opacity .2s ease;pointer-events:none}
 .zoomlu:hover::after,.zoomlu:focus-visible::after{opacity:1}
 .buyutec{position:fixed;inset:0;z-index:120;background:rgba(6,6,8,.95);
-  display:none;align-items:center;justify-content:center;padding:28px}
+  display:none;align-items:flex-start;justify-content:center;padding:28px;
+  overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 .buyutec.acik{display:flex}
-.buyutec img{max-width:min(1500px,96vw);max-height:90vh;width:auto;height:auto;
+/* tam sayfa ekran goruntuleri cok uzun: yukseklik SINIRLANMAZ, kutu kaydirilir.
+   margin:auto sayesinde kisa gorseller yine ortalanir. */
+.buyutec img{max-width:min(1500px,96vw);max-height:none;width:auto;height:auto;margin:auto;
   border-radius:14px;border:1px solid var(--line2);box-shadow:0 30px 90px rgba(0,0,0,.7)}
+.buyutec-kapat{position:fixed}
 .buyutec-kapat{position:absolute;top:16px;right:18px;width:46px;height:46px;border-radius:50%;
   background:rgba(255,255,255,.1);border:1px solid var(--line2);color:var(--txt);
   font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center}
@@ -256,6 +262,8 @@ footer .marka-tools{font-size:11px}
 
 /* ---------- tam genislik panel seridi (esnaf paneli) ---------- */
 .panel-genis{margin-top:52px}
+.panel-ikili{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+@media (min-width:900px){.panel-ikili{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}}
 .panel-genis .gorsel-kutu{box-shadow:0 28px 70px rgba(0,0,0,.55)}
 .panel-bas{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;
   text-transform:uppercase;color:var(--acc-yazi);margin:0 0 14px}

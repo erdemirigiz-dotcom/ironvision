@@ -42,6 +42,10 @@
         {
           "src": "img/sena-ipek-elbise-detay.jpg",
           "alt": "Yeşil ipek görünümlü elbise ahşap askıda, kumaşın omuzdan süzülüşü"
+        },
+        {
+          "src": "img/sena-ipek-elbise-makro.jpg",
+          "alt": "Zümrüt yeşili ipeğin çok yakın planda parlayan kumaş kıvrımları"
         }
       ]
     },
@@ -65,6 +69,10 @@
         {
           "src": "img/defne-dantel-elbise-detay.jpg",
           "alt": "Dantel yaka ve kol ucunun yakın çekimi, işlemeli çiçek motifleri"
+        },
+        {
+          "src": "img/defne-dantel-elbise-makro.jpg",
+          "alt": "Pamuklu dantelin çiçek desenli dokusuna çok yakın plan"
         }
       ]
     },
@@ -89,6 +97,10 @@
         {
           "src": "img/ada-katmanli-keten-elbise-detay.jpg",
           "alt": "Keten eteğin pile detayına yakın çekim, doğal kumaş dokusu"
+        },
+        {
+          "src": "img/ada-katmanli-keten-elbise-makro.jpg",
+          "alt": "Krem keten kumaşın doğal kırışıklarına çok yakın plan"
         }
       ]
     },
@@ -112,6 +124,10 @@
         {
           "src": "img/nil-sifon-bluz-detay.jpg",
           "alt": "Şeffaf kol dokusunun yakın çekimi, ince file desenli kumaş"
+        },
+        {
+          "src": "img/nil-sifon-bluz-makro.jpg",
+          "alt": "Yarı saydam şifon kolun dokusuna ve ışık geçirgenliğine yakın plan"
         }
       ]
     },
@@ -138,6 +154,10 @@
         {
           "src": "img/roza-poplin-gomlek-detay-yeni.jpg",
           "alt": "Beyaz gömlek yakası ve düğmelerinin yakın çekimi, doğal kumaş dokusu"
+        },
+        {
+          "src": "img/roza-poplin-gomlek-makro.jpg",
+          "alt": "Pamuklu poplin yakanın düğme ve dikiş detayına yakın plan"
         }
       ]
     },
@@ -161,6 +181,10 @@
         {
           "src": "img/mira-orgu-bluz-detay.jpg",
           "alt": "Örgü kumaş dokusunun farklı bir bölgeden yakın çekimi"
+        },
+        {
+          "src": "img/mira-orgu-bluz-makro.jpg",
+          "alt": "Krem pamuklu örgünün ilmek dokusuna çok yakın plan"
         }
       ]
     },
@@ -185,6 +209,10 @@
         {
           "src": "img/elif-keten-gomlek-ceket-detay.jpg",
           "alt": "Gömlek ceketin yaka ve düğme detayının yakın çekimi"
+        },
+        {
+          "src": "img/elif-keten-gomlek-ceket-makro.jpg",
+          "alt": "Bej keten gömlek ceketin yaka detayına yakın plan"
         }
       ]
     },
@@ -208,6 +236,10 @@
         {
           "src": "img/lara-pileli-etek-detay.jpg",
           "alt": "Pileli kumaşın alt kısmından farklı bir açıyla yakın çekim"
+        },
+        {
+          "src": "img/lara-pileli-etek-makro.jpg",
+          "alt": "Karamel tonlu pileli kumaşın parlaklığına ve pilelerine yakın plan"
         }
       ]
     },
@@ -231,6 +263,10 @@
         {
           "src": "img/ayla-tul-etek-detay.jpg",
           "alt": "Tül dokusunun ve saten bağcığın yakın çekimi"
+        },
+        {
+          "src": "img/ayla-tul-etek-makro.jpg",
+          "alt": "Siyah tül katmanlarının dokusuna çok yakın plan"
         }
       ]
     },
@@ -257,6 +293,10 @@
         {
           "src": "img/yasemin-keten-pantolon-detay.jpg",
           "alt": "Keten kumaşın farklı bir bölgesinden yakın çekim"
+        },
+        {
+          "src": "img/yasemin-keten-pantolon-makro.jpg",
+          "alt": "Açık bej keten kumaşın dokusuna çok yakın plan"
         }
       ]
     },
@@ -278,6 +318,10 @@
         {
           "src": "img/hilal-kolye-detay.jpg",
           "alt": "Yuvarlak madalyonlu altın kaplama kolyenin ahşap üzerinde yakın çekimi"
+        },
+        {
+          "src": "img/hilal-kolye-makro.jpg",
+          "alt": "Altın kaplama madalyonun kabartma detayına yakın plan"
         }
       ]
     },
@@ -299,6 +343,10 @@
         {
           "src": "img/damla-kupe-detay.jpg",
           "alt": "Tek küpenin yakın çekimi, ince halka ve uzun zincir detayı"
+        },
+        {
+          "src": "img/damla-kupe-makro.jpg",
+          "alt": "Geometrik altın kaplama küpenin ince zincir detayına yakın plan"
         }
       ]
     },
@@ -320,6 +368,10 @@
         {
           "src": "img/zeytin-bileklik-detay.jpg",
           "alt": "Yaprak formlu madalyonların yakın çekimi"
+        },
+        {
+          "src": "img/zeytin-bileklik-makro.jpg",
+          "alt": "Yaprak formlu altın kaplama bileklik uçlarının detayına yakın plan"
         }
       ]
     },
@@ -341,6 +393,10 @@
         {
           "src": "img/derin-deri-canta-detay.jpg",
           "alt": "Kahverengi deri çantanın farklı bir açıdan çekimi"
+        },
+        {
+          "src": "img/derin-deri-canta-makro.jpg",
+          "alt": "Taba deri çantanın sap ve dikiş detayına yakın plan"
         }
       ]
     }

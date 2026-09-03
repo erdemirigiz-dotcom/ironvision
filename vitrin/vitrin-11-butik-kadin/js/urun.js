@@ -83,14 +83,23 @@
 
         '<div class="galeri">' +
           '<div class="galeri__ana">' +
-            '<img data-ana-gorsel src="' + E(gorseller[0].src) + '"' + window.AB.srcset(gorseller[0].src) +
-              ' sizes="(min-width: 900px) 620px, 92vw" alt="' + E(gorseller[0].alt) + '" width="1067" height="1422" fetchpriority="high" decoding="async">' +
+            '<picture>' +
+              (window.AB.srcsetWebp(gorseller[0].src)
+                ? '<source data-ana-webp type="image/webp" srcset="' + window.AB.srcsetWebp(gorseller[0].src) + '" sizes="(min-width: 900px) 620px, 92vw">'
+                : '') +
+              '<img data-ana-gorsel src="' + E(gorseller[0].src) + '"' + window.AB.srcset(gorseller[0].src) +
+                ' sizes="(min-width: 900px) 620px, 92vw" alt="' + E(gorseller[0].alt) + '" width="1067" height="1422" fetchpriority="high" decoding="async">' +
+            '</picture>' +
           '</div>' +
           (gorseller.length > 1
             ? '<div class="galeri__kucukler" role="group" aria-label="Ürün görselleri">' +
                 gorseller.map(function (g, i) {
+                  var kucukWebp = window.AB.kucukGorselWebp(g.src);
                   return '<button type="button" data-gorsel="' + i + '" aria-current="' + (i === 0 ? 'true' : 'false') + '">' +
-                    '<img src="' + E(window.AB.kucukGorsel(g.src)) + '" alt="' + E(g.alt) + '" loading="lazy" decoding="async" width="400" height="400">' +
+                    '<picture>' +
+                      (kucukWebp ? '<source type="image/webp" srcset="' + E(kucukWebp) + '">' : '') +
+                      '<img src="' + E(window.AB.kucukGorsel(g.src)) + '" alt="' + E(g.alt) + '" loading="lazy" decoding="async" width="400" height="400">' +
+                    '</picture>' +
                     '</button>';
                 }).join('') +
               '</div>'
@@ -154,6 +163,7 @@
 
   function baglantilariKur(gorseller, bedenler) {
     var ana = kap.querySelector('[data-ana-gorsel]');
+    var anaWebp = kap.querySelector('[data-ana-webp]');
     var kucukler = kap.querySelectorAll('[data-gorsel]');
     for (var i = 0; i < kucukler.length; i++) {
       kucukler[i].addEventListener('click', function () {
@@ -166,6 +176,13 @@
         }
         ana.src = yeni.src;
         ana.alt = yeni.alt;
+        /* .galeri__ana <picture><source webp> da tıklanan görsele göre
+           güncellenir — aksi halde küçük resme tıklanınca tarayıcı hâlâ
+           İLK ürün görselinin webp'sini gösterir (03.09.2026, ağırlık turu). */
+        if (anaWebp) {
+          var webpSet = window.AB.srcsetWebp(yeni.src);
+          if (webpSet) { anaWebp.srcset = webpSet; } else { anaWebp.removeAttribute('srcset'); }
+        }
         for (var j = 0; j < kucukler.length; j++) {
           kucukler[j].setAttribute('aria-current', kucukler[j] === this ? 'true' : 'false');
         }

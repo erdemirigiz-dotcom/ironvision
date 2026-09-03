@@ -169,3 +169,49 @@ yüz yok, "editorial use only" alınmadı). İki görsel değiştirildi, sebebi:
 Ayrıca: sitedeki TÜM görsellerin yanına aynı ada sahip .webp türevleri
 (480/960/tam) eklendi — <picture><source type="image/webp"> ile JPG'e ek
 sunuluyor, JPG hiçbir yerden silinmedi/değişmedi (ağırlık düşürme, S-8).
+
+================================================================
+03.09.2026 EKİ #2 — tasarım kaynağı turu (ilham.md ÇIKARIM 3 ve 4)
+================================================================
+
+A) Yatay "atölyeden" fotoğraf şeridi — 4 YENİ Pexels karesi
+----------------------------------------------------------
+Ana sayfaya, "hikâye" bölümüyle alıntı şeridi arasına yeni bir yatay
+kaydırmalı fotoğraf şeridi eklendi (`.atolye-serit`). 8 kareden 4'ü zaten
+sitede duran ama hiçbir sayfadan referans edilmeyen atmosfer görselleri
+(img/hikaye-keten.jpg, img/detay-askida.jpg, img/detay-orgu-01.jpg,
+img/detay-orgu-02.jpg — hepsi 01.08 turunda vetted, marka/yüz yok), 4'ü
+bu turda TR proxy (socks5://127.0.0.1:1055) + `tools/pexels-foto.py` ile
+yeni indirildi:
+
+- img/atolye-kumas-top.jpg/.webp — Pexels #3965543 — fotoğrafçı: Ksenia
+  Chernaya — https://www.pexels.com/photo/3965543/ — rulo kumaşlar +
+  kraft kalıp kağıtları, atölye rafı.
+- img/atolye-kumas-cizim.jpg/.webp — Pexels #30902518 — fotoğrafçı:
+  shoreline vehicles — https://www.pexels.com/photo/30902518/ — terzi
+  elleri kumaş üzerinde tebeşirle kalıp çiziyor (yalnız eller, yüz yok).
+- img/atolye-dikis-makinesi.jpg/.webp — Pexels #6461200 — fotoğrafçı:
+  Pavel Danilyuk — https://www.pexels.com/photo/6461200/ — dikiş makinesi
+  + bulanık arka planda terzi mankeni (kimliklendirilebilir yüz yok).
+  İlk aday (Pexels #5830691, hands sewing) üstte bir çenenin ucu göründüğü
+  için ihtiyatla elendi, bu kare seçildi.
+- img/atolye-iplik-rafi.jpg/.webp — Pexels #3965540 — fotoğrafçı: Ksenia
+  Chernaya — https://www.pexels.com/photo/3965540/ — ahşap rafta onlarca
+  renkli iplik makarası.
+
+Hepsi Pexels License, marka logosu/tanınabilir yüz yok, "editorial use
+only" alınmadı. Tek boyut indirildi (640px genişlik, JPEG q72 + WebP q74-82,
+12-95 KB arası) — şerit öğeleri küçük gösterildiği ve `loading="lazy"`
+olduğu için 3'lü -480/-960/tam türev seti burada uygulanmadı.
+
+B) Ürün galerisi "makro" doku kırpımı — 14 üründe, YENİ İNDİRME YOK
+--------------------------------------------------------------
+İlham turunun "steril stüdyo değil, kumaş dokusuna yakın çekim" çıkarımı
+için 14 ürünün TAMAMINA üçüncü bir galeri görseli eklendi
+(img/<ürün-kimliği>-makro.jpg/.webp + -960/-480 türevleri). Yeni fotoğraf
+indirilmedi — her ürünün MEVCUT "detay" karesinden ortalanmış, kısa
+kenarın ~%62'si oranında bir kare kırpım alınıp yeniden kodlandı (JPEG q70
++ WebP q72). Kaynak Pexels ID'leri ve lisansı yukarıdaki tablodakiyle
+aynıdır (crop, yeni bir fotoğraf değildir). Ürün detay sayfasında galerinin
+3. küçük resmi olarak görünür; ana sayfa/koleksiyon kartları hâlâ
+gorseller[0] (ana) görselini kullanır, bu eklemeden etkilenmez.

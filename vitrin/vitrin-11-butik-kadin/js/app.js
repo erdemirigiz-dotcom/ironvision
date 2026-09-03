@@ -325,6 +325,12 @@
     return kacis(t) + '-480.webp 480w, ' + kacis(t) + '-960.webp 960w, ' + kacis(t) + '.webp 1400w';
   }
 
+  /* kucukGorsel'in webp karşılığı — ürün detay galerisindeki küçük resim
+     düğmeleri için (03.09.2026, ürün detay ağırlık düzeltmesi). */
+  function kucukGorselWebp(src) {
+    return yerelGorsel(src) ? src.slice(0, -4) + '-480.webp' : '';
+  }
+
   /* ------------------------------------------------------ ürün kartı HTML */
   function kartHtml(u, veri) {
     var g = (u.gorseller && u.gorseller[0]) || { src: 'img/detay-rafta.jpg', alt: u.ad };
@@ -482,7 +488,7 @@
     sepetSil: sepetSil, sepetBosalt: sepetBosalt, sepetHesapla: sepetHesapla,
     rozetGuncelle: rozetGuncelle,
     kartHtml: kartHtml, izleriKur: izleriKur, bildir: bildir,
-    srcset: srcset, kucukGorsel: kucukGorsel,
+    srcset: srcset, kucukGorsel: kucukGorsel, kucukGorselWebp: kucukGorselWebp,
     siparisleriOku: siparisleriOku, siparisleriYaz: siparisleriYaz,
     siparisNo: siparisNo, siparisKaydet: siparisKaydet,
     mailtoSiparisBaglantisi: mailtoSiparisBaglantisi,

@@ -134,8 +134,11 @@ body{overflow-x:hidden}
 .is-govde{padding:15px 16px 17px}
 .is-govde h4{font-family:'Space Grotesk',Arial,sans-serif;font-size:15.5px;font-weight:600;margin:0 0 5px;color:var(--txt)}
 .is-govde p{font-family:'Space Grotesk',Arial,sans-serif;font-size:13px;color:var(--dim2);margin:0}
-.is-govde .git{display:inline-block;margin-top:11px;font-family:'Space Grotesk',Arial,sans-serif;font-size:11px;
-  font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#8fb4ff}
+.is-govde .is-etiket{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--acc-yazi)}
+.is-govde .git{display:inline-flex;align-items:center;min-height:40px;margin:2px 0 0 -4px;padding:0 4px;
+  font-family:'Space Grotesk',Arial,sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:#8fb4ff}
 .is-alt{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
 /* kayan şerit */

@@ -783,3 +783,28 @@ td { color: var(--gri); }
   display: inline-block; font-size: .68rem; letter-spacing: .12em;
   text-transform: uppercase; color: var(--altin-yazi); margin-bottom: .5rem;
 }
+
+/* =====================================================================
+   03.09.2026 — tasarım kaynağı turu eklentileri
+   ===================================================================== */
+
+/* ------------------------------------------------- bölünmüş başlık (hero) */
+.hero-satir { display: block; }
+.hero-satir--vurgu { font-style: italic; color: var(--altin-yazi); }
+.kelime { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .15em; margin-bottom: -.15em; }
+.kelime-ic { display: inline-block; will-change: transform, opacity; opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .kelime-ic { transition: none !important; animation: none !important; }
+}
+
+/* --------------------------------------------------------------- harita --
+   Tıklanmadan hiçbir istek Google'a gitmez; buton bilinçli olarak sade. */
+.harita-kutu { margin-top: 1.4rem; }
+.harita-ac {
+  font-family: var(--f-govde); font-size: .78rem; letter-spacing: .05em; text-transform: uppercase;
+  background: none; color: var(--gri); border: 1px dashed var(--cizgi); border-radius: 3px;
+  padding: .9rem 1.1rem; width: 100%; min-height: 48px; cursor: pointer;
+}
+.harita-ac:hover, .harita-ac:focus-visible { border-color: var(--altin-yazi); color: var(--altin-yazi); }
+.harita-kutu iframe { width: 100%; height: 240px; border: 1px solid var(--cizgi); border-radius: 3px; margin-top: .6rem; }
+.kucuk-not { font-size: .78rem; color: var(--gri); margin: .5rem 0 0; }

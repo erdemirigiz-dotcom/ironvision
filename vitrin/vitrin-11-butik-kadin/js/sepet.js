@@ -71,11 +71,11 @@
             : '<p class="ozet__not">' + F(esik) + ' ve üzeri siparişlerde kargo ücretsizdir.</p>') +
 
           '<div class="ozet__dugmeler">' +
-            '<a class="btn btn--wa" data-wa href="' + E(window.AB.whatsappBaglantisi(h)) + '" target="_blank" rel="noopener">WhatsApp ile Sipariş Ver</a>' +
+            '<a class="btn btn--hat" data-vf-atla href="' + E(window.AB.mailtoSiparisBaglantisi(h)) + '">E-posta ile Sipariş Ver</a>' +
             '<a class="btn" href="odeme.html">Kartla Öde</a>' +
           '</div>' +
 
-          '<p class="ozet__not">WhatsApp yolunda sepetiniz hazır bir mesaja dönüşür; gönder tuşuna basmadan önce mesajı düzenleyebilirsiniz. Bu vitrinde numara yer tutucudur <span class="ornek-ibare">(örnek)</span>.</p>' +
+          '<p class="ozet__not">E-posta yolunda sepetiniz hazır bir mesaja dönüşür; göndermeden önce mesajı düzenleyebilirsiniz.</p>' +
         '</aside>' +
 
       '</div>';

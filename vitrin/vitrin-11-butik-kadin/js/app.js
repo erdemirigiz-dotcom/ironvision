@@ -451,17 +451,11 @@
     ayarlariYaz();
     rozetGuncelle();
     izleriKur(document);
+    haritaKur();
 
     var yil = document.querySelectorAll('[data-yil]');
     for (var i = 0; i < yil.length; i++) {
       yil[i].textContent = new Date().getFullYear();
-    }
-
-    /* Altbilgi WhatsApp bağlantısı — sayfa yüklenince tek sefer yazılır. */
-    var waGenel = document.querySelectorAll('[data-wa-genel]');
-    if (waGenel.length) {
-      var waHref = whatsappGenelBaglanti();
-      for (var w = 0; w < waGenel.length; w++) { waGenel[w].setAttribute('href', waHref); }
     }
   }
 
@@ -491,8 +485,8 @@
     srcset: srcset, kucukGorsel: kucukGorsel,
     siparisleriOku: siparisleriOku, siparisleriYaz: siparisleriYaz,
     siparisNo: siparisNo, siparisKaydet: siparisKaydet,
-    whatsappBaglantisi: whatsappBaglantisi,
-    whatsappGenelBaglanti: whatsappGenelBaglanti,
+    mailtoSiparisBaglantisi: mailtoSiparisBaglantisi,
+    srcsetWebp: srcsetWebp,
     hataGoster: hataGoster
   };
 })();

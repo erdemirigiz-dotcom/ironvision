@@ -15,6 +15,7 @@
 <meta property="og:image" content="https://ironvisiontools.com/vitrin/vitrin-11-butik-kadin/assets/og-kapak.jpg">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironvisiontools.com/vitrin/vitrin-11-butik-kadin/assets/og-kapak.jpg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/cormorant-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/sourcesans3-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -74,11 +75,14 @@ if (canonicalLink) {
   <!-- ============================================================ hero -->
   <section class="hero">
     <div class="hero__gorsel">
-      <img src="img/hero-butik.jpg" srcset="img/hero-butik-480.jpg 480w, img/hero-butik-960.jpg 960w, img/hero-butik.jpg 1400w" sizes="100vw" alt="Beyaz badanalı bir butik duvarında güneş ışığı altında asılı krem tonlu elbiseler" width="1067" height="1600" fetchpriority="high" decoding="async">
+      <picture>
+        <source type="image/webp" srcset="img/hero-butik-480.webp 480w, img/hero-butik-960.webp 960w, img/hero-butik.webp 1400w" sizes="100vw">
+        <img src="img/hero-butik.jpg" srcset="img/hero-butik-480.jpg 480w, img/hero-butik-960.jpg 960w, img/hero-butik.jpg 1400w" sizes="100vw" alt="Beyaz badanalı bir butik duvarında güneş ışığı altında asılı krem tonlu elbiseler" width="1067" height="1600" fetchpriority="high" decoding="async">
+      </picture>
     </div>
     <div class="kap hero__ic">
       <p class="uststart">İlkbahar — Yaz Koleksiyonu</p>
-      <h1>Sakin kesimler,<br><em>zamansız</em> kumaşlar</h1>
+      <h1><span class="hero-satir" data-split-baslik>Sakin kesimler,</span><span class="hero-satir hero-satir--vurgu" data-split-baslik>zamansız kumaşlar</span></h1>
       <p class="hero__alt">Keten, ipek ve pamuktan; her modelden az sayıda dikilen parçalar. Bir mevsim değil, yıllarca giyilmek üzere tasarlandı.</p>
       <div class="hero__dugmeler">
         <a class="btn" href="koleksiyon.html">Koleksiyonu Görün</a>
@@ -111,7 +115,10 @@ if (canonicalLink) {
     <div class="kap">
       <div class="hikaye">
         <div class="hikaye__gorsel iz">
-          <img src="img/hikaye-atolye.jpg" srcset="img/hikaye-atolye-480.jpg 480w, img/hikaye-atolye-960.jpg 960w, img/hikaye-atolye.jpg 1400w" sizes="(min-width: 900px) 46vw, 92vw" alt="Aydınlık bir dikim atölyesinde duvarı kaplayan renkli iplik makaraları ve çalışma masaları" loading="lazy" decoding="async" width="1068" height="1600">
+          <picture>
+            <source type="image/webp" srcset="img/hikaye-atolye-480.webp 480w, img/hikaye-atolye-960.webp 960w, img/hikaye-atolye.webp 1400w" sizes="(min-width: 900px) 46vw, 92vw">
+            <img src="img/hikaye-atolye.jpg" srcset="img/hikaye-atolye-480.jpg 480w, img/hikaye-atolye-960.jpg 960w, img/hikaye-atolye.jpg 1400w" sizes="(min-width: 900px) 46vw, 92vw" alt="Aydınlık bir dikim atölyesinde duvarı kaplayan renkli iplik makaraları ve çalışma masaları" loading="lazy" decoding="async" width="1068" height="1600">
+          </picture>
         </div>
         <div class="hikaye__metin iz" data-gecikme="1">
           <p class="uststart">Atölyeden</p>
@@ -140,7 +147,10 @@ if (canonicalLink) {
 
   <!-- ========================================================= şerit -->
   <figure class="serit">
-    <img src="img/detay-rafta.jpg" srcset="img/detay-rafta-480.jpg 480w, img/detay-rafta-960.jpg 960w, img/detay-rafta.jpg 1400w" sizes="100vw" alt="Butik içinde ahşap askılarda sıralanmış krem ve beyaz parçalar" loading="lazy" decoding="async" width="1067" height="1600">
+    <picture>
+      <source type="image/webp" srcset="img/detay-rafta-yeni-480.webp 480w, img/detay-rafta-yeni-960.webp 960w, img/detay-rafta-yeni.webp 1400w" sizes="100vw">
+      <img src="img/detay-rafta-yeni.jpg" srcset="img/detay-rafta-yeni-480.jpg 480w, img/detay-rafta-yeni-960.jpg 960w, img/detay-rafta-yeni.jpg 1400w" sizes="100vw" alt="Krem ve bej gömlek ceketler ahşap bir çubukta yan yana asılı" loading="lazy" decoding="async" width="1400" height="934">
+    </picture>
     <div class="kap serit__ic iz">
       <blockquote>“İyi dikilmiş bir parça, modası geçtiğinde bile üzerinizde durur.”</blockquote>
       <figcaption>Atölye Butik — kuruluş notu</figcaption>
@@ -153,14 +163,14 @@ if (canonicalLink) {
       <div class="bolum-bas iz">
         <p class="uststart">Bize ulaşın</p>
         <h2 id="iletisim-bas">Butiğe gelin ya da yazın</h2>
-        <p>Beden, kumaş veya kombin sorularınızı WhatsApp <span class="ornek-ibare">(örnek numara)</span> üzerinden yanıtlıyoruz. Provalı alışveriş için butiğe randevusuz gelebilirsiniz.</p>
+        <p>Beden, kumaş veya kombin sorularınızı aşağıdaki formdan ya da e-postayla iletebilirsiniz. Provalı alışveriş için butiğe randevusuz gelebilirsiniz.</p>
       </div>
 
       <div class="iletisim">
         <div class="kart-kutu iz">
           <dl class="bilgi-liste">
             <div>
-              <dt>Adres <span class="ornek-ibare">(örnek)</span></dt>
+              <dt>Adres</dt>
               <dd><strong data-ayar="adres">—</strong></dd>
             </div>
             <div>
@@ -168,31 +178,36 @@ if (canonicalLink) {
               <dd data-ayar="calismaSaati">—</dd>
             </div>
             <div>
-              <dt>Telefon <span class="ornek-ibare">(örnek)</span></dt>
-              <dd data-ayar="telefonGorunen">—</dd>
-            </div>
-            <div>
-              <dt>E-posta <span class="ornek-ibare">(örnek)</span></dt>
-              <dd data-ayar="eposta">—</dd>
-            </div>
-            <div>
-              <dt>Instagram <span class="ornek-ibare">(örnek)</span></dt>
-              <dd><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram sayfamız</a></dd>
+              <dt>E-posta</dt>
+              <dd><a href="mailto:founder@ironvisiontools.com">founder@ironvisiontools.com</a></dd>
             </div>
           </dl>
-          <p class="yertutucu-not">Bu demoda adres, telefon, e-posta ve Instagram bilgileri yer tutucudur. Teslimde <code>js/config.js</code> dosyasından gerçek bilgilerle değiştirilir.</p>
+          <p class="yertutucu-not">Bu demoda "Atölye Butik" ve adresi kurgudur; e-posta gerçek ve çalışır durumdadır — aşağıdaki formdan gönderilen mesajlar buraya ulaşır.</p>
+          <p><a class="btn btn--hat" href="https://www.google.com/maps/dir/?api=1&amp;destination=41.0256,28.9744" target="_blank" rel="noopener">Yol tarifi al</a></p>
+          <div class="harita-kutu">
+            <button class="harita-ac" type="button" id="harita-ac">Haritayı bu sayfada aç</button>
+            <p class="kucuk-not">Harita Google'dan yüklenir; düğmeye basana kadar hiçbir istek gitmez.</p>
+          </div>
         </div>
 
         <div class="iz" data-gecikme="1">
-          <h3>Sipariş vermenin iki yolu</h3>
-          <p>Sepetinizi hazırladıktan sonra ister WhatsApp'tan yazışarak ister kartla ödeyerek siparişinizi tamamlayabilirsiniz. İki yolda da aynı kişi ilgilenir.</p>
-          <ul class="urun-notlar" style="border-top:0;padding-top:0;margin-top:1.2rem">
+          <h3>Bize yazın</h3>
+          <form novalidate>
+            <div class="form-izgara">
+              <div class="alan"><label for="ilt-ad">Ad Soyad</label><input id="ilt-ad" name="ad" type="text" autocomplete="name" required></div>
+              <div class="alan"><label for="ilt-eposta">E-posta ya da telefon</label><input id="ilt-eposta" name="eposta" type="text" autocomplete="email" required></div>
+              <div class="alan alan--tam"><label for="ilt-mesaj">Mesajınız</label><textarea id="ilt-mesaj" name="mesaj" rows="4" required></textarea></div>
+            </div>
+            <p style="margin-top:1.2rem"><button class="btn" type="submit">Gönder</button></p>
+          </form>
+          <p class="ozet__not" style="margin-top:1.2rem">Sepetinizi hazırladıktan sonra ister bu formdan/e-postayla sipariş talebi göndererek ister kartla ödeyerek siparişinizi tamamlayabilirsiniz.</p>
+          <ul class="urun-notlar" style="border-top:0;padding-top:0;margin-top:.6rem">
             <li>Kargo, siparişi onayladıktan sonraki ilk iş günü çıkar.</li>
             <li><span data-ayar="ucretsizKargoEsigi">—</span> ve üzeri siparişlerde kargo ücretsizdir.</li>
             <li>Denemek istediğiniz parçayı butikte bir gün ayırtabiliriz.</li>
           </ul>
           <p style="margin-top:1.8rem">
-            <a class="btn" href="koleksiyon.html">Koleksiyona göz atın</a>
+            <a class="btn btn--hat" href="koleksiyon.html">Koleksiyona göz atın</a>
           </p>
         </div>
       </div>
@@ -232,7 +247,7 @@ if (canonicalLink) {
         <h2>İletişim</h2>
         <ul>
           <li><a href="./#iletisim">Adres ve saatler</a></li>
-          <li><a data-wa-genel href="#" target="_blank" rel="noopener">WhatsApp'tan yazın <span class="ornek-ibare">(örnek)</span></a></li>
+          <li><a href="mailto:founder@ironvisiontools.com">E-posta gönderin</a></li>
           <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram <span class="ornek-ibare">(örnek)</span></a></li>
           <li><a href="gizlilik.html">Gizlilik ve KVKK</a></li>
           <li><a href="cerez-politikasi.html">Çerez Politikası</a></li>
@@ -241,7 +256,7 @@ if (canonicalLink) {
     </div>
     <div class="alt__son">
       <p>© <span data-yil>2026</span> Atölye Butik. Tüm hakları saklıdır.</p>
-      <p>Bu sayfa bir tanıtım demosudur; gerçek satış ve tahsilat yapılmaz.</p>
+      <p>Örnek site · <a href="https://ironvisiontools.com" rel="noopener">IRON VISION tools</a> — gerçek bir işletme değildir, site fabrikasının üretim örneğidir. Bu sayfa bir tanıtım demosudur; gerçek satış ve tahsilat yapılmaz.</p>
     </div>
   </div>
 </footer>
@@ -249,5 +264,8 @@ if (canonicalLink) {
 <script src="js/config.js"></script>
 <script src="js/app.js"></script>
 <script src="js/anasayfa.js"></script>
+<script src="js/vitrin-form.js" data-site="ATÖLYE BUTİK (vitrin-11-butik-kadin)" defer></script>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/site-hareket.js" defer></script>
 </body>
 </html>

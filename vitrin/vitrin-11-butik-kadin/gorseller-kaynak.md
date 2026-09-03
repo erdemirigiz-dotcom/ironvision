@@ -137,3 +137,35 @@ adlandırıldı (ör. sena-ipek-elbise-ana.jpg / sena-ipek-elbise-detay.jpg)
 hem de sitenin -480/-960 türev adlandırma kuralına uysun diye
 "-01"/"-02" yerine "-ana"/"-detay" son eki kullanıldı (rakamla biten
 son ek, -480/-960 boyut türevi sanılıp yanlışlıkla kırpılıyordu).
+
+================================================================
+03.09.2026 EKİ — İkinci geçiş (butik yenileme turu)
+================================================================
+
+Kaynak: Pexels (pexels.com), Pexels License — aynı kurallar (marka/tanınabilir
+yüz yok, "editorial use only" alınmadı). İki görsel değiştirildi, sebebi:
+
+1. img/detay-rafta.jpg (ana sayfa "şerit" bölümü) → YENİ dosya
+   img/detay-rafta-yeni.jpg (+ -960/-480 + .webp türevleri).
+   Sebep: kaynak 934px genişlikte, 100vw şeritte masaüstünde ~1360px'e
+   gerdiriliyordu (02.09 denetim bulgusu). Yeni kare 1800px genişlikte.
+   Pexels #7671163 — https://www.pexels.com/photo/7671163/ — fotoğrafçı: Ivan S
+   — "Close-up of beige shirts on hangers, showcasing minimalist style."
+   ESKİ img/detay-rafta.jpg/-960/-480 DOSYALARI SİLİNMEDİ, artık hiçbir
+   sayfadan referans edilmiyor.
+
+2. img/roza-poplin-gomlek-detay.jpg (ürün detay karesi) → YENİ dosya
+   img/roza-poplin-gomlek-detay-yeni.jpg (+ -960/-480 + .webp türevleri),
+   data/products.json güncellendi.
+   Sebep: kaynak 850×866px — serinin en düşük çözünürlüklü karesiydi ve
+   ilk aday (Pexels #6276012) düğmede "ZARA DENIM" marka yazısı okunaklı
+   çıktığı için reddedildi.
+   Pexels #28576622 — https://www.pexels.com/photo/28576622/ — fotoğrafçı:
+   Jonathan Borba — "Close-up of a white shirt on a hanger in a minimalist
+   setting." (kadraj el/omuz içeriyor, yüz kadraj dışında — kural ihlali yok).
+   ESKİ img/roza-poplin-gomlek-detay.jpg/-960/-480 DOSYALARI SİLİNMEDİ, artık
+   hiçbir sayfadan referans edilmiyor.
+
+Ayrıca: sitedeki TÜM görsellerin yanına aynı ada sahip .webp türevleri
+(480/960/tam) eklendi — <picture><source type="image/webp"> ile JPG'e ek
+sunuluyor, JPG hiçbir yerden silinmedi/değişmedi (ağırlık düşürme, S-8).

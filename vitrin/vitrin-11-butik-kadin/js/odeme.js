@@ -24,7 +24,7 @@
     kap.innerHTML = '' +
       '<div class="sepet-duzen">' +
 
-        '<form novalidate data-form>' +
+        '<form novalidate data-form data-vf-atla>' +
           '<p class="demo-rozet">Demo ödeme — tahsilat yapılmaz, kart bilgisi hiçbir yere gönderilmez.</p>' +
 
           '<div class="form-bolum">' +
@@ -37,10 +37,9 @@
               '</div>' +
               '<div class="yontem">' +
                 '<span class="yontem__etiket">Diğer yol</span>' +
-                '<h3>WhatsApp ile sipariş</h3>' +
-                '<p>Sepetiniz hazır bir mesaja dönüşür; ödemeyi yazışırken belirleriz. ' +
-                  '<span class="ornek-ibare">(örnek numara)</span></p>' +
-                '<a class="btn btn--wa" data-wa href="' + E(window.AB.whatsappBaglantisi(h)) + '" target="_blank" rel="noopener">WhatsApp\'tan devam et</a>' +
+                '<h3>E-posta ile sipariş</h3>' +
+                '<p>Sepetiniz hazır bir e-postaya dönüşür; ödemeyi yazışırken belirleriz.</p>' +
+                '<a class="btn btn--hat" data-vf-atla href="' + E(window.AB.mailtoSiparisBaglantisi(h)) + '">E-postayla devam et</a>' +
               '</div>' +
             '</div>' +
           '</div>' +

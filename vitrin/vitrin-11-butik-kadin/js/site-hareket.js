@@ -82,7 +82,7 @@
      kartlar bu script hiç çalışmasa da normal opaklıkta, tıklanabilir kalır. */
   function izgaraStaggerKur() {
     if (!gsapVar || azaltilmisHareket) { return; }
-    var izgaralar = document.querySelectorAll('[data-urun-izgara], [data-urun-izgara-liste]');
+    var izgaralar = document.querySelectorAll('[data-urun-izgara], [data-liste]');
     if (!izgaralar.length) { return; }
 
     izgaralar.forEach(function (izgara) {

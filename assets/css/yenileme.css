@@ -36,10 +36,14 @@ body{overflow-x:hidden}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:150px 0 84px;overflow:hidden}
-.hero::before{content:"";position:absolute;width:900px;height:900px;right:-280px;top:-360px;border-radius:50%;
+/* 04.09: ayni mavi parlama alt bolumlere de tasindi (Demir sesli emri) — kural
+   KOPYALANMADI, secici listesi genisletildi. .hakkinda/#contact/footer icin
+   position+overflow asagida tek satirda verildi. */
+.hero::before,.hakkinda::before,#contact::before,footer::before{content:"";position:absolute;width:900px;height:900px;right:-280px;top:-360px;border-radius:50%;
   background:radial-gradient(circle,rgba(10,83,211,.34),rgba(10,83,211,0) 62%);pointer-events:none}
-.hero::after{content:"";position:absolute;width:620px;height:620px;left:-260px;bottom:-320px;border-radius:50%;
+.hero::after,.hakkinda::after,#contact::after,footer::after{content:"";position:absolute;width:620px;height:620px;left:-260px;bottom:-320px;border-radius:50%;
   background:radial-gradient(circle,rgba(10,83,211,.18),rgba(10,83,211,0) 66%);pointer-events:none}
+.hakkinda,#contact,footer{position:relative;overflow:hidden}
 .hero-in{position:relative;z-index:2;max-width:1000px}
 .hero h1{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
   font-size:clamp(34px,7.2vw,76px);line-height:1.05;letter-spacing:-.02em;margin:0 0 24px}
@@ -284,3 +288,50 @@ footer .marka-tools{font-size:11px}
 .uzay-serit img{display:block;width:100%;height:auto}
 img.buyu{cursor:zoom-in}
 img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
+
+/* ================= 04.09 urun bolumu renkleri (Demir sesli emri, ekran goruntusuyle A/B
+   karsilastirildi, VARYANT A secildi) ================= */
+
+/* ---------- 1) WhatsApp Randevu Botu — WhatsApp koyu yesili ---------- */
+#urunler article.serit.gorsel-genis{
+  background:#075E54;
+  border-top:none;
+}
+#urunler article.serit.gorsel-genis .serit-metin h3{color:#ffffff}
+#urunler article.serit.gorsel-genis .serit-metin p,
+#urunler article.serit.gorsel-genis .panel-genis p{color:#cfeee4}
+#urunler article.serit.gorsel-genis .rozet{
+  color:#d6ffe9;background:rgba(37,211,102,.20);border-color:rgba(37,211,102,.55);
+}
+#urunler article.serit.gorsel-genis .rozet .nokta{background:#25D366}
+#urunler article.serit.gorsel-genis .liste li{color:#cfeee4}
+#urunler article.serit.gorsel-genis .liste li::before{background:#25D366}
+#urunler article.serit.gorsel-genis .gorsel-kutu{border-color:rgba(37,211,102,.35)}
+#urunler article.serit.gorsel-genis .panel-bas{color:#5be79c}
+
+/* ---------- 2) VYRON AgentOS — gercekci gece gokyuzu fotografi ----------
+   PIL ile deterministik (seed sabit) uretildi: 1920x1080, dikey degrade zemin,
+   ~900 yildiz (farkli boyut/parlaklik, birkaci mavi/sari tonlu), cok hafif
+   samanyolu sisi. Eski CSS-only radial-gradient yildiz katmani KALDIRILDI —
+   gercek goruntu zaten "farkli boyutlarda, gercekci" istegini karsiliyor. */
+#urunler article.serit.ters{
+  position:relative;
+  background:#0B0F19 url('../img/agentos-gokyuzu.webp') center/cover no-repeat;
+  border-top:none;
+}
+
+/* ---------- 3) Sesli Şef — kendi amberi (Demir: "bir tık kısılsın"), koyu metin ---------- */
+#sesli-sef{
+  background:#E0A70A;
+  border-top:none;
+}
+#sesli-sef .serit-metin h3{color:#1a1a1a}
+#sesli-sef .serit-metin p{color:#332a05}
+#sesli-sef .serit-metin p[style]{color:#4a3c0f !important}
+#sesli-sef .rozet{
+  color:#3a2f05;background:rgba(26,26,26,.10);border-color:rgba(26,26,26,.30);
+}
+#sesli-sef .rozet .nokta{background:#1f8f4e}
+#sesli-sef .liste li{color:#332a05}
+#sesli-sef .liste li::before{background:#1a1a1a}
+#sesli-sef .gorsel-kutu{border-color:rgba(26,26,26,.28)}

@@ -112,6 +112,18 @@ body{overflow-x:hidden}
   background:rgba(0,0,0,.62);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:6px 12px}
 .ikili{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
 @media (min-width:560px){.ikili{grid-template-columns:1fr 1fr}}
+/* kurgusal demo sohbeti (09.09: gerçek kayıt yerine) — .gorsel-kutu/.gorsel-alt kabını kullanır */
+.sohbet-kutu{background:var(--card)}
+.sohbet-ic{padding:22px 18px;display:flex;flex-direction:column;gap:10px}
+.sohbet-balon{max-width:84%;padding:10px 14px;border-radius:14px;font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:14px;line-height:1.5;color:var(--txt)}
+.sohbet-balon .sohbet-rol{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:4px;opacity:.62}
+.sohbet-balon.musteri{align-self:flex-start;background:var(--card2);border:1px solid var(--line);
+  border-bottom-left-radius:4px}
+.sohbet-balon.asistan{align-self:flex-end;background:var(--acc-soft);border:1px solid rgba(10,83,211,.4);
+  border-bottom-right-radius:4px;color:#eaf1ff}
+@media (max-width:480px){.sohbet-balon{max-width:92%;font-size:13.5px}}
 .sema{border:1px solid var(--line);border-radius:18px;background:var(--card);padding:18px 14px}
 .sema svg{width:100%;height:auto;display:block}
 @media (max-width:760px){.sema{overflow-x:auto}.sema svg{min-width:720px}}

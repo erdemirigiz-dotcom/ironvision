@@ -65,7 +65,12 @@ body{overflow-x:hidden}
   border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-family:'Space Grotesk',Arial,sans-serif}
 
 /* ---------- bölüm başlığı ---------- */
-.bolum{padding:96px 0}
+/* 11.09 mekanik duzeltme: "padding:96px 0" kisayolu, .wrap ile ayni elemanda
+   birlesince (class="wrap bolum") .wrap'in "padding:0 var(--gut)" yan bosluğunu
+   TAMAMEN eziyordu (ayni ozellik, sonraki kural kazanir) -- mobilde basliklar/
+   kartlar/form ekrana yapisik duruyordu. Yalniz dikey kenarlar hedeflensin diye
+   uzun yazima cevrildi, yatay bosluk artik .wrap'ten geliyor. */
+.bolum{padding-top:96px;padding-bottom:96px}
 .bolum-bas{max-width:760px;margin:0 0 56px}
 .etiket{font-family:'Space Grotesk',Arial,sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--acc-yazi);display:block;margin-bottom:14px}

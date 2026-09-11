@@ -168,16 +168,31 @@
 <article class="serit" id="sesli-sef">
 <div class="wrap serit-in">
 <div class="serit-gorsel gir">
-<div class="gorsel-kutu sohbet-kutu">
-<div class="sohbet-ic">
-<div class="sohbet-balon musteri"><span class="sohbet-rol">MÜŞTERİ</span>Bugün kaç randevu var, hangi saatlere yığılmış?</div>
-<div class="sohbet-balon asistan"><span class="sohbet-rol">ASİSTAN</span>13 randevu var. Yoğunluk 14:00-16:00 arası, o aralıkta 4 randevu çakışıyor.</div>
-<div class="sohbet-balon musteri"><span class="sohbet-rol">MÜŞTERİ</span>14:30'daki randevuyu yarın sabaha alabilir misin?</div>
-<div class="sohbet-balon asistan"><span class="sohbet-rol">ASİSTAN</span>Taşıdım, müşteriye onay mesajı gönderildi. Yeni program panelde güncel.</div>
-<div class="sohbet-balon musteri"><span class="sohbet-rol">MÜŞTERİ</span>Yarın için de aynı özeti sabah 8'de istiyorum.</div>
-<div class="sohbet-balon asistan"><span class="sohbet-rol">ASİSTAN</span>Not aldım, her sabah 8'de otomatik hazır olacak.</div>
+<div class="ikili">
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/sesli-sef-dinliyor.webp" width="840" height="1720" loading="lazy" decoding="async" alt="Sesli Şef arayüzü tasarım maketi: mikrofon açık, 'Dinliyor…' durumu, örnek sohbet akışı">
+<p class="gorsel-alt">Tasarım maketi — arayüz konsepti, gerçek kayıt değildir</p>
 </div>
-<p class="gorsel-alt">Temsili örnek — gerçek bir görüşmeye ait değildir</p>
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/sesli-sef-cevap.webp" width="840" height="1720" loading="lazy" decoding="async" alt="Sesli Şef arayüzü tasarım maketi: ajan sesli cevap veriyor, son mesaj vurgulu">
+<p class="gorsel-alt">Tasarım maketi — arayüz konsepti, gerçek kayıt değildir</p>
+</div>
+</div>
+<div class="gorsel-kutu sohbet-kutu" style="margin-top:16px">
+<div class="sohbet-ic">
+<div class="sohbet-balon musteri"><span class="sohbet-rol">SİZ</span>Ödeme servisindeki testleri koştur, kırılan var mı?</div>
+<div class="sohbet-balon asistan"><span class="sohbet-rol">AJAN</span>Koşuyorum... 42 testten 2'si kırmızı, ikisi de giriş sayfası modülünde.</div>
+<div class="sohbet-balon musteri"><span class="sohbet-rol">SİZ</span>Şu hatayı düzelt, bitince sesli söyle.</div>
+<div class="sohbet-balon asistan"><span class="sohbet-rol">AJAN</span>Düzelttim, testler yeşile döndü. Commit'ten önce onayını bekliyorum.</div>
+<div class="sohbet-balon musteri"><span class="sohbet-rol">SİZ</span>Onaylıyorum, commit et.</div>
+<div class="sohbet-balon asistan"><span class="sohbet-rol">AJAN</span>Commit edildi. Özet: giriş sayfası doğrulama hatası giderildi.</div>
+</div>
+<div style="margin-top:14px;padding:0 18px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<button type="button" class="btn btn-2" id="sesli-sef-oynat" aria-pressed="false">▶ Örnek konuşmayı dinle</button>
+<audio id="sesli-sef-audio" preload="none" src="assets/audio/sesli-sef-ornek.mp3"></audio>
+</div>
+<p class="gorsel-alt">Temsili örnek — gerçek bir kullanım oturumuna ait değildir</p>
+</div>
 </div>
 <div class="serit-metin gir">
 <span class="rozet"><span class="nokta"></span>Canlı — her gün kendimiz kullanıyoruz</span>
@@ -189,7 +204,6 @@
 <li>Mikrofon yerine yazarak da gönderebilirsiniz.</li>
 <li>Uzun çalışmalarda gözünüzü dinlendirir, oturumu kaçırmazsınız.</li>
 </ul>
-<p style="font-size:14px;color:var(--dim2)">Yukarıdaki sohbet kurgusal bir örnektir; gerçek bir müşteri görüşmesine veya kayda ait değildir.</p>
 <p>Erken erişim: uygulamayı <a href="mailto:founder@ironvisiontools.com">founder@ironvisiontools.com</a> adresinden isteyebilirsiniz — kurulum desteği dahil.</p>
 <a class="btn btn-1" href="#contact">Demo İste</a>
 </div>
@@ -448,6 +462,19 @@
   m.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') { m.classList.remove('acik'); b.setAttribute('aria-expanded', 'false'); }
   });
+})();
+
+/* Sesli Şef: örnek konuşmayı dinle/durdur (otomatik oynatma yok) */
+(function () {
+  var btn = document.getElementById('sesli-sef-oynat'), audio = document.getElementById('sesli-sef-audio');
+  if (!btn || !audio) return;
+  var METIN_DINLE = '▶ Örnek konuşmayı dinle', METIN_DURDUR = '■ Durdur';
+  btn.addEventListener('click', function () {
+    if (audio.paused) { audio.play(); } else { audio.pause(); audio.currentTime = 0; }
+  });
+  audio.addEventListener('play', function () { btn.textContent = METIN_DURDUR; btn.setAttribute('aria-pressed', 'true'); });
+  audio.addEventListener('pause', function () { btn.textContent = METIN_DINLE; btn.setAttribute('aria-pressed', 'false'); });
+  audio.addEventListener('ended', function () { audio.currentTime = 0; });
 })();
 </script>
 

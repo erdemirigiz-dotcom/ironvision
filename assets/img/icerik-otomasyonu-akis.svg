@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 200" role="img" aria-label="İçerik Otomasyonu akış şeması: konu, senaryo, ses, video, yayın">
+<defs>
+<linearGradient id="ioG1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a53d3" stop-opacity=".22"/><stop offset="1" stop-color="#0a53d3" stop-opacity=".04"/></linearGradient>
+<marker id="ioOk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5b7fb8"/></marker>
+<style>
+.iok{fill:#14161b;stroke:#2a3140;stroke-width:1.4}
+.iot{fill:#f2f4f6;font-family:'Space Grotesk',system-ui,sans-serif;font-size:17px;font-weight:600}
+.iol{fill:#6f7a8c;font-family:'Space Grotesk',system-ui,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+</style>
+</defs>
+<rect x="0" y="0" width="980" height="200" fill="none"/>
+<text class="iol" x="100" y="30" text-anchor="middle">1 · KONU</text>
+<rect class="iok" x="20" y="50" width="160" height="90" rx="14"/>
+<text class="iot" x="100" y="102" text-anchor="middle">Konu</text>
+<text class="iol" x="295" y="30" text-anchor="middle">2 · SENARYO</text>
+<rect class="iok" x="215" y="50" width="160" height="90" rx="14"/>
+<text class="iot" x="295" y="102" text-anchor="middle">Senaryo</text>
+<text class="iol" x="490" y="30" text-anchor="middle">3 · SES</text>
+<rect class="iok" x="410" y="50" width="160" height="90" rx="14"/>
+<text class="iot" x="490" y="102" text-anchor="middle">Ses</text>
+<text class="iol" x="685" y="30" text-anchor="middle">4 · VİDEO</text>
+<rect class="iok" x="605" y="50" width="160" height="90" rx="14"/>
+<text class="iot" x="685" y="102" text-anchor="middle">Video</text>
+<text class="iol" x="880" y="30" text-anchor="middle">5 · YAYIN</text>
+<rect x="800" y="50" width="160" height="90" rx="18" fill="url(#ioG1)" stroke="#0a53d3" stroke-opacity=".55" stroke-width="1.6"/>
+<text class="iot" x="880" y="102" text-anchor="middle">Yayın</text>
+<g fill="none" stroke="#3d4a60" stroke-width="1.6" marker-end="url(#ioOk)">
+<path d="M180 95 H207"/>
+<path d="M375 95 H402"/>
+<path d="M570 95 H597"/>
+<path d="M765 95 H792"/>
+</g>
+</svg>

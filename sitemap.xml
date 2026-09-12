@@ -24,4 +24,34 @@
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
+    <url>
+        <loc>https://ironvisiontools.com/blog/index.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://ironvisiontools.com/blog/yapay-zeka-ajani-isletmede-ne-yapar.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://ironvisiontools.com/blog/sesle-calisan-asistan-sesli-sef.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://ironvisiontools.com/blog/kucuk-isletme-web-sitesi-cozumu.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://ironvisiontools.com/blog/icerik-otomasyonu-nasil-calisir.html</loc>
+        <lastmod>2026-09-12</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
 </urlset>

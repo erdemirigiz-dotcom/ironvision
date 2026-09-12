@@ -325,6 +325,27 @@ img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
   border-top:none;
 }
 
+/* ---------- 11.09 blog sayfalari (Gemini metni, Demir onayli) ---------- */
+.yazi-govde{max-width:760px}
+.yazi-govde h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(20px,3vw,28px);line-height:1.2;margin:38px 0 16px}
+.yazi-govde p{font-family:'Space Grotesk',Arial,sans-serif;font-size:16.5px;line-height:1.75;color:var(--dim);margin:0 0 16px}
+.yazi-govde ol{margin:0 0 20px;padding-left:22px}
+.yazi-govde ol li{font-family:'Space Grotesk',Arial,sans-serif;font-size:16px;line-height:1.7;color:var(--dim);margin-bottom:10px}
+.yazi-govde ol li strong{color:var(--txt)}
+.etiket-liste{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.etiket-rozet{display:inline-flex;align-items:center;font-family:'Space Grotesk',Arial,sans-serif;font-size:11px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--dim2);
+  border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+.blog-izgara{display:grid;grid-template-columns:1fr;gap:18px}
+@media (min-width:720px){.blog-izgara{grid-template-columns:repeat(2,1fr)}}
+.blog-kart{display:block;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:26px 24px;
+  transition:border-color .25s ease,transform .25s ease}
+.blog-kart:hover{border-color:rgba(10,83,211,.6);transform:translateY(-4px)}
+.blog-kart h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
+  font-size:clamp(18px,2.6vw,22px);line-height:1.2;margin:0 0 10px}
+.blog-kart p{font-family:'Space Grotesk',Arial,sans-serif;font-size:14.5px;line-height:1.65;color:var(--dim);margin:0 0 14px}
+
 /* ---------- 3) Sesli Şef — kendi amberi (Demir: "bir tık kısılsın"), koyu metin ---------- */
 #sesli-sef{
   background:#E0A70A;

@@ -60,13 +60,17 @@
         backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
         border-bottom:1px solid var(--border);
       }
-      .brand{
-        display:inline-flex; align-items:center; gap:10px; text-decoration:none;
-        color:var(--text); font-weight:800; letter-spacing:0.14em; font-size:14px;
-        min-height:44px; padding:2px 4px;
-      }
       .brand b{ color:var(--accent); font-weight:800; }
-      .brand svg{ width:auto; height:56px; flex:none; }
+      .marka{ display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+        color:var(--text); min-height:44px; padding:2px 4px; min-width:0; }
+      .marka-logo{ width:40px; height:40px; border-radius:50%; object-fit:cover;
+        border:1px solid var(--border-strong); flex:0 0 auto; display:block; }
+      .marka-yazi{ display:flex; flex-direction:column; justify-content:center; gap:2px; min-width:0; }
+      .marka-ad{ font-weight:800; letter-spacing:0.08em; font-size:15px; line-height:1; white-space:nowrap; }
+      .marka-ad .iron{ color:var(--text); }
+      .marka-ad .vision{ color:var(--accent); }
+      .marka-tools{ font-weight:400; font-size:10px; line-height:1; letter-spacing:.3em;
+        text-transform:lowercase; color:var(--muted); white-space:nowrap; }
       .tools-nav{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
       .tool-link{
         display:inline-flex; align-items:center; justify-content:center;
@@ -79,7 +83,7 @@
         min-height:44px; padding:0 12px; background:var(--panel-2); color:var(--text);
         border:1px solid var(--border-strong); border-radius:999px; font-weight:700; font-size:14px; cursor:pointer;
       }
-      .brand:focus-visible,.tool-link:focus-visible,.lang-select:focus-visible,
+      .marka:focus-visible,.tool-link:focus-visible,.lang-select:focus-visible,
       button:focus-visible,input:focus-visible,select:focus-visible{ outline:none; box-shadow:var(--focus); }
 
       main{ max-width:1080px; margin:0 auto; padding:clamp(20px,4vw,40px) clamp(14px,3vw,28px) 64px; }
@@ -171,8 +175,12 @@
 </head>
 <body>
     <header class="topbar">
-        <a class="brand" href="index.html" aria-label="IronVision Tools">
-            <svg viewBox="0 0 255 68" width="154" height="41" aria-hidden="true"><polygon points="62,34 48.2,10.8 19.8,10.8 6,34 19.8,57.2 48.2,57.2" fill="#0d1a14" stroke="#00ff66" stroke-width="2.2"/><polygon points="56.5,34 45,14.9 23,14.9 11.5,34 23,53.1 45,53.1" fill="none" stroke="#00ff66" stroke-width="0.55" opacity="0.38"/><path d="M19,34 C24,24 44,24 49,34 C44,44 24,44 19,34 Z" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="6.8" fill="none" stroke="#00ff66" stroke-width="1.5"/><circle cx="34" cy="34" r="2.9" fill="#00ff66"/><line x1="17.5" y1="34" x2="13" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="50.5" y1="34" x2="55" y2="34" stroke="#00ff66" stroke-width="1.2" opacity="0.55"/><line x1="29.5" y1="27.4" x2="38.5" y2="27.4" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><line x1="29.5" y1="40.6" x2="38.5" y2="40.6" stroke="#00ff66" stroke-width="0.5" opacity="0.28"/><text x="74" y="31" font-family="'Arial Black','Arial Narrow',Impact,sans-serif" font-size="19" font-weight="900" letter-spacing="2.5" fill="#00ff66">IRON</text><text x="74" y="48" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="5.8" fill="#00ff66">VISION</text><text x="76.5" y="59" font-family="Arial,Helvetica,sans-serif" font-size="6.8" font-weight="300" letter-spacing="5.2" fill="#00ff66" opacity="0.33">TOOLS</text></svg>
+        <a class="marka" href="index.html" aria-label="IRON VISION tools — ana sayfa">
+            <img alt="IRON VISION — çelik göz logosu" class="marka-logo" src="assets/goz-logo.png" width="52" height="52">
+            <span class="marka-yazi">
+            <span class="marka-ad"><span class="iron">IRON</span> <span class="vision">VISION</span></span>
+            <span class="marka-tools">tools</span>
+            </span>
         </a>
         <nav class="tools-nav" aria-label="Araçlar">
             <a class="tool-link" href="index.html" data-i18n="navHome">Ana Sayfa</a>

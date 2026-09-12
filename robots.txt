@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /arsiv/
 
 Sitemap: https://ironvisiontools.com/sitemap.xml

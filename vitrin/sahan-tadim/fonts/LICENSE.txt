@@ -1,0 +1,23 @@
+Fontshare — ITF Free Font License (özet + kaynak kaydı)
+
+Bu dizindeki font dosyaları Fontshare'den (https://www.fontshare.com/) indirildi:
+- Gambetta (500, 600) — https://www.fontshare.com/fonts/gambetta
+- Switzer (400, 500) — https://www.fontshare.com/fonts/switzer
+
+İndirme yöntemi: Fontshare'in kendi CSS API'si
+(https://api.fontshare.com/v2/css?f[]=gambetta@500,600&f[]=switzer@400,500)
+telefon TR çıkışı (socks5://127.0.0.1:1055) üzerinden çağrıldı, dönen CSS'teki
+woff2 URL'leri indirilip bu klasöre kopyalandı (self-hosted — sitede Fontshare
+CDN'ine çalışma anında bağımlılık YOK).
+
+Lisans: Indian Type Foundry (ITF) Free Font License. Fontshare'in ITF Free
+etiketli fontları kişisel ve ticari projelerde ücretsiz kullanılabilir
+(gömme dahil); font DOSYALARININ kendisinin ayrı bir ürün olarak yeniden
+satılması/dağıtılması yasaktır. Tam ve güncel lisans metni:
+https://www.fontshare.com/licenses/itf-ffl (Fontshare hesap/indirme
+sayfasından erişilir; bu sayfa JS ile render edildiği için proxy üzerinden
+otomatik kazınamadı — kayıt burada URL olarak bırakıldı, tam metin gerekirse
+bu adresten okunur).
+
+Kullanım: SAHAN (hatlar/sahan-tadim) sitesinde display (Gambetta) ve gövde
+(Switzer) rolünde, self-hosted @font-face ile.

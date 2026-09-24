@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bu site nasıl yapıldı — SAHAN yapım notu</title>
+<meta name="description" content="SAHAN örnek sitesinin yapım notu: tasarım kaynağı turu, tadım şeridi bileşeni, telif ve ölçümler.">
+<link rel="canonical" href="https://ironvisiontools.com/vitrin/sahan-tadim/rehber/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Bu site nasıl yapıldı — SAHAN yapım notu">
+<meta property="og:description" content="Tasarım kaynağı turu, tadım şeridi bileşeni, telif ve ölçümler.">
+<meta property="og:url" content="https://ironvisiontools.com/vitrin/sahan-tadim/rehber/">
+<meta property="og:image" content="https://ironvisiontools.com/vitrin/sahan-tadim/og-kapak.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironvisiontools.com/vitrin/sahan-tadim/og-kapak.png">
+<meta name="theme-color" content="#1C1A17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231C1A17'/%3E%3Ccircle cx='16' cy='18' r='9' fill='none' stroke='%23A9724A' stroke-width='2'/%3E%3Cpath d='M8 12 Q16 4 24 12' fill='none' stroke='%23C0562F' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  .rehber { width: min(760px, 92vw); margin-inline: auto; padding: 3rem 0 5rem; }
+  .rehber h2 { margin: 3rem 0 1rem; font-family:var(--disp); }
+  .rehber h1 { font-family:var(--disp); }
+  .rehber ul { padding-left: 1.15rem; }
+  .rehber li { margin-bottom: .5rem; }
+  .rehber code { font-family: var(--veri); font-size: .86em;
+    background: var(--sut); border:var(--kenar); padding: .12em .38em; border-radius: 2px; }
+  .rehber .olcum div{ margin-bottom:.5rem; }
+  .rehber .etiket{ color:var(--kul); }
+</style>
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe atla</a>
+<header class="ust">
+  <a class="marka" href="../"><span class="marka-ad">SAHAN</span><span class="marka-alt">yapım notu</span></a>
+  <nav class="ust-gez" aria-label="Bölümler"><a href="../">Siteye dön</a></nav>
+</header>
+
+<main class="rehber" id="icerik">
+  <p class="veri etiket">Yapım notu · 3 Eylül 2026</p>
+  <h1 style="font-size:clamp(2rem,5vw,3.2rem)">Bu site nasıl yapıldı</h1>
+  <p>SAHAN gerçek bir işletme değil. VYRON site fabrikasının üretim hattından çıkan üçüncü
+    örnek site — astro-kamp'ın karanlığına ve bir önceki butik sitenin açıklığına zıt, sıcak/
+    kırmızı-bakır bir üçüncü ton denemek için var. Marka, menü ve fiyatlar kurgu; fotoğraflar
+    ve teknik ölçümler gerçek.</p>
+
+  <h2>Hat nasıl işledi</h2>
+  <p>Fabrika reçetesindeki <strong>tasarım kaynağı turu</strong> üç adımda fiilen koştu:</p>
+  <ul>
+    <li><strong>Skill</strong> — <code>frontend-design</code> skill'i okundu, iki paslı süreç
+      uygulandı: önce renk/tipo/düzen/imza planı, sonra "bunu herhangi bir benzer brief'e de
+      üretir miydim?" testiyle plan eleştirildi, ancak ondan sonra kod yazıldı. Skill'in
+      ölçtüğü üç AI varsayılanından (krem+terrakota, koyu+tek asit vurgu, broadsheet) hiçbiri
+      kullanılmadı — zemin ağırlıklı açık (kasap kağıdı tonu), hero ve tadım şeridi bilinçli
+      olarak tam genişlik koyu kontrast kuruyor, iki vurgu ailesi var (sıcak kor/bakır +
+      soğuk defne yeşili).</li>
+    <li><strong>İlham turu</strong> — hazır indeksten (471 ödüllü site) fine-dining/hotel-
+      restaurant/editorial temalı 6 site seçildi (Postevand, Caffè Gilli, Moncalisse, Palazzo
+      Sogni, De Groene Afslag, Schemas of Uncertainty) — astro-kamp'ın kullandığı 6 siteyle
+      hiç çakışmıyor. Çözümlemeyi ücretsiz görsel model (Gemini 2.5 Flash) yaptı, Claude
+      kotası kaba taramaya harcanmadı; gerçek fontlar DOM'dan doğrulandı.</li>
+    <li><strong>Bileşenler</strong> — kütüphaneden <code>gsap-giris-sablonu</code> (hero
+      orkestrasyonu) ve <code>acilma-gorseli</code>'nin IntersectionObserver mantığı (şef/
+      mekân fotoğrafları) kullanıldı. Yumuşak kaydırma (Lenis) yok. Tadım şeridi kütüphanede
+      karşılığı olmayan, bu site için sıfırdan yazılmış bir bileşen.</li>
+  </ul>
+
+  <h2>İmza: tadım şeridi</h2>
+  <p>Sayfanın hatırlanacak tek öğesi, altı kursu tavanın kendi ritmiyle sırayla açan yatay
+    şerit — <code>js/tadim-seridi.js</code>. Varsayılan durum HER ZAMAN güvenli: kurslar dikey
+    bir liste olarak, normal akışta, tam okunabilir gelir. Yalnız üç koşul birden sağlanınca
+    (GSAP+ScrollTrigger yüklendi, masaüstü genişliği, <code>prefers-reduced-motion</code>
+    kapalı) script şeridi yatay pinlenmiş hâle yükseltir; altındaki bakır çizgi scroll
+    ilerlemesiyle doğru orantılı dolan gerçek bir göstergedir, süs değil.</p>
+  <p>İkincil imza: üstteki "açık/kapalı" göstergesi. Saat, tarayıcıda <code>Intl.DateTimeFormat</code>
+    ile açıkça <code>Europe/Istanbul</code> dilimine çevrilerek hesaplanıyor — ziyaretçinin
+    kendi saat dilimi ayarından bağımsız. Varsayım sayfada da yazıyor.</p>
+
+  <h2>Dürüstlük kuralları</h2>
+  <ul>
+    <li>Doldurulmamış hiçbir alan yayına çıkmadı: uydurma yorum, uydurma yıldız puanı ve
+      dolgu metni sayfada bulunmuyor.</li>
+    <li>Sahte telefon numarası yok — telefon hiç yayımlanmadı, e-posta gerçek.</li>
+    <li>Rezervasyon formu gerçek bir uca gidiyor. Sunucu 2xx dönmezse "teşekkürler" yazmıyor;
+      ne olduğunu söyleyip bilgileri hazır bir e-posta bağlantısına döküyor.</li>
+    <li>Paylaşım görseli 1200×630 PNG (SVG değil) ve <code>twitter:card</code> var.</li>
+    <li>Bütün fotoğraflar gerçek, Pexels lisanslı; telif kaydı <code>gorseller-kaynak.md</code>'de.
+      Video KULLANILMADI — bu filoda hazır bir Pexels Videos indirme aracı yoktu, uydurma/
+      uygun olmayan kaynak koymaktansa hiç koymamak tercih edildi.</li>
+    <li>Harita gömülüsü ancak düğmeye basınca yükleniyor — açana kadar Google'a hiçbir istek
+      gitmiyor.</li>
+  </ul>
+
+  <h2>Teknik</h2>
+  <dl class="olcum">
+    <div><dt>Yapı</dt><dd>Statik HTML/CSS/JS, framework yok, derleme adımı yok</dd></div>
+    <div><dt>Animasyon</dt><dd>GSAP + ScrollTrigger (yerel kopya) + IntersectionObserver</dd></div>
+    <div><dt>Tipografi</dt><dd>Gambetta 500/600 · Switzer 400/500 (self-hosted, Fontshare ITF Free) · sistem monospace</dd></div>
+    <div><dt>Erişilebilirlik</dt><dd>Klavye odağı görünür, <code>prefers-reduced-motion</code> uygulanır, atlama bağlantısı var</dd></div>
+    <div><dt>Yayın</dt><dd>GitHub Pages</dd></div>
+  </dl>
+  <p>Kaynak kodun tamamı ve üretim reçetesi VYRON site fabrikası deposunda.</p>
+
+  <p style="margin-top:3rem"><a class="hero-cta" style="color:var(--sut)" href="../">Siteye dön</a></p>
+</main>
+
+<footer class="altbilgi">
+  <div class="sinir">
+    <p class="altbilgi-marka">SAHAN</p>
+    <p style="margin-top:.6rem;font-size:.88rem;">Örnek site · IRON VISION tools —
+      gerçek bir işletme değil, site fabrikasının üretim örneğidir.</p>
+  </div>
+</footer>
+</body>
+</html>

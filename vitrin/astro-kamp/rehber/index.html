@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bu site nasıl yapıldı — KERVANKIRAN yapım notu</title>
+<meta name="description" content="KERVANKIRAN örnek sitesinin yapım notu: tasarım kaynağı turu, gece çizelgesi hesabı, kullanılan bileşenler, telif ve ölçümler.">
+<link rel="canonical" href="https://ironvisiontools.com/vitrin/astro-kamp/rehber/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Bu site nasıl yapıldı — KERVANKIRAN yapım notu">
+<meta property="og:description" content="Tasarım kaynağı turu, gerçek gökyüzü hesabı, bileşenler, telif ve ölçümler.">
+<meta property="og:url" content="https://ironvisiontools.com/vitrin/astro-kamp/rehber/">
+<meta property="og:image" content="https://ironvisiontools.com/vitrin/astro-kamp/og-kapak.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ironvisiontools.com/vitrin/astro-kamp/og-kapak.png">
+<meta name="theme-color" content="#1A2331">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A2331'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23E0A46B'/%3E%3Ccircle cx='7' cy='8' r='1.4' fill='%23E8E2D6'/%3E%3Ccircle cx='25' cy='23' r='1.4' fill='%23E8E2D6'/%3E%3Ccircle cx='24' cy='7' r='1' fill='%237FA9C9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400&family=Syne:wght@800&display=swap">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  .rehber { width: min(760px, 92vw); margin-inline: auto; padding: 3rem 0 5rem; }
+  .rehber h2 { margin: 3rem 0 1rem; }
+  .rehber h3 { margin: 2rem 0 .6rem; }
+  .rehber ul { padding-left: 1.15rem; }
+  .rehber li { margin-bottom: .5rem; }
+  .rehber code { font-family: var(--veri); font-size: .86em;
+    background: var(--gok-derin); padding: .12em .38em; border-radius: 2px; }
+  .rehber .olcum { margin: 1.2rem 0 2rem; }
+</style>
+</head>
+<body>
+<a class="atla" href="#icerik">İçeriğe atla</a>
+<header class="ust">
+  <a class="marka" href="../"><span class="marka-ad">KERVANKIRAN</span><span class="marka-alt">yapım notu</span></a>
+  <nav class="ust-gez" aria-label="Bölümler"><a href="../">Siteye dön</a></nav>
+</header>
+
+<main class="rehber" id="icerik">
+  <p class="veri etiket">Yapım notu · 3 Eylül 2026</p>
+  <h1 style="font-size:clamp(2rem,5vw,3.2rem)">Bu site nasıl yapıldı</h1>
+  <p>KERVANKIRAN gerçek bir işletme değil. VYRON site fabrikasının üretim hattından çıkan bir
+    örnek site — ne yapabildiğimizi anlatmak yerine göstermek için var. Marka, bungalovlar ve
+    fiyatlar kurgu; gökyüzü hesapları, fotoğraflar ve teknik ölçümler gerçek.</p>
+
+  <h2>Hat nasıl işledi</h2>
+  <p>Fabrika reçetesinde 3 Eylül 2026'da kalıcı bir adım açıldı: <strong>tasarım kaynağı turu</strong>.
+    Sebep, 2 Eylül denetiminde 13 vitrin sitesinin teknik olarak temiz ama "yapay zekâ kopyası" gibi
+    durmasıydı — hattın hiçbir yerinde dışarıdan tasarım girdisi yoktu. Bu site o adımın ilk çıktısı.</p>
+  <ul>
+    <li><strong>Skill</strong> — Anthropic'in <code>frontend-design</code> skill'i okundu ve iki paslı
+      süreci uygulandı: önce renk/tipo/düzen/imza planı, sonra plan kendi kendine eleştirildi
+      ("bunu herhangi bir benzer brief'e de üretir miydim?"), ancak ondan sonra kod.</li>
+    <li><strong>İlham turu</strong> — Godly (bugün recent.design) ve Awwwards'tan 471 ödüllü site
+      indekslendi; bu brief'e en yakın 6 tanesi ekran görüntüsüyle çözümlendi. Çözümlemeyi ücretsiz
+      görsel model yaptı, Claude kotası kaba taramaya harcanmadı.</li>
+    <li><strong>Bileşenler</strong> — React Bits ve 21st.dev desenlerinden saf HTML/CSS/JS'e çevrilmiş
+      kütüphaneden üç tanesi kullanıldı: bölünmüş başlık, açılma görseli, giriş orkestrasyonu.
+      Yumuşak kaydırma (Lenis) bilinçli olarak yok — sayfayı ağırlaştırıyordu.</li>
+  </ul>
+
+  <h2>İmza: gece çizelgesi</h2>
+  <p>Sayfanın hatırlanacak tek öğesi, üstteki gece şeridi. Hazır bir gökyüzü kütüphanesi kullanmadık;
+    hesap <code>js/gokyuzu.js</code> içinde, 250 satır. Karapınar koordinatları (37,716° K / 33,551° D)
+    için şunları hesaplıyor:</p>
+  <ul>
+    <li>güneş batışı, doğuşu ve üç alacakaranlık evresi (sivil −6°, denizci −12°, astronomik −18°);</li>
+    <li>ayın doğuş-batışı ve o gecenin aydınlanma oranı;</li>
+    <li>Samanyolu çekirdeğinin (Galaktik merkez) ufkun 15° üstünde kaldığı pencere;</li>
+    <li>ve bunlardan türetilen <strong>gerçek karanlık</strong>: astronomik karanlık ∩ ay ufkun altında.</li>
+  </ul>
+  <p>Şeridin arka planındaki renk geçişi süs değil: gece boyunca 64 noktada güneşin ufuk altı derinliği
+    örnekleniyor ve her derinliğe gerçek gökyüzü rengi karşılık geliyor. Yani gradyanın kendisi veridir.
+    Doğruluk: güneş olaylarında bir dakikanın altında, ay doğuş-batışında birkaç dakika. Bir gözlem
+    planı için yeterli, teleskop hizalaması için değil — sayfada da böyle yazıyor.</p>
+
+  <h2>Dürüstlük kuralları</h2>
+  <p>2 Eylül denetiminin bulduğu beş sistemik hata bu sitede tekrarlanmadı:</p>
+  <ul>
+    <li>Doldurulmamış hiçbir alan yayına çıkmadı: uydurma yorum, uydurma yıldız puanı ve
+      dolgu metni sayfada bulunmuyor.</li>
+    <li>Sahte telefon numarası yok — telefon hiç yayımlanmadı, e-posta gerçek.</li>
+    <li>Rezervasyon formu gerçek bir uca gidiyor. Sunucu 2xx dönmezse "teşekkürler" yazmıyor;
+      ne olduğunu söyleyip bilgileri hazır bir e-posta bağlantısına döküyor.</li>
+    <li>Paylaşım görseli 1200×630 PNG (SVG değil) ve <code>twitter:card</code> var.</li>
+    <li>Bütün fotoğraflar gerçek; CSS degradesi fotoğraf yerine geçmiyor. Telif kaydı depoda
+      <code>gorseller-kaynak.md</code> dosyasında, hepsi Pexels lisansı.</li>
+    <li>Harita gömülüsü ancak siz düğmeye basınca yükleniyor — açana kadar Google'a hiçbir istek gitmiyor.</li>
+  </ul>
+
+  <h2>Teknik</h2>
+  <dl class="olcum">
+    <div><dt>Yapı</dt><dd>Statik HTML/CSS/JS, framework yok, derleme adımı yok</dd></div>
+    <div><dt>Animasyon</dt><dd>GSAP (yerel kopya) + IntersectionObserver</dd></div>
+    <div><dt>Tipografi</dt><dd>Syne 800 · Newsreader 400 · sistem monospace</dd></div>
+    <div><dt>Tema</dt><dd>Gece varsayılan, gündüz seçeneği; seçim tarayıcıda saklanır</dd></div>
+    <div><dt>Erişilebilirlik</dt><dd>Klavye odağı görünür, <code>prefers-reduced-motion</code> uygulanır, atlama bağlantısı var</dd></div>
+    <div><dt>Yayın</dt><dd>GitHub Pages</dd></div>
+  </dl>
+  <p>Kaynak kodun tamamı ve üretim reçetesi VYRON site fabrikası deposunda.</p>
+
+  <p style="margin-top:3rem"><a class="dugme dugme-ikincil" href="../">Siteye dön</a></p>
+</main>
+
+<footer class="alt">
+  <div class="alt-ic">
+    <p class="alt-marka">KERVANKIRAN</p>
+    <p class="alt-not">Örnek site · <a href="https://ironvisiontools.com" rel="noopener">IRON VISION tools</a>
+      — gerçek bir işletme değil, site fabrikasının üretim örneğidir.</p>
+  </div>
+</footer>
+<script src="js/vitrin-form.js" defer></script>
+</body>
+</html>

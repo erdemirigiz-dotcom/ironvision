@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KERVANKIRAN — Karapınar gece kampı · bungalov ve gözlem gecesi</title>
+<meta name="description" content="Karapınar volkanik ovasında altı bungalov, bir teleskop ve Bortle 2 gökyüzü. Geldiğiniz gece kaç saat gerçek karanlık var, sayfadaki çizelge hesaplıyor.">
+<link rel="canonical" href="https://ironvisiontools.com/vitrin/astro-kamp/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:site_name" content="KERVANKIRAN">
+<meta property="og:title" content="KERVANKIRAN — Karapınar gece kampı">
+<meta property="og:description" content="Bortle 2 gökyüzünün altında altı bungalov ve bir teleskop. Geleceğiniz gecenin karanlık saatini sayfa hesaplıyor.">
+<meta property="og:url" content="https://ironvisiontools.com/vitrin/astro-kamp/">
+<meta property="og:image" content="https://ironvisiontools.com/vitrin/astro-kamp/og-kapak.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Karapınar ovasının üstünde Samanyolu ve KERVANKIRAN yazısı">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="KERVANKIRAN — Karapınar gece kampı">
+<meta name="twitter:description" content="Bortle 2 gökyüzünün altında altı bungalov ve bir teleskop.">
+<meta name="twitter:image" content="https://ironvisiontools.com/vitrin/astro-kamp/og-kapak.png">
+<meta name="theme-color" content="#1A2331">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A2331'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23E0A46B'/%3E%3Ccircle cx='7' cy='8' r='1.4' fill='%23E8E2D6'/%3E%3Ccircle cx='25' cy='23' r='1.4' fill='%23E8E2D6'/%3E%3Ccircle cx='24' cy='7' r='1' fill='%237FA9C9'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400&family=Syne:wght@800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "KERVANKIRAN",
+  "description": "Karapınar volkanik ovasında yıldız gözlem odaklı bungalov konaklama.",
+  "url": "https://ironvisiontools.com/vitrin/astro-kamp/",
+  "email": "founder@ironvisiontools.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Karapınar",
+    "addressRegion": "Konya",
+    "addressCountry": "TR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 37.716, "longitude": 33.551 },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Rehberli teleskop gözlemi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Kırmızı ışık aydınlatma", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Astrofotoğraf sehpası", "value": true }
+  ],
+  "priceRange": "6.400–12.500 TL"
+}
+</script>
+</head>
+<body>
+<a class="atla" href="#cizelge">Gece çizelgesine atla</a>
+
+<header class="ust">
+  <a class="marka" href="#tepe"><span class="marka-ad">KERVANKIRAN</span><span class="marka-alt">Karapınar gece kampı</span></a>
+  <nav class="ust-gez" aria-label="Bölümler">
+    <a href="#cizelge">Gece çizelgesi</a>
+    <a href="#gokyuzu">Neden burası</a>
+    <a href="#bungalov">Bungalovlar</a>
+    <a href="#rezervasyon">Rezervasyon</a>
+  </nav>
+  <button class="tema-dugme" type="button" id="tema-dugme" aria-pressed="false">
+    <span class="tema-etiket">Gündüz</span>
+  </button>
+</header>
+
+<main id="tepe">
+
+  <!-- ══ HERO ══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-gorsel">
+      <picture>
+        <source media="(max-width: 700px)" srcset="gorseller/hero-mobil-v2.webp">
+        <img src="gorseller/hero-samanyolu-v2.webp" alt="Karapınar ovasının çıplak ufku üzerinde uçtan uca uzanan Samanyolu kavsi" width="1400" height="788" fetchpriority="high" decoding="async">
+      </picture>
+      <!-- Video JS ile eklenir (site.js, heroVideo): kısıtlı ekran/veri tasarrufu/reduced-motion'da
+           hiç istek gitmez, poster tek başına kalır. `poster` özniteliği KASTEN yok: video zaten
+           oynamaya başlayana kadar opacity:0 (altındaki <picture> tam görünür poster'ın kendisi) —
+           ayrı bir poster fetch'i sadece tekrar aynı (ya da mobilde YANLIŞ) görseli indirtirdi. -->
+      <video class="hero-video" id="hero-video" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+    </div>
+    <div class="hero-icerik">
+      <p class="veri hero-veri"><span>Karapınar · Konya</span><span>1004 m</span><span>Bortle 2</span></p>
+      <h1 class="hero-baslik" data-bolunmus>Burada gökyüzü<br>hâlâ bir saat.</h1>
+      <p class="hero-metin giris-satir">Kervanlar bu ovada Kervankıran doğunca yola çıkardı. Biz de geceyi
+        aynı saate göre kuruyoruz: altı bungalov, bir teleskop, yılda iki yüzden fazla açık gece.</p>
+      <div class="hero-dugmeler giris-satir">
+        <a class="dugme dugme-birincil" href="#cizelge">Bu gece gökyüzünde ne var</a>
+        <a class="dugme dugme-ikincil" href="#rezervasyon">Gece ayırt</a>
+      </div>
+    </div>
+    <p class="hero-kaydir veri" aria-hidden="true">↓ gecenin çizelgesi</p>
+  </section>
+
+  <!-- ══ İMZA: GECE ÇİZELGESİ ══════════════════════════════════════════ -->
+  <section id="cizelge" class="bolum cizelge">
+    <div class="bolum-bas">
+      <p class="veri etiket">Gece çizelgesi</p>
+      <h2>Hangi gece geleceğinizi<br>gökyüzü belirlesin.</h2>
+      <p class="acik">Aşağıdaki şerit, seçtiğiniz gecenin Karapınar'daki gerçek seyri. Renk bandı güneşin
+        ufuk altındaki derinliğini gösteriyor; taralı bölge ay ufkun üstündeyken, yani gökyüzünün
+        yıkandığı saatler. İkisinin dışında kalan süre <strong>gerçek karanlık</strong>tır — bir gözlem
+        gecesinin tek gerçek ölçüsü budur.</p>
+    </div>
+
+    <div class="tarih-secim">
+      <p class="veri etiket" id="tarih-baslik">Önümüzdeki 14 gece</p>
+      <div class="tarih-serit" role="group" aria-labelledby="tarih-baslik" id="tarih-serit"></div>
+    </div>
+
+    <div class="serit-sarmal">
+      <div class="serit" id="serit" role="img" aria-labelledby="serit-ozet"></div>
+      <div class="serit-eksen veri" id="serit-eksen" aria-hidden="true"></div>
+    </div>
+
+    <p class="serit-anahtar veri" aria-hidden="true">
+      <span class="ank ank-alaca"></span>alacakaranlık
+      <span class="ank ank-karanlik"></span>astronomik karanlık
+      <span class="ank ank-ay"></span>ay ufkun üstünde
+      <span class="ank ank-sy"></span>Samanyolu çekirdeği
+    </p>
+
+    <div class="karne" id="serit-ozet" aria-live="polite">
+      <div class="karne-oge karne-buyuk">
+        <p class="veri etiket">Gerçek karanlık</p>
+        <p class="karne-deger" id="k-karanlik">—</p>
+        <p class="karne-not" id="k-karanlik-not">ay yokken ve güneş −18°'nin altındayken</p>
+      </div>
+      <div class="karne-oge">
+        <p class="veri etiket">Ay</p>
+        <p class="karne-deger karne-ay"><span class="ay-simge" id="k-ay-simge" aria-hidden="true"></span><span id="k-ay">—</span></p>
+        <p class="karne-not" id="k-ay-not">—</p>
+      </div>
+      <div class="karne-oge">
+        <p class="veri etiket">Samanyolu çekirdeği</p>
+        <p class="karne-deger" id="k-sy">—</p>
+        <p class="karne-not" id="k-sy-not">—</p>
+      </div>
+      <div class="karne-oge">
+        <p class="veri etiket">Güneş</p>
+        <p class="karne-deger" id="k-gunes">—</p>
+        <p class="karne-not">batış → doğuş (UTC+3)</p>
+      </div>
+    </div>
+
+    <p class="kucuk-not">Hesap bu sayfanın içinde, Karapınar koordinatları (37,716° K — 33,551° D) için
+      yapılıyor; saatler sabit UTC+3. Güneş olaylarında sapma bir dakikanın altında, ay doğuş-batışında
+      birkaç dakika. Hava durumu bu hesaba dahil değildir — bulut, gökyüzünün tek gerçek rakibidir.</p>
+
+    <div class="olaylar">
+      <h3 class="veri etiket">Yılın işaretli geceleri</h3>
+      <ul class="olay-liste" id="olay-liste"></ul>
+      <p class="kucuk-not">Meteor yağmurlarının zirve tarihleri yıldan yıla bir gün oynar; kamp
+        takvimini her ekim yeniden yayımlıyoruz. Samanyolu çekirdeği sezonu mart sonundan ekim başına
+        kadar sürer, kış aylarında ufkun altındadır.</p>
+    </div>
+  </section>
+
+  <!-- ══ NEDEN BURASI ══════════════════════════════════════════════════ -->
+  <section id="gokyuzu" class="bolum karanlik-bolum">
+    <div class="bolum-bas">
+      <p class="veri etiket">Neden burası</p>
+      <h2>Işık kirliliği bir ölçek,<br>ve bu ova ölçeğin ikinci basamağında.</h2>
+    </div>
+
+    <div class="bortle">
+      <ol class="bortle-serit" id="bortle-serit" aria-label="Bortle karanlık ölçeği, 1 en karanlık 9 en aydınlık"></ol>
+      <div class="bortle-kiyas">
+        <p><span class="veri">2</span> Karapınar ovası — Samanyolu yere gölge düşürecek kadar parlak.</p>
+        <p><span class="veri">6</span> Konya şehir kenarı — Samanyolu ancak zenitte seçilir.</p>
+        <p><span class="veri">9</span> İstanbul merkez — çıplak gözle onlarca yıldız kalır.</p>
+      </div>
+    </div>
+
+    <div class="ikili">
+      <figure class="ikili-gorsel acilan">
+        <img src="gorseller/yildiz-izi.webp" alt="Uzun pozlamada gökyüzünde daireler çizen yıldız izleri ve karanlık ufuk çizgisi" width="704" height="469" loading="lazy" decoding="async">
+        <figcaption class="veri">Yıldız izleri — yaklaşık 20 dakikalık pozlama</figcaption>
+      </figure>
+      <div class="ikili-metin">
+        <dl class="olcum">
+          <div><dt>Rakım</dt><dd>1004 m</dd></div>
+          <div><dt>En yakın şehir ışığı</dt><dd>Konya, 95 km kuzeybatı</dd></div>
+          <div><dt>Bağıl nem, yaz gecesi</dt><dd>%30–40 — mercekte buğu yok</dd></div>
+          <div><dt>Ufuk engeli</dt><dd>Güney yönünde yok; Samanyolu çekirdeği tam görünür</dd></div>
+        </dl>
+        <p>Karapınar bir bozkır değil, sönmüş bir yanardağ tabanı. Çevredeki maar kraterleri ovayı
+          çukurda bırakıyor, ova da kendi ufkunu yükseltiyor: güneye baktığınızda 95 kilometre boyunca
+          tek bir sokak lambası yok. Bortle 2 değerlendirmesi yayımlanan ışık kirliliği haritalarına
+          ve kendi gece ölçümlerimize dayanan bir tahmindir, resmî bir belge değildir.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BUNGALOVLAR ══════════════════════════════════════════════════ -->
+  <section id="bungalov" class="bolum">
+    <div class="bolum-bas">
+      <p class="veri etiket">Bungalovlar</p>
+      <h2>Altı yapı, hepsi kuzeye sırtını dönmüş.</h2>
+      <p class="acik">Yatak nişleri güneye bakıyor — yattığınız yerden Samanyolu'nun geçtiği yönü
+        görüyorsunuz. Dış aydınlatmanın tamamı kırmızı; kamp alanında beyaz ışık yok.</p>
+    </div>
+    <div class="kartlar">
+      <article class="kart">
+        <img src="gorseller/bungalov-gece.webp" alt="Yıldızlı gökyüzünün altında penceresi sıcak ışıkla aydınlanmış küçük ahşap bungalov" width="880" height="587" loading="lazy" decoding="async">
+        <div class="kart-govde">
+          <h3>Obruk</h3>
+          <p class="veri kart-veri"><span>2 kişi</span><span>28 m²</span><span>cam tavanlı niş</span></p>
+          <p>Dört bungalovun en küçüğü ve en sessizi. Yatağın üstündeki cam panel açılmıyor — ısı
+            kaçmasın diye — ama yatarken gökyüzünün yaklaşık altmış derecelik bir dilimini görüyorsunuz.</p>
+          <p class="fiyat"><span class="veri">6.400 TL</span> / gece, kahvaltı dahil</p>
+        </div>
+      </article>
+      <article class="kart">
+        <img src="gorseller/teleskop.webp" alt="Gece gökyüzüne çevrilmiş teleskobun kırmızı ışıkta beliren silueti" width="603" height="754" loading="lazy" decoding="async">
+        <div class="kart-govde">
+          <h3>Maar</h3>
+          <p class="veri kart-veri"><span>2+2 kişi</span><span>42 m²</span><span>şömineli</span></p>
+          <p>Krater kenarına en yakın yapı. Terasında sabit bir sehpa var: kendi ekipmanınızla
+            geliyorsanız kurulum için bungalovdan çıkmanız gerekmiyor.</p>
+          <p class="fiyat"><span class="veri">8.900 TL</span> / gece, kahvaltı dahil</p>
+        </div>
+      </article>
+      <article class="kart">
+        <img src="gorseller/tas-yapi.webp" alt="Kaba yontma taştan örülmüş kalın duvarlı yapının alçak akşam ışığındaki cephesi ve kiremit çatısı" width="880" height="587" loading="lazy" decoding="async">
+        <div class="kart-govde">
+          <h3>Kervan</h3>
+          <p class="veri kart-veri"><span>4–6 kişi</span><span>65 m²</span><span>taş yapı</span></p>
+          <p>Eski bir bekçi kulübesinin taşlarından yeniden örüldü. Kalın duvar gündüzün sıcağını
+            içeri almıyor, geceleri de ısıyı bırakmıyor — yaz aylarında en serin yapı bu.</p>
+          <p class="fiyat"><span class="veri">12.500 TL</span> / gece, kahvaltı dahil</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="ekler">
+      <h3>Gecenin üstüne eklenenler</h3>
+      <ul>
+        <li><strong>Rehberli gözlem gecesi</strong> — 3 saat, 10 inç teleskop, en fazla 8 kişi.
+          <span class="veri">1.200 TL</span> kişi başı; kampta kalanlara <span class="veri">600 TL</span>.</li>
+        <li><strong>Astrofotoğraf atölyesi</strong> — iki gece, ekvatoral kurulum ve yığınlama.
+          Kendi makinenizle gelin. <span class="veri">4.800 TL</span> kişi başı.</li>
+        <li><strong>Bozkır kahvaltısı</strong> — konaklama fiyatına dahil; günübirlik gelenler için
+          <span class="veri">450 TL</span>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ GECENİN AKIŞI ════════════════════════════════════════════════ -->
+  <section class="bolum karanlik-bolum">
+    <div class="bolum-bas">
+      <p class="veri etiket">Bir gece nasıl geçiyor</p>
+      <h2>Saatler güneşe göre kayar,<br>sıra değişmez.</h2>
+      <p class="acik">Aşağıdaki saatler ağustos ortası için. Aralıkta her şey iki saat öne, haziranda
+        bir saat geriye kayar — çizelge zaten bunu hesaplıyor.</p>
+    </div>
+    <ol class="akis">
+      <li><span class="veri akis-saat">18:40</span><div><h3>Kayıt ve ova yürüyüşü</h3>
+        <p>Krater kenarına kadar 40 dakika. Karanlık çökmeden ufku görmüş olmak, gece yönünüzü
+          bulmanızı kolaylaştırıyor.</p></div></li>
+      <li><span class="veri akis-saat">20:00</span><div><h3>Ateş başında akşam yemeği</h3>
+        <p>Tandır ve etli ekmek, Karapınar fırınından. Yemek biter bitmez beyaz ışıklar söner,
+          kamp kırmızıya döner.</p></div></li>
+      <li><span class="veri akis-saat">21:15</span><div><h3>Çıplak gözle gökyüzü turu</h3>
+        <p>Önce Anadolu adlarıyla: Ülker, Demirkazık, Kervankıran, Terazi. Takımyıldızları
+          ezberlemeden önce yön bulmayı öğreniyorsunuz.</p></div></li>
+      <li><span class="veri akis-saat">22:00</span><div><h3>Teleskop sırası</h3>
+        <p>Sezona göre Satürn'ün halkası, Andromeda Gökadası, Herkül küre kümesi. Sekiz kişilik
+          gruplar hâlinde, her hedefte herkes bakana kadar bekleniyor.</p></div></li>
+      <li><span class="veri akis-saat">00:30</span><div><h3>Fotoğraf kurulumu</h3>
+        <p>İsteğe bağlı. Ekvatoral kurulum, kutup hizası, poz ve yığınlama. Sabaha kadar açık
+          kalan tek bölüm burası.</p></div></li>
+      <li><span class="veri akis-saat">05:50</span><div><h3>Şafakta çorba</h3>
+        <p>Astronomik alacakaranlık başlarken ateş yeniden yanar. Kalanlar için tarhana,
+          gidenler için kahve.</p></div></li>
+    </ol>
+  </section>
+
+  <!-- ══ SSS ══════════════════════════════════════════════════════════ -->
+  <section class="bolum">
+    <div class="bolum-bas">
+      <p class="veri etiket">Sık sorulanlar</p>
+      <h2>Gelmeden önce merak edilenler.</h2>
+    </div>
+    <div class="sss">
+      <details><summary>Dolunaya denk gelirsem gece boşa mı gider?</summary>
+        <p>Boşa gitmez ama gökyüzü değişir. Dolunayda bulutsu ve gökada göremezsiniz; buna karşılık
+          ay yüzeyi, çift yıldızlar ve gezegenler en iyi o gecelerde görünür. Yukarıdaki çizelge
+          hangi gecede ne kadar karanlık kaldığını gösteriyor — takviminiz esnekse yeni aya yakın
+          bir hafta seçin, esnek değilse ay programına geçiyoruz.</p></details>
+      <details><summary>Teleskop kullanmayı hiç bilmiyorum.</summary>
+        <p>Gözlem gecesinde teleskobu rehber kullanıyor, siz sadece bakıyorsunuz. Kendi teleskobunuzu
+          getirdiyseniz kurulumda yardım ediyoruz; hizalama isterseniz gündüzden randevu alın,
+          karanlıkta kurulum herkesin gözünü bozuyor.</p></details>
+      <details><summary>Çocukla gelinir mi?</summary>
+        <p>Gelinir. Gözlem gecesi yaklaşık 7 yaşından itibaren keyifli oluyor; daha küçükler için
+          yemekten sonraki çıplak göz turu yeterli. Kamp alanında beyaz ışık yasağı çocuklar için de
+          geçerli — el fenerine kırmızı film veriyoruz.</p></details>
+      <details><summary>Bulut çıkarsa ne oluyor?</summary>
+        <p>Gözlem gecesi ücretini iade ediyoruz ya da başka bir tarihe aktarıyoruz; konaklama devam
+          eder. Kararı akşam 21:00'de birlikte veriyoruz, önceden iptal etmiyoruz — bu ovada bulut
+          bir saatte dağılabiliyor.</p></details>
+      <details><summary>Nasıl gelinir?</summary>
+        <p>Konya'dan 95 km, Adana'dan 210 km, Ankara'dan 350 km. Son 6 km stabilize yol; sedan
+          araçla sorun olmuyor, yağış sonrası yavaş sürün. Otobüsle gelenleri Karapınar ilçe
+          merkezinden alıyoruz, önceden yazmanız yeterli.</p></details>
+      <details><summary>Kış geceleri çok mu soğuk?</summary>
+        <p>Ocak gecelerinde −12 °C'ye kadar düşüyor, buna karşılık yılın en berrak gökyüzü de o
+          aylarda. Bungalovlar ısıtmalı; gözlem için kat kat giyinmek ve kalın taban şart, ödünç
+          mont ve battaniye kampta var.</p></details>
+    </div>
+  </section>
+
+  <!-- ══ REZERVASYON ══════════════════════════════════════════════════ -->
+  <section id="rezervasyon" class="bolum karanlik-bolum">
+    <div class="rez-duzen">
+      <div class="rez-form-alan">
+        <p class="veri etiket">Rezervasyon</p>
+        <h2>Bir gece ayırın.</h2>
+        <p class="acik">Formu doldurun, aynı gün dönüyoruz. Tarihiniz esnekse çizelgeden seçtiğiniz
+          geceyi de yazın — o hafta içinde daha karanlık bir gece varsa söyleriz.</p>
+
+        <form id="rez-form" novalidate>
+          <div class="alan">
+            <label for="f-ad">Ad soyad</label>
+            <input id="f-ad" name="ad" type="text" autocomplete="name" required>
+          </div>
+          <div class="alan">
+            <label for="f-eposta">E-posta</label>
+            <input id="f-eposta" name="eposta" type="email" autocomplete="email" required>
+          </div>
+          <div class="alan">
+            <label for="f-tel">Telefon <span class="istege">isteğe bağlı</span></label>
+            <input id="f-tel" name="telefon" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="alan-ikili">
+            <div class="alan">
+              <label for="f-tarih">Geliş gecesi</label>
+              <input id="f-tarih" name="tarih" type="date">
+            </div>
+            <div class="alan">
+              <label for="f-kisi">Kişi</label>
+              <input id="f-kisi" name="kisi" type="number" min="1" max="12" value="2" inputmode="numeric">
+            </div>
+          </div>
+          <div class="alan">
+            <label for="f-bungalov">Bungalov</label>
+            <select id="f-bungalov" name="bungalov">
+              <option>Farketmez</option>
+              <option>Obruk — 2 kişi</option>
+              <option>Maar — 2+2 kişi</option>
+              <option>Kervan — 4–6 kişi</option>
+            </select>
+          </div>
+          <div class="alan">
+            <label for="f-mesaj">Eklemek istediğiniz <span class="istege">isteğe bağlı</span></label>
+            <textarea id="f-mesaj" name="mesaj" rows="3"></textarea>
+          </div>
+          <p class="tuzak" aria-hidden="true">
+            <label for="f-website">Bu alanı boş bırakın</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </p>
+          <button class="dugme dugme-birincil" type="submit" id="rez-gonder">Rezervasyon isteği gönder</button>
+          <p class="form-durum" id="form-durum" role="status" aria-live="polite"></p>
+          <p class="kucuk-not">İsteğiniz kamp yönetimine iletilir. Onay e-postası gelmeden rezervasyon
+            kesinleşmiş sayılmaz.</p>
+        </form>
+      </div>
+
+      <aside class="rez-yan">
+        <h3 class="veri etiket">Yol ve iletişim</h3>
+        <dl class="olcum">
+          <div><dt>Konum</dt><dd>Karapınar, Konya — 37,716° K / 33,551° D</dd></div>
+          <div><dt>E-posta</dt><dd><a class="blok-baglanti" href="mailto:founder@ironvisiontools.com">founder@ironvisiontools.com</a></dd></div>
+          <div><dt>Sezon</dt><dd>Yıl boyu açık; şubat ortası – mart başı bakım</dd></div>
+        </dl>
+        <p><a class="dugme dugme-ikincil" href="https://www.google.com/maps/dir/?api=1&amp;destination=37.716,33.551" target="_blank" rel="noopener">Yol tarifi al</a></p>
+        <div class="harita-kutu">
+          <button class="harita-ac" type="button" id="harita-ac">Haritayı bu sayfada aç</button>
+          <p class="kucuk-not">Harita Google'dan yüklenir; açana kadar hiçbir istek gitmez.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="alt">
+  <div class="alt-ic">
+    <p class="alt-marka">KERVANKIRAN</p>
+    <p class="alt-not">Örnek site · <a href="https://ironvisiontools.com" rel="noopener">IRON VISION tools</a>
+      — gerçek bir işletme değil, site fabrikasının üretim örneğidir. Gökyüzü hesapları ve
+      fotoğraflar gerçektir; marka, bungalovlar ve fiyatlar kurgudur.</p>
+    <p class="alt-not"><a class="blok-baglanti" href="rehber/">Bu site nasıl yapıldı</a></p>
+  </div>
+</footer>
+
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/gokyuzu.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/vitrin-form.js" defer></script>
+</body>
+</html>

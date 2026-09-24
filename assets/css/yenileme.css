@@ -389,3 +389,67 @@ img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
 .hero h1 .vurgu{background:none}
 /* 24.09: "canlı akış" etiketi sohbet başlığındaki adın üstüne biniyordu — alta alındı */
 .video-etiket{top:auto;bottom:12px}
+
+/* ---------- 24.09 telefon ekranları gerçek telefon gövdesinde (MoyMote ile aynı bileşen) ---------- */
+/* ---------- gerçekçi telefon gövdesi (tek bileşen: açılış + özellikler) ---------- */
+.device {
+  --r: 15.5%;
+  position: relative; aspect-ratio: 300 / 624; border-radius: 17% / 8.2%;
+  padding: 3.6%;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.18), rgba(255,255,255,0) 2.2%, rgba(255,255,255,0) 97.8%, rgba(255,255,255,.14)),
+    linear-gradient(160deg, #6e7680 0%, #2c3139 9%, #181b20 24%, #0e1014 50%, #1d2127 76%, #4b525c 92%, #7c848e 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.28),
+    inset 0 0 0 2.5px #07080a,
+    inset 0 0 0 3.5px rgba(255,255,255,.07),
+    0 1px 1px rgba(255,255,255,.08),
+    0 2px 3px rgba(0,0,0,.6),
+    0 38px 70px -18px rgba(0,0,0,.9),
+    0 70px 120px -40px rgba(0,0,0,.7);
+}
+.device::before { /* cam kenarlık */
+  content: ""; position: absolute; inset: 1.4%; border-radius: 15.6% / 7.4%;
+  background: #020203; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), inset 0 0 12px rgba(255,255,255,.03);
+}
+.device-screen {
+  position: relative; z-index: 1; height: 100%; overflow: hidden; background: #000;
+  border-radius: 12.6% / 5.9%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.9);
+}
+.device-screen > img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.device-glass { /* ekran camı yansıması */
+  position: absolute; z-index: 3; inset: 3.6%; border-radius: 12.6% / 5.9%; pointer-events: none;
+  background:
+    linear-gradient(118deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.05) 22%, rgba(255,255,255,0) 38%),
+    linear-gradient(300deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,0) 30%);
+}
+.device-cam { /* ön kamera deliği */
+  position: absolute; z-index: 4; top: 4.9%; left: 50%; width: 4.2%; aspect-ratio: 1; translate: -50% 0; border-radius: 50%;
+  background: radial-gradient(circle at 36% 34%, #5a6d92 0 9%, #1a2336 22%, #070a10 48%, #000 70%);
+  box-shadow: 0 0 0 1.5px #0a0a0c, 0 0 0 2.5px rgba(255,255,255,.04);
+}
+.device-btn { position: absolute; z-index: 0; width: 1.3%; border-radius: 2px;
+  background: linear-gradient(90deg, #15181c, #5d646e 45%, #2a2e35 70%, #111317); }
+.device-btn.pwr { right: -1%; top: 24%; height: 12.5%; }
+.device-btn.vol1 { left: -1%; top: 20%; height: 7.5%; }
+.device-btn.vol2 { left: -1%; top: 29.5%; height: 7.5%; }
+.telefonlar .device-screen > img, .device-screen > img.buyu { border: 0; border-radius: 0; background: #000; }
+.telefonlar .device { width: 100%; }
+.ikili .device { width: 100%; max-width: 300px; margin-inline: auto; }
+.ikili .zoomlu { background: none; border: 0; overflow: visible; }
+
+/* durum çubuğu: saat + sinyal/wifi/pil; içerik kameranın altından başlar */
+.device { container-type: inline-size; --sb: 11.5cqw; }
+.device-screen > img { height: calc(100% - var(--sb)); margin-top: var(--sb); }
+.device-status { position: absolute; z-index: 4; top: 3.6%; left: 3.6%; right: 3.6%; height: var(--sb);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 9.5cqw 0 10.5cqw;
+  font: 600 3.9cqw/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #f2f4f7; pointer-events: none; }
+.device-status b { font-weight: 600; letter-spacing: .01em; }
+.ds-icons { display: flex; align-items: center; gap: 1.4cqw; }
+.ds-sig { width: 4.6cqw; height: 3cqw; background: linear-gradient(90deg, #f2f4f7 0 18%, transparent 18% 27%, #f2f4f7 27% 45%, transparent 45% 54%, #f2f4f7 54% 72%, transparent 72% 81%, rgba(242,244,247,.45) 81%);
+  -webkit-mask: linear-gradient(to top right, #000 50%, transparent 50%); mask: linear-gradient(to top right, #000 50%, transparent 50%); }
+.ds-wifi { width: 4.2cqw; height: 3.1cqw; border-radius: 50% 50% 0 0 / 100% 100% 0 0; background: radial-gradient(circle at 50% 100%, #f2f4f7 0 22%, transparent 23% 38%, #f2f4f7 39% 55%, transparent 56% 70%, #f2f4f7 71% 86%, transparent 87%); }
+.ds-bat { width: 6.6cqw; height: 3.1cqw; border-radius: .9cqw; border: .45cqw solid rgba(242,244,247,.55); position: relative;
+  background: linear-gradient(90deg, #f2f4f7 0 72%, transparent 72%) content-box; padding: .35cqw; }
+.ds-bat::after { content: ""; position: absolute; right: -1.2cqw; top: 50%; translate: 0 -50%; width: .7cqw; height: 1.3cqw; border-radius: 0 .5cqw .5cqw 0; background: rgba(242,244,247,.55); }

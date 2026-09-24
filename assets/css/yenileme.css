@@ -36,7 +36,7 @@ body{overflow-x:hidden}
 
 /* ---------- hero ---------- */
 .hero{position:relative;padding:150px 0 84px;overflow:hidden}
-/* 04.09: ayni mavi parlama alt bolumlere de tasindi (Demir sesli emri) — kural
+/* 04.09: ayni mavi parlama alt bolumlere de tasindi — kural
    KOPYALANMADI, secici listesi genisletildi. .hakkinda/#contact/footer icin
    position+overflow asagida tek satirda verildi. */
 .hero::before,.hakkinda::before,#contact::before,footer::before{content:"";position:absolute;width:900px;height:900px;right:-280px;top:-360px;border-radius:50%;
@@ -211,7 +211,7 @@ body.hareketli .gir{opacity:0;transform:translateY(28px)}
 .sema-genis .sema{padding:26px 22px}
 .sema-alt{font-family:'Space Grotesk',Arial,sans-serif;font-size:13.5px;color:var(--dim2);margin:14px 0 0}
 
-/* ================= 03.09 duzeltmeleri (Demir sesli emri) ================= */
+/* ================= 03.09 duzeltmeleri ================= */
 
 /* ---------- marka (ust cubuk + footer) ----------
    Logo 32 -> 52px (1.63x), marka yazisi 18 -> 25px (1.39x).
@@ -294,7 +294,7 @@ footer .marka-tools{font-size:11px}
 img.buyu{cursor:zoom-in}
 img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
 
-/* ================= 04.09 urun bolumu renkleri (Demir sesli emri, ekran goruntusuyle A/B
+/* ================= 04.09 urun bolumu renkleri (ekran goruntusuyle A/B
    karsilastirildi, VARYANT A secildi) ================= */
 
 /* ---------- 1) WhatsApp Randevu Botu — WhatsApp koyu yesili ---------- */
@@ -325,7 +325,7 @@ img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
   border-top:none;
 }
 
-/* ---------- 11.09 blog sayfalari (Gemini metni, Demir onayli) ---------- */
+/* ---------- 11.09 blog sayfalari ---------- */
 .yazi-govde{max-width:760px}
 .yazi-govde h2{font-family:'Playfair Display',Georgia,serif;font-weight:700;text-transform:uppercase;
   font-size:clamp(20px,3vw,28px);line-height:1.2;margin:38px 0 16px}
@@ -346,7 +346,7 @@ img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
   font-size:clamp(18px,2.6vw,22px);line-height:1.2;margin:0 0 10px}
 .blog-kart p{font-family:'Space Grotesk',Arial,sans-serif;font-size:14.5px;line-height:1.65;color:var(--dim);margin:0 0 14px}
 
-/* ---------- 3) Sesli Şef — kendi amberi (Demir: "bir tık kısılsın"), koyu metin ---------- */
+/* ---------- 3) Sesli Şef — kendi amberi, koyu metin ---------- */
 #sesli-sef{
   background:#E0A70A;
   border-top:none;
@@ -361,8 +361,31 @@ img.buyu:focus-visible{outline:2px solid var(--acc-yazi);outline-offset:3px}
 #sesli-sef .liste li{color:#332a05}
 #sesli-sef .liste li::before{background:#1a1a1a}
 #sesli-sef .gorsel-kutu{border-color:rgba(26,26,26,.28)}
-/* 11.09 Demir geri bildirimi: iki arayüz görseli küçük/sıkışık duruyordu —
+/* 11.09 geri bildirim: iki arayüz görseli küçük/sıkışık duruyordu —
    görsel sütununa biraz daha pay verildi (renk/arkaplan DEĞİŞMEDİ, yalnız oran). */
 @media (min-width:960px){
   #sesli-sef .serit-in{grid-template-columns:minmax(0,1.22fr) minmax(0,.88fr);gap:56px}
 }
+
+/* ---------- 24.09 MoyMote bandı — ürünün kendi kimliği: gerçek siyah, turuncu göz ışığı ---------- */
+#urunler article#moymote{
+  background:#000 radial-gradient(70% 90% at 12% 30%, rgba(247,148,30,.16), rgba(247,148,30,0) 60%);
+  border-top:none;
+}
+#urunler article#moymote .serit-metin h3{color:#fff}
+#urunler article#moymote .serit-metin p{color:#b9c2d0}
+#urunler article#moymote .rozet{color:#ffd6a6;background:rgba(247,148,30,.14);border-color:rgba(247,148,30,.45)}
+#urunler article#moymote .rozet .nokta{background:#f7941e}
+#urunler article#moymote .liste li{color:#c9d1dc}
+#urunler article#moymote .liste li::before{background:#f7941e}
+#urunler article#moymote .gorsel-kutu{border-color:rgba(247,148,30,.28)}
+#urunler article#moymote .btn-1{background:#f7941e;color:#1c0f00;box-shadow:0 0 26px rgba(247,148,30,.32)}
+#urunler article#moymote .btn-1:hover{background:#ffb642}
+@media (min-width:960px){
+  #urunler article#moymote .serit-in{grid-template-columns:minmax(0,1.22fr) minmax(0,.88fr);gap:56px}
+}
+
+/* 24.09: başlık vurgusu satır kırılınca kayıyordu — alt çizgi bandı kaldırıldı, renk kaldı */
+.hero h1 .vurgu{background:none}
+/* 24.09: "canlı akış" etiketi sohbet başlığındaki adın üstüne biniyordu — alta alındı */
+.video-etiket{top:auto;bottom:12px}

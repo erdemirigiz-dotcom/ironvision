@@ -2,11 +2,14 @@
 <html class="dark" lang="tr"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IRON VISION tools — Gerçekten çalışan yapay zekâ araçları</title>
-<meta name="description" content="WhatsApp'tan randevu alan bot, tekrar eden işleri devralan panel, sesle çalışan asistan. Dükkândan büyük şirkete, serbest çalışandan ekiplere — Edirne merkezli IRON VISION'ın yapay zekâ araçları; demo isteyin, kendi işinizde deneyin.">
+<title>IronVision Tools — Gerçekten çalışan yazılımlar ve yapay zekâ araçları</title>
+<meta name="description" content="Monitörü telefondan yöneten MoyMote, WhatsApp'tan randevu alan bot, tekrar eden işleri devralan AgentOS, sesle çalışan Sesli Şef. Edirne merkezli IronVision Tools'un önce kendi işinde kullandığı yazılımlar.">
+<link rel="alternate" hreflang="tr" href="https://ironvisiontools.com/">
+<link rel="alternate" hreflang="en" href="https://ironvisiontools.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://ironvisiontools.com/">
 <link rel="canonical" href="https://ironvisiontools.com/"/>
-<meta property="og:site_name" content="IRON VISION">
-<meta property="og:title" content="IRON VISION tools — Gerçekten çalışan yapay zekâ araçları">
+<meta property="og:site_name" content="IronVision Tools">
+<meta property="og:title" content="IronVision Tools — Gerçekten çalışan yazılımlar ve yapay zekâ araçları">
 <meta property="og:description" content="WhatsApp'tan randevu alan bot, işleri devralan panel, sesle çalışan asistan. Dükkândan büyük şirkete, serbest çalışandan ekiplere — demo isteyin, kendi işinizde deneyin.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ironvisiontools.com/">
@@ -15,20 +18,32 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="IRON VISION tools — Gerçekten çalışan yapay zekâ araçları">
+<meta name="twitter:title" content="IronVision Tools — Gerçekten çalışan yazılımlar ve yapay zekâ araçları">
 <meta name="twitter:description" content="WhatsApp'tan randevu alan bot, işleri devralan panel, sesle çalışan asistan. Dükkândan büyük şirkete, serbest çalışandan ekiplere.">
 <meta name="twitter:image" content="https://ironvisiontools.com/assets/og-tools.png">
 <link rel="icon" type="image/png" href="assets/goz-logo.png">
 <link rel="apple-touch-icon" href="assets/goz-logo.png">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/yenileme.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "IronVision Tools",
+  "url": "https://ironvisiontools.com/",
+  "logo": "https://ironvisiontools.com/assets/goz-logo.png",
+  "email": "founder@ironvisiontools.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Edirne", "addressCountry": "TR" },
+  "sameAs": ["https://moymote.com/"]
+}
+</script>
 </head>
 <body class="font-body-md text-text-primary antialiased relative min-h-screen flex flex-col bg-background">
 
 <!-- ÜST ÇUBUK -->
 <nav class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border-subtle flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto left-0 right-0">
-<a class="marka" href="/" aria-label="IRON VISION tools — ana sayfa">
-<img alt="IRON VISION — çelik göz logosu" class="marka-logo" src="assets/goz-logo.png" width="52" height="52"/>
+<a class="marka" href="/" aria-label="IronVision Tools — ana sayfa">
+<img alt="IronVision Tools — çelik göz logosu" class="marka-logo" src="assets/goz-logo.png" width="52" height="52"/>
 <span class="marka-yazi">
 <span class="marka-ad"><span class="iron">IRON</span> <span class="vision">VISION</span></span>
 <span class="marka-tools">tools</span>
@@ -36,9 +51,11 @@
 </a>
 <div class="hidden md:flex items-center gap-8">
 <a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#urunler">Ürünler</a>
+<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#moymote">MoyMote</a>
 <a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#yakinda">Yakında</a>
 <a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="blog/index.html">Blog</a>
 <a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="#hakkinda">Hakkında</a>
+<a class="font-label-caps text-label-caps text-text-muted hover:text-text-primary transition-colors uppercase" href="/en/" hreflang="en" lang="en">EN</a>
 </div>
 <div class="flex items-center gap-3">
 <a class="hidden md:inline-flex px-6 py-2 bg-text-primary text-background rounded-full font-label-caps hover:bg-primary-container hover:text-text-primary transition-colors uppercase" href="#contact">Demo İste</a>
@@ -47,24 +64,26 @@
 </nav>
 <div class="nav-mobil" id="nav-mobil">
 <a href="#urunler">Ürünler</a>
+<a href="#moymote">MoyMote</a>
 <a href="#yakinda">Yakında</a>
 <a href="blog/index.html">Blog</a>
 <a href="#hakkinda">Hakkında</a>
 <a href="#contact">Demo İste</a>
+<a href="/en/" hreflang="en" lang="en">English</a>
 </div>
 
 <!-- HERO -->
 <header class="hero">
 <div class="wrap hero-in">
-<h1 class="gir"><span class="vurgu">Gerçekten çalışan</span><br>yapay zekâ araçları</h1>
-<p class="alt gir">Dükkândan büyük şirkete, serbest çalışandan ekiplere — kurulumu biz yaparız, ürün sizde çalışır.</p>
+<h1 class="gir"><span class="vurgu">Gerçekten çalışan</span><br>yazılımlar ve yapay zekâ araçları</h1>
+<p class="alt gir">Önce kendi işimizde kullanıyor, sonra size sunuyoruz: monitörünü telefondan yöneten MoyMote, WhatsApp'tan randevu alan bot, tekrar eden işleri devralan AgentOS ve sesle çalışan Sesli Şef.</p>
 <div class="cta-satir gir">
 <a class="btn btn-1" href="#contact">Demo İste</a>
 <a class="btn btn-2" href="#urunler">Ürünleri gör</a>
 </div>
 <p class="hero-not gir">Edirne merkezli · Nisan 2026'dan beri · verileriniz sizde kalır</p>
 <div class="hero-serit gir">
-<b>WhatsApp randevu botu</b><b>VYRON AgentOS</b><b>Sesli Şef</b><b>Try-On</b>
+<b>MoyMote</b><b>WhatsApp randevu botu</b><b>VYRON AgentOS</b><b>Sesli Şef</b><b>İçerik Otomasyonu</b>
 </div>
 </div>
 </header>
@@ -77,9 +96,37 @@
 <div class="bolum-bas gir">
 <span class="etiket">Ürünler</span>
 <h2>Öne çıkan ürünler</h2>
-<p>Aşağıdaki ekranlar kendi sistemlerimizden alındı. Her biri için demo isteyebilir, kendi işinizde deneyebilirsiniz.</p>
+<p>Arayüzler gerçek ürünlerimizden alındı. Her biri için demo isteyebilir, kendi işinizde deneyebilirsiniz.</p>
 </div>
 </div>
+
+<!-- 0) MoyMote -->
+<article class="serit" id="moymote">
+<div class="wrap serit-in">
+<div class="serit-gorsel gir">
+<div class="gorsel-kutu zoomlu">
+<img class="buyu" src="assets/img/moymote-koltuk.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="Gece kanepede, MoyMote telefon paneli açık bir telefon; odanın öbür ucunda parlayan monitör">
+<p class="gorsel-alt">Telefon paneli — ekrandaki gerçek MoyMote arayüzü</p>
+</div>
+<div class="gorsel-kutu zoomlu" style="margin-top:16px">
+<img class="buyu" src="assets/img/moymote-masa.webp" width="1672" height="941" loading="lazy" decoding="async" alt="Masada dizüstü bilgisayar ve MoyMote masaüstü uygulamasını gösteren harici monitör">
+<p class="gorsel-alt">Aynı kontroller bilgisayarda, masaüstü uygulamasında</p>
+</div>
+</div>
+<div class="serit-metin gir">
+<span class="rozet"><span class="nokta"></span>Windows · Microsoft Store'a hazırlanıyor</span>
+<h3>MoyMote</h3>
+<p>Monitörünün parlaklığını, mavi ışığını ve HDR'ını telefonundan yönet. MoyMote; Windows bilgisayarın, monitörün ve telefonun arasında yerel ağda çalışan özel bir köprü. Hesap yok, bulut yok.</p>
+<ul class="liste">
+<li>Kanepeden ya da yataktan: telefonun kumanda olur, telefona uygulama kurulmaz.</li>
+<li>Parlaklık, mavi ışık ön ayarları, HDR, ekran karartma, uyku ve kapatma tek panelde.</li>
+<li>Gündüz, Gece, Film, Oyun ve kendi kaydettiğin modlar tek dokunuşta.</li>
+<li>Windows 10 ve 11, DDC/CI destekli harici monitör. Tek seferlik ödeme, 7 gün ücretsiz deneme.</li>
+</ul>
+<a class="btn btn-1" href="https://moymote.com/tr/">moymote.com'da incele</a>
+</div>
+</div>
+</article>
 
 <!-- 1) WhatsApp Randevu Botu -->
 <article class="serit gorsel-genis">
@@ -96,7 +143,7 @@
 </div>
 </div>
 <div class="serit-metin gir">
-<span class="rozet"><span class="nokta"></span>Yazılım hazır · 29/29 test yeşil</span>
+<span class="rozet"><span class="nokta"></span>Kuruluma hazır</span>
 <h3>WhatsApp Randevu Botu</h3>
 <p>Müşteriniz size yazar gibi WhatsApp'tan yazar: boş saatleri görür, numarasını yazar, randevusunu alır. Uygulama indirmez, siteye üye olmaz.</p>
 <ul class="liste">
@@ -319,11 +366,11 @@
 <div class="wrap bolum">
 <div class="bolum-bas gir" style="margin-bottom:44px">
 <span class="etiket">Hakkında</span>
-<h2>IRON VISION</h2>
+<h2>IronVision Tools</h2>
 </div>
 <div class="hakkinda-in">
 <div class="gir">
-<p>IRON VISION, Edirne merkezli bir yazılım girişimi. İşletmelerin tekrar eden yükünü üstlenen yapay zekâ araçları üretiyoruz: kurulumu biz yaparız, ürün sizde çalışır, veriniz sizde kalır. AWS başlangıç programının desteğiyle büyüyoruz.</p>
+<p>IronVision Tools, Edirne merkezli bir yazılım girişimi. İşletmelerin tekrar eden yükünü üstlenen yapay zekâ araçları üretiyoruz: kurulumu biz yaparız, ürün sizde çalışır, veriniz sizde kalır. AWS başlangıç programının desteğiyle büyüyoruz.</p>
 <p>Ürünlerimizi önce kendimiz kullanıyoruz. AgentOS'un içinde bugün 10'dan fazla mikro uygulama çalışıyor: bekçiler, yedek doğrulayıcı, ses köprüsü, e-posta ve randevu hatları, site üretim hattı, anlam arama motoru. Bizde çalışmayan bir aracı müşteriye önermiyoruz.</p>
 <p>Gittiğimiz yer belli: kendi kendine çalışan bir işletme asistanı. Bu mikro uygulamaların her biri zamanla ayrı bir ürüne dönüşüyor. AWS'nin başlangıç programından destek aldık, bir üst kademeye başvuruyoruz. İş birliği ve destek için kapımız açık.</p>
 <p style="margin-top:26px"><a class="btn btn-2" href="hakkinda.html">Uzun hikâye ve mikro uygulama listesi</a></p>
@@ -332,7 +379,7 @@
 <dl class="kutucuk"><dt>Merkez</dt><dd>Edirne, Türkiye</dd></dl>
 <dl class="kutucuk"><dt>Çalışma şekli</dt><dd>Kurulum bizde, veri sizde</dd></dl>
 <dl class="kutucuk"><dt>İletişim</dt><dd><a href="mailto:founder@ironvisiontools.com" style="color:#8fb4ff">founder@ironvisiontools.com</a></dd></dl>
-<dl class="kutucuk"><dt>Ürün ve uygulama</dt><dd>6 ürün · AgentOS içinde 10+ çalışan mikro uygulama</dd></dl>
+<dl class="kutucuk"><dt>Ürünler</dt><dd>MoyMote · WhatsApp Randevu Botu · VYRON AgentOS · Sesli Şef · İçerik Otomasyonu</dd></dl>
 <dl class="kutucuk" style="margin-bottom:0"><dt>Geliştirmede</dt><dd>Try-On · yönetim kadrosu</dd></dl>
 </div>
 </div>
@@ -363,7 +410,7 @@
 <div style="display:flex;justify-content:center">
 <button class="btn btn-1" type="submit">Demo İste</button>
 </div>
-<p class="form-not">Gönder'e basınca e-posta uygulamanız açılır, mesaj <a href="mailto:founder@ironvisiontools.com" style="color:#8fb4ff">founder@ironvisiontools.com</a> adresine gider.</p>
+<p class="form-not">Gönder'e basınca e-posta uygulamanız açılır ve mesaj <a href="mailto:founder@ironvisiontools.com" style="color:#8fb4ff">founder@ironvisiontools.com</a> adresine hazır gelir. Uygulama açılmazsa bu adrese doğrudan yazın; bir iş günü içinde döneriz.</p>
 </form>
 </div>
 </section>
@@ -380,11 +427,12 @@
 <span class="marka-tools">tools</span>
 </span>
 </div>
-<div class="font-label-caps text-label-caps text-text-muted uppercase">© 2026 IRON VISION · Edirne</div>
+<div class="font-label-caps text-label-caps text-text-muted uppercase">© 2026 IronVision Tools · Edirne</div>
 <div class="flex gap-6 font-label-caps text-label-caps uppercase">
 <a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="hakkinda.html">Hakkında</a>
 <a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="gizlilik.html">Gizlilik Politikası</a>
 <a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="iletisim.html">İletişim</a>
+<a class="text-text-muted hover:text-primary-container transition-colors opacity-80 hover:opacity-100" href="https://moymote.com/tr/">MoyMote</a>
 </div>
 </div>
 <p class="px-gutter" style="margin:14px 0 0;text-align:center;font-size:11.5px;color:var(--dim2)">Bu site de, tüm işlerimiz gibi, yapay zekâyla (Claude) inşa edildi; son kontrol insan gözüyle yapıldı.</p>
@@ -441,7 +489,7 @@
     img.src = '';
     if (son) { son.focus && son.focus(); son = null; }
   }
-  /* altyazıya tıklayınca da açılsın (Demir 03.09: etiket tıklanmıyordu) */
+  /* altyazıya tıklayınca da açılsın */
   [].slice.call(document.querySelectorAll('.zoomlu .gorsel-alt')).forEach(function (alt) {
     var kutu = alt.closest('.zoomlu');
     var im = kutu && kutu.querySelector('img.buyu');
@@ -497,8 +545,8 @@
 </script>
 
 <!-- Hareket: GSAP. Yüklenmezse içerik CSS ile zaten görünür kalır. -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/vendor/gsap.min.js" defer></script>
+<script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
 <script>
 window.addEventListener('load', function () {
   var az = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
